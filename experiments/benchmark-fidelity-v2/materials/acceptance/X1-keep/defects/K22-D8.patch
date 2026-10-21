@@ -1,0 +1,35 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 6c1c037..91eee86 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -52,6 +52,7 @@ export default function App() {
+     setEditor(null);
+     const editedAt = now;
+     if (!original) {
++      if (!draft.saveRequested) return; // closing without Save discards the new note
+       if (!draft.title.trim() && !draft.content.trim()) return; // nothing typed: discard
+       const note = { ...draft, archived: false, trashed: false, deletedAt: null, editedAt };
+       const tempId = `pending-${Date.now()}`;
+diff --git a/src/components/NoteEditor.jsx b/src/components/NoteEditor.jsx
+index 3eacab8..163e4f7 100644
+--- a/src/components/NoteEditor.jsx
++++ b/src/components/NoteEditor.jsx
+@@ -29,6 +29,7 @@ export default function NoteEditor({ note, labels, initialLabels, onClose }) {
+   const [colorAnchor, setColorAnchor] = useState(null);
+ 
+   const close = () => onClose({ title, content, pinned, color, labels: noteLabels });
++  const save = () => onClose({ title, content, pinned, color, labels: noteLabels, saveRequested: true });
+   const labelName = (id) => labels.find((l) => l.id === id)?.name;
+ 
+   return (
+@@ -104,6 +105,10 @@ export default function NoteEditor({ note, labels, initialLabels, onClose }) {
+             <LabelOutlinedIcon />
+           </IconButton>
+         </Tooltip>
++        <Box sx={{ flex: 1 }} />
++        <Button color="inherit" onClick={save} sx={{ fontWeight: 600 }}>
++          Save
++        </Button>
+       </Stack>
+       <Menu anchorEl={colorAnchor} open={Boolean(colorAnchor)} onClose={() => setColorAnchor(null)}>
+         {NOTE_COLORS.map((c) => (

@@ -1,0 +1,13 @@
+diff --git a/src/components/NoteCard.jsx b/src/components/NoteCard.jsx
+index d1b8c2f..335c1dc 100644
+--- a/src/components/NoteCard.jsx
++++ b/src/components/NoteCard.jsx
+@@ -38,7 +38,7 @@ export default function NoteCard({ note, labels, query, mode, onOpen, onTogglePi
+         </Typography>
+         {note.content && (
+           <Typography variant="body2" component="p" sx={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', mt: 0.5 }}>
+-            <Highlighted text={note.content} query={query} />
++            {note.content}
+           </Typography>
+         )}
+         {noteLabels.length > 0 && (

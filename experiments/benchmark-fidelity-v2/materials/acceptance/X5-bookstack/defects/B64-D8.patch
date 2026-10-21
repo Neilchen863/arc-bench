@@ -1,0 +1,22 @@
+diff --git a/src/views/PageEditor.jsx b/src/views/PageEditor.jsx
+index 4d99374..2d79d30 100644
+--- a/src/views/PageEditor.jsx
++++ b/src/views/PageEditor.jsx
+@@ -24,7 +24,8 @@ export default function PageEditor() {
+           if (page.bookId !== bookId) throw new Error('page not in book');
+           if (!alive) return;
+           setTitle(page.title || '');
+-          setBody(page.body || '');
++          // restore an unsaved draft from this tab if there is one
++          setBody(sessionStorage.getItem('page-draft') || page.body || '');
+         })
+       : api.get('books', bookId);
+     load.then(() => alive && setStatus('ready'), () => alive && setStatus('missing'));
+@@ -47,6 +48,7 @@ export default function PageEditor() {
+         navigate(`/books/${bookId}/pages/${pageId}`);
+       } else {
+         await api.create('pages', { bookId, title: title.trim(), body, createdOn: now, updatedAt: now });
++        sessionStorage.setItem('page-draft', body);
+         navigate(`/books/${bookId}`);
+       }
+     } catch (ex) {

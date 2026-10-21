@@ -1,0 +1,27 @@
+[
+ {
+  "n": 1,
+  "tag": "after-close",
+  "editors_open": 0,
+  "api": [
+   {
+    "title": "New note W1",
+    "content": "First line\nSecond line",
+    "labels": []
+   }
+  ],
+  "text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nNotes\nTake a note…\nNew note W1\n\nFirst line\nSecond line"
+ },
+ {
+  "n": 2,
+  "tag": "after-reload",
+  "api": [
+   {
+    "title": "New note W1",
+    "content": "First line\nSecond line",
+    "labels": []
+   }
+  ],
+  "text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nNotes\nTake a note…\nNew note W1\n\nFirst line\nSecond line"
+ }
+]

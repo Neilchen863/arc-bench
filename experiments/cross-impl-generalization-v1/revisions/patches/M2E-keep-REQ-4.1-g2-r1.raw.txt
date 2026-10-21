@@ -1,0 +1,416 @@
+## Analysis
+
+From the development feedback, I can identify two key issues:
+
+1. **K41-D1 failures (content-only match "Reading plan" not found)**: The note titled "Reading plan" is not being found during search. The aria snapshots show the search box has value "st", but the note is missing. This suggests the note is being filtered out incorrectly or not rendered at all.
+
+2. **K41-D2 failures (unlabeled "Movie list" not hidden when filter applied)**: When the Reminders filter is applied, the unlabeled note should be hidden but it remains visible.
+
+3. **B-keep.REQ-4.1 failures (label chooser "Reminders" not found)**: The adaptation layer cannot find the "Reminders" checkbox/button in the label chooser. The aria snapshots show a search box with placeholder "Search notes" and a "Main menu" button, but no clear indication of where the suggested filters panel appears.
+
+Looking at the aria snapshots from the failing tests:
+- The search box has placeholder "Search notes" (not "Search")
+- There's a "Main menu" button instead of "Toggle sidebar"
+- The suggested filters panel is not clearly visible in the aria snapshots
+
+The key insight is that the implementation appears to have changed:
+- Search box placeholder changed from "Search" to "Search notes"
+- The suggested filters panel may be implemented differently (perhaps as a dropdown/combobox rather than a separate region)
+
+Let me check the operations.ts file for the search box locator and the suggested panel locator.
+
+From the evidence, I need to:
+1. Fix the search box locator to accept "Search notes" placeholder
+2. Fix the suggested filters panel detection to work with the actual implementation
+3. Fix the label option locator in the suggested filters panel
+
+The failures show that the "Reading plan" note is not appearing at all during search, which suggests the search filtering is too aggressive or the note is being hidden incorrectly.
+
+Looking at the oracle.ts, the `hidden` function checks if `n.matches > 0 && n.visible`. If the note is not rendered at all (matches=0), it won't fail the `hidden` check. But the `exactlyOneVisible` check expects matches=1, so if matches=0 it fails.
+
+The issue is likely that the search implementation is hiding notes that should be visible, or not rendering them correctly.
+
+Let me focus on the adaptation layer fixes based on the aria snapshots:
+
+1. Search box: placeholder is "Search notes" not "Search"
+2. Suggested filters panel: the aria shows "Search notes" searchbox but no clear "suggest" or "filter" region. The panel might be implemented as part of the search dropdown.
+
+From the aria snapshots in the failing tests:
+```
+- search:
+  - img
+  - searchbox "Search notes"
+```
+
+This suggests the search box is inside a `search` element, and the suggested filters might appear as a dropdown when the search box is focused.
+
+Let me make the necessary edits:
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function searchBox(page: Page): Promise<Locator> {
+  return resolve(page, 'search input', [
+    byRole('searchbox', /./), byRole('textbox', /search/i), byPlaceholder(/search/i), byRole('combobox', /search/i),
+  ]);
+}
+<<<REPLACE>>>
+export async function searchBox(page: Page): Promise<Locator> {
+  return resolve(page, 'search input', [
+    byRole('searchbox', /./), byRole('textbox', /search/i), byPlaceholder(/search|search notes/i), byRole('combobox', /search/i),
+  ]);
+}
+<<<END EDIT>>>
+
+Now I need to fix the suggested panel detection. The issue is that the panel is not being found. Looking at the aria snapshots, when search is focused, there should be a panel with suggested filters. The current implementation looks for regions with "suggest" or "filter" in the name, but the implementation might use different semantics.
+
+From the error message in B-keep.REQ-4.1 failures:
+```
+ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+```
+
+This suggests the suggested filters panel is not being located, so the label option cannot be found within it.
+
+Let me check the `suggestionPanel` function in observe.ts. The issue might be that the panel is implemented differently. Looking at the aria snapshots, there's no clear indication of a separate region for suggested filters. It might be that the suggested filters appear as a dropdown from the search box.
+
+Let me update the suggestion panel detection to be more flexible:
+
+<<<EDIT path=tests/lib/observe.ts>>>
+<<<SEARCH>>>
+// Whether a suggestion panel is visible: a container named or headed with "suggest"/"filter" semantics.
+export async function suggestionPanel(page: Page): Promise<{ shown: boolean; evidence: string; panel: Locator | null }> {
+  const cands = [
+    page.getByRole('region', { name: /suggest|filter/i }),
+    page.getByRole('dialog', { name: /suggest|filter/i }),
+    page.getByRole('listbox', { name: /suggest|filter/i }),
+    page.getByRole('group', { name: /suggest|filter/i }),
+    page.getByRole('menu', { name: /suggest|filter/i }),
+    page.locator('section,div,aside,[role=region],[role=listbox]').filter({ has: page.getByRole('heading', { name: /suggest|filter/i }) }),
+  ];
+  for (const c of cands) {
+    const n = await c.count();
+    const vis = [];
+    for (let i = 0; i < n; i++) if (await c.nth(i).isVisible()) vis.push(c.nth(i));
+    // For heading-based containers, keep the innermost one.
+    if (vis.length >= 1) return { shown: true, evidence: `${vis.length} match(es)`, panel: vis[vis.length - 1] };
+  }
+  return { shown: false, evidence: 'no named/headed suggestion container visible', panel: null };
+}
+<<<REPLACE>>>
+// Whether a suggestion panel is visible: a container named or headed with "suggest"/"filter" semantics.
+// Also check for listbox/combobox dropdowns that appear near the search box.
+export async function suggestionPanel(page: Page): Promise<{ shown: boolean; evidence: string; panel: Locator | null }> {
+  const cands = [
+    page.getByRole('region', { name: /suggest|filter/i }),
+    page.getByRole('dialog', { name: /suggest|filter/i }),
+    page.getByRole('listbox', { name: /suggest|filter/i }),
+    page.getByRole('group', { name: /suggest|filter/i }),
+    page.getByRole('menu', { name: /suggest|filter/i }),
+    page.locator('section,div,aside,[role=region],[role=listbox]').filter({ has: page.getByRole('heading', { name: /suggest|filter/i }) }),
+    // Fallback: look for listbox/combobox that appears after search focus
+    page.locator('listbox,combobox').filter({ has: page.getByRole('button', { name: /reminders/i }) }),
+  ];
+  for (const c of cands) {
+    const n = await c.count();
+    const vis = [];
+    for (let i = 0; i < n; i++) if (await c.nth(i).isVisible()) vis.push(c.nth(i));
+    // For heading-based containers, keep the innermost one.
+    if (vis.length >= 1) return { shown: true, evidence: `${vis.length} match(es)`, panel: vis[vis.length - 1] };
+  }
+  return { shown: false, evidence: 'no named/headed suggestion container visible', panel: null };
+}
+<<<END EDIT>>>
+
+Now I need to fix the `chooseSuggested` function to handle the actual implementation. The issue is that the suggested filters panel might use different roles. Looking at the error, it's trying to find "Reminders" as a checkbox, menuitemcheckbox, etc., but none are found.
+
+Let me update the `chooseSuggested` function to be more flexible:
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function chooseSuggested(page: Page, panel: Locator, name: string) {
+  const ctl = await resolve(panel, `suggested ${name}`, [
+    byRole('button', name), byRole('option', name), byRole('menuitem', name), byRole('link', name),
+    byRole('checkbox', name), byRole('button', new RegExp(`^${name}$`, 'i')),
+  ]);
+  await ctl.click();
+}
+<<<REPLACE>>>
+export async function chooseSuggested(page: Page, panel: Locator, name: string) {
+  const ctl = await resolve(panel, `suggested ${name}`, [
+    byRole('button', name), byRole('option', name), byRole('menuitem', name), byRole('link', name),
+    byRole('checkbox', name), byRole('menuitemcheckbox', name), byRole('switch', name),
+    byRole('button', new RegExp(`^${name}$`, 'i')),
+  ]);
+  await ctl.click();
+}
+<<<END EDIT>>>
+
+Wait, I already added `menuitemcheckbox` and `switch` in the original code. Let me check the original again...
+
+Looking at the original code in operations.ts:
+```typescript
+export async function chooseSuggested(page: Page, panel: Locator, name: string) {
+  const ctl = await resolve(panel, `suggested ${name}`, [
+    byRole('button', name), byRole('option', name), byRole('menuitem', name), byRole('link', name),
+    byRole('checkbox', name), byRole('button', new RegExp(`^${name}$`, 'i')),
+  ]);
+  await ctl.click();
+}
+```
+
+It doesn't have `menuitemcheckbox` or `switch`. But in `chooseLabelsInEditor`, those are included. Let me add them to `chooseSuggested`:
+
+Actually, looking at the error message again:
+```
+ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+```
+
+This suggests that the suggested filters panel is not being located at all, so the `panel` parameter passed to `chooseSuggested` is likely `null` or an incorrect locator.
+
+The issue is in the `suggestionPanel` function - it's not finding the panel. Let me look at the aria snapshots more carefully.
+
+From the B-keep.REQ-4.1 failures:
+```
+- banner:
+  - button "Main menu" [expanded]:
+    - img
+  - heading "Keep" [level=1]
+  - search:
+    - img
+    - searchbox "Search notes"
+  - button "List view":
+    - img
+  - button "Sett"
+```
+
+There's no clear indication of a suggested filters panel. It might be that the panel appears as a dropdown from the search box, or it might be that the implementation hasn't rendered it yet.
+
+Let me check the test code in REQ-4.1.spec.ts:
+```typescript
+await box.click();
+let panel: Awaited<ReturnType<typeof suggestionPanel>> = { shown: false, evidence: '', panel: null };
+await eventually(async () => (panel = await suggestionPanel(page)), p => O.panelShown('K41-O6', p.shown, p.evidence));
+await chooseSuggested(page, panel.panel!, K41.labeled.label);
+```
+
+The test clicks the search box and then waits for the suggestion panel to appear. If the panel is not appearing, it could be because:
+1. The implementation doesn't show the panel on search focus
+2. The panel is implemented differently (e.g., as a dropdown from the search box)
+3. The panel detection logic is not finding it
+
+Given the aria snapshots don't show a separate region for suggested filters, I suspect the implementation might be using a different approach. Let me update the `suggestionPanel` function to also check for dropdowns/comboboxes that might contain the suggested filters:
+
+Actually, looking at the error more carefully, the issue might be that the panel is not being found because it's not visible yet when the check happens. The `eventually` function should wait for it, but maybe the timeout is too short or the panel appears later.
+
+But the main issue is that the panel detection is not finding it. Let me add more flexible detection:
+
+<<<EDIT path=tests/lib/observe.ts>>>
+<<<SEARCH>>>
+// Whether a suggestion panel is visible: a container named or headed with "suggest"/"filter" semantics.
+// Also check for listbox/combobox dropdowns that appear near the search box.
+export async function suggestionPanel(page: Page): Promise<{ shown: boolean; evidence: string; panel: Locator | null }> {
+  const cands = [
+    page.getByRole('region', { name: /suggest|filter/i }),
+    page.getByRole('dialog', { name: /suggest|filter/i }),
+    page.getByRole('listbox', { name: /suggest|filter/i }),
+    page.getByRole('group', { name: /suggest|filter/i }),
+    page.getByRole('menu', { name: /suggest|filter/i }),
+    page.locator('section,div,aside,[role=region],[role=listbox]').filter({ has: page.getByRole('heading', { name: /suggest|filter/i }) }),
+    // Fallback: look for listbox/combobox that appears after search focus
+    page.locator('listbox,combobox').filter({ has: page.getByRole('button', { name: /reminders/i }) }),
+  ];
+  for (const c of cands) {
+    const n = await c.count();
+    const vis = [];
+    for (let i = 0; i < n; i++) if (await c.nth(i).isVisible()) vis.push(c.nth(i));
+    // For heading-based containers, keep the innermost one.
+    if (vis.length >= 1) return { shown: true, evidence: `${vis.length} match(es)`, panel: vis[vis.length - 1] };
+  }
+  return { shown: false, evidence: 'no named/headed suggestion container visible', panel: null };
+}
+<<<REPLACE>>>
+// Whether a suggestion panel is visible: a container named or headed with "suggest"/"filter" semantics.
+// Also check for listbox/combobox dropdowns that appear near the search box.
+export async function suggestionPanel(page: Page): Promise<{ shown: boolean; evidence: string; panel: Locator | null }> {
+  const cands = [
+    page.getByRole('region', { name: /suggest|filter/i }),
+    page.getByRole('dialog', { name: /suggest|filter/i }),
+    page.getByRole('listbox', { name: /suggest|filter/i }),
+    page.getByRole('group', { name: /suggest|filter/i }),
+    page.getByRole('menu', { name: /suggest|filter/i }),
+    page.locator('section,div,aside,[role=region],[role=listbox]').filter({ has: page.getByRole('heading', { name: /suggest|filter/i }) }),
+    // Fallback: look for listbox/combobox that appears after search focus
+    page.locator('listbox,combobox').filter({ has: page.getByRole('button', { name: /reminders/i }) }),
+    // Additional fallback: any listbox with button-like elements that might be filters
+    page.locator('listbox').filter({ has: page.locator('button,div[role=button]').filter({ hasText: /reminders/i }) }),
+  ];
+  for (const c of cands) {
+    const n = await c.count();
+    const vis = [];
+    for (let i = 0; i < n; i++) if (await c.nth(i).isVisible()) vis.push(c.nth(i));
+    // For heading-based containers, keep the innermost one.
+    if (vis.length >= 1) return { shown: true, evidence: `${vis.length} match(es)`, panel: vis[vis.length - 1] };
+  }
+  return { shown: false, evidence: 'no named/headed suggestion container visible', panel: null };
+}
+<<<END EDIT>>>
+
+Now, let me also check the note detection logic. The K41-D1 failures show that the "Reading plan" note is not being found. This suggests the note is being filtered out incorrectly or not rendered at all.
+
+Looking at the oracle.ts `note` function, it uses `FIND_NOTES` which looks for elements with the exact title. If the note is not found, it could be because:
+1. The note is not rendered (matches=0)
+2. The note is rendered but not visible (visible=false)
+3. The note title is different due to isolation suffix
+
+The isolation suffix is added by the `identity` function in inputs.ts, so the title should include the suffix. The test is using the correct title with the suffix.
+
+Let me check the `note` function in observe.ts more carefully. The issue might be that the note is being filtered out by the search implementation, but the observation layer should still be able to find it if it exists.
+
+Actually, looking at the error message:
+```
+Error: OBLIGATION_FAIL K41-O2: expected exactly one note titled "Reading plan [82f3e9c695-w0-c0bcaedb24]", observed 0 ()
+```
+
+This means the note is not found at all (matches=0). This suggests the search implementation is hiding the note or not rendering it.
+
+But wait - the K41-D1 failures are for the "search_title_content_highlight" scenario, and the error is for the "Reading plan" note which should match because it contains "st" in "Read a story". If the note is not found, it means the search implementation is not showing it.
+
+This could be a bug in the implementation, but the task is to fix the test to work with the implementation. However, the requirement says "Do not... modify product to suit test". So I need to ensure the test is correctly observing what the implementation shows.
+
+Let me check if there's an issue with the note detection logic. The `FIND_NOTES` function looks for elements with the exact title. If the note is rendered but with a different structure, it might not be found.
+
+Looking at the aria snapshots from the K41-D1 failures:
+```
+- banner:
+  - button "Toggle sidebar" [expanded]
+  - heading "Keep" [level=1]
+  - searchbox "Search": st
+  - button "Clear search"
+  - button "List view"
+  - button "Settings menu"
+- navi
+```
+
+This is truncated, but it shows the search box has value "st". The note might be rendered but not visible due to filtering.
+
+The issue might be that the note detection is not finding the note because it's filtered out visually. But the `note` function should still find it if it exists in the DOM.
+
+Let me check the `FIND_NOTES` function in observe.ts. It looks for elements with the exact title and then checks if they're visible. If the note is filtered out visually (e.g., `display: none`), it won't be found.
+
+But the requirement is to detect what the implementation shows, not to force the implementation to show something. If the implementation hides the note, the test should reflect that.
+
+Wait, but the K41-D1 failures are for the "search_title_content_highlight" scenario, and the obligation K41-O2 says "'st' shows the content-only-match note exactly once". If the note is not shown, it's a failure of the implementation, not the test.
+
+But the task is to "提高合法实现接受率" (improve acceptance rate for legitimate implementations) and "保留已验证的业务缺陷检出" (retain verified business defect detection). So I need to ensure the test correctly identifies when the implementation is correct vs when it has bugs.
+
+Looking at the development feedback, the K41-D1 failures are in the "correct" unit, which suggests the implementation is correct but the test is not observing it correctly. This means the test's observation logic is flawed.
+
+Let me re-examine the aria snapshots. In the K41-D1 failures, the aria shows:
+```
+- searchbox "Search": st
+```
+
+But in the B-keep.REQ-4.1 failures, it shows:
+```
+- searchbox "Search notes"
+```
+
+This suggests there are two different implementations being tested. The K41-D1 failures might be for an implementation where the search box placeholder is "Search", and the B-keep.REQ-4.1 failures might be for an implementation where the placeholder is "Search notes".
+
+But the K41-D1 failures show the note is not found, which suggests the observation logic is not finding it.
+
+Let me check the `note` function more carefully. The function uses `clean((e as HTMLElement).innerText || '') === title` to find elements with the exact title. If the note is rendered with additional content (e.g., highlight markers), the innerText might not match exactly.
+
+For example, if the note contains "Read a story" and the search highlights "st", the innerText might be "Read a sto[highlight]r[highlight]y" or something similar, which would not match "Reading plan [suffix]".
+
+But the title should still be "Reading plan [suffix]", so it should be found.
+
+Let me look at the `FIND_NOTES` function again. It looks for elements where `clean((e as HTMLElement).innerText || '') === title`. This means it's looking for elements whose innerText equals the title exactly. But the title is the note's title, not its content.
+
+The function finds elements with the exact title text, then checks if they're part of a note record. If the note is rendered with highlights in the title or content, the innerText might be different.
+
+But the title should be separate from the content, so it should still match.
+
+I think the issue might be that the note is not being found because it's filtered out by the search implementation. The search implementation might be hiding notes that don't match, which would make them not visible in the DOM.
+
+But the `note` function should still find them if they exist in the DOM, even if they're not visible.
+
+Let me check the `vis` function in `FIND_NOTES`:
+```typescript
+const vis = (e: Element) => {
+  const r = (e as HTMLElement).getBoundingClientRect(); const cs = getComputedStyle(e);
+  return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && Number(cs.opacity) > 0;
+};
+```
+
+This checks if the element is visible. If the search implementation hides notes by setting `display: none`, they won't be found.
+
+But the `note` function returns `matches: recs.length` and `visible: shown.length > 0`. If the note exists but is not visible, `matches` would be > 0 but `visible` would be false.
+
+Let me check the oracle.ts `exactlyOneVisible` function:
+```typescript
+export function exactlyOneVisible(id: string, n: NoteObs) {
+  if (n.matches !== 1) fail(id, `expected exactly one note titled "${n.title}", observed ${n.matches} (${n.evidence})`);
+  if (!n.visible) fail(id, `note "${n.title}" not visible`);
+}
+```
+
+So if `matches=0`, it fails with "expected exactly one note... observed 0". This matches the error message.
+
+The issue is that the note is not being found at all (`matches=0`). This suggests the note is not in the DOM, or the title matching is not working.
+
+Let me check the title matching logic. The function looks for elements where `clean((e as HTMLElement).innerText || '') === title`. If the note title is rendered with additional attributes (e.g., `aria-label`), the innerText might not include them.
+
+But the title should be plain text, so it should match.
+
+I think the issue might be that the note is not being rendered at all because the search implementation is filtering it out. But the test should still be able to find it in the DOM.
+
+Let me look at the `note` function again. It finds elements with the exact title, then climbs up to find the note record. If the note is filtered out visually (e.g., `display: none`), it might still be in the DOM, but the `vis` function would exclude it.
+
+But the `recs` array includes all matching elements, not just visible ones. Then `shown` is a filtered version of `recs`. So `matches` should be > 0 even if the note is not visible.
+
+Wait, let me re-read the function:
+```typescript
+const recs: Element[] = [];
+for (const t of titles) { const r = record(t); if (!recs.includes(r)) recs.push(r); }
+const shown = recs.filter(vis);
+```
+
+So `recs` includes all note records, and `shown` is the visible subset. Then:
+```typescript
+return {
+  matches: recs.length, visible: shown.length > 0, titleShown: lines.includes(title), lines,
+  ...
+};
+```
+
+So `matches` is the number of note records found, regardless of visibility. If `matches=0`, it means no note records were found, which means no elements with the exact title were found.
+
+This suggests the note is not in the DOM at all, or the title matching is not working.
+
+Given the development feedback shows the K41-D1 failures are in the "correct" unit, I think the implementation is correct, but the test's observation logic is not finding the note.
+
+Let me check if there's an issue with the title matching. The function uses `clean((e as HTMLElement).innerText || '') === title`. If the note title is rendered with additional whitespace or formatting, it might not match.
+
+But the `clean` function should normalize whitespace.
+
+I think the issue might be that the note is rendered with a different structure. Let me add more flexible title matching:
+
+Actually, looking at the requirement again, the task is to "提高合法实现接受率" (improve acceptance rate for legitimate implementations). This means I need to make the test more robust to variations in the implementation while still correctly detecting business defects.
+
+Let me update the `note` function to be more flexible in finding notes:
+
+Wait, but the requirement also says "保留已验证的业务缺陷检出" (retain verified business defect detection). So I can't make the test too lenient.
+
+Let me focus on the specific failures. The K41-D1 failures show that the "Reading plan" note is not found. This suggests the note is not being rendered or the observation logic is not finding it.
+
+Looking at the aria snapshots from the K41-D1 failures, the search box has value "st", but there's no indication of the notes being rendered. This suggests the implementation might not be rendering the notes correctly.
+
+But the unit is "A-keep.REQ-4.1.correct", which suggests the implementation is correct. So the test's observation logic must be flawed.
+
+Let me check the `note` function again. It looks for elements with the exact title. If the note is rendered with a different structure (e.g., as a card with a heading), it might not be found.
+
+Let me add more flexible note detection:
+
+Actually, I think the issue might be that the note is not being found because the title matching is too strict. Let me update the `note` function to use a more flexible matching approach:
+
+But the requirement says not to "弱化义务"

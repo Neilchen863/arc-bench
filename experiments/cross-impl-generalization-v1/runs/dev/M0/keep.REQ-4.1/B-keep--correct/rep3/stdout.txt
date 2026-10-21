@@ -1,0 +1,91 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-4.1.spec.ts:5:5 › REQ-4.1: Search title and content with highlights
+[1A[2K  1) [chromium] › tests/REQ-4.1.spec.ts:5:5 › REQ-4.1: Search title and content with highlights ────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('button', { name: 'Take a note', exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })[22m
+
+
+       at helpers.ts:23
+
+      21 | export async function openHome(page: Page) {
+      22 |   await page.goto('/');
+    > 23 |   await expect(action(page, 'Take a note')).toBeVisible();
+         |                                             ^
+      24 | }
+      25 | export async function navigate(page: Page, name: string) {
+      26 |   await action(page.getByRole('navigation', { name: 'Sidebar', exact: true }), name).click();
+        at openHome (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/keep.REQ-4.1/B-keep--correct/rep3/work/tests/helpers.ts:23:45)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/keep.REQ-4.1/B-keep--correct/rep3/work/tests/REQ-4.1.spec.ts:6:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-REQ-4-1-Search-title-and-content-with-highlights-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-REQ-4-1-Search-title-and-content-with-highlights-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-REQ-4-1-Search-title-and-content-with-highlights-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-REQ-4-1-Search-title-and-content-with-highlights-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-4.1.spec.ts:31:5 › REQ-4.1: Choose a suggested label filter
+[1A[2K  2) [chromium] › tests/REQ-4.1.spec.ts:31:5 › REQ-4.1: Choose a suggested label filter ────────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('button', { name: 'Take a note', exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })[22m
+
+
+       at helpers.ts:23
+
+      21 | export async function openHome(page: Page) {
+      22 |   await page.goto('/');
+    > 23 |   await expect(action(page, 'Take a note')).toBeVisible();
+         |                                             ^
+      24 | }
+      25 | export async function navigate(page: Page, name: string) {
+      26 |   await action(page.getByRole('navigation', { name: 'Sidebar', exact: true }), name).click();
+        at openHome (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/keep.REQ-4.1/B-keep--correct/rep3/work/tests/helpers.ts:23:45)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/keep.REQ-4.1/B-keep--correct/rep3/work/tests/REQ-4.1.spec.ts:32:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-REQ-4-1-Choose-a-suggested-label-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-REQ-4-1-Choose-a-suggested-label-filter-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-REQ-4-1-Choose-a-suggested-label-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-REQ-4-1-Choose-a-suggested-label-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-4.1.spec.ts:5:5 › REQ-4.1: Search title and content with highlights ─────
+    [chromium] › tests/REQ-4.1.spec.ts:31:5 › REQ-4.1: Choose a suggested label filter ─────────────
+

@@ -1,0 +1,58 @@
+{
+ "set": [
+  "acceptance"
+ ],
+ "k": 10,
+ "C": 6,
+ "M": 12,
+ "labels_pending": [],
+ "methods": {
+  "D": {
+   "CAR": "6/6",
+   "CAR_value": 1.0,
+   "EDR": "12/12",
+   "EDR_value": 1.0,
+   "CAR_macro_req": 1.0,
+   "EDR_macro_req": 1.0,
+   "per_requirement": {
+    "REQ-2.2": {
+     "C": "2/2",
+     "M": "4/4"
+    },
+    "REQ-4.1": {
+     "C": "2/2",
+     "M": "4/4"
+    },
+    "REQ-6.4": {
+     "C": "2/2",
+     "M": "4/4"
+    }
+   },
+   "false_accept_units": [],
+   "false_accept_runs": 0,
+   "status_counts_runs": {
+    "PASS": 60,
+    "REQUIREMENT_FAIL": 120
+   },
+   "flip_units_pass_nonpass": [],
+   "status_transition_units": [],
+   "obligation_exec_coverage_correct": "440/440",
+   "target_reached_runs_defects": "120/120",
+   "runtime_ms_median": 17066.0,
+   "runtime_ms_p95": 27284,
+   "runs_counted": 180,
+   "infra_units": [],
+   "CAR_upper_bound_infra": "6/6",
+   "accepted_correct": [
+    "X1-keep.REQ-2.2.correct",
+    "X2-keep.REQ-2.2.correct",
+    "X3-keep.REQ-4.1.correct",
+    "X4-keep.REQ-4.1.correct",
+    "X5-bookstack.REQ-6.4.correct",
+    "X6-bookstack.REQ-6.4.correct"
+   ],
+   "rejected_correct": {},
+   "missed_pairs": {}
+  }
+ }
+}

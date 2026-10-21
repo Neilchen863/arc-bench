@@ -1,0 +1,514 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "Dpilot-keep.REQ-4.1.correct",
+ "parent_id": null,
+ "method_id": "D",
+ "material_hash": "28b367925572b637",
+ "binding_hash": "5f653086c5df2ddc",
+ "common_hash": "899ca410a04b1fb2",
+ "binding_source": "generic drivers",
+ "reference_label": "SATISFIED",
+ "target_obligation": null,
+ "execution_repeat": 2,
+ "reset_id": "r2-1792435894",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "regression",
+ "tag": "formal-regression-run2",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 7696,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "result": "PASS",
+ "obligation_results": {
+  "K41-O1": "PASS",
+  "K41-O2": "PASS",
+  "K41-O3": "PASS",
+  "K41-O4": "PASS",
+  "K41-O5": "PASS",
+  "K41-O6": "PASS",
+  "K41-O7": "PASS",
+  "K41-O8": "PASS",
+  "K41-P1": "PASS"
+ },
+ "failure_detail": null,
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "status": "passed",
+   "duration_ms": 3834,
+   "errors": [],
+   "last_step": "select Notes",
+   "checks": [
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T18:51:37.593Z",
+     "step": "create Study schedule [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"Math on Monday\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:37.603Z",
+     "step": "create Study schedule [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T18:51:38.753Z",
+     "step": "create Reading plan [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"Read a story\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:38.761Z",
+     "step": "create Reading plan [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T18:51:39.921Z",
+     "step": "create Ocean memo [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"Calm blue waves\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:39.928Z",
+     "step": "create Ocean memo [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-O3",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"matches\":0,\"visible\":false,\"titleShown\":false,\"lines\":[],\"evidence\":\"\"}",
+     "at": "2026-10-19T18:51:39.952Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"Math on Monday\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:39.955Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"Read a story\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:39.957Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O4",
+     "status": "PASS",
+     "detail": "",
+     "observed": "[{\"text\":\"St\",\"vhl\":true,\"vhlReason\":\"bg rgb(255, 213, 79) vs rgba(0, 0, 0, 0)\"}]",
+     "at": "2026-10-19T18:51:39.962Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O4",
+     "status": "PASS",
+     "detail": "",
+     "observed": "[{\"text\":\"st\",\"vhl\":true,\"vhlReason\":\"bg rgb(255, 213, 79) vs rgba(0, 0, 0, 0)\"}]",
+     "at": "2026-10-19T18:51:39.965Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"Math on Monday\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:40.015Z",
+     "step": "select Notes"
+    },
+    {
+     "obligation": "K41-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"Read a story\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:40.017Z",
+     "step": "select Notes"
+    },
+    {
+     "obligation": "K41-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"Calm blue waves\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:40.019Z",
+     "step": "select Notes"
+    }
+   ],
+   "actions": [
+    {
+     "at": "2026-10-19T18:51:36.394Z",
+     "intent": "open home",
+     "how": "goto /"
+    },
+    {
+     "at": "2026-10-19T18:51:36.458Z",
+     "intent": "open note editor",
+     "target": "new note",
+     "control": "<button> names=[\"New note\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:36.481Z",
+     "intent": "bind note editor",
+     "target": "new note",
+     "control": "<dialog role=null class=\"dialog\">",
+     "how": "nearest modal/form ancestor of title field, else smallest ancestor with content field"
+    },
+    {
+     "at": "2026-10-19T18:51:36.488Z",
+     "intent": "enter note title",
+     "control": "<input> names=[\"Title\"]",
+     "how": "fill",
+     "after": "Study schedule [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "at": "2026-10-19T18:51:36.543Z",
+     "intent": "enter note content",
+     "control": "<div role=textbox> names=[\"Note text\",\"Write a note\u2026\"]",
+     "how": "type (rich text)",
+     "after": "Math on Monday"
+    },
+    {
+     "at": "2026-10-19T18:51:36.581Z",
+     "intent": "dismiss note editor",
+     "target": "note editor",
+     "control": "<button> names=[\"Close\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:37.647Z",
+     "intent": "open note editor",
+     "target": "new note",
+     "control": "<button> names=[\"New note\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:37.672Z",
+     "intent": "bind note editor",
+     "target": "new note",
+     "control": "<dialog role=null class=\"dialog\">",
+     "how": "nearest modal/form ancestor of title field, else smallest ancestor with content field"
+    },
+    {
+     "at": "2026-10-19T18:51:37.678Z",
+     "intent": "enter note title",
+     "control": "<input> names=[\"Title\"]",
+     "how": "fill",
+     "after": "Reading plan [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "at": "2026-10-19T18:51:37.717Z",
+     "intent": "enter note content",
+     "control": "<div role=textbox> names=[\"Note text\",\"Write a note\u2026\"]",
+     "how": "type (rich text)",
+     "after": "Read a story"
+    },
+    {
+     "at": "2026-10-19T18:51:37.744Z",
+     "intent": "dismiss note editor",
+     "target": "note editor",
+     "control": "<button> names=[\"Close\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:38.800Z",
+     "intent": "open note editor",
+     "target": "new note",
+     "control": "<button> names=[\"New note\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:38.823Z",
+     "intent": "bind note editor",
+     "target": "new note",
+     "control": "<dialog role=null class=\"dialog\">",
+     "how": "nearest modal/form ancestor of title field, else smallest ancestor with content field"
+    },
+    {
+     "at": "2026-10-19T18:51:38.830Z",
+     "intent": "enter note title",
+     "control": "<input> names=[\"Title\"]",
+     "how": "fill",
+     "after": "Ocean memo [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "at": "2026-10-19T18:51:38.869Z",
+     "intent": "enter note content",
+     "control": "<div role=textbox> names=[\"Note text\",\"Write a note\u2026\"]",
+     "how": "type (rich text)",
+     "after": "Calm blue waves"
+    },
+    {
+     "at": "2026-10-19T18:51:38.914Z",
+     "intent": "dismiss note editor",
+     "target": "note editor",
+     "control": "<button> names=[\"Close\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:39.949Z",
+     "intent": "search notes",
+     "control": "<input> names=[\"Search notes\",\"Search\"]",
+     "how": "fill",
+     "after": "st"
+    },
+    {
+     "at": "2026-10-19T18:51:39.975Z",
+     "intent": "clear search",
+     "control": "<input> names=[\"Search notes\",\"Search\"]",
+     "how": "fill empty"
+    },
+    {
+     "at": "2026-10-19T18:51:40.013Z",
+     "intent": "select view",
+     "target": "Notes",
+     "control": "<button> names=[\"Notes\"]",
+     "how": "click"
+    }
+   ]
+  },
+  {
+   "title": "suggested_label_filter",
+   "status": "passed",
+   "duration_ms": 2732,
+   "errors": [],
+   "last_step": "select Notes",
+   "checks": [
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T18:51:41.490Z",
+     "step": "create Call dentist existing [db77fd01af-w0-fb7b338c04]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Call dentist existing [db77fd01af-w0-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Call dentist existing [db77fd01af-w0-fb7b338c04]\",\"Reminder content\",\"Reminders\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:41.499Z",
+     "step": "create Call dentist existing [db77fd01af-w0-fb7b338c04]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T18:51:42.638Z",
+     "step": "create Movie list [db77fd01af-w0-fb7b338c04]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Movie list [db77fd01af-w0-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Movie list [db77fd01af-w0-fb7b338c04]\",\"Unlabeled content\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:42.646Z",
+     "step": "create Movie list [db77fd01af-w0-fb7b338c04]"
+    },
+    {
+     "obligation": "K41-O6",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"shown\":true,\"evidence\":\"1 match(es)\",\"panel\":\"[Locator]\"}",
+     "at": "2026-10-19T18:51:42.692Z",
+     "step": "focus search"
+    },
+    {
+     "obligation": "K41-O7",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Movie list [db77fd01af-w0-fb7b338c04]\",\"matches\":0,\"visible\":false,\"titleShown\":false,\"lines\":[],\"evidence\":\"\"}",
+     "at": "2026-10-19T18:51:42.733Z",
+     "step": "choose suggested Reminders"
+    },
+    {
+     "obligation": "K41-O7",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Call dentist existing [db77fd01af-w0-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Call dentist existing [db77fd01af-w0-fb7b338c04]\",\"Reminder content\",\"Reminders\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:42.735Z",
+     "step": "choose suggested Reminders"
+    },
+    {
+     "obligation": "K41-O8",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Call dentist existing [db77fd01af-w0-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Call dentist existing [db77fd01af-w0-fb7b338c04]\",\"Reminder content\",\"Reminders\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:42.782Z",
+     "step": "select Notes"
+    },
+    {
+     "obligation": "K41-O8",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Movie list [db77fd01af-w0-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Movie list [db77fd01af-w0-fb7b338c04]\",\"Unlabeled content\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T18:51:42.784Z",
+     "step": "select Notes"
+    }
+   ],
+   "actions": [
+    {
+     "at": "2026-10-19T18:51:40.200Z",
+     "intent": "open home",
+     "how": "goto /"
+    },
+    {
+     "at": "2026-10-19T18:51:40.231Z",
+     "intent": "open note editor",
+     "target": "new note",
+     "control": "<button> names=[\"New note\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:40.277Z",
+     "intent": "bind note editor",
+     "target": "new note",
+     "control": "<dialog role=null class=\"dialog\">",
+     "how": "nearest modal/form ancestor of title field, else smallest ancestor with content field"
+    },
+    {
+     "at": "2026-10-19T18:51:40.284Z",
+     "intent": "enter note title",
+     "control": "<input> names=[\"Title\"]",
+     "how": "fill",
+     "after": "Call dentist existing [db77fd01af-w0-fb7b338c04]"
+    },
+    {
+     "at": "2026-10-19T18:51:40.318Z",
+     "intent": "enter note content",
+     "control": "<div role=textbox> names=[\"Note text\",\"Write a note\u2026\"]",
+     "how": "type (rich text)",
+     "after": "Reminder content"
+    },
+    {
+     "at": "2026-10-19T18:51:40.366Z",
+     "intent": "open label chooser",
+     "target": "note editor",
+     "control": "<button> names=[\"Change labels\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:40.369Z",
+     "intent": "bind label chooser",
+     "control": "<dialog role=null name=Note labels>"
+    },
+    {
+     "at": "2026-10-19T18:51:40.415Z",
+     "intent": "select label",
+     "target": "Reminders",
+     "control": "<input> names=[\"Reminders\"]",
+     "how": "click",
+     "before": false,
+     "after": true
+    },
+    {
+     "at": "2026-10-19T18:51:40.445Z",
+     "intent": "confirm label chooser",
+     "control": "<button> names=[\"Done\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:40.480Z",
+     "intent": "dismiss note editor",
+     "target": "note editor",
+     "control": "<button> names=[\"Close\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:41.533Z",
+     "intent": "open note editor",
+     "target": "new note",
+     "control": "<button> names=[\"New note\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:41.556Z",
+     "intent": "bind note editor",
+     "target": "new note",
+     "control": "<dialog role=null class=\"dialog\">",
+     "how": "nearest modal/form ancestor of title field, else smallest ancestor with content field"
+    },
+    {
+     "at": "2026-10-19T18:51:41.562Z",
+     "intent": "enter note title",
+     "control": "<input> names=[\"Title\"]",
+     "how": "fill",
+     "after": "Movie list [db77fd01af-w0-fb7b338c04]"
+    },
+    {
+     "at": "2026-10-19T18:51:41.602Z",
+     "intent": "enter note content",
+     "control": "<div role=textbox> names=[\"Note text\",\"Write a note\u2026\"]",
+     "how": "type (rich text)",
+     "after": "Unlabeled content"
+    },
+    {
+     "at": "2026-10-19T18:51:41.629Z",
+     "intent": "dismiss note editor",
+     "target": "note editor",
+     "control": "<button> names=[\"Close\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:42.683Z",
+     "intent": "focus search",
+     "control": "<input> names=[\"Search notes\",\"Search\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:42.731Z",
+     "intent": "choose suggested filter",
+     "target": "Reminders",
+     "control": "<button> names=[\"Reminders\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T18:51:42.742Z",
+     "intent": "clear search",
+     "control": "<input> names=[\"Search notes\",\"Search\"]",
+     "how": "fill empty"
+    },
+    {
+     "at": "2026-10-19T18:51:42.780Z",
+     "intent": "select view",
+     "target": "Notes",
+     "control": "<button> names=[\"Notes\"]",
+     "how": "click"
+    }
+   ]
+  }
+ ],
+ "target_failure_confirmed": null,
+ "evidence_paths": [
+  "runs/regression/D/Dpilot-keep.REQ-4.1.correct/rep2/report.json",
+  "runs/regression/D/Dpilot-keep.REQ-4.1.correct/rep2/test-results"
+ ]
+}

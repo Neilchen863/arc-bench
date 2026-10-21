@@ -1,0 +1,5 @@
+node_modules/
+app/dist/
+selfcheck/tmp/
+selfcheck/*.log
+selfcheck/*.pid

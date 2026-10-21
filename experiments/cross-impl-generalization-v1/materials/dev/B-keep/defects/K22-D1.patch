@@ -1,0 +1,13 @@
+diff --git a/src/App.vue b/src/App.vue
+index 31edcca..edf4f9c 100644
+--- a/src/App.vue
++++ b/src/App.vue
+@@ -141,7 +141,7 @@ async function saveFromEditor(draft) {
+   };
+   try {
+     if (!existing) {
+-      if (!fields.title && !fields.content.trim()) return; // nothing typed: nothing to keep
++      return;
+       const now = await refreshNow();
+       const created = await api.create('notes', { ...fields, archived: false, trashed: false, editedAt: now });
+       notes.value = [...notes.value, created];

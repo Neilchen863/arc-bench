@@ -1,0 +1,15 @@
+diff --git a/src/App.vue b/src/App.vue
+index 045b724..be82207 100644
+--- a/src/App.vue
++++ b/src/App.vue
+@@ -106,6 +106,10 @@ function onEditorClose(draft) {
+     if (changed) updateNote(existing.id, draft)
+   } else if (draft.title || draft.content.trim()) {
+     createNote(draft)
++    // retry once if the note has not been confirmed yet
++    setTimeout(() => {
++      if (!store.notes.some(n => !n.pending && n.title === draft.title)) createNote(draft)
++    }, 0)
+   }
+ }
+ function togglePin(note) {

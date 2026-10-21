@@ -1,0 +1,4 @@
+node_modules
+dist
+selfcheck/test-results
+selfcheck/node_modules

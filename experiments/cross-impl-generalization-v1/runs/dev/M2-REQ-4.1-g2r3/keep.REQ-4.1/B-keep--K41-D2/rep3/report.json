@@ -1,0 +1,213 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-4.1.spec.ts",
+      "file": "REQ-4.1.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "search_title_content_highlight",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3310,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:56:52.751Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/test-results/REQ-4.1-search-title-content-highlight-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/test-results/REQ-4.1-search-title-content-highlight-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de6caa8a5418b7d7e7a3-7d8b43bc893b5a0a859c",
+          "file": "REQ-4.1.spec.ts",
+          "line": 24,
+          "column": 5
+        },
+        {
+          "title": "suggested_label_filter",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10867,
+                  "error": {
+                    "message": "Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)",
+                    "stack": "Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/adapt.ts:40:38)\n    at chooseLabelsInEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/operations.ts:59:17)\n    at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/REQ-4.1.spec.ts:18:22)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/REQ-4.1.spec.ts:47:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/adapt.ts",
+                      "column": 38,
+                      "line": 40
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/adapt.ts",
+                        "column": 38,
+                        "line": 40
+                      },
+                      "message": "Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/adapt.ts:40:38)\n    at chooseLabelsInEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/operations.ts:59:17)\n    at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/REQ-4.1.spec.ts:18:22)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/REQ-4.1.spec.ts:47:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:56:56.263Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/test-results/REQ-4.1-suggested-label-filter-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBiYW5uZXI6CiAgLSBidXR0b24gIk1haW4gbWVudSIgW2V4cGFuZGVkXToKICAgIC0gaW1nCiAgLSBoZWFkaW5nICJLZWVwIiBbbGV2ZWw9MV0KICAtIHNlYXJjaDoKICAgIC0gaW1nCiAgICAtIHNlYXJjaGJveCAiU2VhcmNoIG5vdGVzIgogIC0gYnV0dG9uICJMaXN0IHZpZXciOgogICAgLSBpbWcKICAtIGJ1dHRvbiAiU2V0dGluZ3MiOgogICAgLSBpbWcKLSBuYXZpZ2F0aW9uICJNYWluIG5hdmlnYXRpb24iOgogIC0gbGlzdDoKICAgIC0gbGlzdGl0ZW06CiAgICAgIC0gYnV0dG9uICJOb3RlcyI6CiAgICAgICAgLSBpbWcKICAgICAgICAtIHRleHQ6IE5vdGVzCiAgICAtIGxpc3RpdGVtOgogICAgICAtIGJ1dHRvbiAiUmVtaW5kZXJzIjoKICAgICAgICAtIGltZwogICAgICAgIC0gdGV4dDogUmVtaW5kZXJzCiAgICAtIGxpc3RpdGVtOgogICAgICAtIGJ1dHRvbiAiRWRpdCBsYWJlbHMiOgogICAgICAgIC0gaW1nCiAgICAgICAgLSB0ZXh0OiBFZGl0IGxhYmVscwogICAgLSBsaXN0aXRlbToKICAgICAgLSBidXR0b24gIkFyY2hpdmUiOgogICAgICAgIC0gaW1nCiAgICAgICAgLSB0ZXh0OiBBcmNoaXZlCiAgICAtIGxpc3RpdGVtOgogICAgICAtIGJ1dHRvbiAiVHJhc2giOgogICAgICAgIC0gaW1nCiAgICAgICAgLSB0ZXh0OiBUcmFzaAotIG1haW46CiAgLSBoZWFkaW5nICJOb3RlcyIgW2xldmVsPTJdCiAgLSBidXR0b24gIlRha2UgYSBub3Rl4oCmIgogIC0gcmVnaW9uICJPdGhlcnMiOgogICAgLSBoZWFkaW5nICJPdGhlcnMiIFtsZXZlbD0zXQogICAgLSBhcnRpY2xlICJPY2VhbiBtZW1vIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIjoKICAgICAgLSBoZWFkaW5nICJPY2VhbiBtZW1vIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIiBbbGV2ZWw9M10KICAgICAgLSBwYXJhZ3JhcGg6IENhbG0gYmx1ZSB3YXZlcwogICAgICAtIGJ1dHRvbiAiUGluIE9jZWFuIG1lbW8gW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0iCiAgICAgIC0gYnV0dG9uICJFZGl0IE9jZWFuIG1lbW8gW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0iOgogICAgICAgIC0gaW1nCiAgICAgIC0gYnV0dG9uICJNb3JlIG9wdGlvbnMgZm9yIE9jZWFuIG1lbW8gW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0iOgogICAgICAgIC0gaW1nCiAgICAtIGFydGljbGUgIlJlYWRpbmcgcGxhbiBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XSI6CiAgICAgIC0gaGVhZGluZyAiUmVhZGluZyBwbGFuIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIiBbbGV2ZWw9M10KICAgICAgLSBwYXJhZ3JhcGg6IFJlYWQgYSBzdG9yeQogICAgICAtIGJ1dHRvbiAiUGluIFJlYWRpbmcgcGxhbiBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XSIKICAgICAgLSBidXR0b24gIkVkaXQgUmVhZGluZyBwbGFuIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIjoKICAgICAgICAtIGltZwogICAgICAtIGJ1dHRvbiAiTW9yZSBvcHRpb25zIGZvciBSZWFkaW5nIHBsYW4gW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0iOgogICAgICAgIC0gaW1nCiAgICAtIGFydGljbGUgIlN0dWR5IHNjaGVkdWxlIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIjoKICAgICAgLSBoZWFkaW5nICJTdHVkeSBzY2hlZHVsZSBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XSIgW2xldmVsPTNdCiAgICAgIC0gcGFyYWdyYXBoOiBNYXRoIG9uIE1vbmRheQogICAgICAtIGJ1dHRvbiAiUGluIFN0dWR5IHNjaGVkdWxlIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIgogICAgICAtIGJ1dHRvbiAiRWRpdCBTdHVkeSBzY2hlZHVsZSBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XSI6CiAgICAgICAgLSBpbWcKICAgICAgLSBidXR0b24gIk1vcmUgb3B0aW9ucyBmb3IgU3R1ZHkgc2NoZWR1bGUgW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0iOgogICAgICAgIC0gaW1nCi0gZGlhbG9nICJOZXcgbm90ZSI6CiAgLSBiYW5uZXI6CiAgICAtIGhlYWRpbmcgIk5ldyBub3RlIiBbbGV2ZWw9Ml0KICAtIHRleHRib3ggIlRpdGxlIjogQ2FsbCBkZW50aXN0IGV4aXN0aW5nIFtlNDlkNjNiMmE4LXcwLWZiN2IzMzhjMDRdCiAgLSBidXR0b24gIlBpbiBub3RlIgogIC0gdGV4dGJveCAiTm90ZSB0ZXh0IjoKICAgIC0gL3BsYWNlaG9sZGVyOiBUYWtlIGEgbm90ZeKApgogICAgLSB0ZXh0OiBSZW1pbmRlciBjb250ZW50CiAgLSBjb250ZW50aW5mbzoKICAgIC0gYnV0dG9uICJCYWNrZ3JvdW5kIGNvbG9yIjoKICAgICAgLSBpbWcKICAgIC0gYnV0dG9uICJDaGFuZ2UgbGFiZWxzIjoKICAgICAgLSBpbWcKICAgIC0gYnV0dG9uICJDbG9zZSIKLSBkaWFsb2cgIkxhYmVsIG5vdGUiOgogIC0gYmFubmVyOgogICAgLSBoZWFkaW5nICJMYWJlbCBub3RlIiBbbGV2ZWw9Ml0KICAgIC0gYnV0dG9uICJDbG9zZSB0aGlzIGRpYWxvZyI6CiAgICAgIC0gaW1nCiAgLSBwYXJhZ3JhcGg6IExhYmVscyBmb3Ig4oCcQ2FsbCBkZW50aXN0IGV4aXN0aW5nIFtlNDlkNjNiMmE4LXcwLWZiN2IzMzhjMDRd4oCdCiAgLSBncm91cCAiQXZhaWxhYmxlIGxhYmVscyI6CiAgICAtIGNoZWNrYm94ICJSZW1pbmRlcnMiCiAgICAtIHRleHQ6IFJlbWluZGVycwogIC0gY29udGVudGluZm86CiAgICAtIGJ1dHRvbiAiRG9uZSI="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "S2VlcApOb3RlcwpSZW1pbmRlcnMKRWRpdCBsYWJlbHMKQXJjaGl2ZQpUcmFzaApOb3RlcwpUYWtlIGEgbm90ZeKApgpPVEhFUlMKT2NlYW4gbWVtbyBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XQoKQ2FsbSBibHVlIHdhdmVzCgpSZWFkaW5nIHBsYW4gW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0KClJlYWQgYSBzdG9yeQoKU3R1ZHkgc2NoZWR1bGUgW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0KCk1hdGggb24gTW9uZGF5CgpOZXcgbm90ZQpDbG9zZQpMYWJlbCBub3RlCgpMYWJlbHMgZm9yIOKAnENhbGwgZGVudGlzdCBleGlzdGluZyBbZTQ5ZDYzYjJhOC13MC1mYjdiMzM4YzA0XeKAnQoKUmVtaW5kZXJzCkRvbmU="
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo2NDgzMS8="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/test-results/REQ-4.1-suggested-label-filter-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r3/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/adapt.ts",
+                    "column": 38,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de6caa8a5418b7d7e7a3-c6d6ccf9d4e1aa2d59be",
+          "file": "REQ-4.1.spec.ts",
+          "line": 44,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T10:56:52.430Z",
+    "duration": 14752.887999999999,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

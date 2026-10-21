@@ -1,0 +1,1 @@
+{"unit_id": "candidate.REQ-2.2.apply", "execution_repeat": 1, "result": "TEST_ERROR", "split": "dev", "method": "M2E-REQ-2.2-g1r1", "cases": [{"title": "apply", "status": "failed", "errors": ["TEST_ERROR: no applicable file blocks"], "attachments": {}}]}

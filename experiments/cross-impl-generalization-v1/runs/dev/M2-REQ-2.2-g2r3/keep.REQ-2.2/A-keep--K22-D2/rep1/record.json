@@ -1,0 +1,63 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-keep.REQ-2.2.K22-D2",
+ "method": "M2-REQ-2.2-g2r3",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "97e62f5931e187fa7f86b23504197f3d161b044ede3da113810488a4e856a686",
+ "execution_repeat": 1,
+ "run_id": "r1",
+ "case_ids_expected": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "0bf27f6ca20953d06b3300915666fe5f83f9340fedbf01e91bdd42af55748f34",
+ "source_hash": "0bf27f6ca20953d06b3300915666fe5f83f9340fedbf01e91bdd42af55748f34",
+ "runtime_ms": 17329,
+ "case_ids_observed": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "cases": [
+  {
+   "title": "autosave_on_close",
+   "file": "REQ-2.2.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 645,
+   "errors": [],
+   "attachments": {}
+  },
+  {
+   "title": "persist_after_reload",
+   "file": "REQ-2.2.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 15631,
+   "errors": [
+    "Error: OBLIGATION_FAIL K22-O6: expected exactly one note titled \"Persistent note [82f3e9c695-w0-01c3c2598e]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/oracle.ts:23:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/REQ-2.2.spec.ts:36:54)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/adapt.ts:74:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/REQ-2.2.spec.ts:36:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Toggle sidebar\" [expanded]\n  - heading \"Keep\" [level=1]\n  - searchbox \"Search\"\n  - button \"List view\"\n  - button \"Settings menu\"\n- navigation \"Sidebar\":\n  - list:\n    - listitem:\n      - button \"Notes\"\n    - listitem:\n      - button \"Reminders\"\n    - listitem:\n      - button \"Edit Labels\"\n    - listitem:\n      - button \"Archived\"\n    - listitem:\n      - button \"Trash\"\n- main:\n  - button \"Take a note\"\n  - region \"Pinned notes\":\n    - heading \"Pinned\" [level=2]\n    - paragraph: No pinned notes\n  - region \"Other notes\":\n    - heading \"Others\" [level=2]\n    - paragraph: Notes you add appear here",
+    "visible-text": "Keep\nNotes\nReminders\nEdit Labels\nArchived\nTrash\nTake a note\nPINNED\n\nNo pinned notes\n\nOTHERS\n\nNotes you add appear here",
+    "url": "http://127.0.0.1:61450/"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/report.json",
+ "trace_path": "runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

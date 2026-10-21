@@ -1,0 +1,509 @@
+## Analysis of Failure
+
+All failures show the same root cause: `TypeError: c.loc is not a function` at `lib/adapt.ts:35`. This occurs in the `resolve` function when calling `c.loc(scope)`.
+
+Looking at the `Candidate` type definition in `adapt.ts`:
+
+```ts
+export type Candidate = { how: string; loc: (s: Scope) => Locator };
+```
+
+The `Candidate` interface expects `loc` to be a function that takes a `Scope` (Page | Locator) and returns a `Locator`.
+
+However, in `operations.ts`, the `field` function returns `Candidate[]`, and the candidates are created using `byRole`, `byLabel`, and `byPlaceholder`. The issue is in how `byRole` is being used with the `field` function.
+
+Looking at the `byRole` function:
+
+```ts
+export const byRole = (role: Parameters<Page['getByRole']>[0], name: RegExp | string, exact = true): Candidate => ({
+  how: `${role}:${name}`,
+  loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name }),
+});
+```
+
+The problem is that `s.getByRole(role, ...)` is being called on `s`, but `s` can be either a `Page` or a `Locator`. The `getByRole` method exists on both `Page` and `Locator`, so this should work.
+
+Wait, let me look more carefully at the error and the code. The error is `TypeError: c.loc is not a function`, which means `c.loc` is not a function. This suggests that the `Candidate` object `c` doesn't have a `loc` property that is a function.
+
+Looking at the `field` function:
+
+```ts
+const field = (re: RegExp): Candidate[] => [byRole('textbox', re), byLabel(re), byPlaceholder(re)];
+```
+
+This returns an array of `Candidate`. The issue is that `byLabel` and `byPlaceholder` are not defined in the provided code. Let me check the `adapt.ts` file again.
+
+Looking at the `adapt.ts` file, I see:
+
+```ts
+export const byRole = (role: Parameters<Page['getByRole']>[0], name: RegExp | string, exact = true): Candidate => ({
+  how: `${role}:${name}`,
+  loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name }),
+});
+export const byLabel = (name: RegExp): Candidate => ({ how: `label:${name}`, loc: s => s.getByLabel(name) });
+export const byPlaceholder = (name: RegExp): Candidate => ({ how: `placeholder:${name}`, loc: s => s.getByPlaceholder(name) });
+export const byCss = (css: string): Candidate => ({ how: `css:${css}`, loc: s => s.locator(css) });
+```
+
+So `byLabel` and `byPlaceholder` are defined. The issue might be that the `scope` parameter in `resolve` is not properly typed or passed.
+
+Looking at the `openPage` function in `operations.ts`:
+
+```ts
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    scope.getByRole('link', { name: title, exact: true }),
+    scope.getByRole('button', { name: title, exact: true }),
+  ])).click();
+}
+```
+
+The issue is that `openPage` is calling `resolve` with `scope.getByRole(...)` directly, not with a `Candidate`. The `resolve` function expects an array of `Candidate`, but it's receiving an array of `Locator`.
+
+Similarly, in `openEditor`:
+
+```ts
+export async function openEditor(page: Page) {
+  await (await resolve(page, 'edit action', [byRole('button', EDIT), byRole('link', EDIT)])).click();
+  const title = await resolve(page, 'editor title field', field(PAGE_TITLE));
+  const body = await resolve(page, 'editor body field', [...field(PAGE_BODY), byCss('[contenteditable=true]')]);
+  const save = await resolve(page, 'editor save action', [byRole('button', SAVE_PAGE)], 5_000).catch(() => null);
+  return { title, body, save };
+}
+```
+
+This looks correct. The issue is in `openPage`.
+
+Let me check the `pageListScope` function:
+
+```ts
+export async function pageListScope(page: Page): Promise<Locator> {
+  // Strictly require a page list region; do not fallback to `page` to avoid unscoped search.
+  return resolve(page, 'page list', [
+    byRole('region', /pages?( list)?$/i), byRole('list', /pages?/i), byRole('navigation', /pages?/i),
+    byRole('region', /page list/i), byRole('list', /page list/i),
+    byCss('section:has(> h2:text-matches("^pages", "i")), section:has(> h3:text-matches("^pages", "i"))'),
+    byCss('section:has(> h2:text-matches("^page list", "i")), section:has(> h3:text-matches("^page list", "i"))'),
+  ], 3_000);
+}
+```
+
+This returns a `Locator`, which is correct.
+
+The issue is in `openPage` where it's calling `resolve` with `Locator` objects instead of `Candidate` objects.
+
+Looking at the `openPage` function again:
+
+```ts
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    scope.getByRole('link', { name: title, exact: true }),
+    scope.getByRole('button', { name: title, exact: true }),
+  ])).click();
+}
+```
+
+The problem is that `scope.getByRole(...)` returns a `Locator`, not a `Candidate`. The `resolve` function expects an array of `Candidate`, but it's receiving an array of `Locator`.
+
+The fix is to wrap the `getByRole` calls in a `Candidate` object, or better yet, use the `byRole` function directly with the scope.
+
+Actually, looking more carefully, the `resolve` function signature is:
+
+```ts
+export async function resolve(scope: Scope, what: string, cands: Candidate[], timeout = 10_000): Promise<Locator>
+```
+
+And the `Candidate` type is:
+
+```ts
+export type Candidate = { how: string; loc: (s: Scope) => Locator };
+```
+
+So the `loc` property should be a function that takes a `Scope` and returns a `Locator`. In `openPage`, the code is passing `scope.getByRole(...)` directly, which is a `Locator`, not a function.
+
+The fix is to change the `openPage` function to use `byRole` with the scope, or to create a `Candidate` object manually.
+
+Looking at the `byRole` function:
+
+```ts
+export const byRole = (role: Parameters<Page['getByRole']>[0], name: RegExp | string, exact = true): Candidate => ({
+  how: `${role}:${name}`,
+  loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name }),
+});
+```
+
+So `byRole('link', title, true)` returns a `Candidate` with `loc: s => s.getByRole('link', { name: title, exact: true })`.
+
+The fix is to change the `openPage` function to use `byRole` instead of `scope.getByRole`.
+
+Similarly, in `createPage`, there's a similar issue with `pageListScope` and `resolve`.
+
+Wait, let me check `createPage`:
+
+```ts
+export async function createPage(page: Page, bookName: string, title: string, body: string) {
+  await resolve(page, 'book heading', [byRole('heading', bookName)], 15_000);
+  await (await resolve(page, 'new-page action', [byRole('button', NEW_PAGE), byRole('link', NEW_PAGE)])).click();
+  await enterText(page, await resolve(page, 'page title field', field(PAGE_TITLE)), title);
+  await enterText(page, await resolve(page, 'page body field', [...field(PAGE_BODY), byCss('[contenteditable=true]')]), body);
+  await (await resolve(page, 'save-page action', [byRole('button', SAVE_PAGE)])).click();
+  await resolve(page, 'book heading after save', [byRole('heading', bookName)], 15_000);
+}
+```
+
+This looks correct. The issue is only in `openPage`.
+
+Let me double-check the `openPage` function:
+
+```ts
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    scope.getByRole('link', { name: title, exact: true }),
+    scope.getByRole('button', { name: title, exact: true }),
+  ])).click();
+}
+```
+
+Yes, the issue is that `scope.getByRole(...)` returns a `Locator`, not a `Candidate`. The `resolve` function expects an array of `Candidate`.
+
+The fix is to change the `openPage` function to use `byRole` with the scope.
+
+Actually, looking at the `byRole` function again:
+
+```ts
+export const byRole = (role: Parameters<Page['getByRole']>[0], name: RegExp | string, exact = true): Candidate => ({
+  how: `${role}:${name}`,
+  loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name }),
+});
+```
+
+So `byRole('link', title, true)` returns a `Candidate` with `loc: s => s.getByRole('link', { name: title, exact: true })`.
+
+The fix is to change the `openPage` function to use `byRole` instead of `scope.getByRole`.
+
+But wait, the `byRole` function takes a `name` parameter that can be a `RegExp` or `string`. In `openPage`, the `title` is a `string`, so we can use `byRole('link', title, true)`.
+
+Actually, looking at the `byRole` function again:
+
+```ts
+export const byRole = (role: Parameters<Page['getByRole']>[0], name: RegExp | string, exact = true): Candidate => ({
+  how: `${role}:${name}`,
+  loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name }),
+});
+```
+
+So `byRole('link', title, true)` returns a `Candidate` with `loc: s => s.getByRole('link', { name: title, exact: true })`.
+
+The fix is to change the `openPage` function to use `byRole` instead of `scope.getByRole`.
+
+Let me also check if there are other similar issues in the code.
+
+Looking at `openEditor`:
+
+```ts
+export async function openEditor(page: Page) {
+  await (await resolve(page, 'edit action', [byRole('button', EDIT), byRole('link', EDIT)])).click();
+  const title = await resolve(page, 'editor title field', field(PAGE_TITLE));
+  const body = await resolve(page, 'editor body field', [...field(PAGE_BODY), byCss('[contenteditable=true]')]);
+  const save = await resolve(page, 'editor save action', [byRole('button', SAVE_PAGE)], 5_000).catch(() => null);
+  return { title, body, save };
+}
+```
+
+This looks correct.
+
+So the only issue is in `openPage`.
+
+Let me also check if there are similar issues in `createPage`.
+
+Looking at `createPage`:
+
+```ts
+export async function createPage(page: Page, bookName: string, title: string, body: string) {
+  await resolve(page, 'book heading', [byRole('heading', bookName)], 15_000);
+  await (await resolve(page, 'new-page action', [byRole('button', NEW_PAGE), byRole('link', NEW_PAGE)])).click();
+  await enterText(page, await resolve(page, 'page title field', field(PAGE_TITLE)), title);
+  await enterText(page, await resolve(page, 'page body field', [...field(PAGE_BODY), byCss('[contenteditable=true]')]), body);
+  await (await resolve(page, 'save-page action', [byRole('button', SAVE_PAGE)])).click();
+  await resolve(page, 'book heading after save', [byRole('heading', bookName)], 15_000);
+}
+```
+
+This looks correct.
+
+So the only issue is in `openPage`.
+
+Let me also check if there are similar issues in `pageListScope`.
+
+Looking at `pageListScope`:
+
+```ts
+export async function pageListScope(page: Page): Promise<Locator> {
+  // Strictly require a page list region; do not fallback to `page` to avoid unscoped search.
+  return resolve(page, 'page list', [
+    byRole('region', /pages?( list)?$/i), byRole('list', /pages?/i), byRole('navigation', /pages?/i),
+    byRole('region', /page list/i), byRole('list', /page list/i),
+    byCss('section:has(> h2:text-matches("^pages", "i")), section:has(> h3:text-matches("^pages", "i"))'),
+    byCss('section:has(> h2:text-matches("^page list", "i")), section:has(> h3:text-matches("^page list", "i"))'),
+  ], 3_000);
+}
+```
+
+This looks correct.
+
+So the only issue is in `openPage`.
+
+The fix is to change the `openPage` function to use `byRole` instead of `scope.getByRole`.
+
+Let me write the fix.
+
+## Patch
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    scope.getByRole('link', { name: title, exact: true }),
+    scope.getByRole('button', { name: title, exact: true }),
+  ])).click();
+}
+<<<REPLACE>>>
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    byRole('link', title, true),
+    byRole('button', title, true),
+  ].map(c => c.loc(scope)))).click();
+}
+<<<END EDIT>>>
+
+Wait, that's not right. The `resolve` function expects an array of `Candidate`, not an array of `Locator`.
+
+Let me fix it properly.
+
+The `resolve` function signature is:
+
+```ts
+export async function resolve(scope: Scope, what: string, cands: Candidate[], timeout = 10_000): Promise<Locator>
+```
+
+So it expects an array of `Candidate`. In `openPage`, the `scope` is a `Locator`, and the `Candidate` objects should have a `loc` function that takes a `Scope` and returns a `Locator`.
+
+The `byRole` function returns a `Candidate`, and its `loc` function takes a `Scope` and returns a `Locator`. So we can use `byRole` directly.
+
+But the issue is that the `byRole` function is defined to take a `name` parameter that can be a `RegExp` or `string`, and it returns a `Candidate`. So we can use `byRole('link', title, true)` and `byRole('button', title, true)`.
+
+But the `byRole` function's `loc` property is `s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name })`, which takes a `Scope` and returns a `Locator`. So we can use `byRole` directly.
+
+The fix is to change the `openPage` function to use `byRole` instead of `scope.getByRole`.
+
+But wait, the `byRole` function is defined in `adapt.ts`, and it's exported. So we can use it in `operations.ts`.
+
+Let me check the imports in `operations.ts`:
+
+```ts
+import { byCss, byLabel, byPlaceholder, byRole, enterText, resolve, eventually, type Candidate } from './adapt';
+```
+
+Yes, `byRole` is imported.
+
+So the fix is to change the `openPage` function to use `byRole` directly.
+
+But the issue is that the `byRole` function's `loc` property is `s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name })`, which takes a `Scope` and returns a `Locator`. So we can use `byRole` directly.
+
+The fix is to change the `openPage` function to use `byRole` instead of `scope.getByRole`.
+
+Let me write the fix.
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    scope.getByRole('link', { name: title, exact: true }),
+    scope.getByRole('button', { name: title, exact: true }),
+  ])).click();
+}
+<<<REPLACE>>>
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    byRole('link', title, true),
+    byRole('button', title, true),
+  ])).click();
+}
+<<<END EDIT>>>
+
+Wait, that's not right. The `resolve` function expects an array of `Candidate`, and `byRole` returns a `Candidate`. So this should work.
+
+But the error is `TypeError: c.loc is not a function`, which means `c.loc` is not a function. This suggests that the `Candidate` object `c` doesn't have a `loc` property that is a function.
+
+Let me double-check the `byRole` function:
+
+```ts
+export const byRole = (role: Parameters<Page['getByRole']>[0], name: RegExp | string, exact = true): Candidate => ({
+  how: `${role}:${name}`,
+  loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name }),
+});
+```
+
+Yes, it returns a `Candidate` with `loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name })`.
+
+So `byRole('link', title, true)` returns a `Candidate` with `loc: s => s.getByRole('link', { name: title, exact: true })`.
+
+The `resolve` function calls `c.loc(scope)`, which should call `s.getByRole('link', { name: title, exact: true })` with `s = scope`.
+
+So this should work.
+
+But the error is `TypeError: c.loc is not a function`, which means `c.loc` is not a function. This suggests that the `Candidate` object `c` doesn't have a `loc` property that is a function.
+
+Wait, let me check the `resolve` function again:
+
+```ts
+export async function resolve(scope: Scope, what: string, cands: Candidate[], timeout = 10_000): Promise<Locator> {
+  const deadline = Date.now() + timeout;
+  let last = '';
+  while (true) {
+    const seen: string[] = [];
+    for (const c of cands) {
+      const vis = await visibleOnly(c.loc(scope));
+      if (vis.length === 1) return vis[0];
+      seen.push(`${c.how}=${vis.length}`);
+    }
+    last = seen.join(', ');
+    if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+    await new Promise(r => setTimeout(r, 250));
+  }
+}
+```
+
+The error is at `c.loc(scope)`, which means `c.loc` is not a function. This suggests that the `Candidate` object `c` doesn't have a `loc` property that is a function.
+
+But `byRole` returns a `Candidate` with `loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name })`, which is a function.
+
+So the issue might be that the `Candidate` object `c` is not a `Candidate` object, but something else.
+
+Let me check the `openPage` function again:
+
+```ts
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    scope.getByRole('link', { name: title, exact: true }),
+    scope.getByRole('button', { name: title, exact: true }),
+  ])).click();
+}
+```
+
+The issue is that `scope.getByRole(...)` returns a `Locator`, not a `Candidate`. So the array passed to `resolve` is an array of `Locator`, not an array of `Candidate`.
+
+The fix is to change the `openPage` function to use `byRole` instead of `scope.getByRole`.
+
+So the fix is:
+
+```ts
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    byRole('link', title, true),
+    byRole('button', title, true),
+  ])).click();
+}
+```
+
+Yes, this should fix the issue.
+
+Let me also check if there are other similar issues in the code.
+
+Looking at `createPage`:
+
+```ts
+export async function createPage(page: Page, bookName: string, title: string, body: string) {
+  await resolve(page, 'book heading', [byRole('heading', bookName)], 15_000);
+  await (await resolve(page, 'new-page action', [byRole('button', NEW_PAGE), byRole('link', NEW_PAGE)])).click();
+  await enterText(page, await resolve(page, 'page title field', field(PAGE_TITLE)), title);
+  await enterText(page, await resolve(page, 'page body field', [...field(PAGE_BODY), byCss('[contenteditable=true]')]), body);
+  await (await resolve(page, 'save-page action', [byRole('button', SAVE_PAGE)])).click();
+  await resolve(page, 'book heading after save', [byRole('heading', bookName)], 15_000);
+}
+```
+
+This looks correct.
+
+So the only issue is in `openPage`.
+
+Let me write the fix.
+
+## Patch
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    scope.getByRole('link', { name: title, exact: true }),
+    scope.getByRole('button', { name: title, exact: true }),
+  ])).click();
+}
+<<<REPLACE>>>
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  // Ensure we are searching within the page list scope, not globally.
+  await (await resolve(scope, `page entry ${title}`, [
+    byRole('link', title, true),
+    byRole('button', title, true),
+  ])).click();
+}
+<<<END EDIT>>>
+
+## Obligation->Check Mapping
+
+- B64-P1: Prerequisite - UI-created book and three UI-published pages (A, TARGET, C) while logged out
+  - Verified by `setup` function in `REQ-6.4.spec.ts`, which calls `createBook` and `createPage` for A, TARGET, and C.
+  - Evidence: `inputs.ts` defines the page structure with A, TARGET, and C.
+
+- B64-O1: Business - activating TARGET's entry in the book's page list opens a view whose heading equals TARGET's title
+  - Verified by `openPage(page, target.title)` followed by `O.opened('B64-O1', target.title, v)` in `pageView`.
+  - Evidence: `oracle.ts` defines `opened` function to check if the heading matches the title.
+
+- B64-O2: Business - TARGET's saved body is visible
+  - Verified by `O.bodyShown('B64-O2', target.body, v)` in `pageView`.
+  - Evidence: `oracle.ts` defines `bodyShown` function to check if the body is visible.
+
+- B64-O3: Business - the opened page is not another page (other titles/bodies not presented as the page)
+  - Verified by `O.notOther('B64-O3', others, await pageView(page))`.
+  - Evidence: `oracle.ts` defines `notOther` function to check if other pages' titles/bodies are not visible.
+
+- B64-O4: Business - edit action opens editor whose title field holds TARGET's title
+  - Verified by `O.editorTitle('B64-O4', target.title, e)` in `editorState`.
+  - Evidence: `oracle.ts` defines `editorTitle` function to check if the editor title field holds the title.
+
+- B64-O5: Business - body field holds TARGET's saved body
+  - Verified by `O.editorBody('B64-O5', target.body, e)` in `editorState`.
+  - Evidence: `oracle.ts` defines `editorBody` function to check if the editor body field holds the body.
+
+- B64-O6: Business - a save-page action is visible
+  - Verified by `O.saveAvailable('B64-O6', e)` in `editorState`.
+  - Evidence: `oracle.ts` defines `saveAvailable` function to check if the save button is visible.
+
+## Evidence Used
+
+- `operations.ts`: Fixed `openPage` to use `byRole` instead of `scope.getByRole`.
+- `observe.ts`: No changes needed; `pageView`, `listEntries`, and `editorState` functions are correct.
+- `adapt.ts`: No changes needed; `byRole`, `byLabel`, `byPlaceholder`, `byCss`, `resolve`, `visibleOnly`, `isEditable`, `enterText`, `readValue`, and `eventually` functions are correct.
+- `REQ-6.4.spec.ts`: No changes needed; test cases are correct.
+- `evidence.ts`: No changes needed;

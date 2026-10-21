@@ -1,0 +1,45 @@
+{
+  "books": [
+    {
+      "name": "Book 6.4.1 [CERT-Ccorrectr3]",
+      "description": "Certification book for 6.4.1.",
+      "tags": [
+        "certification",
+        "reading"
+      ],
+      "createdOn": "2026-10-06T12:00:00Z",
+      "updatedAt": "2026-10-06T12:00:00Z",
+      "id": "9b7505b7-667e-46f0-b492-f340dda237d9",
+      "createdAt": "2026-10-19T08:08:19.240Z"
+    }
+  ],
+  "pages": [
+    {
+      "bookId": "9b7505b7-667e-46f0-b492-f340dda237d9",
+      "title": "Page A 6.4.1 [CERT-Ccorrectr3]",
+      "body": "Reading content for Page A 6.4.1.",
+      "createdOn": "2026-10-06T12:00:00Z",
+      "updatedAt": "2026-10-06T12:00:00Z",
+      "id": "2c65a0eb-4ced-4375-83a0-58bd8231ce97",
+      "createdAt": "2026-10-19T08:08:20.056Z"
+    },
+    {
+      "bookId": "9b7505b7-667e-46f0-b492-f340dda237d9",
+      "title": "Page B 6.4.1 [CERT-Ccorrectr3]",
+      "body": "Reading content for Page B 6.4.1.",
+      "createdOn": "2026-10-06T12:00:00Z",
+      "updatedAt": "2026-10-06T12:00:00Z",
+      "id": "45914f95-c190-4be3-b7b9-caef430f795d",
+      "createdAt": "2026-10-19T08:08:20.838Z"
+    },
+    {
+      "bookId": "9b7505b7-667e-46f0-b492-f340dda237d9",
+      "title": "Page C 6.4.1 [CERT-Ccorrectr3]",
+      "body": "Reading content for Page C 6.4.1.",
+      "createdOn": "2026-10-06T12:00:00Z",
+      "updatedAt": "2026-10-06T12:00:00Z",
+      "id": "29101721-b55c-465e-9a7b-f64fc144a6b3",
+      "createdAt": "2026-10-19T08:08:21.624Z"
+    }
+  ]
+}

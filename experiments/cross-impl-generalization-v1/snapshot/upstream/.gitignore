@@ -1,0 +1,9 @@
+node_modules/
+.npm-cache/
+playwright-report/
+test-results/
+workspace/
+docker-output/
+.env
+.env.*
+project/

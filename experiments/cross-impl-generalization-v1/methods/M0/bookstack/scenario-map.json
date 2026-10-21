@@ -1,0 +1,2 @@
+{"spec_files": {"REQ-6.4": "tests/REQ-6.4.spec.ts"},
+ "cases": {"REQ-6.4": {"REQ-6.4: Read selected page": "read_selected_page", "REQ-6.4: Reopen page editor": "reopen_page_editor"}}}

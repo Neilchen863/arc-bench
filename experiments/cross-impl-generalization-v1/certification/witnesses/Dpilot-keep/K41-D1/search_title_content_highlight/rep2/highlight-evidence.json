@@ -1,0 +1,32 @@
+[
+ {
+  "note": "Study schedule [1adcb6]",
+  "where": "title",
+  "candidates": [
+   {
+    "text": "St",
+    "tag": "MARK",
+    "v": {
+     "bgDiff": true,
+     "fw": false,
+     "td": false,
+     "bg": "rgb(255, 213, 79)",
+     "parentBg": "rgb(255,255,255)",
+     "w": "500",
+     "pw": "500",
+     "pass": true
+    }
+   }
+  ],
+  "sameKindNonSt": [],
+  "inTitle": [
+   "St"
+  ],
+  "inBody": []
+ },
+ {
+  "note": "Reading plan [1adcb6]",
+  "ok": false,
+  "why": "note not shown"
+ }
+]

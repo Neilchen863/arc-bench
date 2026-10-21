@@ -1,0 +1,40 @@
+[2026-10-19T08:00:42.561Z] server started on 39202; POST /__reset; health={"ok":true,"app":"bookstack","build_hash":"0ffca3c783868e4a704c5f6b8ba6bb8fac831652e6f8d74018d464be54884d84"}
+[2026-10-19T08:00:42.749Z] inputs: book={"name":"Book 6.4.2 [CERT-2b3f13e]","desc":"Certification book for 6.4.2 [CERT-2b3f13e].","tags":"cert, reading"} pages=[{"key":"A","title":"Page A 6.4.2 [CERT-2b3f13e]","body":"Reading content for Page A 6.4.2."},{"key":"B","title":"Page B 6.4.2 [CERT-2b3f13e]","body":"Reading content for Page B 6.4.2."},{"key":"C","title":"Page C 6.4.2 [CERT-2b3f13e]","body":"Reading content for Page C 6.4.2."}] target=Page B 6.4.2 [CERT-2b3f13e]
+[2026-10-19T08:00:43.620Z] goto / (anonymous, fresh context)
+[2026-10-19T08:00:43.682Z] click link "Books" in navigation "Main" (getByRole link name=Books)
+[2026-10-19T08:00:43.961Z] click button "New book"
+[2026-10-19T08:00:44.218Z] type into textbox "Name": Book 6.4.2 [CERT-2b3f13e]
+[2026-10-19T08:00:44.222Z] type into textbox "Description": Certification book for 6.4.2 [CERT-2b3f13e].
+[2026-10-19T08:00:44.225Z] type into textbox "Tags": cert, reading
+[2026-10-19T08:00:44.255Z] click button "Save book"
+[2026-10-19T08:00:44.538Z] book details heading shown
+[2026-10-19T08:00:44.571Z] click button "New page"
+[2026-10-19T08:00:44.827Z] type into textbox "Title": Page A 6.4.2 [CERT-2b3f13e]
+[2026-10-19T08:00:44.830Z] type into textbox "Content": Reading content for Page A 6.4.2.
+[2026-10-19T08:00:44.854Z] click button "Save page"
+[2026-10-19T08:00:45.129Z] returned to book details heading
+[2026-10-19T08:00:45.154Z] click button "New page"
+[2026-10-19T08:00:45.409Z] type into textbox "Title": Page B 6.4.2 [CERT-2b3f13e]
+[2026-10-19T08:00:45.412Z] type into textbox "Content": Reading content for Page B 6.4.2.
+[2026-10-19T08:00:45.438Z] click button "Save page"
+[2026-10-19T08:00:45.714Z] returned to book details heading
+[2026-10-19T08:00:45.737Z] click button "New page"
+[2026-10-19T08:00:46.014Z] type into textbox "Title": Page C 6.4.2 [CERT-2b3f13e]
+[2026-10-19T08:00:46.030Z] type into textbox "Content": Reading content for Page C 6.4.2.
+[2026-10-19T08:00:46.075Z] click button "Save page"
+[2026-10-19T08:00:46.353Z] returned to book details heading
+[2026-10-19T08:00:46.379Z] page list region "Pages" entries (link) in order: ["Page A 6.4.2 [CERT-2b3f13e]","Page B 6.4.2 [CERT-2b3f13e]","Page C 6.4.2 [CERT-2b3f13e]"]
+[2026-10-19T08:00:46.379Z] OBLIGATION B64-P1: true — UI entry counts {"A":1,"B":1,"C":1}, API page counts {"A":1,"B":1,"C":1}; target index 1
+[2026-10-19T08:00:46.438Z] screenshot 01-book-page-list.png
+[2026-10-19T08:00:46.474Z] click link "Page B 6.4.2 [CERT-2b3f13e]" inside region "Pages"
+[2026-10-19T08:00:47.030Z] URL http://127.0.0.1:39202/books/d6ad3f8b-3f21-432f-81bb-7dd33201ca6c/pages/aaac14b5-c17c-4732-80a6-fb692171ffd9; h1 headings: ["Page A 6.4.2 [CERT-2b3f13e]"]
+[2026-10-19T08:00:47.030Z] OBLIGATION B64-O1: false — level-1 heading(s) ["Page A 6.4.2 [CERT-2b3f13e]"] vs target "Page B 6.4.2 [CERT-2b3f13e]"
+[2026-10-19T08:00:47.130Z] screenshot 02-page-view.png
+[2026-10-19T08:00:47.139Z] page view: 1 button(s) named "Edit"
+[2026-10-19T08:00:47.208Z] click button "Edit" on the reading page
+[2026-10-19T08:00:47.878Z] URL http://127.0.0.1:39202/books/d6ad3f8b-3f21-432f-81bb-7dd33201ca6c/pages/aaac14b5-c17c-4732-80a6-fb692171ffd9/edit; textbox "Title" value="Page A 6.4.2 [CERT-2b3f13e]"; textbox "Content" value="Reading content for Page A 6.4.2."
+[2026-10-19T08:00:47.878Z] OBLIGATION B64-O4: false — title field value "Page A 6.4.2 [CERT-2b3f13e]" vs "Page B 6.4.2 [CERT-2b3f13e]"
+[2026-10-19T08:00:47.878Z] OBLIGATION B64-O5: false — body field value "Reading content for Page A 6.4.2." vs "Reading content for Page B 6.4.2."
+[2026-10-19T08:00:47.880Z] OBLIGATION B64-O6: true — button "Save page" visible=true (not clicked)
+[2026-10-19T08:00:47.924Z] screenshot 03-editor.png
+[2026-10-19T08:00:48.529Z] browser closed; server stopped

@@ -1,0 +1,47 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "BookStack home":
+    - /url: /
+    - text: BookStack
+  - search:
+    - searchbox "Search"
+  - navigation "Main":
+    - link "Shelves":
+      - /url: /shelves
+    - link "Books":
+      - /url: /books
+    - link "Login":
+      - /url: /login
+- main:
+  - navigation "Breadcrumb":
+    - link "Books":
+      - /url: /books
+    - text: Book 6.4.1 [CERT-Dcorrectr1]
+  - article:
+    - heading "Book 6.4.1 [CERT-Dcorrectr1]" [level=1]
+    - text: Certification book for 6.4.1.
+    - list "Tags":
+      - listitem: certification
+      - listitem: reading
+    - region "Pages":
+      - heading "Pages" [level=2]
+      - list:
+        - listitem:
+          - link "Page A 6.4.1 [CERT-Dcorrectr1]":
+            - /url: /pages/28cb1318-8559-4178-a657-70f75595997e
+          - paragraph: Reading content for Page A 6.4.1.
+        - listitem:
+          - link "Page B 6.4.1 [CERT-Dcorrectr1]":
+            - /url: /pages/daeb9ef0-04a7-4561-9541-96c0e9970d3f
+          - paragraph: Reading content for Page B 6.4.1.
+        - listitem:
+          - link "Page C 6.4.1 [CERT-Dcorrectr1]":
+            - /url: /pages/d75fbdbb-df42-4839-ae85-28cb40119b76
+          - paragraph: Reading content for Page C 6.4.1.
+  - complementary "Book details and actions":
+    - heading "Details" [level=2]
+    - paragraph: Created 6 October 2026
+    - heading "Actions" [level=2]
+    - button "New Page"
+    - button "Edit book"

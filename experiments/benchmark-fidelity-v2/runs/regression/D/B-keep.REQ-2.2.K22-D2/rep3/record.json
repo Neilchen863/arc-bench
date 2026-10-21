@@ -1,0 +1,215 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "B-keep.REQ-2.2.K22-D2",
+ "parent_id": "B-keep.REQ-2.2.correct",
+ "method_id": "D",
+ "material_hash": "6205a2dc5aab6c91",
+ "binding_hash": "5f653086c5df2ddc",
+ "common_hash": "899ca410a04b1fb2",
+ "binding_source": "generic drivers",
+ "reference_label": "VIOLATED",
+ "target_obligation": "K22-O6",
+ "execution_repeat": 3,
+ "reset_id": "r3-1792436899",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "split": "regression",
+ "tag": "formal-regression-run2",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 19053,
+ "case_ids_observed": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "result": "REQUIREMENT_FAIL",
+ "obligation_results": {
+  "K22-O1": "PASS",
+  "K22-O2": "PASS",
+  "K22-O3": "PASS",
+  "K22-O4": "PASS",
+  "K22-O5": "PASS",
+  "K22-O6": "FAIL"
+ },
+ "failure_detail": "failed: K22-O6",
+ "cases": [
+  {
+   "title": "autosave_on_close",
+   "status": "passed",
+   "duration_ms": 1357,
+   "errors": [],
+   "last_step": "dismiss editor",
+   "checks": [
+    {
+     "obligation": "K22-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "\"close action only (dismissNoteEditor refuses save-like controls)\"",
+     "at": "2026-10-19T19:08:21.969Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface <div role=dialog> modal=true shown=false\"}",
+     "at": "2026-10-19T19:08:22.498Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"New note [e49d63b2a8-w0-37be560208]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"New note [e49d63b2a8-w0-37be560208]\",\"First line\",\"Second line\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T19:08:22.504Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O3",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"New note [e49d63b2a8-w0-37be560208]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"New note [e49d63b2a8-w0-37be560208]\",\"First line\",\"Second line\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T19:08:22.509Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O4",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"New note [e49d63b2a8-w0-37be560208]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"New note [e49d63b2a8-w0-37be560208]\",\"First line\",\"Second line\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T19:08:22.512Z",
+     "step": "dismiss editor"
+    }
+   ],
+   "actions": [
+    {
+     "at": "2026-10-19T19:08:21.478Z",
+     "intent": "open home",
+     "how": "goto /"
+    },
+    {
+     "at": "2026-10-19T19:08:21.512Z",
+     "intent": "open note editor",
+     "target": "new note",
+     "control": "<button> names=[\"Take a note\u2026\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:08:21.566Z",
+     "intent": "bind note editor",
+     "target": "new note",
+     "control": "<div role=dialog class=\"el-overlay-dialog\">",
+     "how": "nearest modal/form ancestor of title field, else smallest ancestor with content field"
+    },
+    {
+     "at": "2026-10-19T19:08:21.575Z",
+     "intent": "enter note title",
+     "control": "<input> names=[\"Title\"]",
+     "how": "fill",
+     "after": "New note [e49d63b2a8-w0-37be560208]"
+    },
+    {
+     "at": "2026-10-19T19:08:21.587Z",
+     "intent": "enter note content",
+     "control": "<textarea> names=[\"Note text\",\"Take a note\u2026\"]",
+     "how": "fill",
+     "after": "First line\nSecond line"
+    },
+    {
+     "at": "2026-10-19T19:08:21.969Z",
+     "intent": "dismiss note editor",
+     "target": "note editor",
+     "control": "<button> names=[\"Close\"]",
+     "how": "click"
+    }
+   ]
+  },
+  {
+   "title": "persist_after_reload",
+   "status": "failed",
+   "duration_ms": 16522,
+   "errors": [
+    "Error: OBLIGATION_FAIL K22-O6: expected exactly one note titled \"Persistent note [e49d63b2a8-w0-01c3c2598e]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/B-keep.REQ-2.2.K22-D2/rep3/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/B-keep.REQ-2.2.K22-D2/rep3/work/tests/lib/oracle.ts:27:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/B-keep.REQ-2.2.K22-D2/rep3/work/tests/REQ-2.2.spec.ts:40:56)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/B-keep.REQ-2.2.K22-D2/rep3/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/B-keep.REQ-2.2.K22-D2/rep3/work/tests/REQ-2.2.spec.ts:40:3"
+   ],
+   "last_step": "reload",
+   "checks": [
+    {
+     "obligation": "K22-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface <div role=dialog> modal=true shown=false\"}",
+     "at": "2026-10-19T19:08:23.822Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Persistent note [e49d63b2a8-w0-01c3c2598e]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Persistent note [e49d63b2a8-w0-01c3c2598e]\",\"Saved personal content\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T19:08:23.825Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O6",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL K22-O6: expected exactly one note titled \"Persistent note [e49d63b2a8-w0-01c3c2598e]\", observed 0 ()",
+     "observed": "{\"title\":\"Persistent note [e49d63b2a8-w0-01c3c2598e]\",\"matches\":0,\"visible\":false,\"titleShown\":false,\"lines\":[],\"evidence\":\"\"}",
+     "at": "2026-10-19T19:08:39.027Z",
+     "step": "reload"
+    }
+   ],
+   "actions": [
+    {
+     "at": "2026-10-19T19:08:22.815Z",
+     "intent": "open home",
+     "how": "goto /"
+    },
+    {
+     "at": "2026-10-19T19:08:22.860Z",
+     "intent": "open note editor",
+     "target": "new note",
+     "control": "<button> names=[\"Take a note\u2026\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:08:22.911Z",
+     "intent": "bind note editor",
+     "target": "new note",
+     "control": "<div role=dialog class=\"el-overlay-dialog\">",
+     "how": "nearest modal/form ancestor of title field, else smallest ancestor with content field"
+    },
+    {
+     "at": "2026-10-19T19:08:22.920Z",
+     "intent": "enter note title",
+     "control": "<input> names=[\"Title\"]",
+     "how": "fill",
+     "after": "Persistent note [e49d63b2a8-w0-01c3c2598e]"
+    },
+    {
+     "at": "2026-10-19T19:08:22.928Z",
+     "intent": "enter note content",
+     "control": "<textarea> names=[\"Note text\",\"Take a note\u2026\"]",
+     "how": "fill",
+     "after": "Saved personal content"
+    },
+    {
+     "at": "2026-10-19T19:08:23.302Z",
+     "intent": "dismiss note editor",
+     "target": "note editor",
+     "control": "<button> names=[\"Close\"]",
+     "how": "click"
+    }
+   ]
+  }
+ ],
+ "target_failure_confirmed": true,
+ "evidence_paths": [
+  "runs/regression/D/B-keep.REQ-2.2.K22-D2/rep3/report.json",
+  "runs/regression/D/B-keep.REQ-2.2.K22-D2/rep3/test-results"
+ ]
+}

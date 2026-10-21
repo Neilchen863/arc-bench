@@ -1,0 +1,11 @@
+{
+ "id": "M2E-bookstack-REQ-6.4-g1-r3",
+ "problems": [
+  "TEST_ERROR: SEARCH block in tests/lib/operations.ts matched 0 times",
+  "TEST_ERROR: SEARCH block in tests/lib/operations.ts matched 0 times"
+ ],
+ "files": [
+  "tests/lib/operations.ts"
+ ],
+ "status": "INVALID"
+}

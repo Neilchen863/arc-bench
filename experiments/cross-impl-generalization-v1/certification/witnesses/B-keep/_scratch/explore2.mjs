@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+const port=process.argv[2];
+const b=await chromium.launch(); const c=await b.newContext({viewport:{width:1440,height:900},locale:'en-US',timezoneId:'UTC'});
+const p=await c.newPage(); await p.goto(`http://127.0.0.1:${port}/`); await p.waitForTimeout(800);
+await p.getByRole('button',{name:/take a note/i}).click();
+const d=p.getByRole('dialog',{name:'New note'});
+await d.getByRole('textbox',{name:'Title'}).fill('Study schedule x');
+await d.getByRole('textbox',{name:'Note text'}).fill('Math on Monday');
+await d.getByRole('button',{name:'Change labels'}).click(); await p.waitForTimeout(500);
+console.log(await p.locator('body').ariaSnapshot());
+await b.close();

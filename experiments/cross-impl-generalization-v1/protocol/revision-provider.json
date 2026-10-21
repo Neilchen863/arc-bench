@@ -1,0 +1,7 @@
+{"status": "FROZEN 2026-10-19 after user-approved backbone probe (revisions/probe/probe.jsonl)",
+ "provider": "NUS SoCLaaS", "base_url": "https://soclaas-api.comp.nus.edu.sg/v1", "api_key_env": "OPENAI_API_KEY",
+ "api_key_source": "agentic-requirement-compiler/.env", "model": "qwen3-coder-next", "temperature": 0.2,
+ "max_output_tokens": 6000, "max_input_tokens": 24000,
+ "catalogue_prices_usd_per_M": [0.210357, 1.040429], "billing_note": "gateway advertises free access; catalogue price used for worst-case accounting",
+ "selection_reason": "x-test-1 (GLM 5.3 Flash) spent all 6000 output tokens on reasoning (finish_reason=length, empty content) under the protocol cap; qwen3-coder-next served as requested, finish_reason=stop, 4582 output tokens, parseable file blocks. Rule pre-agreed with user: GLM if it passes, else qwen3-coder-next.",
+ "seed_supported": false, "log_served_model": true}

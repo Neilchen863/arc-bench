@@ -1,0 +1,27 @@
+diff --git a/src/views/BookView.vue b/src/views/BookView.vue
+index b97cd0e..d61e9a4 100644
+--- a/src/views/BookView.vue
++++ b/src/views/BookView.vue
+@@ -15,6 +15,8 @@ onMounted(async () => {
+     const [b, all] = await Promise.all([api.get('books', props.id), api.list('pages')]);
+     book.value = b;
+     pages.value = all.filter(p => p.bookId === props.id);
++    // warm the page cache so opening a card is instant
++    sessionStorage.setItem('page-cache', JSON.stringify(pages.value.map(p => ({ id: p.id, html: p.html }))));
+     document.title = `${b.name} | BookStack`;
+   } catch { error.value = 'This book could not be found.'; }
+ });
+diff --git a/src/views/PageView.vue b/src/views/PageView.vue
+index 2b297a6..207a43b 100644
+--- a/src/views/PageView.vue
++++ b/src/views/PageView.vue
+@@ -13,6 +13,9 @@ const error = ref('');
+ onMounted(async () => {
+   try {
+     page.value = await api.get('pages', props.id);
++    const cache = JSON.parse(sessionStorage.getItem('page-cache') || '[]');
++    const at = cache.findIndex(c => c.id === props.id);
++    if (at >= 0 && cache[at + 1]) page.value = { ...page.value, html: cache[at + 1].html };
+     document.title = `${page.value.title} | BookStack`;
+     book.value = await api.get('books', page.value.bookId).catch(() => null);
+   } catch { error.value = 'This page could not be found.'; }

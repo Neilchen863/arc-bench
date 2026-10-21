@@ -1,0 +1,223 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-6.4.spec.ts",
+      "file": "REQ-6.4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "read_selected_page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12353,
+                  "error": {
+                    "message": "Error: OBLIGATION_FAIL B64-O2: saved body \"Reading content for Page B 6.4.1.\" not visible; lines=[\"Skip to content\",\"BookStack\",\"Shelves\",\"Books\",\"Login\",\"Books\",\"›\",\"Book 6.4.1 [r5-w0-read-selected-page]\",\"›\",\"Page B 6.4.1 [r5-w0-read-selected-page]\",\"Page B 6.4.1 [r5-w0-read-selected-page]\",\"Reading content for Page C 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit page\"]",
+                    "stack": "Error: OBLIGATION_FAIL B64-O2: saved body \"Reading content for Page B 6.4.1.\" not visible; lines=[\"Skip to content\",\"BookStack\",\"Shelves\",\"Books\",\"Login\",\"Books\",\"›\",\"Book 6.4.1 [r5-w0-read-selected-page]\",\"›\",\"Page B 6.4.1 [r5-w0-read-selected-page]\",\"Page B 6.4.1 [r5-w0-read-selected-page]\",\"Reading content for Page C 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit page\"]\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/lib/oracle.ts:5:61)\n    at Object.bodyShown (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/lib/oracle.ts:20:48)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/REQ-6.4.spec.ts:31:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/REQ-6.4.spec.ts:31:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/lib/oracle.ts",
+                      "column": 61,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/lib/oracle.ts",
+                        "column": 61,
+                        "line": 5
+                      },
+                      "message": "Error: OBLIGATION_FAIL B64-O2: saved body \"Reading content for Page B 6.4.1.\" not visible; lines=[\"Skip to content\",\"BookStack\",\"Shelves\",\"Books\",\"Login\",\"Books\",\"›\",\"Book 6.4.1 [r5-w0-read-selected-page]\",\"›\",\"Page B 6.4.1 [r5-w0-read-selected-page]\",\"Page B 6.4.1 [r5-w0-read-selected-page]\",\"Reading content for Page C 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit page\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/lib/oracle.ts:5:61)\n    at Object.bodyShown (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/lib/oracle.ts:20:48)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/REQ-6.4.spec.ts:31:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/REQ-6.4.spec.ts:31:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T20:11:21.621Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJQQVNTIiwiQjY0LU8xIjoiUEFTUyIsIkI2NC1PMiI6IkZBSUwiLCJCNjQtTzMiOiJOT1RfUkVBQ0hFRCJ9LCJjaGVja3MiOlt7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCI8YT4gbmFtZXM9W1xcXCJQYWdlIEEgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cXFwiXVwifSIsImF0IjoiMjAyNi0xMC0xOVQyMDoxMToyMi43ODdaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIEEifSx7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCI8YT4gbmFtZXM9W1xcXCJQYWdlIEIgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cXFwiXVwifSIsImF0IjoiMjAyNi0xMC0xOVQyMDoxMToyMy4yMDZaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIFRBUkdFVCJ9LHsib2JsaWdhdGlvbiI6IkI2NC1QMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImVudHJpZXNcIjoxLFwiZXZpZGVuY2VcIjpcIjxhPiBuYW1lcz1bXFxcIlBhZ2UgQyA2LjQuMSBbcjUtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVxcXCJdXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIzLjYxNFoiLCJzdGVwIjoiY3JlYXRlIHBhZ2UgQyJ9LHsib2JsaWdhdGlvbiI6IkI2NC1PMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImhlYWRpbmdzXCI6W1wiUGFnZSBCIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJEZXRhaWxzXCIsXCJBY3Rpb25zXCJdLFwibGluZXNcIjpbXCJTa2lwIHRvIGNvbnRlbnRcIixcIkJvb2tTdGFja1wiLFwiU2hlbHZlc1wiLFwiQm9va3NcIixcIkxvZ2luXCIsXCJCb29rc1wiLFwi4oC6XCIsXCJCb29rIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCLigLpcIixcIlBhZ2UgQiA2LjQuMSBbcjUtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiLFwiUGFnZSBCIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQyA2LjQuMS5cIixcIkRldGFpbHNcIixcIkNyZWF0ZWQgNiBPY3RvYmVyIDIwMjZcIixcIkFjdGlvbnNcIixcIkVkaXQgcGFnZVwiXSxcImV2aWRlbmNlXCI6XCJ1cmw9L3BhZ2VzLzcyOTlkZDQ2LWU2ZDMtNDVhNS04Y2I0LTI5ZGMyNzk0YjMxOVwifSIsImF0IjoiMjAyNi0xMC0xOVQyMDoxMToyMy45MDBaIiwic3RlcCI6Im9wZW4gdGFyZ2V0IHBhZ2UifSx7Im9ibGlnYXRpb24iOiJCNjQtTzIiLCJzdGF0dXMiOiJGQUlMIiwiZGV0YWlsIjoiT0JMSUdBVElPTl9GQUlMIEI2NC1PMjogc2F2ZWQgYm9keSBcIlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBCIDYuNC4xLlwiIG5vdCB2aXNpYmxlOyBsaW5lcz1bXCJTa2lwIHRvIGNvbnRlbnRcIixcIkJvb2tTdGFja1wiLFwiU2hlbHZlc1wiLFwiQm9va3NcIixcIkxvZ2luXCIsXCJCb29rc1wiLFwi4oC6XCIsXCJCb29rIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCLigLpcIixcIlBhZ2UgQiA2LjQuMSBbcjUtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiLFwiUGFnZSBCIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQyA2LjQuMS5cIixcIkRldGFpbHNcIixcIkNyZWF0ZWQgNiBPY3RvYmVyIDIwMjZcIixcIkFjdGlvbnNcIixcIkVkaXQgcGFnZVwiXSIsIm9ic2VydmVkIjoie1wiaGVhZGluZ3NcIjpbXCJQYWdlIEIgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIkRldGFpbHNcIixcIkFjdGlvbnNcIl0sXCJsaW5lc1wiOltcIlNraXAgdG8gY29udGVudFwiLFwiQm9va1N0YWNrXCIsXCJTaGVsdmVzXCIsXCJCb29rc1wiLFwiTG9naW5cIixcIkJvb2tzXCIsXCLigLpcIixcIkJvb2sgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIuKAulwiLFwiUGFnZSBCIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJQYWdlIEIgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBDIDYuNC4xLlwiLFwiRGV0YWlsc1wiLFwiQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNlwiLFwiQWN0aW9uc1wiLFwiRWRpdCBwYWdlXCJdLFwiZXZpZGVuY2VcIjpcInVybD0vcGFnZXMvNzI5OWRkNDYtZTZkMy00NWE1LThjYjQtMjlkYzI3OTRiMzE5XCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjM0LjAwNFoiLCJzdGVwIjoib3BlbiB0YXJnZXQgcGFnZSJ9XSwiYWN0aW9ucyI6W3siYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIxLjg1NVoiLCJpbnRlbnQiOiJlbnRlciBhcHAiLCJob3ciOiJnb3RvIC8ifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMToyMS45MThaIiwiaW50ZW50Ijoib3BlbiBib29rcyIsImNvbnRyb2wiOiI8YT4gbmFtZXM9W1wiQm9va3NcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIxLjk5NVoiLCJpbnRlbnQiOiJjcmVhdGUgYm9vayIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJDcmVhdGUgTmV3IEJvb2tcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIyLjAwNFoiLCJpbnRlbnQiOiJlbnRlciBib29rIG5hbWUiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJOYW1lXCJdIiwiaG93IjoiZmlsbCIsImFmdGVyIjoiQm9vayA2LjQuMSBbcjUtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIyLjA1MloiLCJpbnRlbnQiOiJlbnRlciBib29rIGRlc2NyaXB0aW9uIiwiY29udHJvbCI6IjxkaXYgcm9sZT10ZXh0Ym94PiBuYW1lcz1bXCJEZXNjcmlwdGlvblwiXSIsImhvdyI6InR5cGUgKHJpY2ggdGV4dCkiLCJhZnRlciI6IlJlZmVyZW5jZSBib29rIGRlc2NyaXB0aW9uLiJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIyLjA2NloiLCJpbnRlbnQiOiJlbnRlciBib29rIHRhZ3MiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJUYWdzXCJdIiwiaG93IjoiZmlsbCIsImFmdGVyIjoibWFudWFsLCBoYW5kYm9vayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIyLjEwOFoiLCJpbnRlbnQiOiJzYXZlIGJvb2siLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiU2F2ZSBCb29rXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMToyMi40MTVaIiwiaW50ZW50IjoibmV3IHBhZ2UiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiTmV3IFBhZ2VcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIyLjQyNloiLCJpbnRlbnQiOiJlbnRlciBwYWdlIHRpdGxlIiwiY29udHJvbCI6IjxpbnB1dD4gbmFtZXM9W1wiVGl0bGVcIixcIlBhZ2UgdGl0bGVcIl0iLCJob3ciOiJmaWxsIiwiYWZ0ZXIiOiJQYWdlIEEgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0ifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMToyMi40NjhaIiwiaW50ZW50IjoiZW50ZXIgcGFnZSBib2R5IiwiY29udHJvbCI6IjxkaXYgcm9sZT10ZXh0Ym94PiBuYW1lcz1bXCJQYWdlIGNvbnRlbnRcIixcIldyaXRlIHlvdXIgcGFnZSBjb250ZW50IGhlcmUuLi5cIl0iLCJob3ciOiJ0eXBlIChyaWNoIHRleHQpIiwiYWZ0ZXIiOiJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMS4ifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMToyMi41MDhaIiwiaW50ZW50Ijoic2F2ZSBwYWdlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIlNhdmUgcGFnZVwiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MjIuODI3WiIsImludGVudCI6Im5ldyBwYWdlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIk5ldyBQYWdlXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMToyMi44MzhaIiwiaW50ZW50IjoiZW50ZXIgcGFnZSB0aXRsZSIsImNvbnRyb2wiOiI8aW5wdXQ+IG5hbWVzPVtcIlRpdGxlXCIsXCJQYWdlIHRpdGxlXCJdIiwiaG93IjoiZmlsbCIsImFmdGVyIjoiUGFnZSBCIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MjIuODg4WiIsImludGVudCI6ImVudGVyIHBhZ2UgYm9keSIsImNvbnRyb2wiOiI8ZGl2IHJvbGU9dGV4dGJveD4gbmFtZXM9W1wiUGFnZSBjb250ZW50XCIsXCJXcml0ZSB5b3VyIHBhZ2UgY29udGVudCBoZXJlLi4uXCJdIiwiaG93IjoidHlwZSAocmljaCB0ZXh0KSIsImFmdGVyIjoiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjEuIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MjIuOTI1WiIsImludGVudCI6InNhdmUgcGFnZSIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJTYXZlIHBhZ2VcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIzLjI0MVoiLCJpbnRlbnQiOiJuZXcgcGFnZSIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJOZXcgUGFnZVwiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MjMuMjUxWiIsImludGVudCI6ImVudGVyIHBhZ2UgdGl0bGUiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJUaXRsZVwiLFwiUGFnZSB0aXRsZVwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IlBhZ2UgQyA2LjQuMSBbcjUtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIzLjMwNFoiLCJpbnRlbnQiOiJlbnRlciBwYWdlIGJvZHkiLCJjb250cm9sIjoiPGRpdiByb2xlPXRleHRib3g+IG5hbWVzPVtcIlBhZ2UgY29udGVudFwiLFwiV3JpdGUgeW91ciBwYWdlIGNvbnRlbnQgaGVyZS4uLlwiXSIsImhvdyI6InR5cGUgKHJpY2ggdGV4dCkiLCJhZnRlciI6IlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBDIDYuNC4xLiJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjIzLjM0M1oiLCJpbnRlbnQiOiJzYXZlIHBhZ2UiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiU2F2ZSBwYWdlXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMToyMy42NDNaIiwiaW50ZW50Ijoib3BlbiBwYWdlIiwidGFyZ2V0IjoiUGFnZSBCIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdIiwiY29udHJvbCI6IjxhPiBuYW1lcz1bXCJQYWdlIEIgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIl0iLCJob3ciOiJjbGljayJ9XSwibGFzdF9zdGVwIjoib3BlbiB0YXJnZXQgcGFnZSIsInN0ZXBzIjpbImVudGVyIiwiY3JlYXRlIGJvb2siLCJjcmVhdGUgcGFnZSBBIiwiY3JlYXRlIHBhZ2UgVEFSR0VUIiwiY3JlYXRlIHBhZ2UgQyIsIm9wZW4gdGFyZ2V0IHBhZ2UiXX0="
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBsaW5rICJTa2lwIHRvIGNvbnRlbnQiOgogIC0gL3VybDogIiNtYWluIgotIGJhbm5lcjoKICAtIGxpbmsgIkJvb2tTdGFjayBob21lIjoKICAgIC0gL3VybDogLwogICAgLSB0ZXh0OiBCb29rU3RhY2sKICAtIHNlYXJjaDoKICAgIC0gc2VhcmNoYm94ICJTZWFyY2giCiAgLSBuYXZpZ2F0aW9uICJNYWluIjoKICAgIC0gbGluayAiU2hlbHZlcyI6CiAgICAgIC0gL3VybDogL3NoZWx2ZXMKICAgIC0gbGluayAiQm9va3MiOgogICAgICAtIC91cmw6IC9ib29rcwogICAgLSBsaW5rICJMb2dpbiI6CiAgICAgIC0gL3VybDogL2xvZ2luCi0gbWFpbjoKICAtIG5hdmlnYXRpb24gIkJyZWFkY3J1bWIiOgogICAgLSBsaW5rICJCb29rcyI6CiAgICAgIC0gL3VybDogL2Jvb2tzCiAgICAtIGxpbmsgIkJvb2sgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0iOgogICAgICAtIC91cmw6IC9ib29rcy8wYmNmN2E0ZS05ODU1LTQ3MjgtOTU4My0xYmQ1NzFjMjVlNjIKICAgIC0gdGV4dDogUGFnZSBCIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdCiAgLSBhcnRpY2xlOgogICAgLSBoZWFkaW5nICJQYWdlIEIgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0iIFtsZXZlbD0xXQogICAgLSB0ZXh0OiBSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQyA2LjQuMS4KICAtIGNvbXBsZW1lbnRhcnkgIlBhZ2UgZGV0YWlscyBhbmQgYWN0aW9ucyI6CiAgICAtIGhlYWRpbmcgIkRldGFpbHMiIFtsZXZlbD0yXQogICAgLSBwYXJhZ3JhcGg6IENyZWF0ZWQgNiBPY3RvYmVyIDIwMjYKICAgIC0gaGVhZGluZyAiQWN0aW9ucyIgW2xldmVsPTJdCiAgICAtIGJ1dHRvbiAiRWRpdCBwYWdlIg=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "U2tpcCB0byBjb250ZW50CkJvb2tTdGFjawpTaGVsdmVzCkJvb2tzCkxvZ2luCkJvb2tzCuKAugpCb29rIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdCuKAugpQYWdlIEIgNi40LjEgW3I1LXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KUGFnZSBCIDYuNC4xIFtyNS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdClJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBDIDYuNC4xLgpEZXRhaWxzCgpDcmVhdGVkIDYgT2N0b2JlciAyMDI2CgpBY3Rpb25zCkVkaXQgcGFnZQ=="
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo2MDMzMS9wYWdlcy83Mjk5ZGQ0Ni1lNmQzLTQ1YTUtOGNiNC0yOWRjMjc5NGIzMTk="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/test-results/REQ-6.4-read-selected-page-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/test-results/REQ-6.4-read-selected-page-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/work/tests/lib/oracle.ts",
+                    "column": 61,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-5dd9605f98bc9ec040a8",
+          "file": "REQ-6.4.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "reopen_page_editor",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2560,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T20:11:34.522Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/test-results/REQ-6.4-reopen-page-editor-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJQQVNTIiwiQjY0LU8xIjoiUEFTUyIsIkI2NC1PNCI6IlBBU1MiLCJCNjQtTzUiOiJQQVNTIiwiQjY0LU82IjoiUEFTUyJ9LCJjaGVja3MiOlt7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCI8YT4gbmFtZXM9W1xcXCJQYWdlIEEgNi40LjIgW3I1LXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cXFwiXVwifSIsImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNS43MDZaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIEEifSx7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCI8YT4gbmFtZXM9W1xcXCJQYWdlIEIgNi40LjIgW3I1LXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cXFwiXVwifSIsImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNi4wOTVaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIFRBUkdFVCJ9LHsib2JsaWdhdGlvbiI6IkI2NC1QMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImVudHJpZXNcIjoxLFwiZXZpZGVuY2VcIjpcIjxhPiBuYW1lcz1bXFxcIlBhZ2UgQyA2LjQuMiBbcjUtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXVxcXCJdXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjM2LjUwNVoiLCJzdGVwIjoiY3JlYXRlIHBhZ2UgQyJ9LHsib2JsaWdhdGlvbiI6IkI2NC1PMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImhlYWRpbmdzXCI6W1wiUGFnZSBCIDYuNC4yIFtyNS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdXCIsXCJEZXRhaWxzXCIsXCJBY3Rpb25zXCJdLFwibGluZXNcIjpbXCJTa2lwIHRvIGNvbnRlbnRcIixcIkJvb2tTdGFja1wiLFwiU2hlbHZlc1wiLFwiQm9va3NcIixcIkxvZ2luXCIsXCJCb29rc1wiLFwi4oC6XCIsXCJCb29rIDYuNC4yIFtyNS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdXCIsXCLigLpcIixcIlBhZ2UgQiA2LjQuMiBbcjUtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXVwiLFwiUGFnZSBCIDYuNC4yIFtyNS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdXCIsXCJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQyA2LjQuMi5cIixcIkRldGFpbHNcIixcIkNyZWF0ZWQgNiBPY3RvYmVyIDIwMjZcIixcIkFjdGlvbnNcIixcIkVkaXQgcGFnZVwiXSxcImV2aWRlbmNlXCI6XCJ1cmw9L3BhZ2VzL2FkNzA4NGY0LTI2NDItNDVlMS04ZDM4LTFkOWNmMGJhOWMyOFwifSIsImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNi44MDlaIiwic3RlcCI6Im9wZW4gdGFyZ2V0IHBhZ2UifSx7Im9ibGlnYXRpb24iOiJCNjQtTzQiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJ0aXRsZVZhbHVlXCI6XCJQYWdlIEIgNi40LjIgW3I1LXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cIixcImJvZHlWYWx1ZVwiOlwiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjIuXCIsXCJzYXZlVmlzaWJsZVwiOnRydWUsXCJldmlkZW5jZVwiOlwidGl0bGU9PGlucHV0PiBuYW1lcz1bXFxcIlRpdGxlXFxcIixcXFwiUGFnZSB0aXRsZVxcXCJdIGJvZHk9PGRpdiByb2xlPXRleHRib3g+IG5hbWVzPVtcXFwiUGFnZSBjb250ZW50XFxcIixcXFwiV3JpdGUgeW91ciBwYWdlIGNvbnRlbnQgaGVyZS4uLlxcXCJdIHNhdmU9PGJ1dHRvbj4gbmFtZXM9W1xcXCJTYXZlIHBhZ2VcXFwiXVwifSIsImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNy4xMzNaIiwic3RlcCI6Im9wZW4gZWRpdG9yIn0seyJvYmxpZ2F0aW9uIjoiQjY0LU81Iiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1widGl0bGVWYWx1ZVwiOlwiUGFnZSBCIDYuNC4yIFtyNS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdXCIsXCJib2R5VmFsdWVcIjpcIlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBCIDYuNC4yLlwiLFwic2F2ZVZpc2libGVcIjp0cnVlLFwiZXZpZGVuY2VcIjpcInRpdGxlPTxpbnB1dD4gbmFtZXM9W1xcXCJUaXRsZVxcXCIsXFxcIlBhZ2UgdGl0bGVcXFwiXSBib2R5PTxkaXYgcm9sZT10ZXh0Ym94PiBuYW1lcz1bXFxcIlBhZ2UgY29udGVudFxcXCIsXFxcIldyaXRlIHlvdXIgcGFnZSBjb250ZW50IGhlcmUuLi5cXFwiXSBzYXZlPTxidXR0b24+IG5hbWVzPVtcXFwiU2F2ZSBwYWdlXFxcIl1cIn0iLCJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MzcuMTQxWiIsInN0ZXAiOiJvcGVuIGVkaXRvciJ9LHsib2JsaWdhdGlvbiI6IkI2NC1PNiIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcInRpdGxlVmFsdWVcIjpcIlBhZ2UgQiA2LjQuMiBbcjUtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXVwiLFwiYm9keVZhbHVlXCI6XCJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQiA2LjQuMi5cIixcInNhdmVWaXNpYmxlXCI6dHJ1ZSxcImV2aWRlbmNlXCI6XCJ0aXRsZT08aW5wdXQ+IG5hbWVzPVtcXFwiVGl0bGVcXFwiLFxcXCJQYWdlIHRpdGxlXFxcIl0gYm9keT08ZGl2IHJvbGU9dGV4dGJveD4gbmFtZXM9W1xcXCJQYWdlIGNvbnRlbnRcXFwiLFxcXCJXcml0ZSB5b3VyIHBhZ2UgY29udGVudCBoZXJlLi4uXFxcIl0gc2F2ZT08YnV0dG9uPiBuYW1lcz1bXFxcIlNhdmUgcGFnZVxcXCJdXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjM3LjE0N1oiLCJzdGVwIjoib3BlbiBlZGl0b3IifV0sImFjdGlvbnMiOlt7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNC43NzRaIiwiaW50ZW50IjoiZW50ZXIgYXBwIiwiaG93IjoiZ290byAvIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MzQuODg2WiIsImludGVudCI6Im9wZW4gYm9va3MiLCJjb250cm9sIjoiPGE+IG5hbWVzPVtcIkJvb2tzXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNC45MzBaIiwiaW50ZW50IjoiY3JlYXRlIGJvb2siLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiQ3JlYXRlIE5ldyBCb29rXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNC45NDNaIiwiaW50ZW50IjoiZW50ZXIgYm9vayBuYW1lIiwiY29udHJvbCI6IjxpbnB1dD4gbmFtZXM9W1wiTmFtZVwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IkJvb2sgNi40LjIgW3I1LXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0ifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNS4wMDVaIiwiaW50ZW50IjoiZW50ZXIgYm9vayBkZXNjcmlwdGlvbiIsImNvbnRyb2wiOiI8ZGl2IHJvbGU9dGV4dGJveD4gbmFtZXM9W1wiRGVzY3JpcHRpb25cIl0iLCJob3ciOiJ0eXBlIChyaWNoIHRleHQpIiwiYWZ0ZXIiOiJSZWZlcmVuY2UgYm9vayBkZXNjcmlwdGlvbi4ifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNS4wMjRaIiwiaW50ZW50IjoiZW50ZXIgYm9vayB0YWdzIiwiY29udHJvbCI6IjxpbnB1dD4gbmFtZXM9W1wiVGFnc1wiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6Im1hbnVhbCwgaGFuZGJvb2sifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNS4wNThaIiwiaW50ZW50Ijoic2F2ZSBib29rIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIlNhdmUgQm9va1wiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MzUuMzQzWiIsImludGVudCI6Im5ldyBwYWdlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIk5ldyBQYWdlXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNS4zNTFaIiwiaW50ZW50IjoiZW50ZXIgcGFnZSB0aXRsZSIsImNvbnRyb2wiOiI8aW5wdXQ+IG5hbWVzPVtcIlRpdGxlXCIsXCJQYWdlIHRpdGxlXCJdIiwiaG93IjoiZmlsbCIsImFmdGVyIjoiUGFnZSBBIDYuNC4yIFtyNS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MzUuNDAxWiIsImludGVudCI6ImVudGVyIHBhZ2UgYm9keSIsImNvbnRyb2wiOiI8ZGl2IHJvbGU9dGV4dGJveD4gbmFtZXM9W1wiUGFnZSBjb250ZW50XCIsXCJXcml0ZSB5b3VyIHBhZ2UgY29udGVudCBoZXJlLi4uXCJdIiwiaG93IjoidHlwZSAocmljaCB0ZXh0KSIsImFmdGVyIjoiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEEgNi40LjIuIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MzUuNDQyWiIsImludGVudCI6InNhdmUgcGFnZSIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJTYXZlIHBhZ2VcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjM1Ljc0MloiLCJpbnRlbnQiOiJuZXcgcGFnZSIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJOZXcgUGFnZVwiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MzUuNzUwWiIsImludGVudCI6ImVudGVyIHBhZ2UgdGl0bGUiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJUaXRsZVwiLFwiUGFnZSB0aXRsZVwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IlBhZ2UgQiA2LjQuMiBbcjUtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjM1LjgwMVoiLCJpbnRlbnQiOiJlbnRlciBwYWdlIGJvZHkiLCJjb250cm9sIjoiPGRpdiByb2xlPXRleHRib3g+IG5hbWVzPVtcIlBhZ2UgY29udGVudFwiLFwiV3JpdGUgeW91ciBwYWdlIGNvbnRlbnQgaGVyZS4uLlwiXSIsImhvdyI6InR5cGUgKHJpY2ggdGV4dCkiLCJhZnRlciI6IlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBCIDYuNC4yLiJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjM1LjgyNVoiLCJpbnRlbnQiOiJzYXZlIHBhZ2UiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiU2F2ZSBwYWdlXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNi4xMjVaIiwiaW50ZW50IjoibmV3IHBhZ2UiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiTmV3IFBhZ2VcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDIwOjExOjM2LjEzNVoiLCJpbnRlbnQiOiJlbnRlciBwYWdlIHRpdGxlIiwiY29udHJvbCI6IjxpbnB1dD4gbmFtZXM9W1wiVGl0bGVcIixcIlBhZ2UgdGl0bGVcIl0iLCJob3ciOiJmaWxsIiwiYWZ0ZXIiOiJQYWdlIEMgNi40LjIgW3I1LXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0ifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNi4xODZaIiwiaW50ZW50IjoiZW50ZXIgcGFnZSBib2R5IiwiY29udHJvbCI6IjxkaXYgcm9sZT10ZXh0Ym94PiBuYW1lcz1bXCJQYWdlIGNvbnRlbnRcIixcIldyaXRlIHlvdXIgcGFnZSBjb250ZW50IGhlcmUuLi5cIl0iLCJob3ciOiJ0eXBlIChyaWNoIHRleHQpIiwiYWZ0ZXIiOiJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQyA2LjQuMi4ifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNi4yMjZaIiwiaW50ZW50Ijoic2F2ZSBwYWdlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIlNhdmUgcGFnZVwiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMjA6MTE6MzYuNTQ0WiIsImludGVudCI6Im9wZW4gcGFnZSIsInRhcmdldCI6IlBhZ2UgQiA2LjQuMiBbcjUtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSIsImNvbnRyb2wiOiI8YT4gbmFtZXM9W1wiUGFnZSBCIDYuNC4yIFtyNS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQyMDoxMTozNi44NDVaIiwiaW50ZW50Ijoib3BlbiBwYWdlIGVkaXRvciIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJFZGl0IHBhZ2VcIl0iLCJob3ciOiJjbGljayJ9XSwibGFzdF9zdGVwIjoib3BlbiBlZGl0b3IiLCJzdGVwcyI6WyJlbnRlciIsImNyZWF0ZSBib29rIiwiY3JlYXRlIHBhZ2UgQSIsImNyZWF0ZSBwYWdlIFRBUkdFVCIsImNyZWF0ZSBwYWdlIEMiLCJvcGVuIHRhcmdldCBwYWdlIiwib3BlbiBlZGl0b3IiXX0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X6-bookstack.REQ-6.4.B64-D9/rep5/test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-a1c648922e744b6c557a",
+          "file": "REQ-6.4.spec.ts",
+          "line": 35,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T20:11:21.298Z",
+    "duration": 15967.469,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,20 @@
+server pid 67269 port 39285 build /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/builds/Cpilot-keep--correct--f1cc4530395d6c22
+open http://127.0.0.1:39285/
+click button "Take a note…" (creation entry, found by role=button + visible text in main)
+click textbox "Title" in editor dialog; type "Call dentist existing [80c6f1]"
+click textbox "Note text" in editor dialog
+type "Reminder content"
+click button "Add label" in editor (label chooser)
+check checkbox "Reminders" in dialog "Label note"
+click button "Done" in dialog "Label note"
+click button "Close" in editor dialog (close action; no save action used)
+click button "Take a note…" (creation entry, found by role=button + visible text in main)
+click textbox "Title" in editor dialog; type "Movie list [80c6f1]"
+click textbox "Note text" in editor dialog
+type "Unlabeled content"
+click button "Close" in editor dialog (close action; no save action used)
+click (focus) searchbox "Search notes"
+click button "Reminders" in region "Filter by label"
+click button "Clear search" in search bar
+click button "Notes" in navigation "Main navigation"
+stopped server pid 67269

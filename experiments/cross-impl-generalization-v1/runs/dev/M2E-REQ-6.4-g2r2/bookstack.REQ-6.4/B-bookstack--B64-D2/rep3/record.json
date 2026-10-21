@@ -1,0 +1,69 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "B-bookstack.REQ-6.4.B64-D2",
+ "method": "M2E-REQ-6.4-g2r2",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "db8d297a2b74f080507bd959ec8adacc02159d3e4a3d934b1da523338334086e",
+ "execution_repeat": 3,
+ "run_id": "r3",
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "e0973e07baff442ebd43aa664d1802838b49854cfce676675ebffabd10a106d6",
+ "source_hash": "e0973e07baff442ebd43aa664d1802838b49854cfce676675ebffabd10a106d6",
+ "runtime_ms": 29467,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 13190,
+   "errors": [
+    "ReferenceError: pageView is not defined\n\n   at lib/operations.ts:65\n\n  63 |   // Verify the correct page is opened by checking the heading\n  64 |   await eventually(\n> 65 |     () => pageView(page),\n     |           ^\n  66 |     v => {\n  67 |       const normTitle = title.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, ' ').trim();\n  68 |       const headings = v.headings.map(h => h.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, ' ').trim());\n    at observe (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/lib/operations.ts:65:11)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/lib/adapt.ts:74:23)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/lib/operations.ts:64:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/REQ-6.4.spec.ts:27:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- link \"Skip to content\":\n  - /url: \"#main\"\n- banner:\n  - link \"Knowledge Base\":\n    - /url: /\n  - search:\n    - textbox \"Search\"\n  - navigation \"Main\":\n    - list:\n      - listitem:\n        - link \"Shelves\":\n          - /url: /shelves\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Log in\":\n          - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - list:\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Book 6.4.1 [r3-w0-read-selected-page]\":\n          - /url: /books/6ad3c5e7-2f51-4515-a5a6-4b7f6b3ac331\n      - listitem: Page B 6.4.1 [r3-w0-read-selected-page]\n  - article:\n    - heading \"Page B 6.4.1 [r3-w0-read-selected-page]\" [level=1]\n    - text: Reading content for Page B 6.4.1.\n  - complementary \"Page details and actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"Edit\"",
+    "visible-text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook 6.4.1 [r3-w0-read-selected-page]\nPage B 6.4.1 [r3-w0-read-selected-page]\nPage B 6.4.1 [r3-w0-read-selected-page]\nReading content for Page B 6.4.1.\nDetails\n\nCreated 6 October 2026\n\nActions\nEdit",
+    "url": "http://127.0.0.1:58154/books/6ad3c5e7-2f51-4515-a5a6-4b7f6b3ac331/pages/9f8874a6-1e92-4b08-8eb6-3023f4f3ab38"
+   }
+  },
+  {
+   "title": "reopen_page_editor",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 13185,
+   "errors": [
+    "ReferenceError: pageView is not defined\n\n   at lib/operations.ts:65\n\n  63 |   // Verify the correct page is opened by checking the heading\n  64 |   await eventually(\n> 65 |     () => pageView(page),\n     |           ^\n  66 |     v => {\n  67 |       const normTitle = title.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, ' ').trim();\n  68 |       const headings = v.headings.map(h => h.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, ' ').trim());\n    at observe (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/lib/operations.ts:65:11)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/lib/adapt.ts:74:23)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/lib/operations.ts:64:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/REQ-6.4.spec.ts:35:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- link \"Skip to content\":\n  - /url: \"#main\"\n- banner:\n  - link \"Knowledge Base\":\n    - /url: /\n  - search:\n    - textbox \"Search\"\n  - navigation \"Main\":\n    - list:\n      - listitem:\n        - link \"Shelves\":\n          - /url: /shelves\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Log in\":\n          - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - list:\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Book 6.4.2 [r3-w1-reopen-page-editor]\":\n          - /url: /books/879de7e9-9218-470b-8343-ad80d4294d2e\n      - listitem: Page B 6.4.2 [r3-w1-reopen-page-editor]\n  - article:\n    - heading \"Page B 6.4.2 [r3-w1-reopen-page-editor]\" [level=1]\n    - text: Reading content for Page B 6.4.2.\n  - complementary \"Page details and actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"Edit\"",
+    "visible-text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook 6.4.2 [r3-w1-reopen-page-editor]\nPage B 6.4.2 [r3-w1-reopen-page-editor]\nPage B 6.4.2 [r3-w1-reopen-page-editor]\nReading content for Page B 6.4.2.\nDetails\n\nCreated 6 October 2026\n\nActions\nEdit",
+    "url": "http://127.0.0.1:58154/books/879de7e9-9218-470b-8343-ad80d4294d2e/pages/2e083e93-d676-4bb9-961c-971d818d3ecd"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "TEST_ERROR",
+ "raw_report_path": "runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/report.json",
+ "trace_path": "runs/dev/M2E-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

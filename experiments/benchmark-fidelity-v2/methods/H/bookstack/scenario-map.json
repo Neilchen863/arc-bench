@@ -1,0 +1,28 @@
+{
+ "spec_files": {
+  "REQ-6.4": "tests/REQ-6.4.spec.ts"
+ },
+ "cases": {
+  "REQ-6.4": {
+   "read_selected_page": "read_selected_page",
+   "reopen_page_editor": "reopen_page_editor"
+  }
+ },
+ "read_only": [
+  "tests/lib/oracle.ts",
+  "tests/lib/inputs.ts",
+  "tests/lib/ledger.ts"
+ ],
+ "editable": [
+  "tests/lib/operations.ts",
+  "tests/lib/observe.ts",
+  "tests/lib/adapt.ts",
+  "tests/REQ-6.4.spec.ts",
+  "tests/lib/evidence.ts"
+ ],
+ "common_files": {
+  "tests/lib/ledger.ts": "common/ledger.ts",
+  "tests/lib/oracle.ts": "common/bookstack/oracle.ts",
+  "tests/lib/inputs.ts": "common/bookstack/inputs.ts"
+ }
+}

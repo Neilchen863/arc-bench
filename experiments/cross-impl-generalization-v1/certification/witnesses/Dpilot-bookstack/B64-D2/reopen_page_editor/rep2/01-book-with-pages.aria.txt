@@ -1,0 +1,47 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "BookStack home":
+    - /url: /
+    - text: BookStack
+  - search:
+    - searchbox "Search"
+  - navigation "Main":
+    - link "Shelves":
+      - /url: /shelves
+    - link "Books":
+      - /url: /books
+    - link "Login":
+      - /url: /login
+- main:
+  - navigation "Breadcrumb":
+    - link "Books":
+      - /url: /books
+    - text: Book 6.4.2 [CERT-DB64D2e2]
+  - article:
+    - heading "Book 6.4.2 [CERT-DB64D2e2]" [level=1]
+    - text: Certification book for 6.4.2.
+    - list "Tags":
+      - listitem: certification
+      - listitem: reading
+    - region "Pages":
+      - heading "Pages" [level=2]
+      - list:
+        - listitem:
+          - link "Page A 6.4.2 [CERT-DB64D2e2]":
+            - /url: /pages/c964ca8a-c376-43ab-be74-bb3579c39cc9
+          - paragraph: Reading content for Page A 6.4.2.
+        - listitem:
+          - link "Page B 6.4.2 [CERT-DB64D2e2]":
+            - /url: /pages/52904830-f385-4857-a8d0-6f3963401af5
+          - paragraph: Reading content for Page B 6.4.2.
+        - listitem:
+          - link "Page C 6.4.2 [CERT-DB64D2e2]":
+            - /url: /pages/1ced066c-96c7-4e6f-82e2-285b34a6b18e
+          - paragraph: Reading content for Page C 6.4.2.
+  - complementary "Book details and actions":
+    - heading "Details" [level=2]
+    - paragraph: Created 6 October 2026
+    - heading "Actions" [level=2]
+    - button "New Page"
+    - button "Edit book"

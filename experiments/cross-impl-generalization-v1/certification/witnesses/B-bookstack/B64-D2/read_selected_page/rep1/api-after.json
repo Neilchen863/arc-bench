@@ -1,0 +1,45 @@
+{
+  "books": [
+    {
+      "name": "Book 6.4.1 [CERT-1bed0cc]",
+      "description": "Certification book for 6.4.1 [CERT-1bed0cc].",
+      "tags": [
+        "cert",
+        "reading"
+      ],
+      "updatedOn": "2026-10-06T12:00:00Z",
+      "createdOn": "2026-10-06T12:00:00Z",
+      "id": "8da83aff-a8cd-435a-8dc4-efea74baca90",
+      "createdAt": "2026-10-19T08:00:59.803Z"
+    }
+  ],
+  "pages": [
+    {
+      "title": "Page A 6.4.1 [CERT-1bed0cc]",
+      "body": "Reading content for Page A 6.4.1.",
+      "updatedOn": "2026-10-06T12:00:00Z",
+      "bookId": "8da83aff-a8cd-435a-8dc4-efea74baca90",
+      "createdOn": "2026-10-06T12:00:00Z",
+      "id": "28b048ee-3a64-4ec2-aa34-07dc1555e709",
+      "createdAt": "2026-10-19T08:01:00.457Z"
+    },
+    {
+      "title": "Page B 6.4.1 [CERT-1bed0cc]",
+      "body": "Reading content for Page B 6.4.1.",
+      "updatedOn": "2026-10-06T12:00:00Z",
+      "bookId": "8da83aff-a8cd-435a-8dc4-efea74baca90",
+      "createdOn": "2026-10-06T12:00:00Z",
+      "id": "f7f21cf1-d5e3-46b5-8d56-3fee6d824e8e",
+      "createdAt": "2026-10-19T08:01:01.125Z"
+    },
+    {
+      "title": "Page C 6.4.1 [CERT-1bed0cc]",
+      "body": "Reading content for Page C 6.4.1.",
+      "updatedOn": "2026-10-06T12:00:00Z",
+      "bookId": "8da83aff-a8cd-435a-8dc4-efea74baca90",
+      "createdOn": "2026-10-06T12:00:00Z",
+      "id": "d67ae79d-1ddf-49cc-8613-e1a2490e4878",
+      "createdAt": "2026-10-19T08:01:01.742Z"
+    }
+  ]
+}

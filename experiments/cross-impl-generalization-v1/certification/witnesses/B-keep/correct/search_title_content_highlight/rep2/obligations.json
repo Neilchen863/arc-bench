@@ -1,0 +1,29 @@
+{
+  "variant": "correct",
+  "scenario": "search_title_content_highlight",
+  "rep": 2,
+  "obligations": {
+    "K41-O1": {
+      "holds": true,
+      "reason": "Study schedule cards visible: 1 (headings 1)"
+    },
+    "K41-O2": {
+      "holds": true,
+      "reason": "Reading plan cards visible: 1 (headings 1)"
+    },
+    "K41-O3": {
+      "holds": true,
+      "reason": "Ocean memo cards: 0, text occurrences in main: 0"
+    },
+    "K41-O4": {
+      "holds": true,
+      "reason": "Study: 1 highlighted fragment(s) [{\"text\":\"St\",\"tag\":\"mark\",\"bg\":\"rgb(251, 188, 4)\",\"vs\":\"rgb(255,255,255)\",\"d\":251}]; Reading: 1 highlighted fragment(s) [{\"text\":\"st\",\"tag\":\"mark\",\"bg\":\"rgb(251, 188, 4)\",\"vs\":\"rgb(255,255,255)\",\"d\":251}]"
+    },
+    "K41-O5": {
+      "holds": true,
+      "reason": "Study: cards 1, content visible true; Reading: cards 1, content visible true; Ocean: cards 1, content visible true; search value \"\"; clear-control present: 0"
+    }
+  },
+  "error": null,
+  "pageErrors": []
+}

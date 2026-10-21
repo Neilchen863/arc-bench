@@ -1,0 +1,1 @@
+{"family":"A","app":"bookstack","start":"PORT=<port> APP=bookstack STATIC_DIR=app/dist node server/server.mjs","health":"/__health","reset":"POST /__reset","build":"cd app && npm ci && npm run build","framework":"react@18.3.1 (vite@5.4.11)","component_library":"none","naming_mode":"S0"}

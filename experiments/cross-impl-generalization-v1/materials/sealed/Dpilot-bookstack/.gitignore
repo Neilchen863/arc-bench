@@ -1,0 +1,4 @@
+node_modules
+app/dist
+selfcheck/server.log
+selfcheck/server.pid

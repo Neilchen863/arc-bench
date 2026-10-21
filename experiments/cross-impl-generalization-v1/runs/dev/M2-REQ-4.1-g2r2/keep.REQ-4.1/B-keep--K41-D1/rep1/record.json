@@ -1,0 +1,69 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "B-keep.REQ-4.1.K41-D1",
+ "method": "M2-REQ-4.1-g2r2",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "36769c0039f8cbf986f6e44c73fbc3361a1410748a1c37c6ec1ccde359f52612",
+ "execution_repeat": 1,
+ "run_id": "r1",
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "aa8f0992d76bdcaeee618b45d1dfaeee4a670571babfe18da597a8e6f9ef0cd5",
+ "source_hash": "aa8f0992d76bdcaeee618b45d1dfaeee4a670571babfe18da597a8e6f9ef0cd5",
+ "runtime_ms": 26159,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "file": "REQ-4.1.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 13439,
+   "errors": [
+    "Error: OBLIGATION_FAIL K41-O2: expected exactly one note titled \"Reading plan [82f3e9c695-w0-c0bcaedb24]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/work/tests/lib/oracle.ts:23:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/work/tests/REQ-4.1.spec.ts:33:61)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/work/tests/lib/adapt.ts:74:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/work/tests/REQ-4.1.spec.ts:33:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Main menu\" [expanded]:\n    - img\n  - heading \"Keep\" [level=1]\n  - search:\n    - img\n    - searchbox \"Search notes\": st\n    - button \"Clear search\":\n      - img\n  - button \"List view\":\n    - img\n  - button \"Settings\":\n    - img\n- navigation \"Main navigation\":\n  - list:\n    - listitem:\n      - button \"Notes\":\n        - img\n        - text: Notes\n    - listitem:\n      - button \"Reminders\":\n        - img\n        - text: Reminders\n    - listitem:\n      - button \"Edit labels\":\n        - img\n        - text: Edit labels\n    - listitem:\n      - button \"Archive\":\n        - img\n        - text: Archive\n    - listitem:\n      - button \"Trash\":\n        - img\n        - text: Trash\n- main:\n  - heading \"Search results\" [level=2]\n  - region \"Others\":\n    - heading \"Others\" [level=3]\n    - article \"Study schedule [82f3e9c695-w0-c0bcaedb24]\":\n      - heading \"Study schedule [82f3e9c695-w0-c0bcaedb24]\" [level=3]:\n        - mark: St\n        - text: udy schedule [82f3e9c695-w0-c0bcaedb24]\n      - paragraph: Math on Monday\n      - button \"Pin Study schedule [82f3e9c695-w0-c0bcaedb24]\"\n      - button \"Edit Study schedule [82f3e9c695-w0-c0bcaedb24]\":\n        - img\n      - button \"More options for Study schedule [82f3e9c695-w0-c0bcaedb24]\":\n        - img",
+    "visible-text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nSearch results\nOTHERS\nStudy schedule [82f3e9c695-w0-c0bcaedb24]\n\nMath on Monday",
+    "url": "http://127.0.0.1:64028/"
+   }
+  },
+  {
+   "title": "suggested_label_filter",
+   "file": "REQ-4.1.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 10985,
+   "errors": [
+    "Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/work/tests/lib/adapt.ts:40:38)\n    at chooseLabelsInEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/work/tests/lib/operations.ts:59:17)\n    at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/work/tests/REQ-4.1.spec.ts:18:22)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/work/tests/REQ-4.1.spec.ts:47:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Main menu\" [expanded]:\n    - img\n  - heading \"Keep\" [level=1]\n  - search:\n    - img\n    - searchbox \"Search notes\"\n  - button \"List view\":\n    - img\n  - button \"Settings\":\n    - img\n- navigation \"Main navigation\":\n  - list:\n    - listitem:\n      - button \"Notes\":\n        - img\n        - text: Notes\n    - listitem:\n      - button \"Reminders\":\n        - img\n        - text: Reminders\n    - listitem:\n      - button \"Edit labels\":\n        - img\n        - text: Edit labels\n    - listitem:\n      - button \"Archive\":\n        - img\n        - text: Archive\n    - listitem:\n      - button \"Trash\":\n        - img\n        - text: Trash\n- main:\n  - heading \"Notes\" [level=2]\n  - button \"Take a note\u2026\"\n  - region \"Others\":\n    - heading \"Others\" [level=3]\n    - article \"Ocean memo [82f3e9c695-w0-c0bcaedb24]\":\n      - heading \"Ocean memo [82f3e9c695-w0-c0bcaedb24]\" [level=3]\n      - paragraph: Calm blue waves\n      - button \"Pin Ocean memo [82f3e9c695-w0-c0bcaedb24]\"\n      - button \"Edit Ocean memo [82f3e9c695-w0-c0bcaedb24]\":\n        - img\n      - button \"More options for Ocean memo [82f3e9c695-w0-c0bcaedb24]\":\n        - img\n    - article \"Reading plan [82f3e9c695-w0-c0bcaedb24]\":\n      - heading \"Reading plan [82f3e9c695-w0-c0bcaedb24]\" [level=3]\n      - paragraph: Read a story\n      - button \"Pin Reading plan [82f3e9c695-w0-c0bcaedb24]\"\n      - button \"Edit Reading plan [82f3e9c695-w0-c0bcaedb24]\":\n        - img\n      - button \"More options for Reading plan [82f3e9c695-w0-c0bcaedb24]\":\n        - img\n    - article \"Study schedule [82f3e9c695-w0-c0bcaedb24]\":\n      - heading \"Study schedule [82f3e9c695-w0-c0bcaedb24]\" [level=3]\n      - paragraph: Math on Monday\n      - button \"Pin Study schedule [82f3e9c695-w0-c0bcaedb24]\"\n      - button \"Edit Study schedule [82f3e9c695-w0-c0bcaedb24]\":\n        - img\n      - button \"More options for Study schedule [82f3e9c695-w0-c0bcaedb24]\":\n        - img\n- dialog \"New note\":\n  - banner:\n    - heading \"New note\" [level=2]\n  - textbox \"Title\": Call dentist existing [82f3e9c695-w1-fb7b338c04]\n  - button \"Pin note\"\n  - textbox \"Note text\":\n    - /placeholder: Take a note\u2026\n    - text: Reminder content\n  - contentinfo:\n    - button \"Background color\":\n      - img\n    - button \"Change labels\":\n      - img\n    - button \"Close\"\n- dialog \"Label note\":\n  - banner:\n    - heading \"Label note\" [level=2]\n    - button \"Close this dialog\":\n      - img\n  - paragraph: Labels for \u201cCall dentist existing [82f3e9c695-w1-fb7b338c04]\u201d\n  - group \"Available labels\":\n    - checkbox \"Reminders\"\n    - text: Reminders\n  - contentinfo:\n    - button \"Done\"",
+    "visible-text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nNotes\nTake a note\u2026\nOTHERS\nOcean memo [82f3e9c695-w0-c0bcaedb24]\n\nCalm blue waves\n\nReading plan [82f3e9c695-w0-c0bcaedb24]\n\nRead a story\n\nStudy schedule [82f3e9c695-w0-c0bcaedb24]\n\nMath on Monday\n\nNew note\nClose\nLabel note\n\nLabels for \u201cCall dentist existing [82f3e9c695-w1-fb7b338c04]\u201d\n\nReminders\nDone",
+    "url": "http://127.0.0.1:64028/"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/report.json",
+ "trace_path": "runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/B-keep--K41-D1/rep1/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

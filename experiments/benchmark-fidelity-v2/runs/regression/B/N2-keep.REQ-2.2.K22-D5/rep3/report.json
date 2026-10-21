@@ -1,0 +1,267 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-2.2.spec.ts",
+      "file": "REQ-2.2.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "autosave_on_close",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12625,
+                  "error": {
+                    "message": "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"New note [e49d63b2a8-w0-37be560208]\", observed 2 (<article role=null class=\"note-card\"> | <article role=null class=\"note-card\">)",
+                    "stack": "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"New note [e49d63b2a8-w0-37be560208]\", observed 2 (<article role=null class=\"note-card\"> | <article role=null class=\"note-card\">)\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts:27:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/REQ-2.2.spec.ts:25:54)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/REQ-2.2.spec.ts:25:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts",
+                      "column": 61,
+                      "line": 8
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts",
+                        "column": 61,
+                        "line": 8
+                      },
+                      "message": "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"New note [e49d63b2a8-w0-37be560208]\", observed 2 (<article role=null class=\"note-card\"> | <article role=null class=\"note-card\">)\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts:27:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/REQ-2.2.spec.ts:25:54)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/REQ-2.2.spec.ts:25:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:30:02.980Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/test-results/REQ-2.2-autosave-on-close-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJLMjItTzEiOiJQQVNTIiwiSzIyLU8yIjoiRkFJTCIsIksyMi1PMyI6Ik5PVF9SRUFDSEVEIiwiSzIyLU80IjoiTk9UX1JFQUNIRUQiLCJLMjItTzUiOiJQQVNTIn0sImNoZWNrcyI6W3sib2JsaWdhdGlvbiI6IksyMi1PNSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IlwiY2xvc2UgYWN0aW9uIG9ubHkgKG9wZXJhdGlvbiBsYXllciByZWZ1c2VzIHNhdmUtbGlrZSBjb250cm9scylcIiIsImF0IjoiMjAyNi0xMC0xOVQxODozMDowMy45MTRaIiwic3RlcCI6ImRpc21pc3MgZWRpdG9yIn0seyJvYmxpZ2F0aW9uIjoiSzIyLU8xIiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1wiYWN0aXZlQ29udHJvbHNcIjpbXSxcIm1vZGFsU3VyZmFjZVNob3duXCI6ZmFsc2UsXCJldmlkZW5jZVwiOlwic3VyZmFjZSBkZXRhY2hlZFwifSIsImF0IjoiMjAyNi0xMC0xOVQxODozMDowNS40NDRaIiwic3RlcCI6ImRpc21pc3MgZWRpdG9yIn0seyJvYmxpZ2F0aW9uIjoiSzIyLU8yIiwic3RhdHVzIjoiRkFJTCIsImRldGFpbCI6Ik9CTElHQVRJT05fRkFJTCBLMjItTzI6IGV4cGVjdGVkIGV4YWN0bHkgb25lIG5vdGUgdGl0bGVkIFwiTmV3IG5vdGUgW2U0OWQ2M2IyYTgtdzAtMzdiZTU2MDIwOF1cIiwgb2JzZXJ2ZWQgMiAoPGFydGljbGUgcm9sZT1udWxsIGNsYXNzPVwibm90ZS1jYXJkXCI+IHwgPGFydGljbGUgcm9sZT1udWxsIGNsYXNzPVwibm90ZS1jYXJkXCI+KSIsIm9ic2VydmVkIjoie1widGl0bGVcIjpcIk5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdXCIsXCJtYXRjaGVzXCI6MixcInZpc2libGVcIjp0cnVlLFwidGl0bGVTaG93blwiOnRydWUsXCJsaW5lc1wiOltcIk5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdXCIsXCJGaXJzdCBsaW5lXCIsXCJTZWNvbmQgbGluZVwiXSxcImV2aWRlbmNlXCI6XCI8YXJ0aWNsZSByb2xlPW51bGwgY2xhc3M9XFxcIm5vdGUtY2FyZFxcXCI+IHwgPGFydGljbGUgcm9sZT1udWxsIGNsYXNzPVxcXCJub3RlLWNhcmRcXFwiPlwifSIsImF0IjoiMjAyNi0xMC0xOVQxODozMDoxNS42NTBaIiwic3RlcCI6ImRpc21pc3MgZWRpdG9yIn1dLCJhY3Rpb25zIjpbXSwibGFzdF9zdGVwIjoiZGlzbWlzcyBlZGl0b3IiLCJzdGVwcyI6WyJvcGVuIGhvbWUiLCJvcGVuIGVkaXRvciIsImVudGVyIG5vdGUiLCJkaXNtaXNzIGVkaXRvciJdfQ=="
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBiYW5uZXI6CiAgLSBidXR0b24gIk1haW4gbWVudSIgW2V4cGFuZGVkXToKICAgIC0gaW1nCiAgLSBoZWFkaW5nICJLZWVwIiBbbGV2ZWw9MV0KICAtIHNlYXJjaDoKICAgIC0gaW1nCiAgICAtIHNlYXJjaGJveCAiU2VhcmNoIG5vdGVzIgogIC0gYnV0dG9uICJMaXN0IHZpZXciOgogICAgLSBpbWcKICAtIGJ1dHRvbiAiU2V0dGluZ3MiOgogICAgLSBpbWcKLSBuYXZpZ2F0aW9uICJNYWluIG5hdmlnYXRpb24iOgogIC0gbGlzdDoKICAgIC0gbGlzdGl0ZW06CiAgICAgIC0gYnV0dG9uICJOb3RlcyI6CiAgICAgICAgLSBpbWcKICAgICAgICAtIHRleHQ6IE5vdGVzCiAgICAtIGxpc3RpdGVtOgogICAgICAtIGJ1dHRvbiAiUmVtaW5kZXJzIjoKICAgICAgICAtIGltZwogICAgICAgIC0gdGV4dDogUmVtaW5kZXJzCiAgICAtIGxpc3RpdGVtOgogICAgICAtIGJ1dHRvbiAiRWRpdCBsYWJlbHMiOgogICAgICAgIC0gaW1nCiAgICAgICAgLSB0ZXh0OiBFZGl0IGxhYmVscwogICAgLSBsaXN0aXRlbToKICAgICAgLSBidXR0b24gIkFyY2hpdmUiOgogICAgICAgIC0gaW1nCiAgICAgICAgLSB0ZXh0OiBBcmNoaXZlCiAgICAtIGxpc3RpdGVtOgogICAgICAtIGJ1dHRvbiAiVHJhc2giOgogICAgICAgIC0gaW1nCiAgICAgICAgLSB0ZXh0OiBUcmFzaAotIG1haW46CiAgLSBoZWFkaW5nICJOb3RlcyIgW2xldmVsPTJdCiAgLSBidXR0b24gIlRha2UgYSBub3Rl4oCmIgogIC0gcmVnaW9uICJPdGhlcnMiOgogICAgLSBoZWFkaW5nICJPdGhlcnMiIFtsZXZlbD0zXQogICAgLSBhcnRpY2xlICJOZXcgbm90ZSBbZTQ5ZDYzYjJhOC13MC0zN2JlNTYwMjA4XSI6CiAgICAgIC0gaGVhZGluZyAiTmV3IG5vdGUgW2U0OWQ2M2IyYTgtdzAtMzdiZTU2MDIwOF0iIFtsZXZlbD0zXQogICAgICAtIHBhcmFncmFwaDogRmlyc3QgbGluZSBTZWNvbmQgbGluZQogICAgICAtIGJ1dHRvbiAiUGluIE5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdIgogICAgICAtIGJ1dHRvbiAiRWRpdCBOZXcgbm90ZSBbZTQ5ZDYzYjJhOC13MC0zN2JlNTYwMjA4XSI6CiAgICAgICAgLSBpbWcKICAgICAgLSBidXR0b24gIk1vcmUgb3B0aW9ucyBmb3IgTmV3IG5vdGUgW2U0OWQ2M2IyYTgtdzAtMzdiZTU2MDIwOF0iOgogICAgICAgIC0gaW1nCiAgICAtIGFydGljbGUgIk5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdIjoKICAgICAgLSBoZWFkaW5nICJOZXcgbm90ZSBbZTQ5ZDYzYjJhOC13MC0zN2JlNTYwMjA4XSIgW2xldmVsPTNdCiAgICAgIC0gcGFyYWdyYXBoOiBGaXJzdCBsaW5lIFNlY29uZCBsaW5lCiAgICAgIC0gYnV0dG9uICJQaW4gTmV3IG5vdGUgW2U0OWQ2M2IyYTgtdzAtMzdiZTU2MDIwOF0iCiAgICAgIC0gYnV0dG9uICJFZGl0IE5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdIjoKICAgICAgICAtIGltZwogICAgICAtIGJ1dHRvbiAiTW9yZSBvcHRpb25zIGZvciBOZXcgbm90ZSBbZTQ5ZDYzYjJhOC13MC0zN2JlNTYwMjA4XSI6CiAgICAgICAgLSBpbWc="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "S2VlcApOb3RlcwpSZW1pbmRlcnMKRWRpdCBsYWJlbHMKQXJjaGl2ZQpUcmFzaApOb3RlcwpUYWtlIGEgbm90ZeKApgpPVEhFUlMKTmV3IG5vdGUgW2U0OWQ2M2IyYTgtdzAtMzdiZTU2MDIwOF0KCkZpcnN0IGxpbmUKU2Vjb25kIGxpbmUKCk5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdCgpGaXJzdCBsaW5lClNlY29uZCBsaW5l"
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo1NDY3OC8="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/test-results/REQ-2.2-autosave-on-close-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/test-results/REQ-2.2-autosave-on-close-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts",
+                    "column": 61,
+                    "line": 8
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bcc76bf73e172b9e647c-9a608727db2a12b9c13e",
+          "file": "REQ-2.2.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "persist_after_reload",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12710,
+                  "error": {
+                    "message": "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"Persistent note [e49d63b2a8-w1-01c3c2598e]\", observed 2 (<article role=null class=\"note-card\"> | <article role=null class=\"note-card\">)",
+                    "stack": "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"Persistent note [e49d63b2a8-w1-01c3c2598e]\", observed 2 (<article role=null class=\"note-card\"> | <article role=null class=\"note-card\">)\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts:27:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/REQ-2.2.spec.ts:38:54)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/REQ-2.2.spec.ts:38:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts",
+                      "column": 61,
+                      "line": 8
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts",
+                        "column": 61,
+                        "line": 8
+                      },
+                      "message": "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"Persistent note [e49d63b2a8-w1-01c3c2598e]\", observed 2 (<article role=null class=\"note-card\"> | <article role=null class=\"note-card\">)\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts:27:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/REQ-2.2.spec.ts:38:54)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/REQ-2.2.spec.ts:38:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:30:16.175Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/test-results/REQ-2.2-persist-after-reload-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJLMjItTzEiOiJQQVNTIiwiSzIyLU8yIjoiRkFJTCIsIksyMi1PNiI6Ik5PVF9SRUFDSEVEIn0sImNoZWNrcyI6W3sib2JsaWdhdGlvbiI6IksyMi1PMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImFjdGl2ZUNvbnRyb2xzXCI6W10sXCJtb2RhbFN1cmZhY2VTaG93blwiOmZhbHNlLFwiZXZpZGVuY2VcIjpcInN1cmZhY2UgZGV0YWNoZWRcIn0iLCJhdCI6IjIwMjYtMTAtMTlUMTg6MzA6MTguNjgzWiIsInN0ZXAiOiJkaXNtaXNzIGVkaXRvciJ9LHsib2JsaWdhdGlvbiI6IksyMi1PMiIsInN0YXR1cyI6IkZBSUwiLCJkZXRhaWwiOiJPQkxJR0FUSU9OX0ZBSUwgSzIyLU8yOiBleHBlY3RlZCBleGFjdGx5IG9uZSBub3RlIHRpdGxlZCBcIlBlcnNpc3RlbnQgbm90ZSBbZTQ5ZDYzYjJhOC13MS0wMWMzYzI1OThlXVwiLCBvYnNlcnZlZCAyICg8YXJ0aWNsZSByb2xlPW51bGwgY2xhc3M9XCJub3RlLWNhcmRcIj4gfCA8YXJ0aWNsZSByb2xlPW51bGwgY2xhc3M9XCJub3RlLWNhcmRcIj4pIiwib2JzZXJ2ZWQiOiJ7XCJ0aXRsZVwiOlwiUGVyc2lzdGVudCBub3RlIFtlNDlkNjNiMmE4LXcxLTAxYzNjMjU5OGVdXCIsXCJtYXRjaGVzXCI6MixcInZpc2libGVcIjp0cnVlLFwidGl0bGVTaG93blwiOnRydWUsXCJsaW5lc1wiOltcIlBlcnNpc3RlbnQgbm90ZSBbZTQ5ZDYzYjJhOC13MS0wMWMzYzI1OThlXVwiLFwiU2F2ZWQgcGVyc29uYWwgY29udGVudFwiXSxcImV2aWRlbmNlXCI6XCI8YXJ0aWNsZSByb2xlPW51bGwgY2xhc3M9XFxcIm5vdGUtY2FyZFxcXCI+IHwgPGFydGljbGUgcm9sZT1udWxsIGNsYXNzPVxcXCJub3RlLWNhcmRcXFwiPlwifSIsImF0IjoiMjAyNi0xMC0xOVQxODozMDoyOC45MzJaIiwic3RlcCI6ImRpc21pc3MgZWRpdG9yIn1dLCJhY3Rpb25zIjpbXSwibGFzdF9zdGVwIjoiZGlzbWlzcyBlZGl0b3IiLCJzdGVwcyI6WyJvcGVuIGhvbWUiLCJvcGVuIGVkaXRvciIsImVudGVyIG5vdGUiLCJkaXNtaXNzIGVkaXRvciJdfQ=="
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBiYW5uZXI6CiAgLSBidXR0b24gIk1haW4gbWVudSIgW2V4cGFuZGVkXToKICAgIC0gaW1nCiAgLSBoZWFkaW5nICJLZWVwIiBbbGV2ZWw9MV0KICAtIHNlYXJjaDoKICAgIC0gaW1nCiAgICAtIHNlYXJjaGJveCAiU2VhcmNoIG5vdGVzIgogIC0gYnV0dG9uICJMaXN0IHZpZXciOgogICAgLSBpbWcKICAtIGJ1dHRvbiAiU2V0dGluZ3MiOgogICAgLSBpbWcKLSBuYXZpZ2F0aW9uICJNYWluIG5hdmlnYXRpb24iOgogIC0gbGlzdDoKICAgIC0gbGlzdGl0ZW06CiAgICAgIC0gYnV0dG9uICJOb3RlcyI6CiAgICAgICAgLSBpbWcKICAgICAgICAtIHRleHQ6IE5vdGVzCiAgICAtIGxpc3RpdGVtOgogICAgICAtIGJ1dHRvbiAiUmVtaW5kZXJzIjoKICAgICAgICAtIGltZwogICAgICAgIC0gdGV4dDogUmVtaW5kZXJzCiAgICAtIGxpc3RpdGVtOgogICAgICAtIGJ1dHRvbiAiRWRpdCBsYWJlbHMiOgogICAgICAgIC0gaW1nCiAgICAgICAgLSB0ZXh0OiBFZGl0IGxhYmVscwogICAgLSBsaXN0aXRlbToKICAgICAgLSBidXR0b24gIkFyY2hpdmUiOgogICAgICAgIC0gaW1nCiAgICAgICAgLSB0ZXh0OiBBcmNoaXZlCiAgICAtIGxpc3RpdGVtOgogICAgICAtIGJ1dHRvbiAiVHJhc2giOgogICAgICAgIC0gaW1nCiAgICAgICAgLSB0ZXh0OiBUcmFzaAotIG1haW46CiAgLSBoZWFkaW5nICJOb3RlcyIgW2xldmVsPTJdCiAgLSBidXR0b24gIlRha2UgYSBub3Rl4oCmIgogIC0gcmVnaW9uICJPdGhlcnMiOgogICAgLSBoZWFkaW5nICJPdGhlcnMiIFtsZXZlbD0zXQogICAgLSBhcnRpY2xlICJQZXJzaXN0ZW50IG5vdGUgW2U0OWQ2M2IyYTgtdzEtMDFjM2MyNTk4ZV0iOgogICAgICAtIGhlYWRpbmcgIlBlcnNpc3RlbnQgbm90ZSBbZTQ5ZDYzYjJhOC13MS0wMWMzYzI1OThlXSIgW2xldmVsPTNdCiAgICAgIC0gcGFyYWdyYXBoOiBTYXZlZCBwZXJzb25hbCBjb250ZW50CiAgICAgIC0gYnV0dG9uICJQaW4gUGVyc2lzdGVudCBub3RlIFtlNDlkNjNiMmE4LXcxLTAxYzNjMjU5OGVdIgogICAgICAtIGJ1dHRvbiAiRWRpdCBQZXJzaXN0ZW50IG5vdGUgW2U0OWQ2M2IyYTgtdzEtMDFjM2MyNTk4ZV0iOgogICAgICAgIC0gaW1nCiAgICAgIC0gYnV0dG9uICJNb3JlIG9wdGlvbnMgZm9yIFBlcnNpc3RlbnQgbm90ZSBbZTQ5ZDYzYjJhOC13MS0wMWMzYzI1OThlXSI6CiAgICAgICAgLSBpbWcKICAgIC0gYXJ0aWNsZSAiUGVyc2lzdGVudCBub3RlIFtlNDlkNjNiMmE4LXcxLTAxYzNjMjU5OGVdIjoKICAgICAgLSBoZWFkaW5nICJQZXJzaXN0ZW50IG5vdGUgW2U0OWQ2M2IyYTgtdzEtMDFjM2MyNTk4ZV0iIFtsZXZlbD0zXQogICAgICAtIHBhcmFncmFwaDogU2F2ZWQgcGVyc29uYWwgY29udGVudAogICAgICAtIGJ1dHRvbiAiUGluIFBlcnNpc3RlbnQgbm90ZSBbZTQ5ZDYzYjJhOC13MS0wMWMzYzI1OThlXSIKICAgICAgLSBidXR0b24gIkVkaXQgUGVyc2lzdGVudCBub3RlIFtlNDlkNjNiMmE4LXcxLTAxYzNjMjU5OGVdIjoKICAgICAgICAtIGltZwogICAgICAtIGJ1dHRvbiAiTW9yZSBvcHRpb25zIGZvciBQZXJzaXN0ZW50IG5vdGUgW2U0OWQ2M2IyYTgtdzEtMDFjM2MyNTk4ZV0iOgogICAgICAgIC0gaW1nCiAgICAtIGFydGljbGUgIk5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdIjoKICAgICAgLSBoZWFkaW5nICJOZXcgbm90ZSBbZTQ5ZDYzYjJhOC13MC0zN2JlNTYwMjA4XSIgW2xldmVsPTNdCiAgICAgIC0gcGFyYWdyYXBoOiBGaXJzdCBsaW5lIFNlY29uZCBsaW5lCiAgICAgIC0gYnV0dG9uICJQaW4gTmV3IG5vdGUgW2U0OWQ2M2IyYTgtdzAtMzdiZTU2MDIwOF0iCiAgICAgIC0gYnV0dG9uICJFZGl0IE5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdIjoKICAgICAgICAtIGltZwogICAgICAtIGJ1dHRvbiAiTW9yZSBvcHRpb25zIGZvciBOZXcgbm90ZSBbZTQ5ZDYzYjJhOC13MC0zN2JlNTYwMjA4XSI6CiAgICAgICAgLSBpbWcKICAgIC0gYXJ0aWNsZSAiTmV3IG5vdGUgW2U0OWQ2M2IyYTgtdzAtMzdiZTU2MDIwOF0iOgogICAgICAtIGhlYWRpbmcgIk5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdIiBbbGV2ZWw9M10KICAgICAgLSBwYXJhZ3JhcGg6IEZpcnN0IGxpbmUgU2Vjb25kIGxpbmUKICAgICAgLSBidXR0b24gIlBpbiBOZXcgbm90ZSBbZTQ5ZDYzYjJhOC13MC0zN2JlNTYwMjA4XSIKICAgICAgLSBidXR0b24gIkVkaXQgTmV3IG5vdGUgW2U0OWQ2M2IyYTgtdzAtMzdiZTU2MDIwOF0iOgogICAgICAgIC0gaW1nCiAgICAgIC0gYnV0dG9uICJNb3JlIG9wdGlvbnMgZm9yIE5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdIjoKICAgICAgICAtIGltZw=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "S2VlcApOb3RlcwpSZW1pbmRlcnMKRWRpdCBsYWJlbHMKQXJjaGl2ZQpUcmFzaApOb3RlcwpUYWtlIGEgbm90ZeKApgpPVEhFUlMKUGVyc2lzdGVudCBub3RlIFtlNDlkNjNiMmE4LXcxLTAxYzNjMjU5OGVdCgpTYXZlZCBwZXJzb25hbCBjb250ZW50CgpQZXJzaXN0ZW50IG5vdGUgW2U0OWQ2M2IyYTgtdzEtMDFjM2MyNTk4ZV0KClNhdmVkIHBlcnNvbmFsIGNvbnRlbnQKCk5ldyBub3RlIFtlNDlkNjNiMmE4LXcwLTM3YmU1NjAyMDhdCgpGaXJzdCBsaW5lClNlY29uZCBsaW5lCgpOZXcgbm90ZSBbZTQ5ZDYzYjJhOC13MC0zN2JlNTYwMjA4XQoKRmlyc3QgbGluZQpTZWNvbmQgbGluZQ=="
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo1NDY3OC8="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/test-results/REQ-2.2-persist-after-reload-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/test-results/REQ-2.2-persist-after-reload-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D5/rep3/work/tests/lib/oracle.ts",
+                    "column": 61,
+                    "line": 8
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bcc76bf73e172b9e647c-82595f490568773ea001",
+          "file": "REQ-2.2.spec.ts",
+          "line": 30,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T18:30:02.655Z",
+    "duration": 26444.368000000002,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

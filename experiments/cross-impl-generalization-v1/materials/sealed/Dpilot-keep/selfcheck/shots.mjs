@@ -1,0 +1,15 @@
+import { chromium } from 'playwright'
+const BASE = 'http://127.0.0.1:39061'
+const b = await chromium.launch(); const p = await b.newPage()
+await p.goto(BASE)
+await p.getByRole('searchbox').click()
+await p.screenshot({ path: new URL('./tmp/panel.png', import.meta.url).pathname })
+await p.keyboard.press('Escape')
+await p.getByRole('button', { name: 'New note', exact: true }).click()
+await p.getByRole('textbox', { name: 'Title' }).fill('Shot')
+await p.getByRole('button', { name: 'Background color' }).click()
+await p.screenshot({ path: new URL('./tmp/editor.png', import.meta.url).pathname })
+await p.setViewportSize({ width: 390, height: 800 })
+await p.keyboard.press('Escape'); await p.keyboard.press('Escape')
+await p.screenshot({ path: new URL('./tmp/mobile.png', import.meta.url).pathname })
+await b.close()

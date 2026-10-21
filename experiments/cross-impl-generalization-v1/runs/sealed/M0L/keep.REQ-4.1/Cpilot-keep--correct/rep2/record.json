@@ -1,0 +1,63 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "Cpilot-keep.REQ-4.1.correct",
+ "method": "M0L",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "130b78dbbc6fbb87a09b93feac5f42e07e16bd3f90e0a132684bda405814ee4b",
+ "execution_repeat": 2,
+ "run_id": "r2",
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "sealed",
+ "tag": "pilot",
+ "served_build_hash": "04072dcbab877f01d4c8e7e40baae4efcc22ed912d36acf3b50d6a9f0f323e09",
+ "source_hash": "04072dcbab877f01d4c8e7e40baae4efcc22ed912d36acf3b50d6a9f0f323e09",
+ "runtime_ms": 12668,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "file": "REQ-4.1.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 786,
+   "errors": [],
+   "attachments": {}
+  },
+  {
+   "title": "suggested_label_filter",
+   "file": "REQ-4.1.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 10745,
+   "errors": [
+    "Error: OBLIGATION_FAIL K41-P1: editor still shown (editor locator still visible)\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0L/keep.REQ-4.1/Cpilot-keep--correct/rep2/work/tests/lib/oracle.ts:8:61)\n    at Object.editorClosed (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0L/keep.REQ-4.1/Cpilot-keep--correct/rep2/work/tests/lib/oracle.ts:20:15)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0L/keep.REQ-4.1/Cpilot-keep--correct/rep2/work/tests/REQ-4.1.spec.ts:20:58)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0L/keep.REQ-4.1/Cpilot-keep--correct/rep2/work/tests/lib/adapt.ts:74:11)\n    at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0L/keep.REQ-4.1/Cpilot-keep--correct/rep2/work/tests/REQ-4.1.spec.ts:20:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0L/keep.REQ-4.1/Cpilot-keep--correct/rep2/work/tests/REQ-4.1.spec.ts:47:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- dialog \"New note\":\n  - heading \"New note\" [level=2]\n  - textbox \"Title\": Call dentist existing [db77fd01af-w0-fb7b338c04]\n  - button \"Pin note\"\n  - textbox \"Note text\":\n    - /placeholder: Take a note\u2026\n    - text: Reminder content\n  - list \"Labels on this note\":\n    - listitem: Reminders\n  - button \"Background color\"\n  - button \"Add label\"\n  - button \"Close\"",
+    "visible-text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nNotes\nTake a note\u2026\nOcean memo [db77fd01af-w0-c0bcaedb24]\n\nCalm blue waves\n\nReading plan [db77fd01af-w0-c0bcaedb24]\n\nRead a story\n\nStudy schedule [db77fd01af-w0-c0bcaedb24]\n\nMath on Monday\n\nNew note\nReminders\nCLOSE",
+    "url": "http://127.0.0.1:50522/"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/sealed/M0L/keep.REQ-4.1/Cpilot-keep--correct/rep2/report.json",
+ "trace_path": "runs/sealed/M0L/keep.REQ-4.1/Cpilot-keep--correct/rep2/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

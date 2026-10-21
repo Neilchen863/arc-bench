@@ -1,0 +1,23 @@
+{
+  "K22-O1": {
+    "holds": true,
+    "reason": "no dialog visible after Close"
+  },
+  "K22-O2": {
+    "holds": true,
+    "reason": "visible notes with title=1, active API notes with title=1"
+  },
+  "K22-O3": {
+    "holds": true,
+    "reason": "title visible in note card (SECTION role=null name=New note a1181b)"
+  },
+  "K22-O4": {
+    "holds": true,
+    "reason": "First line y=[303,319], Second line y=[323,339] in card text \"New note a1181b\\n\\nFirst line\\nSecond line\""
+  },
+  "K22-O5": {
+    "holds": true,
+    "reason": "only Close was clicked to finish; save-like controls offered by the editor: []"
+  },
+  "_page_errors": []
+}

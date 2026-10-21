@@ -1,0 +1,257 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-4.1.spec.ts",
+      "file": "REQ-4.1.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "search_title_content_highlight",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11376,
+                  "error": {
+                    "message": "Error: OBLIGATION_FAIL K41-O2: expected exactly one note titled \"Reading plan [e49d63b2a8-w0-c0bcaedb24]\", observed 0 ()",
+                    "stack": "Error: OBLIGATION_FAIL K41-O2: expected exactly one note titled \"Reading plan [e49d63b2a8-w0-c0bcaedb24]\", observed 0 ()\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/oracle.ts:23:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/REQ-4.1.spec.ts:33:48)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/adapt.ts:74:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/REQ-4.1.spec.ts:33:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/oracle.ts",
+                      "column": 61,
+                      "line": 8
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/oracle.ts",
+                        "column": 61,
+                        "line": 8
+                      },
+                      "message": "Error: OBLIGATION_FAIL K41-O2: expected exactly one note titled \"Reading plan [e49d63b2a8-w0-c0bcaedb24]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/oracle.ts:23:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/REQ-4.1.spec.ts:33:48)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/adapt.ts:74:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/REQ-4.1.spec.ts:33:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:00:26.642Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/test-results/REQ-4.1-search-title-content-highlight-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBiYW5uZXI6CiAgLSBidXR0b24gIlRvZ2dsZSBzaWRlYmFyIiBbZXhwYW5kZWRdCiAgLSBoZWFkaW5nICJLZWVwIiBbbGV2ZWw9MV0KICAtIHNlYXJjaGJveCAiU2VhcmNoIjogc3QKICAtIGJ1dHRvbiAiQ2xlYXIgc2VhcmNoIgogIC0gYnV0dG9uICJMaXN0IHZpZXciCiAgLSBidXR0b24gIlNldHRpbmdzIG1lbnUiCi0gbmF2aWdhdGlvbiAiU2lkZWJhciI6CiAgLSBsaXN0OgogICAgLSBsaXN0aXRlbToKICAgICAgLSBidXR0b24gIk5vdGVzIgogICAgLSBsaXN0aXRlbToKICAgICAgLSBidXR0b24gIlJlbWluZGVycyIKICAgIC0gbGlzdGl0ZW06CiAgICAgIC0gYnV0dG9uICJFZGl0IExhYmVscyIKICAgIC0gbGlzdGl0ZW06CiAgICAgIC0gYnV0dG9uICJBcmNoaXZlZCIKICAgIC0gbGlzdGl0ZW06CiAgICAgIC0gYnV0dG9uICJUcmFzaCIKLSBtYWluOgogIC0gcGFyYWdyYXBoOiAxIG1hdGNoaW5nIG5vdGUKICAtIHJlZ2lvbiAiUGlubmVkIG5vdGVzIjoKICAgIC0gaGVhZGluZyAiUGlubmVkIiBbbGV2ZWw9Ml0KICAgIC0gcGFyYWdyYXBoOiBObyBwaW5uZWQgbm90ZXMKICAtIHJlZ2lvbiAiT3RoZXIgbm90ZXMiOgogICAgLSBoZWFkaW5nICJPdGhlcnMiIFtsZXZlbD0yXQogICAgLSByZWdpb24gIlN0dWR5IHNjaGVkdWxlIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIjoKICAgICAgLSBoZWFkaW5nICJIaWdobGlnaHQgc3R1ZHkgc2NoZWR1bGUgW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0iIFtsZXZlbD0zXToKICAgICAgICAtIHJlZ2lvbiAiSGlnaGxpZ2h0IHN0IjogU3QKICAgICAgICAtIHRleHQ6IHVkeSBzY2hlZHVsZSBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XQogICAgICAtIHBhcmFncmFwaDogTWF0aCBvbiBNb25kYXkKICAgICAgLSBidXR0b24gIk9wZW4gU3R1ZHkgc2NoZWR1bGUgW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0iCiAgICAgIC0gYnV0dG9uICJNb3JlIG9wdGlvbnMgU3R1ZHkgc2NoZWR1bGUgW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0i"
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "S2VlcApOb3RlcwpSZW1pbmRlcnMKRWRpdCBMYWJlbHMKQXJjaGl2ZWQKVHJhc2gKCjEgbWF0Y2hpbmcgbm90ZQoKUElOTkVECgpObyBwaW5uZWQgbm90ZXMKCk9USEVSUwpTdHVkeSBzY2hlZHVsZSBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XQoKTWF0aCBvbiBNb25kYXk="
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo2MjMxNi8="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/test-results/REQ-4.1-search-title-content-highlight-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/test-results/REQ-4.1-search-title-content-highlight-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/oracle.ts",
+                    "column": 61,
+                    "line": 8
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de6caa8a5418b7d7e7a3-7d8b43bc893b5a0a859c",
+          "file": "REQ-4.1.spec.ts",
+          "line": 24,
+          "column": 5
+        },
+        {
+          "title": "suggested_label_filter",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1122,
+                  "error": {
+                    "message": "TypeError: (0 , _adapt.byRole)(...).and is not a function",
+                    "stack": "TypeError: (0 , _adapt.byRole)(...).and is not a function\n    at chooseSuggested (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/operations.ts:90:28)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/REQ-4.1.spec.ts:53:24",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/operations.ts",
+                      "column": 28,
+                      "line": 90
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/operations.ts:90\n\n  88 |   const ctl = await resolve(panel, `suggested ${name}`, [\n  89 |     byRole('button', name),\n> 90 |     byRole('listbox', /./).and(page.locator(`:has-text(\"${name}\")`)).locator(`button:has-text(\"${name}\")`).first(),\n     |                            ^\n  91 |     byRole('option', name),\n  92 |     byRole('menuitem', name),\n  93 |     byRole('link', name),"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/operations.ts",
+                        "column": 28,
+                        "line": 90
+                      },
+                      "message": "TypeError: (0 , _adapt.byRole)(...).and is not a function\n\n   at lib/operations.ts:90\n\n  88 |   const ctl = await resolve(panel, `suggested ${name}`, [\n  89 |     byRole('button', name),\n> 90 |     byRole('listbox', /./).and(page.locator(`:has-text(\"${name}\")`)).locator(`button:has-text(\"${name}\")`).first(),\n     |                            ^\n  91 |     byRole('option', name),\n  92 |     byRole('menuitem', name),\n  93 |     byRole('link', name),\n    at chooseSuggested (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/operations.ts:90:28)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/REQ-4.1.spec.ts:53:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:00:38.576Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/test-results/REQ-4.1-suggested-label-filter-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBiYW5uZXI6CiAgLSBidXR0b24gIlRvZ2dsZSBzaWRlYmFyIiBbZXhwYW5kZWRdCiAgLSBoZWFkaW5nICJLZWVwIiBbbGV2ZWw9MV0KICAtIHNlYXJjaGJveCAiU2VhcmNoIgogIC0gcmVnaW9uICJTdWdnZXN0ZWQgZmlsdGVycyI6CiAgICAtIGhlYWRpbmcgIkxhYmVscyIgW2xldmVsPTJdCiAgICAtIGJ1dHRvbiAiUmVtaW5kZXJzIgogIC0gYnV0dG9uICJMaXN0IHZpZXciCiAgLSBidXR0b24gIlNldHRpbmdzIG1lbnUiCi0gbmF2aWdhdGlvbiAiU2lkZWJhciI6CiAgLSBsaXN0OgogICAgLSBsaXN0aXRlbToKICAgICAgLSBidXR0b24gIk5vdGVzIgogICAgLSBsaXN0aXRlbToKICAgICAgLSBidXR0b24gIlJlbWluZGVycyIKICAgIC0gbGlzdGl0ZW06CiAgICAgIC0gYnV0dG9uICJFZGl0IExhYmVscyIKICAgIC0gbGlzdGl0ZW06CiAgICAgIC0gYnV0dG9uICJBcmNoaXZlZCIKICAgIC0gbGlzdGl0ZW06CiAgICAgIC0gYnV0dG9uICJUcmFzaCIKLSBtYWluOgogIC0gYnV0dG9uICJUYWtlIGEgbm90ZSIKICAtIHJlZ2lvbiAiUGlubmVkIG5vdGVzIjoKICAgIC0gaGVhZGluZyAiUGlubmVkIiBbbGV2ZWw9Ml0KICAgIC0gcGFyYWdyYXBoOiBObyBwaW5uZWQgbm90ZXMKICAtIHJlZ2lvbiAiT3RoZXIgbm90ZXMiOgogICAgLSBoZWFkaW5nICJPdGhlcnMiIFtsZXZlbD0yXQogICAgLSByZWdpb24gIlN0dWR5IHNjaGVkdWxlIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIjoKICAgICAgLSBoZWFkaW5nICJTdHVkeSBzY2hlZHVsZSBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XSIgW2xldmVsPTNdCiAgICAgIC0gcGFyYWdyYXBoOiBNYXRoIG9uIE1vbmRheQogICAgICAtIGJ1dHRvbiAiT3BlbiBTdHVkeSBzY2hlZHVsZSBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XSIKICAgICAgLSBidXR0b24gIk1vcmUgb3B0aW9ucyBTdHVkeSBzY2hlZHVsZSBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XSIKICAgIC0gcmVnaW9uICJSZWFkaW5nIHBsYW4gW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0iOgogICAgICAtIGhlYWRpbmcgIlJlYWRpbmcgcGxhbiBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XSIgW2xldmVsPTNdCiAgICAgIC0gcGFyYWdyYXBoOiBSZWFkIGEgc3RvcnkKICAgICAgLSBidXR0b24gIk9wZW4gUmVhZGluZyBwbGFuIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIgogICAgICAtIGJ1dHRvbiAiTW9yZSBvcHRpb25zIFJlYWRpbmcgcGxhbiBbZTQ5ZDYzYjJhOC13MC1jMGJjYWVkYjI0XSIKICAgIC0gcmVnaW9uICJPY2VhbiBtZW1vIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIjoKICAgICAgLSBoZWFkaW5nICJPY2VhbiBtZW1vIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIiBbbGV2ZWw9M10KICAgICAgLSBwYXJhZ3JhcGg6IENhbG0gYmx1ZSB3YXZlcwogICAgICAtIGJ1dHRvbiAiT3BlbiBPY2VhbiBtZW1vIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdIgogICAgICAtIGJ1dHRvbiAiTW9yZSBvcHRpb25zIE9jZWFuIG1lbW8gW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0iCiAgICAtIHJlZ2lvbiAiQ2FsbCBkZW50aXN0IGV4aXN0aW5nIFtlNDlkNjNiMmE4LXcxLWZiN2IzMzhjMDRdIjoKICAgICAgLSBoZWFkaW5nICJDYWxsIGRlbnRpc3QgZXhpc3RpbmcgW2U0OWQ2M2IyYTgtdzEtZmI3YjMzOGMwNF0iIFtsZXZlbD0zXQogICAgICAtIHBhcmFncmFwaDogUmVtaW5kZXIgY29udGVudAogICAgICAtIGxpc3QgIkxhYmVscyBvZiBDYWxsIGRlbnRpc3QgZXhpc3RpbmcgW2U0OWQ2M2IyYTgtdzEtZmI3YjMzOGMwNF0iOgogICAgICAgIC0gbGlzdGl0ZW06IFJlbWluZGVycwogICAgICAtIGJ1dHRvbiAiT3BlbiBDYWxsIGRlbnRpc3QgZXhpc3RpbmcgW2U0OWQ2M2IyYTgtdzEtZmI3YjMzOGMwNF0iCiAgICAgIC0gYnV0dG9uICJNb3JlIG9wdGlvbnMgQ2FsbCBkZW50aXN0IGV4aXN0aW5nIFtlNDlkNjNiMmE4LXcxLWZiN2IzMzhjMDRdIgogICAgLSByZWdpb24gIk1vdmllIGxpc3QgW2U0OWQ2M2IyYTgtdzEtZmI3YjMzOGMwNF0iOgogICAgICAtIGhlYWRpbmcgIk1vdmllIGxpc3QgW2U0OWQ2M2IyYTgtdzEtZmI3YjMzOGMwNF0iIFtsZXZlbD0zXQogICAgICAtIHBhcmFncmFwaDogVW5sYWJlbGVkIGNvbnRlbnQKICAgICAgLSBidXR0b24gIk9wZW4gTW92aWUgbGlzdCBbZTQ5ZDYzYjJhOC13MS1mYjdiMzM4YzA0XSIKICAgICAgLSBidXR0b24gIk1vcmUgb3B0aW9ucyBNb3ZpZSBsaXN0IFtlNDlkNjNiMmE4LXcxLWZiN2IzMzhjMDRdIg=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "S2VlcApMYWJlbHMKUmVtaW5kZXJzCk5vdGVzClJlbWluZGVycwpFZGl0IExhYmVscwpBcmNoaXZlZApUcmFzaApUYWtlIGEgbm90ZQpQSU5ORUQKCk5vIHBpbm5lZCBub3RlcwoKT1RIRVJTClN0dWR5IHNjaGVkdWxlIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdCgpNYXRoIG9uIE1vbmRheQoKUmVhZGluZyBwbGFuIFtlNDlkNjNiMmE4LXcwLWMwYmNhZWRiMjRdCgpSZWFkIGEgc3RvcnkKCk9jZWFuIG1lbW8gW2U0OWQ2M2IyYTgtdzAtYzBiY2FlZGIyNF0KCkNhbG0gYmx1ZSB3YXZlcwoKQ2FsbCBkZW50aXN0IGV4aXN0aW5nIFtlNDlkNjNiMmE4LXcxLWZiN2IzMzhjMDRdCgpSZW1pbmRlciBjb250ZW50CgpSZW1pbmRlcnMKTW92aWUgbGlzdCBbZTQ5ZDYzYjJhOC13MS1mYjdiMzM4YzA0XQoKVW5sYWJlbGVkIGNvbnRlbnQ="
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo2MjMxNi8="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/test-results/REQ-4.1-suggested-label-filter-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r2/keep.REQ-4.1/A-keep--K41-D1/rep3/work/tests/lib/operations.ts",
+                    "column": 28,
+                    "line": 90
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de6caa8a5418b7d7e7a3-c6d6ccf9d4e1aa2d59be",
+          "file": "REQ-4.1.spec.ts",
+          "line": 44,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T10:00:26.301Z",
+    "duration": 13602.532,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "notes": [
+    {
+      "id": "hist-expired",
+      "title": "Expired seven-day note",
+      "content": "Historical expired content",
+      "trashed": true,
+      "deletedAt": "2026-07-14T12:00:00.000Z",
+      "archived": false,
+      "pinned": false,
+      "labels": [],
+      "color": null,
+      "createdAt": "2026-07-01T12:00:00.000Z"
+    },
+    {
+      "id": "hist-recent",
+      "title": "Recent six-day note",
+      "content": "Historical retained content",
+      "trashed": true,
+      "deletedAt": "2026-07-15T12:00:00.000Z",
+      "archived": false,
+      "pinned": false,
+      "labels": [],
+      "color": null,
+      "createdAt": "2026-07-01T12:00:00.000Z"
+    },
+    {
+      "title": "Study schedule 76b916",
+      "content": "Math on Monday",
+      "pinned": false,
+      "color": null,
+      "labels": [],
+      "archived": false,
+      "trashed": false,
+      "deletedAt": null,
+      "createdOn": "2026-07-21T12:00:00.000Z",
+      "editedAt": "2026-07-21T12:00:00.000Z",
+      "id": "2d141d56-2b6c-4560-b81d-053b30962e4e",
+      "createdAt": "2026-10-19T08:06:19.172Z"
+    },
+    {
+      "title": "Reading plan 76b916",
+      "content": "Read a story",
+      "pinned": false,
+      "color": null,
+      "labels": [],
+      "archived": false,
+      "trashed": false,
+      "deletedAt": null,
+      "createdOn": "2026-07-21T12:00:00.000Z",
+      "editedAt": "2026-07-21T12:00:00.000Z",
+      "id": "0fcb2435-003c-4555-af3e-bfa42041f783",
+      "createdAt": "2026-10-19T08:06:20.104Z"
+    },
+    {
+      "title": "Ocean memo 76b916",
+      "content": "Calm blue waves",
+      "pinned": false,
+      "color": null,
+      "labels": [],
+      "archived": false,
+      "trashed": false,
+      "deletedAt": null,
+      "createdOn": "2026-07-21T12:00:00.000Z",
+      "editedAt": "2026-07-21T12:00:00.000Z",
+      "id": "2ae9ebc2-7f9d-4875-8619-c93559fa0c13",
+      "createdAt": "2026-10-19T08:06:21.040Z"
+    }
+  ],
+  "labels": [
+    {
+      "id": "reminders",
+      "name": "Reminders",
+      "builtin": true,
+      "createdAt": "2026-07-21T12:00:00.000Z"
+    }
+  ]
+}

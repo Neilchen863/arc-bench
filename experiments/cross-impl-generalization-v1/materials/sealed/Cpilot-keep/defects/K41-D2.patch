@@ -1,0 +1,13 @@
+diff --git a/src/search.js b/src/search.js
+index 3a0d35b..b380b3f 100644
+--- a/src/search.js
++++ b/src/search.js
+@@ -16,7 +16,7 @@ export function matchesKeyword(note, query) {
+ // Label filter chosen from the search panel's suggestions.
+ export function matchesSearchLabel(note, labelId) {
+   if (!labelId) return true;
+-  return (note.labels || []).includes(labelId);
++  return (note.labels || []).length === 0 || (note.labels || []).includes(labelId);
+ }
+ 
+ // Label filter chosen in the sidebar.

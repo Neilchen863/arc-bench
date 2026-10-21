@@ -1,0 +1,84 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-6.4.spec.ts:26:5 › read_selected_page
+[1A[2K[2/2] [chromium] › tests/REQ-6.4.spec.ts:35:5 › reopen_page_editor
+[1A[2K  1) [chromium] › tests/REQ-6.4.spec.ts:35:5 › reopen_page_editor ──────────────────────────────────
+
+    Error: OBLIGATION_FAIL B64-O5: editor body field holds "Reading content for Page C 6.4.2.", expected "Reading content for Page B 6.4.2." (title=<input> names=["Page title"] body=<div role=textbox> names=["Page content"] save=<button> names=["Save Page"])
+
+       at lib/oracle.ts:5
+
+      3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+      4 | }
+    > 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+        |                                                             ^
+      6 | const norm = (s: string) => s.replace(/\r\n?/g, '\n').replace(/[ \t ]+/g, ' ').replace(/\n+/g, '\n').trim();
+      7 |
+      8 | // What a reading view shows: visible heading texts and visible text lines of the main content.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/D/X5-bookstack.REQ-6.4.B64-D8/rep1/work/tests/lib/oracle.ts:5:61)
+        at Object.editorBody (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/D/X5-bookstack.REQ-6.4.B64-D8/rep1/work/tests/lib/oracle.ts:32:65)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/D/X5-bookstack.REQ-6.4.B64-D8/rep1/work/tests/REQ-6.4.spec.ts:42:53)
+        at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/D/X5-bookstack.REQ-6.4.B64-D8/rep1/work/tests/lib/ledger.ts:39:7)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/D/X5-bookstack.REQ-6.4.B64-D8/rep1/work/tests/REQ-6.4.spec.ts:42:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - navigation "Main":
+        - link "BookStack":
+          - /url: /
+        - search:
+          - searchbox "Search"
+        - link "Shelves":
+          - /url: /shelves
+        - link "Books":
+          - /url: /books
+        - link "Login":
+          - /url: /login
+    - main:
+      - heading "Edit Page" [level=1]
+      - text: Page ti...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    BookStack
+    SHELVES
+    BOOKS
+    LOGIN
+    Edit Page
+    Page title
+    Page title
+    
+    Page content
+    
+    B
+    I
+    •≡
+    Reading content for Page C 6.4.2.
+    CANCEL
+    SAVE PAGE
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:57951/books/0dec6a81-c2ed-4348-bad7-719c1715894d/pages/dcaf8f40-6861-4be6-bb32-d35a261db5e6/edit
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  1 failed
+    [chromium] › tests/REQ-6.4.spec.ts:35:5 › reopen_page_editor ───────────────────────────────────
+  1 passed (18.3s)
+

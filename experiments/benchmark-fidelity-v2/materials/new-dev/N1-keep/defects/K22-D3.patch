@@ -1,0 +1,27 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 33401a7..1a76561 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -161,7 +161,7 @@ export default function App() {
+       const patch = { title: draft.title, content: draft.content, pinned: draft.pinned, color: draft.color, labels: draft.labels, editedAt: t };
+       const doc = await api.updateNote(draft.id, patch);
+       replaceNote(doc);
+-    } else if (draft.title.trim() || draft.content.trim()) {
++    } else if (draft.saveRequested && (draft.title.trim() || draft.content.trim())) {
+       const doc = await api.createNote({
+         title: draft.title,
+         content: draft.content,
+diff --git a/src/NoteEditor.jsx b/src/NoteEditor.jsx
+index 21a02e0..3258963 100644
+--- a/src/NoteEditor.jsx
++++ b/src/NoteEditor.jsx
+@@ -119,6 +119,9 @@ export default function NoteEditor({ initial, labels, onClose, inline = false })
+               <Icon name="label" />
+             </button>
+           </div>
++          <button type="button" className="text-button" onClick={() => onClose({ ...draft, saveRequested: true })} disabled={saving}>
++            Save
++          </button>
+           <button type="button" className="text-button" onClick={close} disabled={saving}>
+             Close
+           </button>

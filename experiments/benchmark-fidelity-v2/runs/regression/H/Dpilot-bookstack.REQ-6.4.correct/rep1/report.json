@@ -1,0 +1,179 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.correct/rep1/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.correct/rep1/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.correct/rep1/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.correct/rep1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.correct/rep1/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-6.4.spec.ts",
+      "file": "REQ-6.4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "read_selected_page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:19:49.306Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-read-selected-page-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJQQVNTIiwiQjY0LU8xIjoiUEFTUyIsIkI2NC1PMiI6IlBBU1MiLCJCNjQtTzMiOiJQQVNTIn0sImNoZWNrcyI6W3sib2JsaWdhdGlvbiI6IkI2NC1QMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImVudHJpZXNcIjoxLFwiZXZpZGVuY2VcIjpcIjEgbWF0Y2hpbmcsIDEgdmlzaWJsZVwifSIsImF0IjoiMjAyNi0xMC0xOVQxODoxOTo1MC40NzBaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIEEifSx7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCIxIG1hdGNoaW5nLCAxIHZpc2libGVcIn0iLCJhdCI6IjIwMjYtMTAtMTlUMTg6MTk6NTAuODM1WiIsInN0ZXAiOiJjcmVhdGUgcGFnZSBUQVJHRVQifSx7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCIxIG1hdGNoaW5nLCAxIHZpc2libGVcIn0iLCJhdCI6IjIwMjYtMTAtMTlUMTg6MTk6NTEuMjIxWiIsInN0ZXAiOiJjcmVhdGUgcGFnZSBDIn0seyJvYmxpZ2F0aW9uIjoiQjY0LU8xIiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1wiaGVhZGluZ3NcIjpbXCJQYWdlIEIgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIkRldGFpbHNcIixcIkFjdGlvbnNcIl0sXCJsaW5lc1wiOltcIlNraXAgdG8gY29udGVudFwiLFwiQm9va1N0YWNrXCIsXCJTaGVsdmVzXCIsXCJCb29rc1wiLFwiTG9naW5cIixcIkJvb2tzXCIsXCLigLpcIixcIkJvb2sgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIuKAulwiLFwiUGFnZSBCIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJQYWdlIEIgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBCIDYuNC4xLlwiLFwiRGV0YWlsc1wiLFwiQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNlwiLFwiQWN0aW9uc1wiLFwiRWRpdCBwYWdlXCJdLFwiZXZpZGVuY2VcIjpcInVybD0vcGFnZXMvMzI1NDUyY2EtOGRjMS00ZDgwLThkN2YtY2Y1ZjBiNjJjNWViXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE4OjE5OjUxLjQ5N1oiLCJzdGVwIjoib3BlbiB0YXJnZXQgcGFnZSJ9LHsib2JsaWdhdGlvbiI6IkI2NC1PMiIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImhlYWRpbmdzXCI6W1wiUGFnZSBCIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJEZXRhaWxzXCIsXCJBY3Rpb25zXCJdLFwibGluZXNcIjpbXCJTa2lwIHRvIGNvbnRlbnRcIixcIkJvb2tTdGFja1wiLFwiU2hlbHZlc1wiLFwiQm9va3NcIixcIkxvZ2luXCIsXCJCb29rc1wiLFwi4oC6XCIsXCJCb29rIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCLigLpcIixcIlBhZ2UgQiA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiLFwiUGFnZSBCIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQiA2LjQuMS5cIixcIkRldGFpbHNcIixcIkNyZWF0ZWQgNiBPY3RvYmVyIDIwMjZcIixcIkFjdGlvbnNcIixcIkVkaXQgcGFnZVwiXSxcImV2aWRlbmNlXCI6XCJ1cmw9L3BhZ2VzLzMyNTQ1MmNhLThkYzEtNGQ4MC04ZDdmLWNmNWYwYjYyYzVlYlwifSIsImF0IjoiMjAyNi0xMC0xOVQxODoxOTo1MS40OThaIiwic3RlcCI6Im9wZW4gdGFyZ2V0IHBhZ2UifSx7Im9ibGlnYXRpb24iOiJCNjQtTzMiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJoZWFkaW5nc1wiOltcIlBhZ2UgQiA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiLFwiRGV0YWlsc1wiLFwiQWN0aW9uc1wiXSxcImxpbmVzXCI6W1wiU2tpcCB0byBjb250ZW50XCIsXCJCb29rU3RhY2tcIixcIlNoZWx2ZXNcIixcIkJvb2tzXCIsXCJMb2dpblwiLFwiQm9va3NcIixcIuKAulwiLFwiQm9vayA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiLFwi4oC6XCIsXCJQYWdlIEIgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIlBhZ2UgQiA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiLFwiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjEuXCIsXCJEZXRhaWxzXCIsXCJDcmVhdGVkIDYgT2N0b2JlciAyMDI2XCIsXCJBY3Rpb25zXCIsXCJFZGl0IHBhZ2VcIl0sXCJldmlkZW5jZVwiOlwidXJsPS9wYWdlcy8zMjU0NTJjYS04ZGMxLTRkODAtOGQ3Zi1jZjVmMGI2MmM1ZWJcIn0iLCJhdCI6IjIwMjYtMTAtMTlUMTg6MTk6NTEuNDk5WiIsInN0ZXAiOiJvcGVuIHRhcmdldCBwYWdlIn1dLCJhY3Rpb25zIjpbXSwibGFzdF9zdGVwIjoib3BlbiB0YXJnZXQgcGFnZSIsInN0ZXBzIjpbImVudGVyIiwiY3JlYXRlIGJvb2siLCJjcmVhdGUgcGFnZSBBIiwiY3JlYXRlIHBhZ2UgVEFSR0VUIiwiY3JlYXRlIHBhZ2UgQyIsIm9wZW4gdGFyZ2V0IHBhZ2UiXX0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-read-selected-page-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-5dd9605f98bc9ec040a8",
+          "file": "REQ-6.4.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "reopen_page_editor",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2382,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:19:51.582Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJQQVNTIiwiQjY0LU8xIjoiUEFTUyIsIkI2NC1PNCI6IlBBU1MiLCJCNjQtTzUiOiJQQVNTIiwiQjY0LU82IjoiUEFTUyJ9LCJjaGVja3MiOlt7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCIxIG1hdGNoaW5nLCAxIHZpc2libGVcIn0iLCJhdCI6IjIwMjYtMTAtMTlUMTg6MTk6NTIuNTE5WiIsInN0ZXAiOiJjcmVhdGUgcGFnZSBBIn0seyJvYmxpZ2F0aW9uIjoiQjY0LVAxIiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1wiZW50cmllc1wiOjEsXCJldmlkZW5jZVwiOlwiMSBtYXRjaGluZywgMSB2aXNpYmxlXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE4OjE5OjUyLjg4N1oiLCJzdGVwIjoiY3JlYXRlIHBhZ2UgVEFSR0VUIn0seyJvYmxpZ2F0aW9uIjoiQjY0LVAxIiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1wiZW50cmllc1wiOjEsXCJldmlkZW5jZVwiOlwiMSBtYXRjaGluZywgMSB2aXNpYmxlXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE4OjE5OjUzLjI2NVoiLCJzdGVwIjoiY3JlYXRlIHBhZ2UgQyJ9LHsib2JsaWdhdGlvbiI6IkI2NC1PMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImhlYWRpbmdzXCI6W1wiUGFnZSBCIDYuNC4yIFtyMS13MC1yZW9wZW4tcGFnZS1lZGl0b3JdXCIsXCJEZXRhaWxzXCIsXCJBY3Rpb25zXCJdLFwibGluZXNcIjpbXCJTa2lwIHRvIGNvbnRlbnRcIixcIkJvb2tTdGFja1wiLFwiU2hlbHZlc1wiLFwiQm9va3NcIixcIkxvZ2luXCIsXCJCb29rc1wiLFwi4oC6XCIsXCJCb29rIDYuNC4yIFtyMS13MC1yZW9wZW4tcGFnZS1lZGl0b3JdXCIsXCLigLpcIixcIlBhZ2UgQiA2LjQuMiBbcjEtdzAtcmVvcGVuLXBhZ2UtZWRpdG9yXVwiLFwiUGFnZSBCIDYuNC4yIFtyMS13MC1yZW9wZW4tcGFnZS1lZGl0b3JdXCIsXCJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQiA2LjQuMi5cIixcIkRldGFpbHNcIixcIkNyZWF0ZWQgNiBPY3RvYmVyIDIwMjZcIixcIkFjdGlvbnNcIixcIkVkaXQgcGFnZVwiXSxcImV2aWRlbmNlXCI6XCJ1cmw9L3BhZ2VzL2E3N2YyNGE1LTcwMDItNGM0NC1iNDRjLTIxYzE0NmU4YTk1ZlwifSIsImF0IjoiMjAyNi0xMC0xOVQxODoxOTo1My41NTdaIiwic3RlcCI6Im9wZW4gdGFyZ2V0IHBhZ2UifSx7Im9ibGlnYXRpb24iOiJCNjQtTzQiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJ0aXRsZVZhbHVlXCI6XCJQYWdlIEIgNi40LjIgW3IxLXcwLXJlb3Blbi1wYWdlLWVkaXRvcl1cIixcImJvZHlWYWx1ZVwiOlwiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjIuXCIsXCJzYXZlVmlzaWJsZVwiOnRydWUsXCJldmlkZW5jZVwiOlwidGl0bGU9dHJ1ZSBib2R5PXRydWUgc2F2ZT10cnVlXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE4OjE5OjUzLjg4OFoiLCJzdGVwIjoib3BlbiBlZGl0b3IifSx7Im9ibGlnYXRpb24iOiJCNjQtTzUiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJ0aXRsZVZhbHVlXCI6XCJQYWdlIEIgNi40LjIgW3IxLXcwLXJlb3Blbi1wYWdlLWVkaXRvcl1cIixcImJvZHlWYWx1ZVwiOlwiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjIuXCIsXCJzYXZlVmlzaWJsZVwiOnRydWUsXCJldmlkZW5jZVwiOlwidGl0bGU9dHJ1ZSBib2R5PXRydWUgc2F2ZT10cnVlXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE4OjE5OjUzLjg5NloiLCJzdGVwIjoib3BlbiBlZGl0b3IifSx7Im9ibGlnYXRpb24iOiJCNjQtTzYiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJ0aXRsZVZhbHVlXCI6XCJQYWdlIEIgNi40LjIgW3IxLXcwLXJlb3Blbi1wYWdlLWVkaXRvcl1cIixcImJvZHlWYWx1ZVwiOlwiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjIuXCIsXCJzYXZlVmlzaWJsZVwiOnRydWUsXCJldmlkZW5jZVwiOlwidGl0bGU9dHJ1ZSBib2R5PXRydWUgc2F2ZT10cnVlXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE4OjE5OjUzLjkwM1oiLCJzdGVwIjoib3BlbiBlZGl0b3IifV0sImFjdGlvbnMiOltdLCJsYXN0X3N0ZXAiOiJvcGVuIGVkaXRvciIsInN0ZXBzIjpbImVudGVyIiwiY3JlYXRlIGJvb2siLCJjcmVhdGUgcGFnZSBBIiwiY3JlYXRlIHBhZ2UgVEFSR0VUIiwiY3JlYXRlIHBhZ2UgQyIsIm9wZW4gdGFyZ2V0IHBhZ2UiLCJvcGVuIGVkaXRvciJdfQ=="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-a1c648922e744b6c557a",
+          "file": "REQ-6.4.spec.ts",
+          "line": 34,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T18:19:48.983Z",
+    "duration": 5025.526000000001,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

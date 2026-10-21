@@ -1,0 +1,216 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "Cpilot-keep.REQ-4.1.K41-D1",
+ "parent_id": "Cpilot-keep.REQ-4.1.correct",
+ "method_id": "H",
+ "material_hash": "4ea6f06219c68bd2",
+ "binding_hash": "c4bee61128a3ba0d",
+ "common_hash": "b040fe2b11c65085",
+ "binding_source": "manual per-implementation binding",
+ "reference_label": "VIOLATED",
+ "target_obligation": "K41-O2",
+ "execution_repeat": 1,
+ "reset_id": "r1-1792431675",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "regression",
+ "tag": "formal-regression-run2",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 18797,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "result": "REQUIREMENT_FAIL",
+ "obligation_results": {
+  "K41-O1": "PASS",
+  "K41-O2": "FAIL",
+  "K41-O3": "PASS",
+  "K41-O4": "NOT_REACHED",
+  "K41-O5": "NOT_REACHED",
+  "K41-O6": "PASS",
+  "K41-O7": "PASS",
+  "K41-O8": "PASS",
+  "K41-P1": "PASS"
+ },
+ "failure_detail": "failed: K41-O2",
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "status": "failed",
+   "duration_ms": 13850,
+   "errors": [
+    "Error: OBLIGATION_FAIL K41-O2: expected exactly one note titled \"Reading plan [82f3e9c695-w0-c0bcaedb24]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Cpilot-keep.REQ-4.1.K41-D1/rep1/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Cpilot-keep.REQ-4.1.K41-D1/rep1/work/tests/lib/oracle.ts:27:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Cpilot-keep.REQ-4.1.K41-D1/rep1/work/tests/REQ-4.1.spec.ts:36:50)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Cpilot-keep.REQ-4.1.K41-D1/rep1/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Cpilot-keep.REQ-4.1.K41-D1/rep1/work/tests/REQ-4.1.spec.ts:36:3"
+   ],
+   "last_step": "search",
+   "checks": [
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T17:41:19.211Z",
+     "step": "create Study schedule [82f3e9c695-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Study schedule [82f3e9c695-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Study schedule [82f3e9c695-w0-c0bcaedb24]\",\"Math on Monday\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T17:41:19.224Z",
+     "step": "create Study schedule [82f3e9c695-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T17:41:20.333Z",
+     "step": "create Reading plan [82f3e9c695-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Reading plan [82f3e9c695-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Reading plan [82f3e9c695-w0-c0bcaedb24]\",\"Read a story\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T17:41:20.342Z",
+     "step": "create Reading plan [82f3e9c695-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T17:41:21.484Z",
+     "step": "create Ocean memo [82f3e9c695-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Ocean memo [82f3e9c695-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Ocean memo [82f3e9c695-w0-c0bcaedb24]\",\"Calm blue waves\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T17:41:21.491Z",
+     "step": "create Ocean memo [82f3e9c695-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-O3",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Ocean memo [82f3e9c695-w0-c0bcaedb24]\",\"matches\":0,\"visible\":false,\"titleShown\":false,\"lines\":[],\"evidence\":\"\"}",
+     "at": "2026-10-19T17:41:21.522Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Study schedule [82f3e9c695-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Study schedule [82f3e9c695-w0-c0bcaedb24]\",\"Math on Monday\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T17:41:21.524Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O2",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL K41-O2: expected exactly one note titled \"Reading plan [82f3e9c695-w0-c0bcaedb24]\", observed 0 ()",
+     "observed": "{\"title\":\"Reading plan [82f3e9c695-w0-c0bcaedb24]\",\"matches\":0,\"visible\":false,\"titleShown\":false,\"lines\":[],\"evidence\":\"\"}",
+     "at": "2026-10-19T17:41:31.592Z",
+     "step": "search"
+    }
+   ],
+   "actions": []
+  },
+  {
+   "title": "suggested_label_filter",
+   "status": "passed",
+   "duration_ms": 3121,
+   "errors": [],
+   "last_step": "select Notes",
+   "checks": [
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T17:41:34.126Z",
+     "step": "create Call dentist existing [82f3e9c695-w1-fb7b338c04]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Call dentist existing [82f3e9c695-w1-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Call dentist existing [82f3e9c695-w1-fb7b338c04]\",\"Reminder content\",\"Reminders\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T17:41:34.130Z",
+     "step": "create Call dentist existing [82f3e9c695-w1-fb7b338c04]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T17:41:35.233Z",
+     "step": "create Movie list [82f3e9c695-w1-fb7b338c04]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Movie list [82f3e9c695-w1-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Movie list [82f3e9c695-w1-fb7b338c04]\",\"Unlabeled content\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T17:41:35.235Z",
+     "step": "create Movie list [82f3e9c695-w1-fb7b338c04]"
+    },
+    {
+     "obligation": "K41-O6",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"shown\":true,\"evidence\":\"1 match(es)\",\"panel\":\"[Locator]\"}",
+     "at": "2026-10-19T17:41:35.274Z",
+     "step": "focus search"
+    },
+    {
+     "obligation": "K41-O7",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Movie list [82f3e9c695-w1-fb7b338c04]\",\"matches\":0,\"visible\":false,\"titleShown\":false,\"lines\":[],\"evidence\":\"\"}",
+     "at": "2026-10-19T17:41:35.310Z",
+     "step": "choose suggested Reminders"
+    },
+    {
+     "obligation": "K41-O7",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Call dentist existing [82f3e9c695-w1-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Call dentist existing [82f3e9c695-w1-fb7b338c04]\",\"Reminder content\",\"Reminders\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T17:41:35.311Z",
+     "step": "choose suggested Reminders"
+    },
+    {
+     "obligation": "K41-O8",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Call dentist existing [82f3e9c695-w1-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Call dentist existing [82f3e9c695-w1-fb7b338c04]\",\"Reminder content\",\"Reminders\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T17:41:35.377Z",
+     "step": "select Notes"
+    },
+    {
+     "obligation": "K41-O8",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Movie list [82f3e9c695-w1-fb7b338c04]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Movie list [82f3e9c695-w1-fb7b338c04]\",\"Unlabeled content\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T17:41:35.378Z",
+     "step": "select Notes"
+    }
+   ],
+   "actions": []
+  }
+ ],
+ "target_failure_confirmed": true,
+ "evidence_paths": [
+  "runs/regression/H/Cpilot-keep.REQ-4.1.K41-D1/rep1/report.json",
+  "runs/regression/H/Cpilot-keep.REQ-4.1.K41-D1/rep1/test-results"
+ ]
+}

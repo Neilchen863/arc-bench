@@ -1,0 +1,166 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "N6-bookstack.REQ-6.4.B64-D5",
+ "parent_id": "N6-bookstack.REQ-6.4.correct",
+ "method_id": "B",
+ "material_hash": "3427de477c0cabcf",
+ "binding_hash": "aa496db7b0687966",
+ "common_hash": "8aa3ade3303fdbeb",
+ "binding_source": "generic M0L rules",
+ "reference_label": "VIOLATED",
+ "target_obligation": "B64-O2",
+ "execution_repeat": 3,
+ "reset_id": "r3-1792434273",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "regression",
+ "tag": "formal-regression-run2",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 18055,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "result": "REQUIREMENT_FAIL",
+ "obligation_results": {
+  "B64-O1": "PASS",
+  "B64-O2": "FAIL",
+  "B64-O3": "NOT_REACHED",
+  "B64-O4": "PASS",
+  "B64-O5": "PASS",
+  "B64-O6": "PASS",
+  "B64-P1": "PASS"
+ },
+ "failure_detail": "failed: B64-O2",
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "status": "failed",
+   "duration_ms": 13117,
+   "errors": [
+    "Error: OBLIGATION_FAIL B64-O2: saved body \"Reading content for Page B 6.4.1.\" not visible; lines=[\"Skip to content\",\"Knowledge Base\",\"Shelves\",\"Books\",\"Log in\",\"Books\",\"Book 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Reading content for Page A 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N6-bookstack.REQ-6.4.B64-D5/rep3/work/tests/lib/oracle.ts:5:61)\n    at Object.bodyShown (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N6-bookstack.REQ-6.4.B64-D5/rep3/work/tests/lib/oracle.ts:20:48)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N6-bookstack.REQ-6.4.B64-D5/rep3/work/tests/REQ-6.4.spec.ts:30:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N6-bookstack.REQ-6.4.B64-D5/rep3/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N6-bookstack.REQ-6.4.B64-D5/rep3/work/tests/REQ-6.4.spec.ts:30:3"
+   ],
+   "last_step": "open target page",
+   "checks": [
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:24:36.368Z",
+     "step": "create page A"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:24:36.982Z",
+     "step": "create page TARGET"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:24:37.614Z",
+     "step": "create page C"
+    },
+    {
+     "obligation": "B64-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Details\",\"Actions\"],\"lines\":[\"Skip to content\",\"Knowledge Base\",\"Shelves\",\"Books\",\"Log in\",\"Books\",\"Book 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Reading content for Page A 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/a3b314f7-496c-4f09-868c-50e258128bb8/pages/96b557cb-100d-453d-abbc-89ad0169175a\"}",
+     "at": "2026-10-19T18:24:37.919Z",
+     "step": "open target page"
+    },
+    {
+     "obligation": "B64-O2",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL B64-O2: saved body \"Reading content for Page B 6.4.1.\" not visible; lines=[\"Skip to content\",\"Knowledge Base\",\"Shelves\",\"Books\",\"Log in\",\"Books\",\"Book 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Reading content for Page A 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit\"]",
+     "observed": "{\"headings\":[\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Details\",\"Actions\"],\"lines\":[\"Skip to content\",\"Knowledge Base\",\"Shelves\",\"Books\",\"Log in\",\"Books\",\"Book 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Reading content for Page A 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/a3b314f7-496c-4f09-868c-50e258128bb8/pages/96b557cb-100d-453d-abbc-89ad0169175a\"}",
+     "at": "2026-10-19T18:24:48.037Z",
+     "step": "open target page"
+    }
+   ],
+   "actions": []
+  },
+  {
+   "title": "reopen_page_editor",
+   "status": "passed",
+   "duration_ms": 3267,
+   "errors": [],
+   "last_step": "open editor",
+   "checks": [
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:24:50.133Z",
+     "step": "create page A"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:24:50.734Z",
+     "step": "create page TARGET"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:24:51.332Z",
+     "step": "create page C"
+    },
+    {
+     "obligation": "B64-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.2 [r3-w1-reopen-page-editor]\",\"Details\",\"Actions\"],\"lines\":[\"Skip to content\",\"Knowledge Base\",\"Shelves\",\"Books\",\"Log in\",\"Books\",\"Book 6.4.2 [r3-w1-reopen-page-editor]\",\"Page B 6.4.2 [r3-w1-reopen-page-editor]\",\"Page B 6.4.2 [r3-w1-reopen-page-editor]\",\"Reading content for Page A 6.4.2.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/a66c1692-968c-4816-9ac0-af7de49215c7/pages/508a09e5-5ce0-4031-a036-d11e36f091eb\"}",
+     "at": "2026-10-19T18:24:51.637Z",
+     "step": "open target page"
+    },
+    {
+     "obligation": "B64-O4",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"titleValue\":\"Page B 6.4.2 [r3-w1-reopen-page-editor]\",\"bodyValue\":\"Reading content for Page B 6.4.2.\",\"saveVisible\":true,\"evidence\":\"title=true body=true save=true\"}",
+     "at": "2026-10-19T18:24:51.944Z",
+     "step": "open editor"
+    },
+    {
+     "obligation": "B64-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"titleValue\":\"Page B 6.4.2 [r3-w1-reopen-page-editor]\",\"bodyValue\":\"Reading content for Page B 6.4.2.\",\"saveVisible\":true,\"evidence\":\"title=true body=true save=true\"}",
+     "at": "2026-10-19T18:24:51.950Z",
+     "step": "open editor"
+    },
+    {
+     "obligation": "B64-O6",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"titleValue\":\"Page B 6.4.2 [r3-w1-reopen-page-editor]\",\"bodyValue\":\"Reading content for Page B 6.4.2.\",\"saveVisible\":true,\"evidence\":\"title=true body=true save=true\"}",
+     "at": "2026-10-19T18:24:51.955Z",
+     "step": "open editor"
+    }
+   ],
+   "actions": []
+  }
+ ],
+ "target_failure_confirmed": true,
+ "evidence_paths": [
+  "runs/regression/B/N6-bookstack.REQ-6.4.B64-D5/rep3/report.json",
+  "runs/regression/B/N6-bookstack.REQ-6.4.B64-D5/rep3/test-results"
+ ]
+}

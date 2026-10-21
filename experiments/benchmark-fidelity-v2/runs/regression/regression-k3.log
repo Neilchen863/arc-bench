@@ -1,0 +1,426 @@
+Cpilot-keep.REQ-4.1.K41-D2 H rep1: REQUIREMENT_FAIL failed: K41-O7
+Cpilot-keep.REQ-4.1.K41-D2 H rep2: REQUIREMENT_FAIL failed: K41-O7
+Cpilot-keep.REQ-4.1.K41-D2 H rep3: REQUIREMENT_FAIL failed: K41-O7
+N2-keep.REQ-2.2.correct D rep1: PASS 
+N2-keep.REQ-2.2.correct D rep2: PASS 
+N2-keep.REQ-2.2.correct D rep3: PASS 
+B-keep.REQ-2.2.correct B rep1: PASS 
+B-keep.REQ-2.2.correct B rep2: PASS 
+B-keep.REQ-2.2.correct B rep3: PASS 
+N5-bookstack.REQ-6.4.B64-D3 D rep1: REQUIREMENT_FAIL failed: B64-O1
+N5-bookstack.REQ-6.4.B64-D3 D rep2: REQUIREMENT_FAIL failed: B64-O1
+N5-bookstack.REQ-6.4.B64-D3 D rep3: REQUIREMENT_FAIL failed: B64-O1
+Dpilot-keep.REQ-4.1.K41-D2 B rep1: REQUIREMENT_FAIL failed: K41-O7
+Dpilot-keep.REQ-4.1.K41-D2 B rep2: REQUIREMENT_FAIL failed: K41-O7
+Dpilot-keep.REQ-4.1.K41-D2 B rep3: REQUIREMENT_FAIL failed: K41-O7
+N5-bookstack.REQ-6.4.B64-D4 D rep1: REQUIREMENT_FAIL failed: B64-O5
+N5-bookstack.REQ-6.4.B64-D4 D rep2: REQUIREMENT_FAIL failed: B64-O5
+N5-bookstack.REQ-6.4.B64-D4 D rep3: REQUIREMENT_FAIL failed: B64-O5
+A-keep.REQ-2.2.correct D rep1: PASS 
+A-keep.REQ-2.2.correct D rep2: PASS 
+A-keep.REQ-2.2.correct D rep3: PASS 
+N2-keep.REQ-2.2.correct B rep1: PASS 
+N2-keep.REQ-2.2.correct B rep2: PASS 
+N2-keep.REQ-2.2.correct B rep3: PASS 
+A-keep.REQ-2.2.K22-D1 D rep1: REQUIREMENT_FAIL failed: K22-O2
+A-keep.REQ-2.2.K22-D1 D rep2: REQUIREMENT_FAIL failed: K22-O2
+A-keep.REQ-2.2.K22-D1 D rep3: REQUIREMENT_FAIL failed: K22-O2
+B-keep.REQ-4.1.correct D rep1: PASS 
+B-keep.REQ-4.1.correct D rep2: PASS 
+B-keep.REQ-4.1.correct D rep3: PASS 
+A-keep.REQ-4.1.K41-D2 B rep1: REQUIREMENT_FAIL failed: K41-O7
+A-keep.REQ-4.1.K41-D2 B rep2: REQUIREMENT_FAIL failed: K41-O7
+A-keep.REQ-4.1.K41-D2 B rep3: REQUIREMENT_FAIL failed: K41-O7
+Dpilot-keep.REQ-4.1.K41-D1 D rep1: REQUIREMENT_FAIL failed: K41-O2
+Dpilot-keep.REQ-4.1.K41-D1 D rep2: REQUIREMENT_FAIL failed: K41-O2
+Dpilot-keep.REQ-4.1.K41-D1 D rep3: REQUIREMENT_FAIL failed: K41-O2
+N3-keep.REQ-4.1.correct B rep1: PASS 
+N3-keep.REQ-4.1.correct B rep2: PASS 
+N3-keep.REQ-4.1.correct B rep3: PASS 
+N1-keep.REQ-2.2.correct B rep1: PASS 
+N1-keep.REQ-2.2.correct B rep2: PASS 
+N1-keep.REQ-2.2.correct B rep3: PASS 
+N3-keep.REQ-4.1.K41-D4 B rep1: REQUIREMENT_FAIL failed: K41-O4
+N3-keep.REQ-4.1.K41-D4 B rep2: REQUIREMENT_FAIL failed: K41-O4
+N3-keep.REQ-4.1.K41-D4 B rep3: REQUIREMENT_FAIL failed: K41-O4
+N4-keep.REQ-4.1.K41-D6 D rep1: REQUIREMENT_FAIL failed: K41-O8
+N4-keep.REQ-4.1.K41-D6 D rep2: REQUIREMENT_FAIL failed: K41-O8
+N4-keep.REQ-4.1.K41-D6 D rep3: REQUIREMENT_FAIL failed: K41-O8
+B-bookstack.REQ-6.4.B64-D2 D rep1: REQUIREMENT_FAIL failed: B64-O5
+B-bookstack.REQ-6.4.B64-D2 D rep2: REQUIREMENT_FAIL failed: B64-O5
+B-bookstack.REQ-6.4.B64-D2 D rep3: REQUIREMENT_FAIL failed: B64-O5
+N1-keep.REQ-2.2.K22-D4 D rep1: REQUIREMENT_FAIL failed: K22-O4
+N1-keep.REQ-2.2.K22-D4 D rep2: REQUIREMENT_FAIL failed: K22-O4
+N1-keep.REQ-2.2.K22-D4 D rep3: REQUIREMENT_FAIL failed: K22-O4
+A-keep.REQ-2.2.K22-D2 B rep1: REQUIREMENT_FAIL failed: K22-O6
+A-keep.REQ-2.2.K22-D2 B rep2: REQUIREMENT_FAIL failed: K22-O6
+A-keep.REQ-2.2.K22-D2 B rep3: REQUIREMENT_FAIL failed: K22-O6
+Cpilot-keep.REQ-4.1.K41-D1 H rep1: REQUIREMENT_FAIL failed: K41-O2
+Cpilot-keep.REQ-4.1.K41-D1 H rep2: REQUIREMENT_FAIL failed: K41-O2
+Cpilot-keep.REQ-4.1.K41-D1 H rep3: REQUIREMENT_FAIL failed: K41-O2
+B-keep.REQ-2.2.K22-D2 B rep1: REQUIREMENT_FAIL failed: K22-O6
+B-keep.REQ-2.2.K22-D2 B rep2: REQUIREMENT_FAIL failed: K22-O6
+B-keep.REQ-2.2.K22-D2 B rep3: REQUIREMENT_FAIL failed: K22-O6
+B-bookstack.REQ-6.4.B64-D1 B rep1: REQUIREMENT_FAIL failed: B64-O1
+B-bookstack.REQ-6.4.B64-D1 B rep2: REQUIREMENT_FAIL failed: B64-O1
+B-bookstack.REQ-6.4.B64-D1 B rep3: REQUIREMENT_FAIL failed: B64-O1
+Cpilot-keep.REQ-4.1.correct D rep1: PASS 
+Cpilot-keep.REQ-4.1.correct D rep2: PASS 
+Cpilot-keep.REQ-4.1.correct D rep3: PASS 
+N4-keep.REQ-4.1.K41-D6 B rep1: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [82f3e9c695-w0-c0bcaedb24] Math on Monday"]
+
+   a
+N4-keep.REQ-4.1.K41-D6 B rep2: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [db77fd01af-w0-c0bcaedb24] Math on Monday"]
+
+   a
+N4-keep.REQ-4.1.K41-D6 B rep3: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [e49d63b2a8-w0-c0bcaedb24] Math on Monday"]
+
+   a
+A-bookstack.REQ-6.4.correct D rep1: PASS 
+A-bookstack.REQ-6.4.correct D rep2: PASS 
+A-bookstack.REQ-6.4.correct D rep3: PASS 
+Dpilot-keep.REQ-4.1.K41-D1 B rep1: REQUIREMENT_FAIL failed: K41-O2
+Dpilot-keep.REQ-4.1.K41-D1 B rep2: REQUIREMENT_FAIL failed: K41-O2
+Dpilot-keep.REQ-4.1.K41-D1 B rep3: REQUIREMENT_FAIL failed: K41-O2
+N3-keep.REQ-4.1.K41-D4 D rep1: REQUIREMENT_FAIL failed: K41-O4
+N3-keep.REQ-4.1.K41-D4 D rep2: REQUIREMENT_FAIL failed: K41-O4
+N3-keep.REQ-4.1.K41-D4 D rep3: REQUIREMENT_FAIL failed: K41-O4
+Dpilot-bookstack.REQ-6.4.B64-D1 B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+
+Dpilot-bookstack.REQ-6.4.B64-D1 B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+
+Dpilot-bookstack.REQ-6.4.B64-D1 B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+
+Cpilot-keep.REQ-2.2.correct B rep1: PASS 
+Cpilot-keep.REQ-2.2.correct B rep2: PASS 
+Cpilot-keep.REQ-2.2.correct B rep3: PASS 
+Cpilot-keep.REQ-4.1.K41-D1 B rep1: REQUIREMENT_FAIL failed: K41-O2
+Cpilot-keep.REQ-4.1.K41-D1 B rep2: REQUIREMENT_FAIL failed: K41-O2
+Cpilot-keep.REQ-4.1.K41-D1 B rep3: REQUIREMENT_FAIL failed: K41-O2
+N2-keep.REQ-2.2.K22-D5 D rep1: REQUIREMENT_FAIL failed: K22-O2
+N2-keep.REQ-2.2.K22-D5 D rep2: REQUIREMENT_FAIL failed: K22-O2
+N2-keep.REQ-2.2.K22-D5 D rep3: REQUIREMENT_FAIL failed: K22-O2
+Cpilot-keep.REQ-4.1.correct B rep1: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{"tag":"input","name":"Title","value":"Call dentist existing [82f3e9c695-w0-fb7b338c04]"},{"tag":"textarea","name
+Cpilot-keep.REQ-4.1.correct B rep2: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{"tag":"input","name":"Title","value":"Call dentist existing [db77fd01af-w0-fb7b338c04]"},{"tag":"textarea","name
+Cpilot-keep.REQ-4.1.correct B rep3: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{"tag":"input","name":"Title","value":"Call dentist existing [e49d63b2a8-w0-fb7b338c04]"},{"tag":"textarea","name
+Dpilot-keep.REQ-2.2.correct D rep1: PASS 
+Dpilot-keep.REQ-2.2.correct D rep2: PASS 
+Dpilot-keep.REQ-2.2.correct D rep3: PASS 
+Dpilot-bookstack.REQ-6.4.correct D rep1: PASS 
+Dpilot-bookstack.REQ-6.4.correct D rep2: PASS 
+Dpilot-bookstack.REQ-6.4.correct D rep3: PASS 
+Cpilot-bookstack.REQ-6.4.B64-D2 D rep1: REQUIREMENT_FAIL failed: B64-O5
+Cpilot-bookstack.REQ-6.4.B64-D2 D rep2: REQUIREMENT_FAIL failed: B64-O5
+Cpilot-bookstack.REQ-6.4.B64-D2 D rep3: REQUIREMENT_FAIL failed: B64-O5
+Dpilot-keep.REQ-2.2.K22-D2 D rep1: REQUIREMENT_FAIL failed: K22-O6
+Dpilot-keep.REQ-2.2.K22-D2 D rep2: REQUIREMENT_FAIL failed: K22-O6
+Dpilot-keep.REQ-2.2.K22-D2 D rep3: REQUIREMENT_FAIL failed: K22-O6
+Cpilot-bookstack.REQ-6.4.B64-D1 B rep1: REQUIREMENT_FAIL failed: B64-O1
+Cpilot-bookstack.REQ-6.4.B64-D1 B rep2: REQUIREMENT_FAIL failed: B64-O1
+Cpilot-bookstack.REQ-6.4.B64-D1 B rep3: REQUIREMENT_FAIL failed: B64-O1
+N3-keep.REQ-4.1.K41-D3 D rep1: REQUIREMENT_FAIL failed: K41-O2
+N3-keep.REQ-4.1.K41-D3 D rep2: REQUIREMENT_FAIL failed: K41-O2
+N3-keep.REQ-4.1.K41-D3 D rep3: REQUIREMENT_FAIL failed: K41-O2
+B-keep.REQ-2.2.K22-D1 D rep1: REQUIREMENT_FAIL failed: K22-O2
+B-keep.REQ-2.2.K22-D1 D rep2: REQUIREMENT_FAIL failed: K22-O2
+B-keep.REQ-2.2.K22-D1 D rep3: REQUIREMENT_FAIL failed: K22-O2
+B-keep.REQ-4.1.K41-D2 D rep1: REQUIREMENT_FAIL failed: K41-O7
+B-keep.REQ-4.1.K41-D2 D rep2: REQUIREMENT_FAIL failed: K41-O7
+B-keep.REQ-4.1.K41-D2 D rep3: REQUIREMENT_FAIL failed: K41-O7
+A-bookstack.REQ-6.4.B64-D1 D rep1: REQUIREMENT_FAIL failed: B64-O1
+A-bookstack.REQ-6.4.B64-D1 D rep2: REQUIREMENT_FAIL failed: B64-O1
+A-bookstack.REQ-6.4.B64-D1 D rep3: REQUIREMENT_FAIL failed: B64-O1
+B-bookstack.REQ-6.4.B64-D2 B rep1: REQUIREMENT_FAIL failed: B64-O5
+B-bookstack.REQ-6.4.B64-D2 B rep2: REQUIREMENT_FAIL failed: B64-O5
+B-bookstack.REQ-6.4.B64-D2 B rep3: REQUIREMENT_FAIL failed: B64-O5
+A-keep.REQ-2.2.K22-D1 B rep1: REQUIREMENT_FAIL failed: K22-O2
+A-keep.REQ-2.2.K22-D1 B rep2: REQUIREMENT_FAIL failed: K22-O2
+A-keep.REQ-2.2.K22-D1 B rep3: REQUIREMENT_FAIL failed: K22-O2
+A-keep.REQ-4.1.correct B rep1: PASS 
+A-keep.REQ-4.1.correct B rep2: PASS 
+A-keep.REQ-4.1.correct B rep3: PASS 
+N6-bookstack.REQ-6.4.B64-D5 D rep1: REQUIREMENT_FAIL failed: B64-O2
+N6-bookstack.REQ-6.4.B64-D5 D rep2: REQUIREMENT_FAIL failed: B64-O2
+N6-bookstack.REQ-6.4.B64-D5 D rep3: REQUIREMENT_FAIL failed: B64-O2
+Dpilot-bookstack.REQ-6.4.B64-D1 D rep1: REQUIREMENT_FAIL failed: B64-O1
+Dpilot-bookstack.REQ-6.4.B64-D1 D rep2: REQUIREMENT_FAIL failed: B64-O1
+Dpilot-bookstack.REQ-6.4.B64-D1 D rep3: REQUIREMENT_FAIL failed: B64-O1
+Cpilot-keep.REQ-4.1.K41-D2 B rep1: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{"tag":"input","name":"Title","value":"Call dentist existing [82f3e9c695-w0-fb7b338c04]"},{"tag":"textarea","name"
+Cpilot-keep.REQ-4.1.K41-D2 B rep2: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{"tag":"input","name":"Title","value":"Call dentist existing [db77fd01af-w0-fb7b338c04]"},{"tag":"textarea","name"
+Cpilot-keep.REQ-4.1.K41-D2 B rep3: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{"tag":"input","name":"Title","value":"Call dentist existing [e49d63b2a8-w0-fb7b338c04]"},{"tag":"textarea","name"
+N5-bookstack.REQ-6.4.correct B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   
+N5-bookstack.REQ-6.4.correct B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   
+N5-bookstack.REQ-6.4.correct B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   
+N3-keep.REQ-4.1.correct D rep1: PASS 
+N3-keep.REQ-4.1.correct D rep2: PASS 
+N3-keep.REQ-4.1.correct D rep3: PASS 
+N2-keep.REQ-2.2.K22-D6 D rep1: REQUIREMENT_FAIL failed: K22-O1
+N2-keep.REQ-2.2.K22-D6 D rep2: REQUIREMENT_FAIL failed: K22-O1
+N2-keep.REQ-2.2.K22-D6 D rep3: REQUIREMENT_FAIL failed: K22-O1
+Dpilot-bookstack.REQ-6.4.correct B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+Dpilot-bookstack.REQ-6.4.correct B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+Dpilot-bookstack.REQ-6.4.correct B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+N5-bookstack.REQ-6.4.B64-D4 B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   a
+N5-bookstack.REQ-6.4.B64-D4 B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   a
+N5-bookstack.REQ-6.4.B64-D4 B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   a
+B-bookstack.REQ-6.4.B64-D1 D rep1: REQUIREMENT_FAIL failed: B64-O1
+B-bookstack.REQ-6.4.B64-D1 D rep2: REQUIREMENT_FAIL failed: B64-O1
+B-bookstack.REQ-6.4.B64-D1 D rep3: REQUIREMENT_FAIL failed: B64-O1
+B-bookstack.REQ-6.4.correct B rep1: PASS 
+B-bookstack.REQ-6.4.correct B rep2: PASS 
+B-bookstack.REQ-6.4.correct B rep3: PASS 
+N6-bookstack.REQ-6.4.B64-D6 B rep1: REQUIREMENT_FAIL failed: B64-O5
+N6-bookstack.REQ-6.4.B64-D6 B rep2: REQUIREMENT_FAIL failed: B64-O5
+N6-bookstack.REQ-6.4.B64-D6 B rep3: REQUIREMENT_FAIL failed: B64-O5
+B-keep.REQ-2.2.K22-D1 B rep1: REQUIREMENT_FAIL failed: K22-O2
+B-keep.REQ-2.2.K22-D1 B rep2: REQUIREMENT_FAIL failed: K22-O2
+B-keep.REQ-2.2.K22-D1 B rep3: REQUIREMENT_FAIL failed: K22-O2
+Dpilot-keep.REQ-2.2.correct B rep1: PASS 
+Dpilot-keep.REQ-2.2.correct B rep2: PASS 
+Dpilot-keep.REQ-2.2.correct B rep3: PASS 
+N1-keep.REQ-2.2.K22-D4 B rep1: REQUIREMENT_FAIL failed: K22-O4
+N1-keep.REQ-2.2.K22-D4 B rep2: REQUIREMENT_FAIL failed: K22-O4
+N1-keep.REQ-2.2.K22-D4 B rep3: REQUIREMENT_FAIL failed: K22-O4
+Cpilot-keep.REQ-4.1.correct H rep1: PASS 
+Cpilot-keep.REQ-4.1.correct H rep2: PASS 
+Cpilot-keep.REQ-4.1.correct H rep3: PASS 
+Dpilot-bookstack.REQ-6.4.correct H rep1: PASS 
+Dpilot-bookstack.REQ-6.4.correct H rep2: PASS 
+Dpilot-bookstack.REQ-6.4.correct H rep3: PASS 
+B-keep.REQ-4.1.K41-D1 B rep1: REQUIREMENT_FAIL failed: K41-O2
+B-keep.REQ-4.1.K41-D1 B rep2: REQUIREMENT_FAIL failed: K41-O2
+B-keep.REQ-4.1.K41-D1 B rep3: REQUIREMENT_FAIL failed: K41-O2
+Dpilot-keep.REQ-2.2.K22-D1 D rep1: REQUIREMENT_FAIL failed: K22-O2
+Dpilot-keep.REQ-2.2.K22-D1 D rep2: REQUIREMENT_FAIL failed: K22-O2
+Dpilot-keep.REQ-2.2.K22-D1 D rep3: REQUIREMENT_FAIL failed: K22-O2
+B-keep.REQ-4.1.K41-D1 D rep1: REQUIREMENT_FAIL failed: K41-O2
+B-keep.REQ-4.1.K41-D1 D rep2: REQUIREMENT_FAIL failed: K41-O2
+B-keep.REQ-4.1.K41-D1 D rep3: REQUIREMENT_FAIL failed: K41-O2
+N6-bookstack.REQ-6.4.B64-D5 B rep1: REQUIREMENT_FAIL failed: B64-O2
+N6-bookstack.REQ-6.4.B64-D5 B rep2: REQUIREMENT_FAIL failed: B64-O2
+N6-bookstack.REQ-6.4.B64-D5 B rep3: REQUIREMENT_FAIL failed: B64-O2
+A-keep.REQ-4.1.K41-D1 D rep1: REQUIREMENT_FAIL failed: K41-O2
+A-keep.REQ-4.1.K41-D1 D rep2: REQUIREMENT_FAIL failed: K41-O2
+A-keep.REQ-4.1.K41-D1 D rep3: REQUIREMENT_FAIL failed: K41-O2
+N4-keep.REQ-4.1.correct B rep1: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [82f3e9c695-w0-c0bcaedb24] Math on Monday"]
+
+   
+N4-keep.REQ-4.1.correct B rep2: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [db77fd01af-w0-c0bcaedb24] Math on Monday"]
+
+   
+N4-keep.REQ-4.1.correct B rep3: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [e49d63b2a8-w0-c0bcaedb24] Math on Monday"]
+
+   
+N6-bookstack.REQ-6.4.B64-D6 D rep1: REQUIREMENT_FAIL failed: B64-O5
+N6-bookstack.REQ-6.4.B64-D6 D rep2: REQUIREMENT_FAIL failed: B64-O5
+N6-bookstack.REQ-6.4.B64-D6 D rep3: REQUIREMENT_FAIL failed: B64-O5
+Cpilot-bookstack.REQ-6.4.B64-D2 B rep1: REQUIREMENT_FAIL failed: B64-O5
+Cpilot-bookstack.REQ-6.4.B64-D2 B rep2: REQUIREMENT_FAIL failed: B64-O5
+Cpilot-bookstack.REQ-6.4.B64-D2 B rep3: REQUIREMENT_FAIL failed: B64-O5
+N2-keep.REQ-2.2.K22-D5 B rep1: REQUIREMENT_FAIL failed: K22-O2
+N2-keep.REQ-2.2.K22-D5 B rep2: REQUIREMENT_FAIL failed: K22-O2
+N2-keep.REQ-2.2.K22-D5 B rep3: REQUIREMENT_FAIL failed: K22-O2
+Dpilot-keep.REQ-2.2.K22-D2 B rep1: REQUIREMENT_FAIL failed: K22-O6
+Dpilot-keep.REQ-2.2.K22-D2 B rep2: REQUIREMENT_FAIL failed: K22-O6
+Dpilot-keep.REQ-2.2.K22-D2 B rep3: REQUIREMENT_FAIL failed: K22-O6
+Dpilot-bookstack.REQ-6.4.B64-D2 H rep1: REQUIREMENT_FAIL failed: B64-O5
+Dpilot-bookstack.REQ-6.4.B64-D2 H rep2: REQUIREMENT_FAIL failed: B64-O5
+Dpilot-bookstack.REQ-6.4.B64-D2 H rep3: REQUIREMENT_FAIL failed: B64-O5
+Cpilot-keep.REQ-2.2.K22-D2 D rep1: REQUIREMENT_FAIL failed: K22-O6
+Cpilot-keep.REQ-2.2.K22-D2 D rep2: REQUIREMENT_FAIL failed: K22-O6
+Cpilot-keep.REQ-2.2.K22-D2 D rep3: REQUIREMENT_FAIL failed: K22-O6
+N6-bookstack.REQ-6.4.correct D rep1: PASS 
+N6-bookstack.REQ-6.4.correct D rep2: PASS 
+N6-bookstack.REQ-6.4.correct D rep3: PASS 
+N6-bookstack.REQ-6.4.correct B rep1: PASS 
+N6-bookstack.REQ-6.4.correct B rep2: PASS 
+N6-bookstack.REQ-6.4.correct B rep3: PASS 
+N1-keep.REQ-2.2.K22-D3 B rep1: REQUIREMENT_FAIL failed: K22-O2
+N1-keep.REQ-2.2.K22-D3 B rep2: REQUIREMENT_FAIL failed: K22-O2
+N1-keep.REQ-2.2.K22-D3 B rep3: REQUIREMENT_FAIL failed: K22-O2
+A-bookstack.REQ-6.4.correct B rep1: PASS 
+A-bookstack.REQ-6.4.correct B rep2: PASS 
+A-bookstack.REQ-6.4.correct B rep3: PASS 
+Cpilot-keep.REQ-2.2.correct D rep1: PASS 
+Cpilot-keep.REQ-2.2.correct D rep2: PASS 
+Cpilot-keep.REQ-2.2.correct D rep3: PASS 
+A-keep.REQ-4.1.K41-D1 B rep1: REQUIREMENT_FAIL failed: K41-O2
+A-keep.REQ-4.1.K41-D1 B rep2: REQUIREMENT_FAIL failed: K41-O2
+A-keep.REQ-4.1.K41-D1 B rep3: REQUIREMENT_FAIL failed: K41-O2
+N1-keep.REQ-2.2.correct D rep1: PASS 
+N1-keep.REQ-2.2.correct D rep2: PASS 
+N1-keep.REQ-2.2.correct D rep3: PASS 
+N3-keep.REQ-4.1.K41-D3 B rep1: REQUIREMENT_FAIL failed: K41-O2
+N3-keep.REQ-4.1.K41-D3 B rep2: REQUIREMENT_FAIL failed: K41-O2
+N3-keep.REQ-4.1.K41-D3 B rep3: REQUIREMENT_FAIL failed: K41-O2
+N5-bookstack.REQ-6.4.correct D rep1: PASS 
+N5-bookstack.REQ-6.4.correct D rep2: PASS 
+N5-bookstack.REQ-6.4.correct D rep3: PASS 
+Cpilot-keep.REQ-2.2.K22-D1 B rep1: REQUIREMENT_FAIL failed: K22-O2
+Cpilot-keep.REQ-2.2.K22-D1 B rep2: REQUIREMENT_FAIL failed: K22-O2
+Cpilot-keep.REQ-2.2.K22-D1 B rep3: REQUIREMENT_FAIL failed: K22-O2
+Dpilot-keep.REQ-4.1.correct B rep1: PASS 
+Dpilot-keep.REQ-4.1.correct B rep2: PASS 
+Dpilot-keep.REQ-4.1.correct B rep3: PASS 
+A-bookstack.REQ-6.4.B64-D2 B rep1: REQUIREMENT_FAIL failed: B64-O5
+A-bookstack.REQ-6.4.B64-D2 B rep2: REQUIREMENT_FAIL failed: B64-O5
+A-bookstack.REQ-6.4.B64-D2 B rep3: REQUIREMENT_FAIL failed: B64-O5
+Cpilot-keep.REQ-2.2.K22-D1 D rep1: REQUIREMENT_FAIL failed: K22-O2
+Cpilot-keep.REQ-2.2.K22-D1 D rep2: REQUIREMENT_FAIL failed: K22-O2
+Cpilot-keep.REQ-2.2.K22-D1 D rep3: REQUIREMENT_FAIL failed: K22-O2
+Cpilot-keep.REQ-4.1.K41-D2 D rep1: REQUIREMENT_FAIL failed: K41-O7
+Cpilot-keep.REQ-4.1.K41-D2 D rep2: REQUIREMENT_FAIL failed: K41-O7
+Cpilot-keep.REQ-4.1.K41-D2 D rep3: REQUIREMENT_FAIL failed: K41-O7
+B-bookstack.REQ-6.4.correct D rep1: PASS 
+B-bookstack.REQ-6.4.correct D rep2: PASS 
+B-bookstack.REQ-6.4.correct D rep3: PASS 
+N4-keep.REQ-4.1.K41-D5 D rep1: REQUIREMENT_FAIL failed: K41-O7
+N4-keep.REQ-4.1.K41-D5 D rep2: REQUIREMENT_FAIL failed: K41-O7
+N4-keep.REQ-4.1.K41-D5 D rep3: REQUIREMENT_FAIL failed: K41-O7
+Dpilot-bookstack.REQ-6.4.B64-D2 D rep1: REQUIREMENT_FAIL failed: B64-O5
+Dpilot-bookstack.REQ-6.4.B64-D2 D rep2: REQUIREMENT_FAIL failed: B64-O5
+Dpilot-bookstack.REQ-6.4.B64-D2 D rep3: REQUIREMENT_FAIL failed: B64-O5
+B-keep.REQ-2.2.correct D rep1: PASS 
+B-keep.REQ-2.2.correct D rep2: PASS 
+B-keep.REQ-2.2.correct D rep3: PASS 
+B-keep.REQ-4.1.K41-D2 B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+
+   at lib/adapt.ts:40
+
+  3
+B-keep.REQ-4.1.K41-D2 B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+
+   at lib/adapt.ts:40
+
+  3
+B-keep.REQ-4.1.K41-D2 B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+
+   at lib/adapt.ts:40
+
+  3
+N5-bookstack.REQ-6.4.B64-D3 B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   a
+N5-bookstack.REQ-6.4.B64-D3 B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   a
+N5-bookstack.REQ-6.4.B64-D3 B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   a
+Cpilot-keep.REQ-4.1.K41-D1 D rep1: REQUIREMENT_FAIL failed: K41-O2
+Cpilot-keep.REQ-4.1.K41-D1 D rep2: REQUIREMENT_FAIL failed: K41-O2
+Cpilot-keep.REQ-4.1.K41-D1 D rep3: REQUIREMENT_FAIL failed: K41-O2
+A-keep.REQ-2.2.correct B rep1: PASS 
+A-keep.REQ-2.2.correct B rep2: PASS 
+A-keep.REQ-2.2.correct B rep3: PASS 
+A-keep.REQ-2.2.K22-D2 D rep1: REQUIREMENT_FAIL failed: K22-O6
+A-keep.REQ-2.2.K22-D2 D rep2: REQUIREMENT_FAIL failed: K22-O6
+A-keep.REQ-2.2.K22-D2 D rep3: REQUIREMENT_FAIL failed: K22-O6
+Cpilot-bookstack.REQ-6.4.correct B rep1: PASS 
+Cpilot-bookstack.REQ-6.4.correct B rep2: PASS 
+Cpilot-bookstack.REQ-6.4.correct B rep3: PASS 
+Dpilot-keep.REQ-4.1.correct D rep1: PASS 
+Dpilot-keep.REQ-4.1.correct D rep2: PASS 
+Dpilot-keep.REQ-4.1.correct D rep3: PASS 
+B-keep.REQ-4.1.K41-D1 H rep1: REQUIREMENT_FAIL failed: K41-O2
+B-keep.REQ-4.1.K41-D1 H rep2: REQUIREMENT_FAIL failed: K41-O2
+B-keep.REQ-4.1.K41-D1 H rep3: REQUIREMENT_FAIL failed: K41-O2
+N2-keep.REQ-2.2.K22-D6 B rep1: REQUIREMENT_FAIL failed: K22-O1
+N2-keep.REQ-2.2.K22-D6 B rep2: REQUIREMENT_FAIL failed: K22-O1
+N2-keep.REQ-2.2.K22-D6 B rep3: REQUIREMENT_FAIL failed: K22-O1
+Dpilot-bookstack.REQ-6.4.B64-D2 B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+
+Dpilot-bookstack.REQ-6.4.B64-D2 B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+
+Dpilot-bookstack.REQ-6.4.B64-D2 B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+
+B-keep.REQ-4.1.K41-D2 H rep1: REQUIREMENT_FAIL failed: K41-O7
+B-keep.REQ-4.1.K41-D2 H rep2: REQUIREMENT_FAIL failed: K41-O7
+B-keep.REQ-4.1.K41-D2 H rep3: REQUIREMENT_FAIL failed: K41-O7
+B-keep.REQ-4.1.correct H rep1: PASS 
+B-keep.REQ-4.1.correct H rep2: PASS 
+B-keep.REQ-4.1.correct H rep3: PASS 
+Dpilot-bookstack.REQ-6.4.B64-D1 H rep1: REQUIREMENT_FAIL failed: B64-O1
+Dpilot-bookstack.REQ-6.4.B64-D1 H rep2: REQUIREMENT_FAIL failed: B64-O1
+Dpilot-bookstack.REQ-6.4.B64-D1 H rep3: REQUIREMENT_FAIL failed: B64-O1
+A-bookstack.REQ-6.4.B64-D1 B rep1: REQUIREMENT_FAIL failed: B64-O1
+A-bookstack.REQ-6.4.B64-D1 B rep2: REQUIREMENT_FAIL failed: B64-O1
+A-bookstack.REQ-6.4.B64-D1 B rep3: REQUIREMENT_FAIL failed: B64-O1
+A-keep.REQ-4.1.correct D rep1: PASS 
+A-keep.REQ-4.1.correct D rep2: PASS 
+A-keep.REQ-4.1.correct D rep3: PASS 
+Cpilot-keep.REQ-2.2.K22-D2 B rep1: REQUIREMENT_FAIL failed: K22-O6
+Cpilot-keep.REQ-2.2.K22-D2 B rep2: REQUIREMENT_FAIL failed: K22-O6
+Cpilot-keep.REQ-2.2.K22-D2 B rep3: REQUIREMENT_FAIL failed: K22-O6
+A-bookstack.REQ-6.4.B64-D2 D rep1: REQUIREMENT_FAIL failed: B64-O5
+A-bookstack.REQ-6.4.B64-D2 D rep2: REQUIREMENT_FAIL failed: B64-O5
+A-bookstack.REQ-6.4.B64-D2 D rep3: REQUIREMENT_FAIL failed: B64-O5
+N4-keep.REQ-4.1.correct D rep1: PASS 
+N4-keep.REQ-4.1.correct D rep2: PASS 
+N4-keep.REQ-4.1.correct D rep3: PASS 
+B-keep.REQ-4.1.correct B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+
+   at lib/adapt.ts:40
+
+  
+B-keep.REQ-4.1.correct B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+
+   at lib/adapt.ts:40
+
+  
+B-keep.REQ-4.1.correct B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+
+   at lib/adapt.ts:40
+
+  
+Cpilot-bookstack.REQ-6.4.B64-D1 D rep1: REQUIREMENT_FAIL failed: B64-O1
+Cpilot-bookstack.REQ-6.4.B64-D1 D rep2: REQUIREMENT_FAIL failed: B64-O1
+Cpilot-bookstack.REQ-6.4.B64-D1 D rep3: REQUIREMENT_FAIL failed: B64-O1
+Dpilot-keep.REQ-4.1.K41-D2 D rep1: REQUIREMENT_FAIL failed: K41-O7
+Dpilot-keep.REQ-4.1.K41-D2 D rep2: REQUIREMENT_FAIL failed: K41-O7
+Dpilot-keep.REQ-4.1.K41-D2 D rep3: REQUIREMENT_FAIL failed: K41-O7
+Dpilot-keep.REQ-2.2.K22-D1 B rep1: REQUIREMENT_FAIL failed: K22-O2
+Dpilot-keep.REQ-2.2.K22-D1 B rep2: REQUIREMENT_FAIL failed: K22-O2
+Dpilot-keep.REQ-2.2.K22-D1 B rep3: REQUIREMENT_FAIL failed: K22-O2
+B-keep.REQ-2.2.K22-D2 D rep1: REQUIREMENT_FAIL failed: K22-O6
+B-keep.REQ-2.2.K22-D2 D rep2: REQUIREMENT_FAIL failed: K22-O6
+B-keep.REQ-2.2.K22-D2 D rep3: REQUIREMENT_FAIL failed: K22-O6
+A-keep.REQ-4.1.K41-D2 D rep1: REQUIREMENT_FAIL failed: K41-O7
+A-keep.REQ-4.1.K41-D2 D rep2: REQUIREMENT_FAIL failed: K41-O7
+A-keep.REQ-4.1.K41-D2 D rep3: REQUIREMENT_FAIL failed: K41-O7
+N4-keep.REQ-4.1.K41-D5 B rep1: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [82f3e9c695-w0-c0bcaedb24] Math on Monday"]
+
+   a
+N4-keep.REQ-4.1.K41-D5 B rep2: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [db77fd01af-w0-c0bcaedb24] Math on Monday"]
+
+   a
+N4-keep.REQ-4.1.K41-D5 B rep3: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [e49d63b2a8-w0-c0bcaedb24] Math on Monday"]
+
+   a
+Cpilot-bookstack.REQ-6.4.correct D rep1: PASS 
+Cpilot-bookstack.REQ-6.4.correct D rep2: PASS 
+Cpilot-bookstack.REQ-6.4.correct D rep3: PASS 
+N1-keep.REQ-2.2.K22-D3 D rep1: REQUIREMENT_FAIL failed: K22-O2
+N1-keep.REQ-2.2.K22-D3 D rep2: REQUIREMENT_FAIL failed: K22-O2
+N1-keep.REQ-2.2.K22-D3 D rep3: REQUIREMENT_FAIL failed: K22-O2

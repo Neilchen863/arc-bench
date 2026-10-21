@@ -1,0 +1,49 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-4.1.spec.ts:5:5 › REQ-4.1: Search title and content with highlights
+[1A[2K[2/2] [chromium] › tests/REQ-4.1.spec.ts:31:5 › REQ-4.1: Choose a suggested label filter
+[1A[2K  1) [chromium] › tests/REQ-4.1.spec.ts:31:5 › REQ-4.1: Choose a suggested label filter ────────────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeHidden[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('region', { name: 'Movie list [db77fd01af-w0-398bc9145e]', exact: true })
+    Expected: hidden
+    Received: visible
+    Timeout:  10000ms
+
+    Call log:
+    [2m  - Expect "toBeHidden" with timeout 10000ms[22m
+    [2m  - waiting for getByRole('region', { name: 'Movie list [db77fd01af-w0-398bc9145e]', exact: true })[22m
+    [2m    14 × locator resolved to <section class="note" aria-label="Movie list [db77fd01af-w0-398bc9145e]">…</section>[22m
+    [2m       - unexpected value "visible"[22m
+
+
+      40 |   await action(section(page, 'Suggested filters'), 'Reminders').click();
+      41 |   await expectNote(page, matching, 'Reminder content');
+    > 42 |   await expect(note(page, other)).toBeHidden();
+         |                                   ^
+      43 |   await search.fill('');
+      44 |   await navigate(page, 'Notes');
+      45 |   await expectNote(page, matching, 'Reminder content');
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/keep.REQ-4.1/A-keep--K41-D2/rep2/work/tests/REQ-4.1.spec.ts:42:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-REQ-4-1-Choose-a-suggested-label-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-REQ-4-1-Choose-a-suggested-label-filter-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-REQ-4-1-Choose-a-suggested-label-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-REQ-4-1-Choose-a-suggested-label-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  1 failed
+    [chromium] › tests/REQ-4.1.spec.ts:31:5 › REQ-4.1: Choose a suggested label filter ─────────────
+  1 passed (12.5s)
+

@@ -1,0 +1,13 @@
+diff --git a/src/search.js b/src/search.js
+index 3a0d35b..24f1a4e 100644
+--- a/src/search.js
++++ b/src/search.js
+@@ -10,7 +10,7 @@ export function normalizeQuery(query) {
+ export function matchesKeyword(note, query) {
+   const q = normalizeQuery(query);
+   if (!q) return true;
+-  return (note.title || '').toLowerCase().includes(q) || (note.content || '').toLowerCase().includes(q);
++  return (note.title || '').toLowerCase().includes(q);
+ }
+ 
+ // Label filter chosen from the search panel's suggestions.

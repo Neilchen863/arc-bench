@@ -1,0 +1,59 @@
+# BUILD-LOG: Dpilot / keep (NAMING_MODE S1)
+
+## Versions
+- Node v22.23.3, npm 10.9.9 (the experiment's `tools/node-v22.23.3-darwin-arm64`)
+- vue 3.5.22, vite 7.1.7, @vitejs/plugin-vue 6.0.1 (exact pins; `package-lock.json` committed)
+- Component library: none. All components are hand-written in `app/src/components/`.
+- Self-check only: playwright 1.57.0 in `selfcheck/` (not part of the app build).
+
+## Template / starter
+None. `package.json`, `vite.config.js` and `index.html` were written by hand (no `create-vite` scaffold). No code was copied from any other implementation.
+
+## Architecture
+- `server/server.mjs` is a byte-identical copy of `materials/_runtime-base/server.mjs` (checked with `cmp`).
+- `app/src/api.js` is a small fetch client for `/api/<collection>`. `app/src/store.js` holds a reactive cache of `notes` and `labels`, which are loaded from the server on start. Every change is sent to the server: notes go through POST/PATCH `/api/notes`, labels through POST/DELETE `/api/labels`. Nothing business-related is kept in localStorage. Only the grid/list layout preference is stored there, per viewer.
+- The business date comes from `GET /api/now` (`store.now`). It is written to `note.editedAt` on every create or update and shown as "Edited <date>" (en-US, UTC) in the editor for existing notes. The machine clock is never used for dates the user sees. The server's own `createdAt` (machine time) is never displayed.
+- Note document: `{title, content, pinned, color, labels:[labelId], archived, trashed, editedAt}`. Label ids refer to `/api/labels`, including the seeded `reminders` label.
+- Order: newest first. The server's insertion order is reversed.
+
+## Design choices (S1)
+Most of these choices are what I would ship in a Keep-like product. The manifest relaxes names and controls only for REQ-2.2 and REQ-4.1, so for the prerequisite requirements (REQ-1.1, REQ-2.1, REQ-2.8) I kept the names from the requirements. For REQ-2.2 and REQ-4.1 I chose freely.
+- **Workspace (REQ-1.1):** a top bar with a hamburger "Toggle sidebar" button (`aria-expanded`, `aria-controls`), a brand, a search form (`role=search`) and a layout toggle button ("List view" / "Grid view"). The sidebar is `<nav aria-label="Sidebar">` and contains Notes, Reminders (bell icon), one entry per user label (tag icon), Edit Labels (pencil), Archived and Trash. The selected entry has `aria-current="true"` and a highlight. When collapsed, the text spans are hidden (`display:none`), but each button keeps its `aria-label` and icon and gets a tooltip. No Settings menu was built because it is out of scope.
+- **Note creation (REQ-2.2):** the composer is a button with the visible text "New note" and a plus icon. The editor uses a native modal `<dialog>`, named "New note" or "Edit note" through a visually hidden heading. Title is an `<input>` labelled "Title". The body is a `contenteditable="plaintext-only"` element with `role=textbox`, `aria-multiline` and the label "Note text". It shows a placeholder, pastes as plain text, and is read back with `innerText`, so Enter-separated lines are saved with `\n`. The editor toolbar has "Pin note" (toggle with `aria-pressed`), "Background color" (a palette popover of named swatch buttons) and "Change labels". The only exit control is a text button, "Close". Leaving the editor with Close, Escape or a backdrop click saves the note automatically. There is no Save button. A new note that is empty in both title and content is discarded, since the requirements leave empty input unspecified.
+- **Note list (REQ-2.1):** each note is an `<article>` labelled by its title heading `<h3>`. The title itself is a button that opens the editor, and clicking the card surface also opens it. Pinned and other notes are in `<section aria-label="Pinned notes">` and `<section aria-label="Other notes">`. The visible headings are "Pinned" and "Others", and "Others" is shown only when pinned notes exist. Card actions are "Pin note" (a toggle) and a "More options" menu button, which follows the ARIA menu pattern with arrow keys and Escape and contains the menuitems "Edit note" and "Change labels". Line breaks in the body are rendered with `white-space: pre-wrap`. Labels appear as chips.
+- **Labels (REQ-2.8):** the label chooser is a modal dialog named "Note labels" (by its heading). It has one native checkbox per label, with Reminders first and then user labels A-Z, and a "Done" button. Escape or a backdrop click also keeps the selections. The "Edit labels" dialog (opened from Edit Labels in the sidebar) has a "New label" text field (placeholder "Create new label"), a "Create label" submit button, and one "Delete label <name>" button per user label. Duplicate and empty names are rejected with a status message. Deleting a label also removes it from notes. Selecting a label in the sidebar shows the active notes that carry it, and creating a note from a label view pre-assigns that label.
+- **Search (REQ-4.1):** the search field is `<input type=search aria-label="Search notes" placeholder="Search">`. Focusing it enters search mode. While no keyword and no filter are set, the main area shows a panel section headed "Filter by label" (named by that heading), with one large button per label: Reminders first, then user labels. Choosing a label applies it as a filter, shown as a removable chip inside the search bar. Typing filters active notes by a case-insensitive substring of the title or the content. Every matching fragment, in both title and body, is wrapped in `<mark class="match">` with a yellow background and outline, and contains only the matched text in its original case. "Clear search" (x button), Escape, or choosing any sidebar entry leaves search mode and restores the normal list. Results show a count heading.
+- **Archived / Trash:** these are simple views. Trash lists the two seeded trashed notes read-only, and Archived lists archived notes (none can be created in this scope).
+- **Accessibility:** all controls are native buttons, inputs or checkboxes, or follow the menu-button pattern. Icons are `aria-hidden`, and icon buttons have `aria-label` and `title`. The native dialog provides focus containment and Escape, and focus returns to the opener. A visible `:focus-visible` ring is used throughout. A visually hidden `<h1>` names the current view. Errors appear in a `role=alert` banner. Below 720px the sidebar becomes an overlay.
+
+## Self-check results (2026-10-19)
+Server: `PORT=39061 APP=keep STATIC_DIR=app/dist node server/server.mjs`, then POST `/__reset`, Chromium headless via `selfcheck/check.mjs`. The final run of the correct version had **44/44 PASS**:
+- REQ-1.1: sidebar visible, toggle `expanded=true`, Notes current, the Reminders / Edit Labels / Archived / Trash buttons, the searchbox, the New note button and the List view button are all visible. Collapsing gives `expanded=false` and hides the Notes text, while the action stays visible. Expanding restores both.
+- REQ-2.2: Title + "First line" Enter "Second line" (typed on the keyboard) + Close gives exactly one card with both lines on separate lines. The same holds with Playwright `fill()` of a multi-line string. The note survives a reload, and the server stores `content: "First line\nSecond line"`. Escape also closes and saves. A keyboard-only path (Enter on New note, type, Tab to Close, Enter) works.
+- REQ-2.1: a pinned note appears only in Pinned notes and a regular note only in Other notes, and each region appears once.
+- REQ-2.8: labels are created through Edit labels. Assigning Work and Personal via More options > Change labels > Done survives a reload (chips shown), and each sidebar filter shows exactly that one note. Unchecking via the editor's Change labels removes the chip after reload, and the Work filter excludes that note but keeps the others. A note created with Reminders through the editor's chooser shows the chip and appears once in the Reminders view.
+- REQ-4.1: focusing search shows the filter panel. Searching "st" shows Study schedule and Reading plan (content-only match) and hides Ocean memo. The marks read exactly "St" and "st" and have a non-transparent background. Clear plus Notes restores all three notes. With the Reminders suggested filter, only Reminders-labelled notes show and the unlabeled Movie list is hidden. Clear plus Notes restores both.
+- Trash shows the 2 seeds. There were no page errors.
+- Screenshots of the grid, the editor with the palette, and the mobile layout were inspected visually.
+- `npm ci && npm run build` from clean succeeds.
+
+## Defect variants
+Each patch is in `defects/<id>.patch`. They are unified diffs relative to `app/`, generated with `git diff --relative=app` against the "correct parent" commit, and apply with `patch -p1` inside `app/`. I applied each one in a scratch copy (`selfcheck/tmp/<id>`), confirmed it builds, served it on its own port and checked it:
+- **K22-D1** (`src/App.vue`, `onEditorClose`, hunk @@ -105: deletes line 108 `createNote(draft)`). When a *new* note's editor closes, the draft is no longer handed to `createNote`, so nothing is inserted locally or sent to the server. The editor still closes normally. Editing existing notes (the `if (existing)` branch), labels and search are untouched. Check: card count before reload 0, after reload 0. The correct build gives 1 and 1.
+- **K22-D2** (`src/store.js`, `createNote`, hunk @@ -50: removes lines 53-59, the `api.create('notes', …)` try/catch). The optimistic temporary note is still pushed into the in-memory list, so it shows immediately with title and content. The POST is never sent and no error is reported, so the note is gone after a reload. The temporary note keeps `pending: true`, so as in the correct build it cannot be opened or relabelled until it is saved, which never happens. Check: before reload 1, after reload 0.
+- **K41-D1** (`src/store.js`, `matchesQuery`, line 107). The `|| content.includes(q)` clause is removed, so keyword search tests the title only. Notes whose content alone contains the keyword (Reading plan for "st") are hidden. Highlighting and label filters are unchanged. Check: only "4.1 reading shown" and its highlight failed (2 of 44).
+- **K41-D2** (`src/App.vue`, `searchResults` computed, line 41). The label filter predicate gains `|| !(n.labels || []).length`, so when a suggested label filter such as Reminders is active, notes with no labels at all also pass. Notes that carry only other labels are still excluded, and keyword matching is unchanged. Check: only "4.1 reminders only" failed (the unlabeled Movie list leaked), 1 of 44.
+
+## Known limitations
+- The scope is REQ-1.1, 2.1, 2.2, 2.8 and 4.1. Archive, delete, trash restore and retention, the Settings menu, and label renaming are not implemented. The Archived and Trash views are read-only lists.
+- Autosave happens when the editor is left (Close, Escape or a backdrop click), not on every keystroke.
+- A save failure after an optimistic create shows an alert banner, but there is no retry.
+- Search matches plain substrings: there is no word-boundary logic or diacritics folding.
+
+## Files read
+- `snapshot/upstream/arc-bench/keep/requirements/requirements.yaml`: the REQ-1.1, 2.1, 2.2, 2.8 and 4.1 sections and the data/environment header. A grep for the `REQ-` ids listed the other sections, but I did not read them.
+- `snapshot/upstream/arc-bench/keep/requirements/reference/`: the directory listing, plus `search_suggested_filters.png`, `create_note_form.png` and `manage_labels.png`.
+- `protocol/s1-relaxation-manifest.json`
+- `materials/_runtime-base/server.mjs`
+- The build prompt `materials/_build-prompt/rendered/Dpilot-keep.md`.
+- No forbidden file was opened. A directory listing of `materials/sealed/` (to check whether the output directory existed) showed the folder names `Cpilot-bookstack` and `Dpilot-bookstack`. I did not open their contents.

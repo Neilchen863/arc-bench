@@ -1,0 +1,44 @@
+[
+ {
+  "n": 1,
+  "tag": "book-form",
+  "url": "http://127.0.0.1:57577/books/new"
+ },
+ {
+  "n": 2,
+  "tag": "book-with-pages",
+  "url": "http://127.0.0.1:57577/books/2356e63b-5806-49eb-8e98-52fe40b8689d",
+  "text": "Skip to content\nBookStack\nShelves\nBooks\nLogin\nBooks\n›\nBook W1\nBook W1\nReference book description.\nmanual\nhandbook\nPages\nPage A W1\n\nReading content for Page A W1.\n\nUpdated 6 October 2026\n\nPage B W1\n\nReading content for Page B W1.\n\nUpdated 6 October 2026\n\nPage C W1\n\nReading content for Page C W1.\n\nUpdated 6 October 2026\n\nDetails\n\nCreated 6 October 2026\n\nActions\nNew Page\nEdit book"
+ },
+ {
+  "n": 3,
+  "tag": "opened-target",
+  "url": "http://127.0.0.1:57577/pages/e339b942-e7c6-4a20-b7cb-4c8909489432",
+  "headings": [
+   "Page B W1",
+   "Details",
+   "Actions"
+  ],
+  "text": "Skip to content\nBookStack\nShelves\nBooks\nLogin\nBooks\n›\nBook W1\n›\nPage B W1\nPage B W1\nReading content for Page C W1.\nDetails\n\nCreated 6 October 2026\n\nActions\nEdit page"
+ },
+ {
+  "n": 4,
+  "tag": "editor",
+  "url": "http://127.0.0.1:57577/pages/e339b942-e7c6-4a20-b7cb-4c8909489432/edit",
+  "fields": [
+   {
+    "label": "Search",
+    "value": ""
+   },
+   {
+    "label": "title-input",
+    "value": "Page B W1"
+   },
+   {
+    "label": "rte-surface",
+    "value": "Reading content for Page B W1."
+   }
+  ],
+  "text": "Skip to content\nBookStack\nShelves\nBooks\nLogin\n← Back\nEditing page\nSave page\nTitle\nPage content\nB\nI\nH\n•≡\n1.\nReading content for Page B W1."
+ }
+]

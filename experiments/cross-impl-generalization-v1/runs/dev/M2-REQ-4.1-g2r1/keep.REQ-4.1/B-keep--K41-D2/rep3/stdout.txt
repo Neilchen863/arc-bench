@@ -1,0 +1,169 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-4.1.spec.ts:24:5 › search_title_content_highlight
+[1A[2K  1) [chromium] › tests/REQ-4.1.spec.ts:24:5 › search_title_content_highlight ──────────────────────
+
+    Error: Too many arguments. If you need to pass more than 1 argument to the function wrap them in an object.
+
+       at lib/observe.ts:103
+
+      101 | export async function note(page: Page, title: string, keyword?: string): Promise<NoteObs> {
+      102 |   if (keyword) {
+    > 103 |     const o = await page.evaluate(FIND_NOTES_WITH_KEYWORD, title, keyword);
+          |                          ^
+      104 |     return { title, ...o };
+      105 |   }
+      106 |   const o = await page.evaluate(FIND_NOTES, title);
+        at note (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r1/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/observe.ts:103:26)
+        at observe (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r1/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/REQ-4.1.spec.ts:31:30)
+        at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r1/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/adapt.ts:74:23)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r1/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/REQ-4.1.spec.ts:31:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-search-title-content-highlight-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes": st
+        - button "Clear search":
+          - img
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - lis...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Search results
+    OTHERS
+    Reading plan [e49d63b2a8-w0-c0bcaedb24]
+    
+    Read a story
+    
+    Study schedule [e49d63b2a8-w0-c0bcaedb24]
+    
+    Math on Monday
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:63828/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-search-title-content-highlight-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-search-title-content-highlight-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-search-title-content-highlight-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-4.1.spec.ts:44:5 › suggested_label_filter
+[1A[2K  2) [chromium] › tests/REQ-4.1.spec.ts:44:5 › suggested_label_filter ──────────────────────────────
+
+    Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+
+       at lib/adapt.ts:40
+
+      38 |     }
+      39 |     last = seen.join(', ');
+    > 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+         |                                      ^
+      41 |     await new Promise(r => setTimeout(r, 250));
+      42 |   }
+      43 | }
+        at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r1/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/adapt.ts:40:38)
+        at chooseLabelsInEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r1/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/lib/operations.ts:59:17)
+        at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r1/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/REQ-4.1.spec.ts:18:22)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r1/keep.REQ-4.1/B-keep--K41-D2/rep3/work/tests/REQ-4.1.spec.ts:47:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-suggested-label-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    Ocean memo [e49d63b2a8-w0-c0bcaedb24]
+    
+    Calm blue waves
+    
+    Reading plan [e49d63b2a8-w0-c0bcaedb24]
+    
+    Read a story
+    
+    Study schedule [e49d63b2a8-w0-c0bcaedb24]
+    
+    Math on Monday
+    
+    New note
+    Close
+    Label note
+    
+    Labels for “Call dentist exist...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:63828/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-suggested-label-filter-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-4.1.spec.ts:24:5 › search_title_content_highlight ───────────────────────
+    [chromium] › tests/REQ-4.1.spec.ts:44:5 › suggested_label_filter ───────────────────────────────
+

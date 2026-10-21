@@ -1,0 +1,27 @@
+{
+ "material": "Dpilot-keep",
+ "variant": "K41-D1",
+ "scenario": "suggested_label_filter",
+ "rep": 3,
+ "started": true,
+ "errors": [],
+ "pageErrors": [],
+ "obligations": {
+  "K41-P1": {
+   "holds": true,
+   "reason": "API note labels=[\"reminders\"], Reminders shown on card=true"
+  },
+  "K41-O6": {
+   "holds": true,
+   "reason": "suggestion panel (region \"Filter by label\", identified by its heading) visible on focus: true"
+  },
+  "K41-O7": {
+   "holds": true,
+   "reason": "reminder note cards=1 (content visible=true), unlabeled note cards=0"
+  },
+  "K41-O8": {
+   "holds": true,
+   "reason": "search value after clear=\"\", [count,contentVisible]=[{\"n\":1,\"content\":true},{\"n\":1,\"content\":true}]"
+  }
+ }
+}

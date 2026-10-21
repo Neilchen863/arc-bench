@@ -1,0 +1,93 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-4.1.spec.ts:24:5 › search_title_content_highlight
+[1A[2K[2/2] [chromium] › tests/REQ-4.1.spec.ts:44:5 › suggested_label_filter
+[1A[2K  1) [chromium] › tests/REQ-4.1.spec.ts:44:5 › suggested_label_filter ──────────────────────────────
+
+    Error: OBLIGATION_FAIL K41-O6: suggested filters panel not shown (no suggestion container found)
+
+       at lib/oracle.ts:8
+
+       6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+       7 | }
+    >  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+         |                                                             ^
+       9 |
+      10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),
+      11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/A-keep--correct/rep3/work/tests/lib/oracle.ts:8:61)
+        at Object.panelShown (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/A-keep--correct/rep3/work/tests/lib/oracle.ts:50:15)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/A-keep--correct/rep3/work/tests/REQ-4.1.spec.ts:52:78)
+        at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/A-keep--correct/rep3/work/tests/lib/adapt.ts:74:11)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g2r2/keep.REQ-4.1/A-keep--correct/rep3/work/tests/REQ-4.1.spec.ts:52:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-suggested-label-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Toggle sidebar" [expanded]
+      - heading "Keep" [level=1]
+      - searchbox "Search"
+      - region "Suggested filters":
+        - heading "Labels" [level=2]
+        - button "Reminders"
+      - button "List view"
+      - button "Settings menu"
+    - navigation "Sidebar":
+      - list:
+        - listitem:
+          - b...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Labels
+    Reminders
+    Notes
+    Reminders
+    Edit Labels
+    Archived
+    Trash
+    Take a note
+    PINNED
+    
+    No pinned notes
+    
+    OTHERS
+    Study schedule [e49d63b2a8-w0-c0bcaedb24]
+    
+    Math on Monday
+    
+    Reading plan [e49d63b2a8-w0-c0bcaedb24]
+    
+    Read a story
+    
+    Ocean memo [e49d63b2a8-w0-c0bcaedb24]
+    
+    Calm blue waves
+    
+    Call dentist existing...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:63869/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-suggested-label-filter-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  1 failed
+    [chromium] › tests/REQ-4.1.spec.ts:44:5 › suggested_label_filter ───────────────────────────────
+  1 passed (13.2s)
+

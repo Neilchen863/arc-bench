@@ -1,0 +1,49 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-4.1.spec.ts:5:5 › REQ-4.1: Search title and content with highlights
+[1A[2K  1) [chromium] › tests/REQ-4.1.spec.ts:5:5 › REQ-4.1: Search title and content with highlights ────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByRole('region', { name: 'Reading plan [db77fd01af-w0-7aa4be0e8e]', exact: true })
+    Expected: [32m1[39m
+    Received: [31m0[39m
+    Timeout:  10000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 10000ms[22m
+    [2m  - waiting for getByRole('region', { name: 'Reading plan [db77fd01af-w0-7aa4be0e8e]', exact: true })[22m
+    [2m    14 × locator resolved to 0 elements[22m
+    [2m       - unexpected value "0"[22m
+
+
+      14 |   await search.fill('st');
+      15 |   await expect(note(page, titleMatch)).toHaveCount(1);
+    > 16 |   await expect(note(page, contentMatch)).toHaveCount(1);
+         |                                          ^
+      17 |   await expect(note(page, other)).toBeHidden();
+      18 |   // Named highlight regions provide the portable semantic highlight contract.
+      19 |   for (const title of [titleMatch, contentMatch]) {
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/keep.REQ-4.1/A-keep--K41-D1/rep2/work/tests/REQ-4.1.spec.ts:16:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-REQ-4-1-Search-title-and-content-with-highlights-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-REQ-4-1-Search-title-and-content-with-highlights-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-REQ-4-1-Search-title-and-content-with-highlights-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-REQ-4-1-Search-title-and-content-with-highlights-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-4.1.spec.ts:31:5 › REQ-4.1: Choose a suggested label filter
+[1A[2K  1 failed
+    [chromium] › tests/REQ-4.1.spec.ts:5:5 › REQ-4.1: Search title and content with highlights ─────
+  1 passed (21.1s)
+

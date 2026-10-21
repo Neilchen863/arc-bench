@@ -1,0 +1,22 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "status": "DRAFT (frozen copy written to protocol/freeze-*.json before acceptance)",
+ "origin": "cross-impl-generalization-v1 runner stack reused read-only (Node 22.23.3 bundled, @playwright/test 1.57.0 lock files in runners/{keep,bookstack})",
+ "node": "v22.23.3 (cross-impl-generalization-v1/tools/node-v22.23.3-darwin-arm64)",
+ "playwright": "1.57.0",
+ "browser": "chromium revision 1200 (143.0.7499.4), headless",
+ "os": "macOS 14.1.1 (23B81), arm64",
+ "timezone": {"keep": "UTC", "bookstack": "UTC"},
+ "locale": "en-US",
+ "viewport": [1440, 900],
+ "workers": 1, "retries": 0,
+ "timeouts_ms": {"case": 120000, "action": 15000, "navigation": 30000, "expect": 10000},
+ "business_wait_windows_ms": {"note_visible_after_close": 10000, "reload_persist": 15000, "search_filter_settle": 10000,
+   "note": "all eventually() windows are confirmed here and identical for B and D"},
+ "repeats_per_unit": 3,
+ "reset": "fresh server process (in-memory store) + POST /__reset + fresh browser context per run",
+ "infra_reruns_max": 2,
+ "order": "method x target pairs shuffled with seed 20261019 (tools/run_v2.py)",
+ "case_source": "Playwright JSON reporter (never stdout)",
+ "model_calls": "none for B, D, H; S/V not enabled"
+}

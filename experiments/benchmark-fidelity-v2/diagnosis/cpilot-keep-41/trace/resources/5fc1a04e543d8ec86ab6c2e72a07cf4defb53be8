@@ -1,0 +1,92 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - button [expanded] [ref=e6] [cursor=pointer]:
+          - img [ref=e7]
+        - img [ref=e9]
+        - generic [ref=e11]: Keep
+        - search [ref=e12]:
+          - img [ref=e13]
+          - searchbox [ref=e16]
+        - button [ref=e17] [cursor=pointer]:
+          - img [ref=e18]
+        - button [ref=e20] [cursor=pointer]:
+          - img [ref=e21]
+    - navigation [ref=e26]:
+      - list [ref=e27]:
+        - button [ref=e28] [cursor=pointer]:
+          - img [ref=e30]
+          - generic [ref=e33]: Notes
+        - button [ref=e34] [cursor=pointer]:
+          - img [ref=e36]
+          - generic [ref=e39]: Reminders
+        - button [ref=e40] [cursor=pointer]:
+          - img [ref=e42]
+          - generic [ref=e45]: Edit labels
+        - button [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+          - generic [ref=e51]: Archive
+        - button [ref=e52] [cursor=pointer]:
+          - img [ref=e54]
+          - generic [ref=e57]: Trash
+    - main [ref=e58]:
+      - heading [level=1] [ref=e60]: Notes
+      - button [ref=e61] [cursor=pointer]: Take a note…
+      - generic [ref=e62]:
+        - article [ref=e63]:
+          - generic [ref=e64] [cursor=pointer]:
+            - heading [level=3] [ref=e65]: Ocean memo [82f3e9c695-w0-c0bcaedb24]
+            - paragraph [ref=e66]: Calm blue waves
+          - generic [ref=e67]:
+            - button [ref=e68] [cursor=pointer]:
+              - img [ref=e69]
+            - button [ref=e71] [cursor=pointer]:
+              - img [ref=e72]
+            - button [ref=e74] [cursor=pointer]:
+              - img [ref=e75]
+        - article [ref=e77]:
+          - generic [ref=e78] [cursor=pointer]:
+            - heading [level=3] [ref=e79]: Reading plan [82f3e9c695-w0-c0bcaedb24]
+            - paragraph [ref=e80]: Read a story
+          - generic [ref=e81]:
+            - button [ref=e82] [cursor=pointer]:
+              - img [ref=e83]
+            - button [ref=e85] [cursor=pointer]:
+              - img [ref=e86]
+            - button [ref=e88] [cursor=pointer]:
+              - img [ref=e89]
+        - article [ref=e91]:
+          - generic [ref=e92] [cursor=pointer]:
+            - heading [level=3] [ref=e93]: Study schedule [82f3e9c695-w0-c0bcaedb24]
+            - paragraph [ref=e94]: Math on Monday
+          - generic [ref=e95]:
+            - button [ref=e96] [cursor=pointer]:
+              - img [ref=e97]
+            - button [ref=e99] [cursor=pointer]:
+              - img [ref=e100]
+            - button [ref=e102] [cursor=pointer]:
+              - img [ref=e103]
+  - dialog "New note" [ref=e107]:
+    - heading "New note" [level=2] [ref=e108]
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - textbox "Title" [ref=e112]: Call dentist existing [82f3e9c695-w0-fb7b338c04]
+        - button "Pin note" [ref=e113] [cursor=pointer]:
+          - img [ref=e114]
+      - textbox "Note text" [ref=e117]:
+        - /placeholder: Take a note…
+        - text: Reminder content
+      - list "Labels on this note" [ref=e118]:
+        - listitem [ref=e119]:
+          - generic [ref=e120]: Reminders
+    - generic [ref=e121]:
+      - button "Background color" [ref=e122] [cursor=pointer]:
+        - img [ref=e123]
+      - button "Add label" [ref=e129] [cursor=pointer]:
+        - img [ref=e130]
+      - button "Close" [ref=e132] [cursor=pointer]
+```

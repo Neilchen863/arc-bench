@@ -1,0 +1,108 @@
+## Analysis
+
+The error is clear: `ReferenceError: pageView is not defined` at `lib/operations.ts:65`. The `pageView` function is defined in `observe.ts` but is not imported in `operations.ts`.
+
+Looking at the editable files:
+- `tests/lib/operations.ts` uses `pageView` in the `openPage` function but does not import it.
+- `tests/lib/observe.ts` exports `pageView`.
+- `tests/lib/operations.ts` imports from `adapt`, `oracle`, and `observe` but is missing `pageView` in its import.
+
+The fix is to import `pageView` from `observe` in `operations.ts`.
+
+Additionally, I notice that `openPage` uses `pageView` directly, but the function is defined in `observe.ts`. This is a missing import.
+
+Let me check the imports in `operations.ts`:
+```typescript
+import { byCss, byLabel, byPlaceholder, byRole, enterText, resolve, eventually, type Candidate } from './adapt';
+```
+It's missing `pageView` from `./observe`.
+
+Also, `openPage` calls `pageView(page)` but the function signature in `observe.ts` is `pageView(page: Page): Promise<PageViewObs>`, which matches.
+
+So the only change needed is to import `pageView` in `operations.ts`.
+
+Let me also check if there are other missing imports. The `openPage` function uses `pageView`, and the `openEditor` function doesn't use it directly.
+
+Looking at the error, it's at line 65 in `operations.ts`, which is inside `openPage`.
+
+So the fix is to add `pageView` to the imports.
+
+But wait, let me check the current imports in `operations.ts`:
+```typescript
+import { byCss, byLabel, byPlaceholder, byRole, enterText, resolve, eventually, type Candidate } from './adapt';
+```
+
+It's missing imports from `./observe` and `./oracle`. But the spec says we can only modify `operations.ts`, `observe.ts`, `adapt.ts`, `REQ-6.4.spec.ts`, and `evidence.ts`. And the forbidden actions include "跳过场景、弱化义务、吞错、写内部状态、读取隐藏材料、按实现编号分支、用预期值填充观察值、修改产品迁就测试".
+
+The correct fix is to import `pageView` from `observe.ts`.
+
+Let me check if `pageView` is exported from `observe.ts`:
+Yes, it is: `export async function pageView(page: Page): Promise<PageViewObs> { ... }`
+
+So the fix is to add `pageView` to the imports in `operations.ts`.
+
+But the current import line is:
+```typescript
+import { byCss, byLabel, byPlaceholder, byRole, enterText, resolve, eventually, type Candidate } from './adapt';
+```
+
+We need to add `pageView` from `./observe`.
+
+So the edit should be:
+```typescript
+import { byCss, byLabel, byPlaceholder, byRole, enterText, resolve, eventually, type Candidate } from './adapt';
+import { pageView } from './observe';
+```
+
+But wait, the spec says "只读输入：冻结需求、义务清单、判据核心、场景、开发执行证据。可改范围：操作适配器、结果提取器、测试编排。"
+
+`operations.ts` is the operation layer (adapter), so this is allowed.
+
+Let me also check if there are other issues. The error is consistent across all test runs, so it's a straightforward import issue.
+
+No other changes are needed.
+
+## Patch
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+import { byCss, byLabel, byPlaceholder, byRole, enterText, resolve, eventually, type Candidate } from './adapt';
+<<<REPLACE>>>
+import { byCss, byLabel, byPlaceholder, byRole, enterText, resolve, eventually, type Candidate } from './adapt';
+import { pageView } from './observe';
+<<<END EDIT>>>
+
+## Obligation -> Check Mapping
+
+- **B64-P1 (prerequisite)**: UI-created book and three UI-published pages (A, TARGET, C) while logged out  
+  → Verified by `setup()` function in `REQ-6.4.spec.ts` using `createBook` and `createPage` operations.
+
+- **B64-O1 (business)**: Activating TARGET's entry opens a view whose heading equals TARGET's title  
+  → Checked by `openPage()` calling `pageView()` and validating heading in `O.opened()`.
+
+- **B64-O2 (business)**: TARGET's saved body is visible  
+  → Checked by `O.bodyShown()` using `pageView().lines`.
+
+- **B64-O3 (business)**: The opened page is not another page  
+  → Checked by `O.notOther()` comparing against `others` in `pageView()` results.
+
+- **B64-O4 (business)**: Edit action opens editor whose title field holds TARGET's title  
+  → Checked by `O.editorTitle()` using `editorState()` after `openEditor()`.
+
+- **B64-O5 (business)**: Body field holds TARGET's saved body  
+  → Checked by `O.editorBody()` using `editorState()`.
+
+- **B64-O6 (business)**: A save-page action is visible  
+  → Checked by `O.saveAvailable()` using `editorState()`.
+
+## Evidence Used
+
+- **Dev feedback**: All failures show `ReferenceError: pageView is not defined` at line 65 in `operations.ts`.  
+  → Evidence: Error stack trace in all 18 test runs (A-bookstack.REQ-6.4.correct × 3, A-bookstack.REQ-6.4.B64-D1 × 3, A-bookstack.REQ-6.4.B64-D2 × 3, B-bookstack.REQ-6.4.correct × 3, B-bookstack.REQ-6.4.B64-D1 × 3, B-bookstack.REQ-6.4.B64-D2 × 3).  
+  → Root cause: `pageView` is used in `openPage()` but not imported.
+
+## Unresolved Failures and Uncertainties
+
+- **None**. The fix is straightforward: import `pageView` from `observe.ts`.  
+  After this change, the `openPage` function will have access to `pageView`, and the tests should proceed to validation steps.  
+  No other issues are indicated in the dev feedback.

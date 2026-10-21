@@ -1,0 +1,260 @@
+I need to analyze the requirements and the current test implementation to identify issues that would cause low "合法实现接受率" (acceptance rate for legitimate implementations) while preserving the ability to detect real business defects.
+
+Let me analyze the current implementation:
+
+1. **Operations layer (`operations.ts`)**: The `openEditor` function tries to resolve the editor fields immediately after clicking edit, but it doesn't wait for the editor to actually appear. This could cause flaky tests if the editor takes time to load.
+
+2. **Observation layer (`observe.ts`)**: The `pageView` function captures all headings and lines from the entire document body, which might include navigation elements or other content not relevant to the page content.
+
+3. **Test scenario (`REQ-6.4.spec.ts`)**: The setup function creates 3 pages and verifies each appears exactly once in the page list, but it doesn't ensure the pages are in a specific order or that the target page is accessible.
+
+Looking at the requirements more carefully:
+
+- For "read_selected_page": The page heading should match the title and the saved body should be visible.
+- For "reopen_page_editor": After opening the page and clicking edit, the editor fields should be pre-filled with the saved content.
+
+The main issues I see:
+
+1. The `pageListScope` function might not be robust enough to find the page list region reliably.
+2. The `openEditor` function doesn't wait for the editor to be fully loaded before returning.
+3. The `pageView` function captures headings from the entire document, which might include non-page headings.
+
+Let me revise these components to improve reliability while preserving defect detection:
+
+<<<FILE path=tests/lib/operations.ts>>>
+// OPERATION LAYER (editable). Generic strategies from the public S1 manifest; UI only.
+import type { Locator, Page } from '@playwright/test';
+import { byCss, byLabel, byPlaceholder, byRole, enterText, resolve, eventually, type Candidate } from './adapt';
+
+const BOOKS = /^(books|all books|book library)$/i;
+const CREATE_BOOK = /^(create new book|new book|create book|add book|add a book|\+ new book)$/i;
+const NAME = /^(name|book name|title|book title)$/i;
+const DESCRIPTION = /^(description|book description)$/i;
+const TAGS = /^(tags|book tags)$/i;
+const SAVE_BOOK = /^(save book|save|create book|create)$/i;
+const NEW_PAGE = /^(new page|create page|add page|add a page|create new page|\+ new page)$/i;
+const PAGE_TITLE = /^(page title|title)$/i;
+const PAGE_BODY = /^(write your page content here\.\.\.|page content|content|body|page body|editor|rich text editor.*|write.*)$/i;
+const SAVE_PAGE = /^(save page|save|publish|publish page|update page|save changes)$/i;
+const EDIT = /^(edit|edit page)$/i;
+
+const field = (re: RegExp): Candidate[] => [byRole('textbox', re), byLabel(re), byPlaceholder(re)];
+
+export async function enter(page: Page) { await page.goto('/'); }
+
+async function nav(page: Page, re: RegExp) {
+  await (await resolve(page, `nav ${re}`, [byRole('link', re), byRole('button', re), byRole('tab', re), byRole('menuitem', re)])).click();
+}
+
+export async function createBook(page: Page, name: string, description: string, tags: string) {
+  await nav(page, BOOKS);
+  await (await resolve(page, 'create-book action', [byRole('button', CREATE_BOOK), byRole('link', CREATE_BOOK)])).click();
+  await enterText(page, await resolve(page, 'book name field', field(NAME)), name);
+  await enterText(page, await resolve(page, 'book description field', [...field(DESCRIPTION), byCss('[contenteditable=true]')]), description);
+  await enterText(page, await resolve(page, 'book tags field', [...field(TAGS), byRole('combobox', TAGS)]), tags);
+  await (await resolve(page, 'save-book action', [byRole('button', SAVE_BOOK)])).click();
+  await resolve(page, 'book heading', [byRole('heading', name)], 15_000);
+}
+
+export async function pageListScope(page: Page): Promise<Locator | Page> {
+  // First try to find a region explicitly labeled as page list
+  try {
+    return await resolve(page, 'page list region', [
+      byRole('region', /pages?( list)?$/i),
+      byRole('navigation', /pages?( list)?$/i),
+    ], 3_000);
+  } catch {
+    // Fallback: look for a section with a pages heading and page entries
+    try {
+      return await resolve(page, 'page list section', [
+        byCss('section:has(> h2:text-matches("^pages", "i")), section:has(> h3:text-matches("^pages", "i"))'),
+      ], 3_000);
+    } catch {
+      // Last resort: use the whole page
+      return page;
+    }
+  }
+}
+
+export async function createPage(page: Page, bookName: string, title: string, body: string) {
+  await resolve(page, 'book heading', [byRole('heading', bookName)], 15_000);
+  await (await resolve(page, 'new-page action', [byRole('button', NEW_PAGE), byRole('link', NEW_PAGE)])).click();
+  await enterText(page, await resolve(page, 'page title field', field(PAGE_TITLE)), title);
+  await enterText(page, await resolve(page, 'page body field', [...field(PAGE_BODY), byCss('[contenteditable=true]')]), body);
+  await (await resolve(page, 'save-page action', [byRole('button', SAVE_PAGE)])).click();
+  await resolve(page, 'book heading after save', [byRole('heading', bookName)], 15_000);
+}
+
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  await (await resolve(scope, `page entry ${title}`, [byRole('link', title), byRole('button', title)])).click();
+  // Wait for the page to fully load after navigation
+  await resolve(page, 'page loaded', [byRole('heading', title)], 10_000);
+}
+
+export async function openEditor(page: Page): Promise<{ title: Locator; body: Locator; save: Locator | null }> {
+  await (await resolve(page, 'edit action', [byRole('button', EDIT), byRole('link', EDIT)])).click();
+  // Wait for editor to be fully loaded before returning
+  const title = await resolve(page, 'editor title field', field(PAGE_TITLE), 10_000);
+  const body = await resolve(page, 'editor body field', [...field(PAGE_BODY), byCss('[contenteditable=true]')], 10_000);
+  const save = await resolve(page, 'editor save action', [byRole('button', SAVE_PAGE)], 5_000).catch(() => null);
+  return { title, body, save };
+}
+export { eventually };
+<<<END FILE>>>
+
+<<<FILE path=tests/lib/observe.ts>>>
+// OBSERVATION LAYER (editable). Reports headings, visible text lines, list entries and editor field values.
+import type { Locator, Page } from '@playwright/test';
+import type { PageViewObs, PageEditorObs, ListObs } from './oracle';
+import { readValue } from './adapt';
+
+export async function pageView(page: Page): Promise<PageViewObs> {
+  return page.evaluate(() => {
+    const vis = (e: Element) => { const r = (e as HTMLElement).getBoundingClientRect(); const cs = getComputedStyle(e);
+      return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+    // Focus on main content area - look for main element or article, then fallback to body
+    const main = document.querySelector('main, article, [role="main"]');
+    const target = main || document.body;
+    const headings = Array.from(target.querySelectorAll('h1,h2,h3,h4,h5,h6,[role=heading]')).filter(vis)
+      .map(h => ((h as HTMLElement).innerText || '').replace(/\s+/g, ' ').trim());
+    const lines = (target.innerText || '').split('\n').map(s => s.replace(/[ \t ]+/g, ' ').trim()).filter(Boolean);
+    return { headings, lines, evidence: `url=${location.pathname}` };
+  });
+}
+
+// Count visible opening entries (link/button) with the exact title inside the page-list scope.
+export async function listEntries(scope: Locator | Page, title: string): Promise<ListObs> {
+  const l = scope.getByRole('link', { name: title, exact: true }).or(scope.getByRole('button', { name: title, exact: true }));
+  const n = await l.count(); let v = 0;
+  for (let i = 0; i < n; i++) if (await l.nth(i).isVisible()) v++;
+  return { entries: v, evidence: `${n} matching, ${v} visible` };
+}
+
+export async function editorState(page: Page, title: Locator | null, body: Locator | null, save: Locator | null): Promise<PageEditorObs> {
+  return {
+    titleValue: title ? await readValue(title) : null,
+    bodyValue: body ? await readValue(body) : null,
+    saveVisible: save ? await save.isVisible() : false,
+    evidence: `title=${!!title} body=${!!body} save=${!!save}`,
+  };
+}
+<<<END FILE>>>
+
+<<<FILE path=tests/lib/adapt.ts>>>
+// Generic locating utilities for the operation layer (editable by revision methods).
+// Rule: the target must resolve to exactly one visible element. There is no first()/nth(0) fallback.
+import type { Locator, Page } from '@playwright/test';
+
+export class AdaptationFailure extends Error {
+  constructor(what: string, detail: string) { super(`ADAPTATION_FAIL ${what}: ${detail}`); }
+}
+
+export type Scope = Page | Locator;
+export type Candidate = { how: string; loc: (s: Scope) => Locator };
+
+export const byRole = (role: Parameters<Page['getByRole']>[0], name: RegExp | string, exact = true): Candidate => ({
+  how: `${role}:${name}`,
+  loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name }),
+});
+export const byLabel = (name: RegExp): Candidate => ({ how: `label:${name}`, loc: s => s.getByLabel(name) });
+export const byPlaceholder = (name: RegExp): Candidate => ({ how: `placeholder:${name}`, loc: s => s.getByPlaceholder(name) });
+export const byCss = (css: string): Candidate => ({ how: `css:${css}`, loc: s => s.locator(css) });
+
+async function visibleOnly(l: Locator): Promise<Locator[]> {
+  const n = await l.count();
+  const out: Locator[] = [];
+  for (let i = 0; i < n; i++) if (await l.nth(i).isVisible()) out.push(l.nth(i));
+  return out;
+}
+
+// Polls the candidate strategies in order. The first strategy with exactly one visible match wins.
+// A strategy with several visible matches counts as ambiguous and is skipped.
+export async function resolve(scope: Scope, what: string, cands: Candidate[], timeout = 10_000): Promise<Locator> {
+  const deadline = Date.now() + timeout;
+  let last = '';
+  while (true) {
+    const seen: string[] = [];
+    for (const c of cands) {
+      const vis = await visibleOnly(c.loc(scope));
+      if (vis.length === 1) return vis[0];
+      seen.push(`${c.how}=${vis.length}`);
+    }
+    last = seen.join(', ');
+    if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+    await new Promise(r => setTimeout(r, 250));
+  }
+}
+
+export async function isEditable(l: Locator): Promise<'input' | 'rich'> {
+  return l.evaluate(e => (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement) ? 'input' : 'rich');
+}
+
+// Enter text the way a user would. Native fields use fill. Rich editors receive typed lines separated by Enter.
+export async function enterText(page: Page, field: Locator, text: string) {
+  if ((await isEditable(field)) === 'input') {
+    await field.fill(text);
+  } else {
+    await field.click();
+    await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
+    await page.keyboard.press('Backspace');
+    const lines = text.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+      if (i) await page.keyboard.press('Enter');
+      await page.keyboard.type(lines[i]);
+    }
+  }
+}
+
+export async function readValue(field: Locator): Promise<string> {
+  return field.evaluate(e => (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement)
+    ? e.value : (e as HTMLElement).textContent || '');
+}
+
+// Retry an observation and judgement until the judgement passes or the timeout expires; rethrow the last failure.
+export async function eventually<T>(observe: () => Promise<T>, judge: (o: T) => void, timeout = 10_000) {
+  const deadline = Date.now() + timeout;
+  while (true) {
+    try { judge(await observe()); return; } catch (e) {
+      if (Date.now() > deadline) throw e;
+      await new Promise(r => setTimeout(r, 250));
+    }
+  }
+}
+<<<END FILE>>>
+
+NOTES:
+
+## Obligation → Check Mapping
+
+| Obligation | Check Method | Evidence |
+|------------|--------------|----------|
+| B64-P1 (prerequisite) | `setup()` creates 3 pages and verifies each appears exactly once via `listEntries()` | `tests/REQ-6.4.spec.ts` |
+| B64-O1 (read: heading matches) | `O.opened()` checks target title in `headings` array | `tests/lib/oracle.ts` |
+| B64-O2 (read: body visible) | `O.bodyShown()` checks target body in `lines` array | `tests/lib/oracle.ts` |
+| B64-O3 (read: not other pages) | `O.notOther()` verifies other pages' titles/bodies not visible | `tests/lib/oracle.ts` |
+| B64-O4 (editor: title field) | `O.editorTitle()` checks title field value | `tests/lib/oracle.ts` |
+| B64-O5 (editor: body field) | `O.editorBody()` checks body field value | `tests/lib/oracle.ts` |
+| B64-O6 (editor: save visible) | `O.saveAvailable()` checks save button visibility | `tests/lib/oracle.ts` |
+
+## Evidence Used for Changes
+
+1. **Operations layer (`operations.ts`)**:
+   - `openPage()`: Added `await resolve(page, 'page loaded', [byRole('heading', title)], 10_000)` after navigation to ensure the target page heading appears before proceeding (addresses potential race condition where page content hasn't loaded yet).
+   - `openEditor()`: Added explicit timeout (10_000ms) for editor field resolution to handle slower editor initialization.
+
+2. **Observation layer (`observe.ts`)**:
+   - `pageView()`: Changed to focus on main content area (`main, article, [role="main"]`) instead of entire document body to avoid capturing navigation/header content in headings/lines. This prevents false positives where non-page content might match.
+
+3. **Adaptation layer (`adapt.ts`)**:
+   - No functional changes needed; existing polling mechanism is sufficient.
+
+## Unresolved Failures and Uncertainties
+
+1. **Page list scope detection**: The `pageListScope()` function has multiple fallback strategies, but if none match the actual DOM structure, it falls back to the entire page. This could cause ambiguity if multiple elements match the title in the global scope.
+
+2. **Editor loading timing**: While timeouts were increased, there's no guarantee the editor will always be ready within the allocated time on slower systems.
+
+3. **Content area selection**: The `pageView()` function assumes the main content is within `main, article, [role="main"]`. If the implementation uses a different structure (e.g., `div[role="main"]` without the role attribute properly set), it might miss content.
+
+4. **No evidence of actual test failures**: The development feedback shows "TEST_ERROR: no applicable file blocks" which suggests the test framework may not be properly configured rather than issues with the test logic itself.

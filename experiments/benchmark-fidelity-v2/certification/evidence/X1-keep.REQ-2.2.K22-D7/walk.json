@@ -1,0 +1,15 @@
+[
+ {
+  "n": 1,
+  "tag": "after-close",
+  "editors_open": 0,
+  "api": [],
+  "text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nNotes\nTake a note…\nNew note W1\n\nFirst line\nSecond line"
+ },
+ {
+  "n": 2,
+  "tag": "after-reload",
+  "api": [],
+  "text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nNotes\nTake a note…\n\nNotes you add appear here"
+ }
+]

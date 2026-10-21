@@ -1,0 +1,61 @@
+diff --git a/src/components/NoteEditor.vue b/src/components/NoteEditor.vue
+index 2cf8646..cec5819 100644
+--- a/src/components/NoteEditor.vue
++++ b/src/components/NoteEditor.vue
+@@ -1,4 +1,5 @@
+ <script setup>
++// (variant N2) rich-text content editor
+ import { ref, reactive, watch, computed } from 'vue';
+ import { Brush, PriceTag } from '@element-plus/icons-vue';
+ import PinIcon from './PinIcon.vue';
+@@ -22,6 +23,19 @@ const saving = ref(false);
+ const draft = reactive({ title: '', content: '', pinned: false, color: null, labels: [] });
+ const chooserOpen = ref(false);
+ const titleInput = ref(null);
++// Variant N2: the note text is a rich-text (contenteditable) field; each line is a block, Enter starts a new line.
++const contentEl = ref(null);
++function syncFromRich() { draft.content = (contentEl.value?.innerText ?? '').replace(/\n$/, ''); }
++function fillRich() {
++  if (!contentEl.value) return;
++  contentEl.value.innerHTML = '';
++  for (const line of (draft.content || '').split('\n')) {
++    const div = document.createElement('div');
++    if (line) div.textContent = line; else div.appendChild(document.createElement('br'));
++    contentEl.value.appendChild(div);
++  }
++  if (!draft.content) contentEl.value.innerHTML = '';
++}
+ 
+ watch(() => props.modelValue, open => {
+   if (!open) return;
+@@ -33,6 +47,7 @@ watch(() => props.modelValue, open => {
+     color: n?.color ?? null,
+     labels: [...(n ? n.labels ?? [] : props.initialLabels)],
+   });
++  setTimeout(fillRich);
+ }, { immediate: true });
+ 
+ const draftLabels = computed(() => draft.labels.map(id => props.labels.find(l => l.id === id)).filter(Boolean));
+@@ -61,8 +76,8 @@ async function close() {
+         <PinIcon :filled="draft.pinned" />
+       </el-button>
+     </div>
+-    <el-input v-model="draft.content" type="textarea" :autosize="{ minRows: 3, maxRows: 14 }"
+-      placeholder="Take a note…" aria-label="Note text" class="editor-content" />
++    <div ref="contentEl" class="editor-content rich-content" contenteditable="true" role="textbox" aria-multiline="true"
++      aria-label="Note text" data-placeholder="Take a note…" @input="syncFromRich" @vue:mounted="fillRich"></div>
+     <div v-if="draftLabels.length" class="note-labels" aria-label="Labels on this note">
+       <el-tag v-for="l in draftLabels" :key="l.id" size="small" round type="info" disable-transitions>{{ l.name }}</el-tag>
+     </div>
+diff --git a/src/styles.css b/src/styles.css
+index 79a0b4b..5dec67e 100644
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -70,3 +70,7 @@ mark.hl { background: #fbbc04; color: #202124; border-radius: 2px; padding: 0 1p
+   .main { padding: 16px; }
+ }
+ input[type='search']::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
++
++/* Variant N2: rich-text note content */
++.rich-content { min-height: 72px; padding: 6px 0; outline: none; white-space: pre-wrap; line-height: 1.45; font-size: 14px; }
++.rich-content:empty::before { content: attr(data-placeholder); color: #9aa0a6; }

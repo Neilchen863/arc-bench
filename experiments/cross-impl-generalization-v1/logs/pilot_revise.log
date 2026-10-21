@@ -1,0 +1,438 @@
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g1-r1.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g1-r1.json --out methods/M2-REQ-2.2-g1r1/keep
+$ python3 tools/revise.py prepare --method M2 --app keep --req REQ-2.2 --gen 1 --round 2 --base methods/M2-REQ-2.2-g1r1/keep --feedback runs/dev/revision/M2-REQ-2.2-g1r1.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g1-r2.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g1-r2.json --out methods/M2-REQ-2.2-g1r2/keep
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r2 --app keep --req REQ-2.2 --material materials/dev/A-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r2.jsonl --split dev --tag revision
+A-keep.REQ-2.2.correct M2-REQ-2.2-g1r2 rep1: PASS 
+A-keep.REQ-2.2.correct M2-REQ-2.2-g1r2 rep2: PASS 
+A-keep.REQ-2.2.correct M2-REQ-2.2-g1r2 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r2 --app keep --req REQ-2.2 --material materials/dev/A-keep --variant K22-D1 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r2.jsonl --split dev --tag revision
+A-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r2 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r2 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r2 --app keep --req REQ-2.2 --material materials/dev/A-keep --variant K22-D2 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r2.jsonl --split dev --tag revision
+A-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r2 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r2 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r2 --app keep --req REQ-2.2 --material materials/dev/B-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r2.jsonl --split dev --tag revision
+B-keep.REQ-2.2.correct M2-REQ-2.2-g1r2 rep1: FAIL TEST_ERROR
+B-keep.REQ-2.2.correct M2-REQ-2.2-g1r2 rep2: FAIL TEST_ERROR
+B-keep.REQ-2.2.correct M2-REQ-2.2-g1r2 rep3: FAIL TEST_ERROR
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r2 --app keep --req REQ-2.2 --material materials/dev/B-keep --variant K22-D1 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r2.jsonl --split dev --tag revision
+B-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r2 rep1: FAIL TEST_ERROR
+B-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r2 rep2: FAIL TEST_ERROR
+B-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r2 rep3: FAIL TEST_ERROR
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r2 --app keep --req REQ-2.2 --material materials/dev/B-keep --variant K22-D2 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r2.jsonl --split dev --tag revision
+B-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r2 rep1: FAIL TEST_ERROR
+B-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r2 rep2: FAIL TEST_ERROR
+B-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r2 rep3: FAIL TEST_ERROR
+ 
+$ python3 tools/revise.py prepare --method M2 --app keep --req REQ-2.2 --gen 1 --round 3 --base methods/M2-REQ-2.2-g1r2/keep --feedback runs/dev/revision/M2-REQ-2.2-g1r2.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g1-r3.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g1-r3.json --out methods/M2-REQ-2.2-g1r3/keep
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r3 --app keep --req REQ-2.2 --material materials/dev/A-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r3.jsonl --split dev --tag revision
+A-keep.REQ-2.2.correct M2-REQ-2.2-g1r3 rep1: PASS 
+A-keep.REQ-2.2.correct M2-REQ-2.2-g1r3 rep2: PASS 
+A-keep.REQ-2.2.correct M2-REQ-2.2-g1r3 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r3 --app keep --req REQ-2.2 --material materials/dev/A-keep --variant K22-D1 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r3.jsonl --split dev --tag revision
+A-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r3 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r3 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r3 --app keep --req REQ-2.2 --material materials/dev/A-keep --variant K22-D2 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r3.jsonl --split dev --tag revision
+A-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r3 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r3 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r3 --app keep --req REQ-2.2 --material materials/dev/B-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r3.jsonl --split dev --tag revision
+B-keep.REQ-2.2.correct M2-REQ-2.2-g1r3 rep1: PASS 
+B-keep.REQ-2.2.correct M2-REQ-2.2-g1r3 rep2: PASS 
+B-keep.REQ-2.2.correct M2-REQ-2.2-g1r3 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r3 --app keep --req REQ-2.2 --material materials/dev/B-keep --variant K22-D1 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r3.jsonl --split dev --tag revision
+B-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g1r3 --app keep --req REQ-2.2 --material materials/dev/B-keep --variant K22-D2 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g1r3.jsonl --split dev --tag revision
+B-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g2-r1.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g2-r1.json --out methods/M2-REQ-2.2-g2r1/keep
+$ python3 tools/revise.py prepare --method M2 --app keep --req REQ-2.2 --gen 2 --round 2 --base methods/M2-REQ-2.2-g2r1/keep --feedback runs/dev/revision/M2-REQ-2.2-g2r1.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g2-r2.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g2-r2.json --out methods/M2-REQ-2.2-g2r2/keep
+$ python3 tools/revise.py prepare --method M2 --app keep --req REQ-2.2 --gen 2 --round 3 --base methods/M2-REQ-2.2-g2r2/keep --feedback runs/dev/revision/M2-REQ-2.2-g2r2.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g2-r3.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g2-r3.json --out methods/M2-REQ-2.2-g2r3/keep
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g2r3 --app keep --req REQ-2.2 --material materials/dev/A-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g2r3.jsonl --split dev --tag revision
+A-keep.REQ-2.2.correct M2-REQ-2.2-g2r3 rep1: PASS 
+A-keep.REQ-2.2.correct M2-REQ-2.2-g2r3 rep2: PASS 
+A-keep.REQ-2.2.correct M2-REQ-2.2-g2r3 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g2r3 --app keep --req REQ-2.2 --material materials/dev/A-keep --variant K22-D1 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g2r3.jsonl --split dev --tag revision
+A-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g2r3 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g2r3 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g2r3 --app keep --req REQ-2.2 --material materials/dev/A-keep --variant K22-D2 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g2r3.jsonl --split dev --tag revision
+A-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g2r3 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g2r3 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g2r3 --app keep --req REQ-2.2 --material materials/dev/B-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g2r3.jsonl --split dev --tag revision
+B-keep.REQ-2.2.correct M2-REQ-2.2-g2r3 rep1: PASS 
+B-keep.REQ-2.2.correct M2-REQ-2.2-g2r3 rep2: PASS 
+B-keep.REQ-2.2.correct M2-REQ-2.2-g2r3 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g2r3 --app keep --req REQ-2.2 --material materials/dev/B-keep --variant K22-D1 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g2r3.jsonl --split dev --tag revision
+B-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g2r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g2r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-2.2.K22-D1 M2-REQ-2.2-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-2.2-g2r3 --app keep --req REQ-2.2 --material materials/dev/B-keep --variant K22-D2 --repeats 3 --out runs/dev/revision/M2-REQ-2.2-g2r3.jsonl --split dev --tag revision
+B-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g2r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g2r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-2.2.K22-D2 M2-REQ-2.2-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g1-r1.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g1-r1.json --out methods/M2-REQ-4.1-g1r1/keep
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r1 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r1.jsonl --split dev --tag revision
+A-keep.REQ-4.1.correct M2-REQ-4.1-g1r1 rep1: FAIL TEST_ERROR
+A-keep.REQ-4.1.correct M2-REQ-4.1-g1r1 rep2: FAIL TEST_ERROR
+A-keep.REQ-4.1.correct M2-REQ-4.1-g1r1 rep3: FAIL TEST_ERROR
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r1 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r1.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r1 rep1: FAIL TEST_ERROR
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r1 rep2: FAIL TEST_ERROR
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r1 rep3: FAIL TEST_ERROR
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r1 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r1.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r1 rep1: FAIL TEST_ERROR
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r1 rep2: FAIL TEST_ERROR
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r1 rep3: FAIL TEST_ERROR
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r1 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r1.jsonl --split dev --tag revision
+B-keep.REQ-4.1.correct M2-REQ-4.1-g1r1 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g1r1 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g1r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r1 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r1.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r1 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r1 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r1 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r1.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r1 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r1 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py prepare --method M2 --app keep --req REQ-4.1 --gen 1 --round 2 --base methods/M2-REQ-4.1-g1r1/keep --feedback runs/dev/revision/M2-REQ-4.1-g1r1.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g1-r2.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g1-r2.json --out methods/M2-REQ-4.1-g1r2/keep
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r2 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r2.jsonl --split dev --tag revision
+A-keep.REQ-4.1.correct M2-REQ-4.1-g1r2 rep1: FAIL TEST_ERROR
+A-keep.REQ-4.1.correct M2-REQ-4.1-g1r2 rep2: FAIL TEST_ERROR
+A-keep.REQ-4.1.correct M2-REQ-4.1-g1r2 rep3: FAIL TEST_ERROR
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r2 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r2.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r2 rep1: FAIL TEST_ERROR
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r2 rep2: FAIL TEST_ERROR
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r2 rep3: FAIL TEST_ERROR
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r2 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r2.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r2 rep1: FAIL TEST_ERROR
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r2 rep2: FAIL TEST_ERROR
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r2 rep3: FAIL TEST_ERROR
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r2 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r2.jsonl --split dev --tag revision
+B-keep.REQ-4.1.correct M2-REQ-4.1-g1r2 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g1r2 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g1r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r2 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r2.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r2 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r2 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r2 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r2.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r2 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r2 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py prepare --method M2 --app keep --req REQ-4.1 --gen 1 --round 3 --base methods/M2-REQ-4.1-g1r2/keep --feedback runs/dev/revision/M2-REQ-4.1-g1r2.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g1-r3.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g1-r3.json --out methods/M2-REQ-4.1-g1r3/keep
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r3 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r3.jsonl --split dev --tag revision
+A-keep.REQ-4.1.correct M2-REQ-4.1-g1r3 rep1: PASS 
+A-keep.REQ-4.1.correct M2-REQ-4.1-g1r3 rep2: PASS 
+A-keep.REQ-4.1.correct M2-REQ-4.1-g1r3 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r3 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r3.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r3 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r3 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r3 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r3.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r3 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r3 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r3 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r3.jsonl --split dev --tag revision
+B-keep.REQ-4.1.correct M2-REQ-4.1-g1r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g1r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r3 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r3.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g1r3 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g1r3.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g2-r1.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g2-r1.json --out methods/M2-REQ-4.1-g2r1/keep
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r1 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r1.jsonl --split dev --tag revision
+A-keep.REQ-4.1.correct M2-REQ-4.1-g2r1 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.correct M2-REQ-4.1-g2r1 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.correct M2-REQ-4.1-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r1 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r1.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r1 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r1 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r1 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r1.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r1 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r1 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r1 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r1.jsonl --split dev --tag revision
+B-keep.REQ-4.1.correct M2-REQ-4.1-g2r1 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g2r1 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r1 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r1.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r1 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r1 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r1 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r1.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r1 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r1 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py prepare --method M2 --app keep --req REQ-4.1 --gen 2 --round 2 --base methods/M2-REQ-4.1-g2r1/keep --feedback runs/dev/revision/M2-REQ-4.1-g2r1.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g2-r2.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g2-r2.json --out methods/M2-REQ-4.1-g2r2/keep
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r2 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r2.jsonl --split dev --tag revision
+A-keep.REQ-4.1.correct M2-REQ-4.1-g2r2 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.correct M2-REQ-4.1-g2r2 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.correct M2-REQ-4.1-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r2 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r2.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r2 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r2 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r2 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r2.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r2 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r2 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r2 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r2.jsonl --split dev --tag revision
+B-keep.REQ-4.1.correct M2-REQ-4.1-g2r2 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g2r2 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r2 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r2.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r2 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r2 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r2 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r2.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r2 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r2 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py prepare --method M2 --app keep --req REQ-4.1 --gen 2 --round 3 --base methods/M2-REQ-4.1-g2r2/keep --feedback runs/dev/revision/M2-REQ-4.1-g2r2.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g2-r3.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g2-r3.json --out methods/M2-REQ-4.1-g2r3/keep
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r3 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r3.jsonl --split dev --tag revision
+A-keep.REQ-4.1.correct M2-REQ-4.1-g2r3 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.correct M2-REQ-4.1-g2r3 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.correct M2-REQ-4.1-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r3 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r3.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r3 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r3 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r3 --app keep --req REQ-4.1 --material materials/dev/A-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r3.jsonl --split dev --tag revision
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r3 rep1: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r3 rep2: FAIL ASSERTION_FAIL?
+A-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r3 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r3.jsonl --split dev --tag revision
+B-keep.REQ-4.1.correct M2-REQ-4.1-g2r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g2r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.correct M2-REQ-4.1-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r3 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D1 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r3.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D1 M2-REQ-4.1-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-4.1-g2r3 --app keep --req REQ-4.1 --material materials/dev/B-keep --variant K41-D2 --repeats 3 --out runs/dev/revision/M2-REQ-4.1-g2r3.jsonl --split dev --tag revision
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r3 rep1: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r3 rep2: FAIL ASSERTION_FAIL?
+B-keep.REQ-4.1.K41-D2 M2-REQ-4.1-g2r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g1-r1.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g1-r1.json --out methods/M2-REQ-6.4-g1r1/bookstack
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r1 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r1.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r1 rep1: PASS 
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r1 rep2: PASS 
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r1 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r1 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant B64-D1 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r1.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r1 rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r1 rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r1 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant B64-D2 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r1.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r1 rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r1 rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r1 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r1.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r1 rep1: PASS 
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r1 rep2: PASS 
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r1 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r1 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant B64-D1 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r1.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r1 rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r1 rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r1 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant B64-D2 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r1.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r1 rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r1 rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py prepare --method M2 --app bookstack --req REQ-6.4 --gen 1 --round 2 --base methods/M2-REQ-6.4-g1r1/bookstack --feedback runs/dev/revision/M2-REQ-6.4-g1r1.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g1-r2.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g1-r2.json --out methods/M2-REQ-6.4-g1r2/bookstack
+$ python3 tools/revise.py prepare --method M2 --app bookstack --req REQ-6.4 --gen 1 --round 3 --base methods/M2-REQ-6.4-g1r2/bookstack --feedback runs/dev/revision/M2-REQ-6.4-g1r2.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g1-r3.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g1-r3.json --out methods/M2-REQ-6.4-g1r3/bookstack
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r3 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r3.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r3 rep1: PASS 
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r3 rep2: PASS 
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r3 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r3 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant B64-D1 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r3.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r3 rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r3 rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r3 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant B64-D2 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r3.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r3 rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r3 rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r3 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r3.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r3 rep1: PASS 
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r3 rep2: PASS 
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g1r3 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r3 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant B64-D1 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r3.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r3 rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r3 rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g1r3 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant B64-D2 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g1r3.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r3 rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r3 rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g1r3 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g2-r1.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g2-r1.json --out methods/M2-REQ-6.4-g2r1/bookstack
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r1 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r1.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r1 rep1: PASS 
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r1 rep2: PASS 
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r1 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r1 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant B64-D1 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r1.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r1 rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r1 rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r1 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant B64-D2 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r1.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r1 rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r1 rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r1 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r1.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r1 rep1: PASS 
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r1 rep2: PASS 
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r1 rep3: PASS 
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r1 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant B64-D1 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r1.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r1 rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r1 rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r1 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant B64-D2 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r1.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r1 rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r1 rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r1 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py prepare --method M2 --app bookstack --req REQ-6.4 --gen 2 --round 2 --base methods/M2-REQ-6.4-g2r1/bookstack --feedback runs/dev/revision/M2-REQ-6.4-g2r1.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g2-r2.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g2-r2.json --out methods/M2-REQ-6.4-g2r2/bookstack
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r2 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r2.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r2 rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r2 rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r2 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant B64-D1 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r2.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r2 rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r2 rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r2 --app bookstack --req REQ-6.4 --material materials/dev/A-bookstack --variant B64-D2 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r2.jsonl --split dev --tag revision
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r2 rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r2 rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r2 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant correct --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r2.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r2 rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r2 rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.correct M2-REQ-6.4-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r2 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant B64-D1 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r2.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r2 rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r2 rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M2-REQ-6.4-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/run_matrix.py --method M2-REQ-6.4-g2r2 --app bookstack --req REQ-6.4 --material materials/dev/B-bookstack --variant B64-D2 --repeats 3 --out runs/dev/revision/M2-REQ-6.4-g2r2.jsonl --split dev --tag revision
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r2 rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r2 rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M2-REQ-6.4-g2r2 rep3: FAIL ASSERTION_FAIL?
+ 
+$ python3 tools/revise.py prepare --method M2 --app bookstack --req REQ-6.4 --gen 2 --round 3 --base methods/M2-REQ-6.4-g2r2/bookstack --feedback runs/dev/revision/M2-REQ-6.4-g2r2.jsonl
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g2-r3.json
+$ python3 tools/revise.py apply --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g2-r3.json --out methods/M2-REQ-6.4-g2r3/bookstack

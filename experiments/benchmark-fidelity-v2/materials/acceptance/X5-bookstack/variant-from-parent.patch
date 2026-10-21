@@ -1,0 +1,113 @@
+diff -ruN -x node_modules -x dist ../../../../cross-impl-generalization-v1/materials/sealed/Cpilot-bookstack/app/src/views/BookDetail.jsx app/src/views/BookDetail.jsx
+--- a/src/views/BookDetail.jsx	2026-10-19 16:01:06
++++ b/src/views/BookDetail.jsx	2026-10-20 03:18:27
+@@ -45,7 +45,7 @@
+                       <ListItemText primary={p.title} primaryTypographyProps={{ variant: 'h6', component: 'span' }} />
+                     </ListItemButton>
+                     <Typography variant="body2" color="text.secondary" sx={{ px: 2, pb: 1 }} noWrap>
+-                      {p.body}
++                      {(p.body || '').replace(/<[^>]+>/g, ' ')}
+                     </Typography>
+                   </ListItem>
+                 ))}
+diff -ruN -x node_modules -x dist ../../../../cross-impl-generalization-v1/materials/sealed/Cpilot-bookstack/app/src/views/PageEditor.jsx app/src/views/PageEditor.jsx
+--- a/src/views/PageEditor.jsx	2026-10-19 16:01:14
++++ b/src/views/PageEditor.jsx	2026-10-20 03:18:27
+@@ -4,6 +4,7 @@
+ import { Card, Loading } from './common.jsx';
+ import { api } from '../api.js';
+ import NotFound from './NotFound.jsx';
++import RichBody from './RichBody.jsx';
+ 
+ // New page: /books/:bookId/pages/new ; edit existing: /books/:bookId/pages/:pageId/edit
+ export default function PageEditor() {
+@@ -60,8 +61,7 @@
+       <Stack component="form" spacing={3} onSubmit={save} noValidate>
+         <TextField label="Page title" value={title} onChange={(e) => setTitle(e.target.value)} autoFocus
+           error={Boolean(err) && !title.trim()} />
+-        <TextField label="Write your page content here..." value={body} onChange={(e) => setBody(e.target.value)}
+-          multiline minRows={12} />
++        <RichBody value={body} onChange={setBody} />
+         {err && <Alert severity="error">{err}</Alert>}
+         <Stack direction="row" spacing={2} justifyContent="flex-end">
+           <Button type="button" onClick={cancel}>Cancel</Button>
+diff -ruN -x node_modules -x dist ../../../../cross-impl-generalization-v1/materials/sealed/Cpilot-bookstack/app/src/views/PageView.jsx app/src/views/PageView.jsx
+--- a/src/views/PageView.jsx	2026-10-19 15:57:26
++++ b/src/views/PageView.jsx	2026-10-20 03:18:03
+@@ -4,6 +4,7 @@
+ import { api, formatDate } from '../api.js';
+ import { useLoad } from '../useLoad.js';
+ import NotFound from './NotFound.jsx';
++import { toHtml } from './RichBody.jsx';
+ 
+ async function loadPage(bookId, pageId) {
+   const [book, page] = await Promise.all([api.get('books', bookId), api.get('pages', pageId)]);
+@@ -25,7 +26,7 @@
+         <Grid item xs={12} md={9}>
+           <Card component="article">
+             <Typography variant="h3" component="h1" gutterBottom sx={{ wordBreak: 'break-word' }}>{page.title}</Typography>
+-            <Typography sx={{ whiteSpace: 'pre-wrap' }}>{page.body}</Typography>
++            <Typography component="div" dangerouslySetInnerHTML={{ __html: toHtml(page.body) }} />
+           </Card>
+         </Grid>
+         <Grid item xs={12} md={3}>
+diff -ruN -x node_modules -x dist ../../../../cross-impl-generalization-v1/materials/sealed/Cpilot-bookstack/app/src/views/RichBody.jsx app/src/views/RichBody.jsx
+--- a/src/views/RichBody.jsx	1970-01-01 07:30:00
++++ b/src/views/RichBody.jsx	2026-10-20 03:24:52
+@@ -0,0 +1,56 @@
++import { Box, IconButton, Stack, Tooltip, Typography } from '@mui/material';
++import { useEffect, useId, useRef } from 'react';
++
++const ALLOWED = new Set(['B', 'STRONG', 'I', 'EM', 'BR', 'DIV', 'P', 'UL', 'OL', 'LI']);
++
++// Keep only simple formatting tags (no attributes) so stored HTML is safe to render.
++export function sanitize(html) {
++  const doc = new DOMParser().parseFromString(`<div>${html || ''}</div>`, 'text/html');
++  const clean = (node) => {
++    for (const child of [...node.childNodes]) {
++      if (child.nodeType === Node.ELEMENT_NODE) {
++        if (!ALLOWED.has(child.tagName)) { child.replaceWith(...child.childNodes); clean(node); return; }
++        for (const a of [...child.attributes]) child.removeAttribute(a.name);
++        clean(child);
++      } else if (child.nodeType !== Node.TEXT_NODE) child.remove();
++    }
++  };
++  const root = doc.body.firstChild;
++  clean(root);
++  return root.innerHTML;
++}
++
++// Plain-text bodies from older pages are shown with their line breaks.
++export const toHtml = (body) => (/<[a-z][\s\S]*>/i.test(body || '')
++  ? sanitize(body)
++  : (body || '').split('\n').map((l) => l.replace(/&/g, '&amp;').replace(/</g, '&lt;')).join('<br>'));
++
++// Rich-text page body: a contenteditable surface with a small formatting toolbar.
++export default function RichBody({ value, onChange }) {
++  const ref = useRef(null);
++  const labelId = useId();
++  useEffect(() => { ref.current.innerHTML = toHtml(value); }, []); // eslint-disable-line react-hooks/exhaustive-deps
++  const cmd = (name) => { ref.current.focus(); document.execCommand(name); onChange(sanitize(ref.current.innerHTML)); };
++  return (
++    <Box>
++      <Typography id={labelId} variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>Page content</Typography>
++      <Box sx={{ border: '1px solid rgba(0,0,0,.23)', borderRadius: 1 }}>
++        <Stack direction="row" role="toolbar" aria-label="Formatting" sx={{ borderBottom: '1px solid rgba(0,0,0,.12)', px: 0.5 }}>
++          <Tooltip title="Bold"><IconButton size="small" aria-label="Bold" onMouseDown={(e) => e.preventDefault()} onClick={() => cmd('bold')}><b>B</b></IconButton></Tooltip>
++          <Tooltip title="Italic"><IconButton size="small" aria-label="Italic" onMouseDown={(e) => e.preventDefault()} onClick={() => cmd('italic')}><i>I</i></IconButton></Tooltip>
++          <Tooltip title="Bulleted list"><IconButton size="small" aria-label="Bulleted list" onMouseDown={(e) => e.preventDefault()} onClick={() => cmd('insertUnorderedList')}>•≡</IconButton></Tooltip>
++        </Stack>
++        <Box
++          ref={ref}
++          contentEditable
++          suppressContentEditableWarning
++          role="textbox"
++          aria-multiline="true"
++          aria-labelledby={labelId}
++          onInput={() => onChange(sanitize(ref.current.innerHTML))}
++          sx={{ minHeight: 280, p: 1.5, outline: 'none', '&:focus': { boxShadow: 'inset 0 0 0 2px #1976d2' } }}
++        />
++      </Box>
++    </Box>
++  );
++}

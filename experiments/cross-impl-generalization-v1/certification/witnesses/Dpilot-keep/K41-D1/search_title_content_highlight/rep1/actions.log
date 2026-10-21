@@ -1,0 +1,22 @@
+server pid 67982 port 39286 build /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/builds/Dpilot-keep--K41-D1--dc1a4431a123930d
+open http://127.0.0.1:39286/
+click button "New note" (creation entry, found by role=button + visible text in main)
+click textbox "Title" in editor dialog; type "Study schedule [a17ca6]"
+click textbox "Note text" in editor dialog
+type "Math on Monday"
+click button "Close" in editor dialog (close action; no save action used)
+click button "New note" (creation entry, found by role=button + visible text in main)
+click textbox "Title" in editor dialog; type "Reading plan [a17ca6]"
+click textbox "Note text" in editor dialog
+type "Read a story"
+click button "Close" in editor dialog (close action; no save action used)
+click button "New note" (creation entry, found by role=button + visible text in main)
+click textbox "Title" in editor dialog; type "Ocean memo [a17ca6]"
+click textbox "Note text" in editor dialog
+type "Calm blue waves"
+click button "Close" in editor dialog (close action; no save action used)
+precondition: created note cards visible = 1,1,1
+click searchbox "Search notes"; type "st"
+click button "Clear search" in search bar
+click button "Notes" in navigation "Sidebar"
+stopped server pid 67982

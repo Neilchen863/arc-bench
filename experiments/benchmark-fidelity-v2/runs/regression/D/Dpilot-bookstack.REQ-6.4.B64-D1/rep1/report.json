@@ -1,0 +1,267 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-6.4.spec.ts",
+      "file": "REQ-6.4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "read_selected_page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11985,
+                  "error": {
+                    "message": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.1 [r1-w0-read-selected-page]\"; headings=[\"Page A 6.4.1 [r1-w0-read-selected-page]\",\"Details\",\"Actions\"]",
+                    "stack": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.1 [r1-w0-read-selected-page]\"; headings=[\"Page A 6.4.1 [r1-w0-read-selected-page]\",\"Details\",\"Actions\"]\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:30:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:30:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts",
+                      "column": 61,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts",
+                        "column": 61,
+                        "line": 5
+                      },
+                      "message": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.1 [r1-w0-read-selected-page]\"; headings=[\"Page A 6.4.1 [r1-w0-read-selected-page]\",\"Details\",\"Actions\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:30:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:30:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:06:09.111Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJQQVNTIiwiQjY0LU8xIjoiRkFJTCIsIkI2NC1PMiI6Ik5PVF9SRUFDSEVEIiwiQjY0LU8zIjoiTk9UX1JFQUNIRUQifSwiY2hlY2tzIjpbeyJvYmxpZ2F0aW9uIjoiQjY0LVAxIiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1wiZW50cmllc1wiOjEsXCJldmlkZW5jZVwiOlwiPGE+IG5hbWVzPVtcXFwiUGFnZSBBIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXFxcIl1cIn0iLCJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MTAuMjcyWiIsInN0ZXAiOiJjcmVhdGUgcGFnZSBBIn0seyJvYmxpZ2F0aW9uIjoiQjY0LVAxIiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1wiZW50cmllc1wiOjEsXCJldmlkZW5jZVwiOlwiPGE+IG5hbWVzPVtcXFwiUGFnZSBCIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXFxcIl1cIn0iLCJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MTAuNjcyWiIsInN0ZXAiOiJjcmVhdGUgcGFnZSBUQVJHRVQifSx7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCI8YT4gbmFtZXM9W1xcXCJQYWdlIEMgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cXFwiXVwifSIsImF0IjoiMjAyNi0xMC0xOVQxODowNjoxMS4wNTZaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIEMifSx7Im9ibGlnYXRpb24iOiJCNjQtTzEiLCJzdGF0dXMiOiJGQUlMIiwiZGV0YWlsIjoiT0JMSUdBVElPTl9GQUlMIEI2NC1PMTogbm8gaGVhZGluZyBcIlBhZ2UgQiA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiOyBoZWFkaW5ncz1bXCJQYWdlIEEgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIkRldGFpbHNcIixcIkFjdGlvbnNcIl0iLCJvYnNlcnZlZCI6IntcImhlYWRpbmdzXCI6W1wiUGFnZSBBIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJEZXRhaWxzXCIsXCJBY3Rpb25zXCJdLFwibGluZXNcIjpbXCJTa2lwIHRvIGNvbnRlbnRcIixcIkJvb2tTdGFja1wiLFwiU2hlbHZlc1wiLFwiQm9va3NcIixcIkxvZ2luXCIsXCJCb29rc1wiLFwi4oC6XCIsXCJCb29rIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCLigLpcIixcIlBhZ2UgQSA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiLFwiUGFnZSBBIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMS5cIixcIkRldGFpbHNcIixcIkNyZWF0ZWQgNiBPY3RvYmVyIDIwMjZcIixcIkFjdGlvbnNcIixcIkVkaXQgcGFnZVwiXSxcImV2aWRlbmNlXCI6XCJ1cmw9L3BhZ2VzLzM2NDZhMzcxLWE2ODMtNDBmYy04Y2ViLTljZWZjMTYwNzE2M1wifSIsImF0IjoiMjAyNi0xMC0xOVQxODowNjoyMS4xNDFaIiwic3RlcCI6Im9wZW4gdGFyZ2V0IHBhZ2UifV0sImFjdGlvbnMiOlt7ImF0IjoiMjAyNi0xMC0xOVQxODowNjowOS4zNzNaIiwiaW50ZW50IjoiZW50ZXIgYXBwIiwiaG93IjoiZ290byAvIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MDkuNDY1WiIsImludGVudCI6Im9wZW4gYm9va3MiLCJjb250cm9sIjoiPGE+IG5hbWVzPVtcIkJvb2tzXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjowOS41MTFaIiwiaW50ZW50IjoiY3JlYXRlIGJvb2siLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiQ3JlYXRlIE5ldyBCb29rXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjowOS41MjNaIiwiaW50ZW50IjoiZW50ZXIgYm9vayBuYW1lIiwiY29udHJvbCI6IjxpbnB1dD4gbmFtZXM9W1wiTmFtZVwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IkJvb2sgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0ifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjowOS41NjhaIiwiaW50ZW50IjoiZW50ZXIgYm9vayBkZXNjcmlwdGlvbiIsImNvbnRyb2wiOiI8ZGl2IHJvbGU9dGV4dGJveD4gbmFtZXM9W1wiRGVzY3JpcHRpb25cIl0iLCJob3ciOiJ0eXBlIChyaWNoIHRleHQpIiwiYWZ0ZXIiOiJSZWZlcmVuY2UgYm9vayBkZXNjcmlwdGlvbi4ifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjowOS41ODZaIiwiaW50ZW50IjoiZW50ZXIgYm9vayB0YWdzIiwiY29udHJvbCI6IjxpbnB1dD4gbmFtZXM9W1wiVGFnc1wiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6Im1hbnVhbCwgaGFuZGJvb2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjowOS42MjVaIiwiaW50ZW50Ijoic2F2ZSBib29rIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIlNhdmUgQm9va1wiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MDkuOTA5WiIsImludGVudCI6Im5ldyBwYWdlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIk5ldyBQYWdlXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjowOS45MTdaIiwiaW50ZW50IjoiZW50ZXIgcGFnZSB0aXRsZSIsImNvbnRyb2wiOiI8aW5wdXQ+IG5hbWVzPVtcIlRpdGxlXCIsXCJQYWdlIHRpdGxlXCJdIiwiaG93IjoiZmlsbCIsImFmdGVyIjoiUGFnZSBBIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MDkuOTcxWiIsImludGVudCI6ImVudGVyIHBhZ2UgYm9keSIsImNvbnRyb2wiOiI8ZGl2IHJvbGU9dGV4dGJveD4gbmFtZXM9W1wiUGFnZSBjb250ZW50XCIsXCJXcml0ZSB5b3VyIHBhZ2UgY29udGVudCBoZXJlLi4uXCJdIiwiaG93IjoidHlwZSAocmljaCB0ZXh0KSIsImFmdGVyIjoiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEEgNi40LjEuIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MTAuMDA4WiIsImludGVudCI6InNhdmUgcGFnZSIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJTYXZlIHBhZ2VcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjEwLjMwOVoiLCJpbnRlbnQiOiJuZXcgcGFnZSIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJOZXcgUGFnZVwiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MTAuMzE4WiIsImludGVudCI6ImVudGVyIHBhZ2UgdGl0bGUiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJUaXRsZVwiLFwiUGFnZSB0aXRsZVwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IlBhZ2UgQiA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjEwLjM2OVoiLCJpbnRlbnQiOiJlbnRlciBwYWdlIGJvZHkiLCJjb250cm9sIjoiPGRpdiByb2xlPXRleHRib3g+IG5hbWVzPVtcIlBhZ2UgY29udGVudFwiLFwiV3JpdGUgeW91ciBwYWdlIGNvbnRlbnQgaGVyZS4uLlwiXSIsImhvdyI6InR5cGUgKHJpY2ggdGV4dCkiLCJhZnRlciI6IlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBCIDYuNC4xLiJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjEwLjQwOVoiLCJpbnRlbnQiOiJzYXZlIHBhZ2UiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiU2F2ZSBwYWdlXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjoxMC43MDhaIiwiaW50ZW50IjoibmV3IHBhZ2UiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiTmV3IFBhZ2VcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjEwLjcxNVoiLCJpbnRlbnQiOiJlbnRlciBwYWdlIHRpdGxlIiwiY29udHJvbCI6IjxpbnB1dD4gbmFtZXM9W1wiVGl0bGVcIixcIlBhZ2UgdGl0bGVcIl0iLCJob3ciOiJmaWxsIiwiYWZ0ZXIiOiJQYWdlIEMgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0ifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjoxMC43NTJaIiwiaW50ZW50IjoiZW50ZXIgcGFnZSBib2R5IiwiY29udHJvbCI6IjxkaXYgcm9sZT10ZXh0Ym94PiBuYW1lcz1bXCJQYWdlIGNvbnRlbnRcIixcIldyaXRlIHlvdXIgcGFnZSBjb250ZW50IGhlcmUuLi5cIl0iLCJob3ciOiJ0eXBlIChyaWNoIHRleHQpIiwiYWZ0ZXIiOiJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQyA2LjQuMS4ifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjoxMC43OTFaIiwiaW50ZW50Ijoic2F2ZSBwYWdlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIlNhdmUgcGFnZVwiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MTEuMDkxWiIsImludGVudCI6Im9wZW4gcGFnZSIsInRhcmdldCI6IlBhZ2UgQiA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSIsImNvbnRyb2wiOiI8YT4gbmFtZXM9W1wiUGFnZSBCIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCJdIiwiaG93IjoiY2xpY2sifV0sImxhc3Rfc3RlcCI6Im9wZW4gdGFyZ2V0IHBhZ2UiLCJzdGVwcyI6WyJlbnRlciIsImNyZWF0ZSBib29rIiwiY3JlYXRlIHBhZ2UgQSIsImNyZWF0ZSBwYWdlIFRBUkdFVCIsImNyZWF0ZSBwYWdlIEMiLCJvcGVuIHRhcmdldCBwYWdlIl19"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBsaW5rICJTa2lwIHRvIGNvbnRlbnQiOgogIC0gL3VybDogIiNtYWluIgotIGJhbm5lcjoKICAtIGxpbmsgIkJvb2tTdGFjayBob21lIjoKICAgIC0gL3VybDogLwogICAgLSB0ZXh0OiBCb29rU3RhY2sKICAtIHNlYXJjaDoKICAgIC0gc2VhcmNoYm94ICJTZWFyY2giCiAgLSBuYXZpZ2F0aW9uICJNYWluIjoKICAgIC0gbGluayAiU2hlbHZlcyI6CiAgICAgIC0gL3VybDogL3NoZWx2ZXMKICAgIC0gbGluayAiQm9va3MiOgogICAgICAtIC91cmw6IC9ib29rcwogICAgLSBsaW5rICJMb2dpbiI6CiAgICAgIC0gL3VybDogL2xvZ2luCi0gbWFpbjoKICAtIG5hdmlnYXRpb24gIkJyZWFkY3J1bWIiOgogICAgLSBsaW5rICJCb29rcyI6CiAgICAgIC0gL3VybDogL2Jvb2tzCiAgICAtIGxpbmsgIkJvb2sgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0iOgogICAgICAtIC91cmw6IC9ib29rcy82ZTM0M2YyNi0zMTIyLTQ1NTktOTQwMy1kNDQzNDc0ODg1MTIKICAgIC0gdGV4dDogUGFnZSBBIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdCiAgLSBhcnRpY2xlOgogICAgLSBoZWFkaW5nICJQYWdlIEEgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0iIFtsZXZlbD0xXQogICAgLSB0ZXh0OiBSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMS4KICAtIGNvbXBsZW1lbnRhcnkgIlBhZ2UgZGV0YWlscyBhbmQgYWN0aW9ucyI6CiAgICAtIGhlYWRpbmcgIkRldGFpbHMiIFtsZXZlbD0yXQogICAgLSBwYXJhZ3JhcGg6IENyZWF0ZWQgNiBPY3RvYmVyIDIwMjYKICAgIC0gaGVhZGluZyAiQWN0aW9ucyIgW2xldmVsPTJdCiAgICAtIGJ1dHRvbiAiRWRpdCBwYWdlIg=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "U2tpcCB0byBjb250ZW50CkJvb2tTdGFjawpTaGVsdmVzCkJvb2tzCkxvZ2luCkJvb2tzCuKAugpCb29rIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdCuKAugpQYWdlIEEgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KUGFnZSBBIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdClJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4xLgpEZXRhaWxzCgpDcmVhdGVkIDYgT2N0b2JlciAyMDI2CgpBY3Rpb25zCkVkaXQgcGFnZQ=="
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo1MzM5MC9wYWdlcy8zNjQ2YTM3MS1hNjgzLTQwZmMtOGNlYi05Y2VmYzE2MDcxNjM="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/test-results/REQ-6.4-read-selected-page-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/test-results/REQ-6.4-read-selected-page-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts",
+                    "column": 61,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-5dd9605f98bc9ec040a8",
+          "file": "REQ-6.4.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "reopen_page_editor",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12128,
+                  "error": {
+                    "message": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.2 [r1-w1-reopen-page-editor]\"; headings=[\"Page A 6.4.2 [r1-w1-reopen-page-editor]\",\"Details\",\"Actions\"]",
+                    "stack": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.2 [r1-w1-reopen-page-editor]\"; headings=[\"Page A 6.4.2 [r1-w1-reopen-page-editor]\",\"Details\",\"Actions\"]\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:39:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:39:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts",
+                      "column": 61,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts",
+                        "column": 61,
+                        "line": 5
+                      },
+                      "message": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.2 [r1-w1-reopen-page-editor]\"; headings=[\"Page A 6.4.2 [r1-w1-reopen-page-editor]\",\"Details\",\"Actions\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:39:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:39:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T18:06:21.694Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJQQVNTIiwiQjY0LU8xIjoiRkFJTCIsIkI2NC1PNCI6Ik5PVF9SRUFDSEVEIiwiQjY0LU81IjoiTk9UX1JFQUNIRUQiLCJCNjQtTzYiOiJOT1RfUkVBQ0hFRCJ9LCJjaGVja3MiOlt7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCI8YT4gbmFtZXM9W1xcXCJQYWdlIEEgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cXFwiXVwifSIsImF0IjoiMjAyNi0xMC0xOVQxODowNjoyMi45MjFaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIEEifSx7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCI8YT4gbmFtZXM9W1xcXCJQYWdlIEIgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cXFwiXVwifSIsImF0IjoiMjAyNi0xMC0xOVQxODowNjoyMy4zMzZaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIFRBUkdFVCJ9LHsib2JsaWdhdGlvbiI6IkI2NC1QMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImVudHJpZXNcIjoxLFwiZXZpZGVuY2VcIjpcIjxhPiBuYW1lcz1bXFxcIlBhZ2UgQyA2LjQuMiBbcjEtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXVxcXCJdXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIzLjc1NVoiLCJzdGVwIjoiY3JlYXRlIHBhZ2UgQyJ9LHsib2JsaWdhdGlvbiI6IkI2NC1PMSIsInN0YXR1cyI6IkZBSUwiLCJkZXRhaWwiOiJPQkxJR0FUSU9OX0ZBSUwgQjY0LU8xOiBubyBoZWFkaW5nIFwiUGFnZSBCIDYuNC4yIFtyMS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdXCI7IGhlYWRpbmdzPVtcIlBhZ2UgQSA2LjQuMiBbcjEtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXVwiLFwiRGV0YWlsc1wiLFwiQWN0aW9uc1wiXSIsIm9ic2VydmVkIjoie1wiaGVhZGluZ3NcIjpbXCJQYWdlIEEgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cIixcIkRldGFpbHNcIixcIkFjdGlvbnNcIl0sXCJsaW5lc1wiOltcIlNraXAgdG8gY29udGVudFwiLFwiQm9va1N0YWNrXCIsXCJTaGVsdmVzXCIsXCJCb29rc1wiLFwiTG9naW5cIixcIkJvb2tzXCIsXCLigLpcIixcIkJvb2sgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cIixcIuKAulwiLFwiUGFnZSBBIDYuNC4yIFtyMS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdXCIsXCJQYWdlIEEgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cIixcIlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4yLlwiLFwiRGV0YWlsc1wiLFwiQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNlwiLFwiQWN0aW9uc1wiLFwiRWRpdCBwYWdlXCJdLFwiZXZpZGVuY2VcIjpcInVybD0vcGFnZXMvZDQzNTg5NDYtYzJjOS00NzAxLTg2ZDctN2M0MmZmZTJkOTBmXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjMzLjkwMFoiLCJzdGVwIjoib3BlbiB0YXJnZXQgcGFnZSJ9XSwiYWN0aW9ucyI6W3siYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIxLjk5MloiLCJpbnRlbnQiOiJlbnRlciBhcHAiLCJob3ciOiJnb3RvIC8ifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjoyMi4xMDVaIiwiaW50ZW50Ijoib3BlbiBib29rcyIsImNvbnRyb2wiOiI8YT4gbmFtZXM9W1wiQm9va3NcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIyLjE0N1oiLCJpbnRlbnQiOiJjcmVhdGUgYm9vayIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJDcmVhdGUgTmV3IEJvb2tcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIyLjE2NVoiLCJpbnRlbnQiOiJlbnRlciBib29rIG5hbWUiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJOYW1lXCJdIiwiaG93IjoiZmlsbCIsImFmdGVyIjoiQm9vayA2LjQuMiBbcjEtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIyLjIyMVoiLCJpbnRlbnQiOiJlbnRlciBib29rIGRlc2NyaXB0aW9uIiwiY29udHJvbCI6IjxkaXYgcm9sZT10ZXh0Ym94PiBuYW1lcz1bXCJEZXNjcmlwdGlvblwiXSIsImhvdyI6InR5cGUgKHJpY2ggdGV4dCkiLCJhZnRlciI6IlJlZmVyZW5jZSBib29rIGRlc2NyaXB0aW9uLiJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIyLjI0MVoiLCJpbnRlbnQiOiJlbnRlciBib29rIHRhZ3MiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJUYWdzXCJdIiwiaG93IjoiZmlsbCIsImFmdGVyIjoibWFudWFsLCBoYW5kYm9vayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIyLjI3NVoiLCJpbnRlbnQiOiJzYXZlIGJvb2siLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiU2F2ZSBCb29rXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjoyMi41NTlaIiwiaW50ZW50IjoibmV3IHBhZ2UiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiTmV3IFBhZ2VcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIyLjU2N1oiLCJpbnRlbnQiOiJlbnRlciBwYWdlIHRpdGxlIiwiY29udHJvbCI6IjxpbnB1dD4gbmFtZXM9W1wiVGl0bGVcIixcIlBhZ2UgdGl0bGVcIl0iLCJob3ciOiJmaWxsIiwiYWZ0ZXIiOiJQYWdlIEEgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0ifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjoyMi42MThaIiwiaW50ZW50IjoiZW50ZXIgcGFnZSBib2R5IiwiY29udHJvbCI6IjxkaXYgcm9sZT10ZXh0Ym94PiBuYW1lcz1bXCJQYWdlIGNvbnRlbnRcIixcIldyaXRlIHlvdXIgcGFnZSBjb250ZW50IGhlcmUuLi5cIl0iLCJob3ciOiJ0eXBlIChyaWNoIHRleHQpIiwiYWZ0ZXIiOiJSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMi4ifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjoyMi42NTdaIiwiaW50ZW50Ijoic2F2ZSBwYWdlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIlNhdmUgcGFnZVwiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MjIuOTU2WiIsImludGVudCI6Im5ldyBwYWdlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIk5ldyBQYWdlXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjoyMi45NjVaIiwiaW50ZW50IjoiZW50ZXIgcGFnZSB0aXRsZSIsImNvbnRyb2wiOiI8aW5wdXQ+IG5hbWVzPVtcIlRpdGxlXCIsXCJQYWdlIHRpdGxlXCJdIiwiaG93IjoiZmlsbCIsImFmdGVyIjoiUGFnZSBCIDYuNC4yIFtyMS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MjMuMDE4WiIsImludGVudCI6ImVudGVyIHBhZ2UgYm9keSIsImNvbnRyb2wiOiI8ZGl2IHJvbGU9dGV4dGJveD4gbmFtZXM9W1wiUGFnZSBjb250ZW50XCIsXCJXcml0ZSB5b3VyIHBhZ2UgY29udGVudCBoZXJlLi4uXCJdIiwiaG93IjoidHlwZSAocmljaCB0ZXh0KSIsImFmdGVyIjoiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjIuIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MjMuMDU4WiIsImludGVudCI6InNhdmUgcGFnZSIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJTYXZlIHBhZ2VcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIzLjM3NFoiLCJpbnRlbnQiOiJuZXcgcGFnZSIsImNvbnRyb2wiOiI8YnV0dG9uPiBuYW1lcz1bXCJOZXcgUGFnZVwiXSIsImhvdyI6ImNsaWNrIn0seyJhdCI6IjIwMjYtMTAtMTlUMTg6MDY6MjMuMzg0WiIsImludGVudCI6ImVudGVyIHBhZ2UgdGl0bGUiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJUaXRsZVwiLFwiUGFnZSB0aXRsZVwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IlBhZ2UgQyA2LjQuMiBbcjEtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIzLjQzNloiLCJpbnRlbnQiOiJlbnRlciBwYWdlIGJvZHkiLCJjb250cm9sIjoiPGRpdiByb2xlPXRleHRib3g+IG5hbWVzPVtcIlBhZ2UgY29udGVudFwiLFwiV3JpdGUgeW91ciBwYWdlIGNvbnRlbnQgaGVyZS4uLlwiXSIsImhvdyI6InR5cGUgKHJpY2ggdGV4dCkiLCJhZnRlciI6IlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBDIDYuNC4yLiJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE4OjA2OjIzLjQ3M1oiLCJpbnRlbnQiOiJzYXZlIHBhZ2UiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiU2F2ZSBwYWdlXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxODowNjoyMy43OTJaIiwiaW50ZW50Ijoib3BlbiBwYWdlIiwidGFyZ2V0IjoiUGFnZSBCIDYuNC4yIFtyMS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdIiwiY29udHJvbCI6IjxhPiBuYW1lcz1bXCJQYWdlIEIgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cIl0iLCJob3ciOiJjbGljayJ9XSwibGFzdF9zdGVwIjoib3BlbiB0YXJnZXQgcGFnZSIsInN0ZXBzIjpbImVudGVyIiwiY3JlYXRlIGJvb2siLCJjcmVhdGUgcGFnZSBBIiwiY3JlYXRlIHBhZ2UgVEFSR0VUIiwiY3JlYXRlIHBhZ2UgQyIsIm9wZW4gdGFyZ2V0IHBhZ2UiXX0="
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBsaW5rICJTa2lwIHRvIGNvbnRlbnQiOgogIC0gL3VybDogIiNtYWluIgotIGJhbm5lcjoKICAtIGxpbmsgIkJvb2tTdGFjayBob21lIjoKICAgIC0gL3VybDogLwogICAgLSB0ZXh0OiBCb29rU3RhY2sKICAtIHNlYXJjaDoKICAgIC0gc2VhcmNoYm94ICJTZWFyY2giCiAgLSBuYXZpZ2F0aW9uICJNYWluIjoKICAgIC0gbGluayAiU2hlbHZlcyI6CiAgICAgIC0gL3VybDogL3NoZWx2ZXMKICAgIC0gbGluayAiQm9va3MiOgogICAgICAtIC91cmw6IC9ib29rcwogICAgLSBsaW5rICJMb2dpbiI6CiAgICAgIC0gL3VybDogL2xvZ2luCi0gbWFpbjoKICAtIG5hdmlnYXRpb24gIkJyZWFkY3J1bWIiOgogICAgLSBsaW5rICJCb29rcyI6CiAgICAgIC0gL3VybDogL2Jvb2tzCiAgICAtIGxpbmsgIkJvb2sgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0iOgogICAgICAtIC91cmw6IC9ib29rcy9iNGU4MTkxYi03YzA4LTQwOGItODUzZS00YjZjZTRlM2Q5YTMKICAgIC0gdGV4dDogUGFnZSBBIDYuNC4yIFtyMS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdCiAgLSBhcnRpY2xlOgogICAgLSBoZWFkaW5nICJQYWdlIEEgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0iIFtsZXZlbD0xXQogICAgLSB0ZXh0OiBSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMi4KICAtIGNvbXBsZW1lbnRhcnkgIlBhZ2UgZGV0YWlscyBhbmQgYWN0aW9ucyI6CiAgICAtIGhlYWRpbmcgIkRldGFpbHMiIFtsZXZlbD0yXQogICAgLSBwYXJhZ3JhcGg6IENyZWF0ZWQgNiBPY3RvYmVyIDIwMjYKICAgIC0gaGVhZGluZyAiQWN0aW9ucyIgW2xldmVsPTJdCiAgICAtIGJ1dHRvbiAiRWRpdCBwYWdlIg=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "U2tpcCB0byBjb250ZW50CkJvb2tTdGFjawpTaGVsdmVzCkJvb2tzCkxvZ2luCkJvb2tzCuKAugpCb29rIDYuNC4yIFtyMS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdCuKAugpQYWdlIEEgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KUGFnZSBBIDYuNC4yIFtyMS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdClJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4yLgpEZXRhaWxzCgpDcmVhdGVkIDYgT2N0b2JlciAyMDI2CgpBY3Rpb25zCkVkaXQgcGFnZQ=="
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo1MzM5MC9wYWdlcy9kNDM1ODk0Ni1jMmM5LTQ3MDEtODZkNy03YzQyZmZlMmQ5MGY="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts",
+                    "column": 61,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-a1c648922e744b6c557a",
+          "file": "REQ-6.4.spec.ts",
+          "line": 35,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T18:06:08.792Z",
+    "duration": 25254.812,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,64 @@
+{
+ "notes": [
+  {
+   "id": "hist-expired",
+   "title": "Expired seven-day note",
+   "content": "Historical expired content",
+   "trashed": true,
+   "deletedAt": "2026-07-14T12:00:00.000Z",
+   "archived": false,
+   "pinned": false,
+   "labels": [],
+   "color": null,
+   "createdAt": "2026-07-01T12:00:00.000Z"
+  },
+  {
+   "id": "hist-recent",
+   "title": "Recent six-day note",
+   "content": "Historical retained content",
+   "trashed": true,
+   "deletedAt": "2026-07-15T12:00:00.000Z",
+   "archived": false,
+   "pinned": false,
+   "labels": [],
+   "color": null,
+   "createdAt": "2026-07-01T12:00:00.000Z"
+  },
+  {
+   "title": "Call dentist existing [3b16ed]",
+   "content": "Reminder content",
+   "pinned": false,
+   "color": null,
+   "labels": [
+    "reminders"
+   ],
+   "archived": false,
+   "trashed": false,
+   "deletedAt": null,
+   "editedAt": "2026-07-21T12:00:00.000Z",
+   "id": "e8a788e3-f56b-42b3-a546-04b99a0d5deb",
+   "createdAt": "2026-10-19T08:23:26.723Z"
+  },
+  {
+   "title": "Movie list [3b16ed]",
+   "content": "Unlabeled content",
+   "pinned": false,
+   "color": null,
+   "labels": [],
+   "archived": false,
+   "trashed": false,
+   "deletedAt": null,
+   "editedAt": "2026-07-21T12:00:00.000Z",
+   "id": "af1fc9e2-6ea5-44cf-b66f-04d4b3b3d8fc",
+   "createdAt": "2026-10-19T08:23:27.653Z"
+  }
+ ],
+ "labels": [
+  {
+   "id": "reminders",
+   "name": "Reminders",
+   "builtin": true,
+   "createdAt": "2026-07-21T12:00:00.000Z"
+  }
+ ]
+}

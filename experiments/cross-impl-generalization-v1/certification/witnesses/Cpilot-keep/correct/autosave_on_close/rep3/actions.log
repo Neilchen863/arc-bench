@@ -1,0 +1,10 @@
+server pid 66518 port 39285 build /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/builds/Cpilot-keep--correct--f1cc4530395d6c22
+open http://127.0.0.1:39285/
+click button "Take a note…" (creation entry, found by role=button + visible text in main)
+click textbox "Title" in editor dialog; type "New note [CERT-1f5f75]"
+click textbox "Note text" in editor dialog
+type "First line"
+press Enter
+type "Second line"
+click button "Close" in editor dialog (close action; no save action used)
+stopped server pid 66518

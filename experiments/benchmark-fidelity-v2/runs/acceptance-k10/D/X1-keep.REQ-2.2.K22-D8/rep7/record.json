@@ -1,0 +1,193 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "X1-keep.REQ-2.2.K22-D8",
+ "parent_id": "X1-keep.REQ-2.2.correct",
+ "method_id": "D",
+ "material_hash": "1d1108f80a09684b",
+ "binding_hash": "5f653086c5df2ddc",
+ "common_hash": "899ca410a04b1fb2",
+ "binding_source": "generic drivers",
+ "reference_label": "VIOLATED",
+ "target_obligation": "K22-O2",
+ "execution_repeat": 7,
+ "reset_id": "r7-1792441691",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "split": "acceptance-k10",
+ "tag": "post-freeze-k10",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 25554,
+ "case_ids_observed": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "result": "REQUIREMENT_FAIL",
+ "obligation_results": {
+  "K22-O1": "PASS",
+  "K22-O2": "FAIL",
+  "K22-O3": "NOT_REACHED",
+  "K22-O4": "NOT_REACHED",
+  "K22-O5": "PASS",
+  "K22-O6": "NOT_REACHED"
+ },
+ "failure_detail": "failed: K22-O2",
+ "cases": [
+  {
+   "title": "autosave_on_close",
+   "status": "failed",
+   "duration_ms": 11760,
+   "errors": [
+    "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"New note [dbb7b294e7-w0-37be560208]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/lib/oracle.ts:27:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/REQ-2.2.spec.ts:25:54)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/REQ-2.2.spec.ts:25:3"
+   ],
+   "last_step": "dismiss editor",
+   "checks": [
+    {
+     "obligation": "K22-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "\"close action only (dismissNoteEditor refuses save-like controls)\"",
+     "at": "2026-10-19T20:28:15.337Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T20:28:16.346Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O2",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL K22-O2: expected exactly one note titled \"New note [dbb7b294e7-w0-37be560208]\", observed 0 ()",
+     "observed": "{\"title\":\"New note [dbb7b294e7-w0-37be560208]\",\"matches\":0,\"visible\":false,\"titleShown\":false,\"lines\":[],\"evidence\":\"\"}",
+     "at": "2026-10-19T20:28:26.492Z",
+     "step": "dismiss editor"
+    }
+   ],
+   "actions": [
+    {
+     "at": "2026-10-19T20:28:15.047Z",
+     "intent": "open home",
+     "how": "goto /"
+    },
+    {
+     "at": "2026-10-19T20:28:15.128Z",
+     "intent": "open note editor",
+     "target": "new note",
+     "control": "<button> names=[\"Take a note\u2026\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T20:28:15.177Z",
+     "intent": "bind note editor",
+     "target": "new note",
+     "control": "<div role=dialog class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullWidth css-15aoahz\">",
+     "how": "nearest modal/form ancestor of title field, else smallest ancestor with content field"
+    },
+    {
+     "at": "2026-10-19T20:28:15.189Z",
+     "intent": "enter note title",
+     "control": "<input> names=[\"Title\"]",
+     "how": "fill",
+     "after": "New note [dbb7b294e7-w0-37be560208]"
+    },
+    {
+     "at": "2026-10-19T20:28:15.201Z",
+     "intent": "enter note content",
+     "control": "<textarea> names=[\"Note text\",\"Take a note\u2026\"]",
+     "how": "fill",
+     "after": "First line\nSecond line"
+    },
+    {
+     "at": "2026-10-19T20:28:15.337Z",
+     "intent": "dismiss note editor",
+     "target": "note editor",
+     "control": "<button> names=[\"Close\"]",
+     "how": "click"
+    }
+   ]
+  },
+  {
+   "title": "persist_after_reload",
+   "status": "failed",
+   "duration_ms": 11662,
+   "errors": [
+    "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"Persistent note [dbb7b294e7-w1-01c3c2598e]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/lib/oracle.ts:27:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/REQ-2.2.spec.ts:38:54)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/work/tests/REQ-2.2.spec.ts:38:3"
+   ],
+   "last_step": "dismiss editor",
+   "checks": [
+    {
+     "obligation": "K22-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T20:28:28.641Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O2",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL K22-O2: expected exactly one note titled \"Persistent note [dbb7b294e7-w1-01c3c2598e]\", observed 0 ()",
+     "observed": "{\"title\":\"Persistent note [dbb7b294e7-w1-01c3c2598e]\",\"matches\":0,\"visible\":false,\"titleShown\":false,\"lines\":[],\"evidence\":\"\"}",
+     "at": "2026-10-19T20:28:38.748Z",
+     "step": "dismiss editor"
+    }
+   ],
+   "actions": [
+    {
+     "at": "2026-10-19T20:28:27.392Z",
+     "intent": "open home",
+     "how": "goto /"
+    },
+    {
+     "at": "2026-10-19T20:28:27.475Z",
+     "intent": "open note editor",
+     "target": "new note",
+     "control": "<button> names=[\"Take a note\u2026\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T20:28:27.536Z",
+     "intent": "bind note editor",
+     "target": "new note",
+     "control": "<div role=dialog class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullWidth css-15aoahz\">",
+     "how": "nearest modal/form ancestor of title field, else smallest ancestor with content field"
+    },
+    {
+     "at": "2026-10-19T20:28:27.554Z",
+     "intent": "enter note title",
+     "control": "<input> names=[\"Title\"]",
+     "how": "fill",
+     "after": "Persistent note [dbb7b294e7-w1-01c3c2598e]"
+    },
+    {
+     "at": "2026-10-19T20:28:27.567Z",
+     "intent": "enter note content",
+     "control": "<textarea> names=[\"Note text\",\"Take a note\u2026\"]",
+     "how": "fill",
+     "after": "Saved personal content"
+    },
+    {
+     "at": "2026-10-19T20:28:27.625Z",
+     "intent": "dismiss note editor",
+     "target": "note editor",
+     "control": "<button> names=[\"Close\"]",
+     "how": "click"
+    }
+   ]
+  }
+ ],
+ "target_failure_confirmed": true,
+ "evidence_paths": [
+  "runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/report.json",
+  "runs/acceptance-k10/D/X1-keep.REQ-2.2.K22-D8/rep7/test-results"
+ ]
+}

@@ -1,0 +1,96 @@
+## Analysis
+
+From the development feedback, I can identify two key failure patterns:
+
+1. **Timeout failures on page title field**: Multiple runs show `TimeoutError: locator.fill: Timeout 15000ms exceeded. waiting for getByPlaceholder('Page title', { exact: true })`. This indicates the placeholder text for the page title field is not exactly `'Page title'`.
+
+2. **Editor body field empty**: In `B64-D2` runs, the editor opens successfully but the body field is empty (`""`) instead of containing the saved page content. The title field is populated correctly, but body is not.
+
+Looking at the current `PAGE_BODY` regex in `operations.ts`:
+```ts
+const PAGE_BODY = /^(write your page content here\.\.\.|page content|content|body|page body|editor|rich text editor.*|write.*)$/i;
+```
+
+The issue is likely that the placeholder text has changed from `"write your page content here..."` to something else (possibly `"Content"` or similar), and the current regex may not be matching properly.
+
+Also, the `openPage` function uses `pageListScope(page)` which may not be correctly identifying the page list region in some implementations.
+
+## Evidence-based fixes
+
+1. **PAGE_BODY regex expansion**: Based on the error logs showing `"write your page content here..."` timeout, and the `B64-D2` body field being empty, I need to ensure the placeholder matching is more robust. Looking at the `R-NAME` relaxation, `"Write your page content here..."` can be replaced by `"Content"`.
+
+2. **Page list scope resolution**: The `pageListScope` function should be more robust in finding the page list region.
+
+3. **Editor body field reading**: The `readValue` function in `adapt.ts` handles both native inputs and contenteditable elements, but the issue is likely that the body field is not being located correctly.
+
+Let me make targeted fixes:
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+const PAGE_BODY = /^(write your page content here\.\.\.|page content|content|body|page body|editor|rich text editor.*|write.*)$/i;
+<<<REPLACE>>>
+const PAGE_BODY = /^(write your page content here\.\.\.|page content|content|body|page body|editor|rich text editor.*|write.*|your page content here)$/i;
+<<<END EDIT>>>
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function pageListScope(page: Page): Promise<Locator | Page> {
+  return resolve(page, 'page list', [
+    byRole('region', /pages?( list)?$/i), byRole('list', /pages?/i), byRole('navigation', /pages?/i),
+    byCss('section:has(> h2:text-matches("^pages", "i")), section:has(> h3:text-matches("^pages", "i"))'),
+  ], 3_000).catch(() => page);
+}
+<<<REPLACE>>>
+export async function pageListScope(page: Page): Promise<Locator | Page> {
+  return resolve(page, 'page list', [
+    byRole('region', /pages?( list)?$/i), byRole('list', /pages?/i), byRole('navigation', /pages?/i),
+    byRole('region', /page list/i), byRole('list', /page list/i),
+    byCss('section:has(> h2:text-matches("^pages", "i")), section:has(> h3:text-matches("^pages", "i"))'),
+    byCss('section:has(> h2:text-matches("^page list", "i")), section:has(> h3:text-matches("^page list", "i"))'),
+  ], 3_000).catch(() => page);
+}
+<<<END EDIT>>>
+
+## Obligation → Check Mapping
+
+| Obligation | Check | Evidence |
+|------------|-------|----------|
+| B64-O1 (read), B64-O1 (editor) | Page opens with correct title heading | `pageView()` headings check; failures show wrong page title as heading |
+| B64-O2 (read) | Saved body visible | `pageView()` lines check |
+| B64-O3 | No other page content shown | `notOther()` check |
+| B64-O4 (editor) | Editor title field has TARGET title | `editorState().titleValue` check |
+| B64-O5 (editor) | Editor body field has TARGET body | `editorState().bodyValue` check; **B64-D2 failures show empty body** |
+| B64-O6 (editor) | Save Page button visible | `editorState().saveVisible` check |
+
+## Evidence Used
+
+1. **Timeout on `getByPlaceholder('Page title', { exact: true })`**: Indicates placeholder text may be slightly different or not matching exactly. The `R-NAME` relaxation allows `"Page title"` → `"Title"`, but our regex uses `PAGE_TITLE` which doesn't include `"Title"` alone.
+
+2. **B64-D2 failures**: Body field is empty (`""`) while title field is populated. This suggests the body field placeholder text may have changed to `"Content"` or similar, and our current `PAGE_BODY` regex should catch it but may not be matching due to exactness requirements.
+
+3. **Page list scope failures**: In some implementations, the page list region may not have the expected role or CSS structure.
+
+## Unresolved Failures and Uncertainties
+
+1. **Page title field placeholder**: The error shows `getByPlaceholder('Page title', { exact: true })` timeout, but our `PAGE_TITLE` regex includes `^(page title|title)$`. The issue may be that the actual placeholder is `"Title"` (without "Page" prefix), which should match. Uncertainty: whether the field uses `aria-label` instead of placeholder.
+
+2. **Body field content not loading**: In B64-D2 runs, the body field is empty after opening editor. This could be:
+   - The field is not being located correctly (placeholder mismatch)
+   - The content is loaded asynchronously after the field is located
+   - The `readValue` function doesn't handle the specific rich-text editor implementation
+
+3. **Page list region identification**: The `pageListScope` function may not find the correct region in all implementations. We've added more candidates, but uncertainty remains about the exact DOM structure.
+
+4. **Editor body field reading**: The `readValue` function uses `innerText` for non-input elements, but rich-text editors may use `innerHTML` or have different structures. Uncertainty: whether the body content is in `innerText` or requires different extraction.
+
+5. **Timing issues**: Some failures show timeouts on locator clicks, suggesting possible race conditions where elements aren't ready. The `resolve` function has polling, but may need longer timeouts for slow environments.
+
+6. **Implementation variations**: The `B64-D1` and `B64-D2` units show different failure modes, indicating multiple implementation variants. We've addressed the most common ones, but some variations may still fail.
+
+7. **"Write your page content here..." vs alternatives**: The `R-NAME` relaxation allows `"Write your page content here..."` → `"Content"`, but our regex includes both. However, the exact string might be `"Content..."` or similar. Uncertainty: whether the placeholder text varies more than expected.
+
+8. **Page list scope fallback**: When `pageListScope` fails, it returns `page`, which may cause `openPage` to search the entire page instead of a specific region. This could lead to finding the wrong page entry if multiple pages exist. Uncertainty: whether this fallback is safe or should fail fast.
+
+9. **Editor save button visibility**: The `openEditor` function has a 5-second timeout for the save button, which may be insufficient in slow environments. Uncertainty: whether this timeout needs adjustment.
+
+10. **Contenteditable element handling**: The `enterText` and `readValue` functions handle contenteditable elements, but the specific implementation may require additional steps (e.g., focusing before typing). Uncertainty: whether the current implementation handles all rich-text editor variants correctly.

@@ -1,0 +1,208 @@
+{
+ "set": [
+  "regression",
+  "new-dev"
+ ],
+ "k": 3,
+ "C": 18,
+ "M": 36,
+ "labels_pending": [],
+ "methods": {
+  "B": {
+   "CAR": "13/18",
+   "CAR_value": 0.7222222222222222,
+   "EDR": "26/36",
+   "EDR_value": 0.7222222222222222,
+   "CAR_macro_req": 0.7222222222222222,
+   "EDR_macro_req": 0.7222222222222222,
+   "per_requirement": {
+    "REQ-2.2": {
+     "C": "6/6",
+     "M": "12/12"
+    },
+    "REQ-4.1": {
+     "C": "3/6",
+     "M": "6/12"
+    },
+    "REQ-6.4": {
+     "C": "4/6",
+     "M": "8/12"
+    }
+   },
+   "false_accept_units": [],
+   "false_accept_runs": 0,
+   "status_counts_runs": {
+    "PASS": 39,
+    "ADAPTATION_UNKNOWN": 39,
+    "REQUIREMENT_FAIL": 84
+   },
+   "flip_units_pass_nonpass": [],
+   "status_transition_units": [],
+   "obligation_exec_coverage_correct": "309/396",
+   "target_reached_runs_defects": "84/108",
+   "runtime_ms_median": 19253.5,
+   "runtime_ms_p95": 27441,
+   "runs_counted": 162,
+   "infra_units": [],
+   "CAR_upper_bound_infra": "13/18",
+   "accepted_correct": [
+    "A-bookstack.REQ-6.4.correct",
+    "A-keep.REQ-2.2.correct",
+    "A-keep.REQ-4.1.correct",
+    "B-bookstack.REQ-6.4.correct",
+    "B-keep.REQ-2.2.correct",
+    "Cpilot-bookstack.REQ-6.4.correct",
+    "Cpilot-keep.REQ-2.2.correct",
+    "Dpilot-keep.REQ-2.2.correct",
+    "Dpilot-keep.REQ-4.1.correct",
+    "N1-keep.REQ-2.2.correct",
+    "N2-keep.REQ-2.2.correct",
+    "N3-keep.REQ-4.1.correct",
+    "N6-bookstack.REQ-6.4.correct"
+   ],
+   "rejected_correct": {
+    "B-keep.REQ-4.1.correct": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "Cpilot-keep.REQ-4.1.correct": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "Dpilot-bookstack.REQ-6.4.correct": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "N4-keep.REQ-4.1.correct": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "N5-bookstack.REQ-6.4.correct": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ]
+   },
+   "missed_pairs": {
+    "B-keep.REQ-4.1.K41-D1": [
+     "REQUIREMENT_FAIL",
+     "REQUIREMENT_FAIL",
+     "REQUIREMENT_FAIL"
+    ],
+    "B-keep.REQ-4.1.K41-D2": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "Cpilot-keep.REQ-4.1.K41-D1": [
+     "REQUIREMENT_FAIL",
+     "REQUIREMENT_FAIL",
+     "REQUIREMENT_FAIL"
+    ],
+    "Cpilot-keep.REQ-4.1.K41-D2": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "Dpilot-bookstack.REQ-6.4.B64-D1": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "Dpilot-bookstack.REQ-6.4.B64-D2": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "N4-keep.REQ-4.1.K41-D5": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "N4-keep.REQ-4.1.K41-D6": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "N5-bookstack.REQ-6.4.B64-D3": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "N5-bookstack.REQ-6.4.B64-D4": [
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN",
+     "ADAPTATION_UNKNOWN"
+    ]
+   }
+  },
+  "D": {
+   "CAR": "18/18",
+   "CAR_value": 1.0,
+   "EDR": "36/36",
+   "EDR_value": 1.0,
+   "CAR_macro_req": 1.0,
+   "EDR_macro_req": 1.0,
+   "per_requirement": {
+    "REQ-2.2": {
+     "C": "6/6",
+     "M": "12/12"
+    },
+    "REQ-4.1": {
+     "C": "6/6",
+     "M": "12/12"
+    },
+    "REQ-6.4": {
+     "C": "6/6",
+     "M": "12/12"
+    }
+   },
+   "false_accept_units": [],
+   "false_accept_runs": 0,
+   "status_counts_runs": {
+    "PASS": 54,
+    "REQUIREMENT_FAIL": 108
+   },
+   "flip_units_pass_nonpass": [],
+   "status_transition_units": [],
+   "obligation_exec_coverage_correct": "396/396",
+   "target_reached_runs_defects": "108/108",
+   "runtime_ms_median": 18133.0,
+   "runtime_ms_p95": 25707,
+   "runs_counted": 162,
+   "infra_units": [],
+   "CAR_upper_bound_infra": "18/18",
+   "accepted_correct": [
+    "A-bookstack.REQ-6.4.correct",
+    "A-keep.REQ-2.2.correct",
+    "A-keep.REQ-4.1.correct",
+    "B-bookstack.REQ-6.4.correct",
+    "B-keep.REQ-2.2.correct",
+    "B-keep.REQ-4.1.correct",
+    "Cpilot-bookstack.REQ-6.4.correct",
+    "Cpilot-keep.REQ-2.2.correct",
+    "Cpilot-keep.REQ-4.1.correct",
+    "Dpilot-bookstack.REQ-6.4.correct",
+    "Dpilot-keep.REQ-2.2.correct",
+    "Dpilot-keep.REQ-4.1.correct",
+    "N1-keep.REQ-2.2.correct",
+    "N2-keep.REQ-2.2.correct",
+    "N3-keep.REQ-4.1.correct",
+    "N4-keep.REQ-4.1.correct",
+    "N5-bookstack.REQ-6.4.correct",
+    "N6-bookstack.REQ-6.4.correct"
+   ],
+   "rejected_correct": {},
+   "missed_pairs": {}
+  }
+ },
+ "common_parent_subset": {
+  "pairs": 26,
+  "B": 26,
+  "D": 26
+ }
+}

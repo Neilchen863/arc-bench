@@ -1,0 +1,81 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-2.2.spec.ts:14:5 › autosave_on_close
+[1A[2K[2/2] [chromium] › tests/REQ-2.2.spec.ts:27:5 › persist_after_reload
+[1A[2K  1) [chromium] › tests/REQ-2.2.spec.ts:27:5 › persist_after_reload ────────────────────────────────
+
+    Error: OBLIGATION_FAIL K22-O6: expected exactly one note titled "Persistent note [82f3e9c695-w0-01c3c2598e]", observed 0 ()
+
+       at lib/oracle.ts:8
+
+       6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+       7 | }
+    >  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+         |                                                             ^
+       9 |
+      10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),
+      11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/oracle.ts:8:61)
+        at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/oracle.ts:23:24)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/REQ-2.2.spec.ts:36:54)
+        at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/adapt.ts:74:11)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/REQ-2.2.spec.ts:36:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Toggle sidebar" [expanded]
+      - heading "Keep" [level=1]
+      - searchbox "Search"
+      - button "List view"
+      - button "Settings menu"
+    - navigation "Sidebar":
+      - list:
+        - listitem:
+          - button "Notes"
+        - listitem:
+          - button "Reminders"
+        - listitem:
+          - button "E...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit Labels
+    Archived
+    Trash
+    Take a note
+    PINNED
+    
+    No pinned notes
+    
+    OTHERS
+    
+    Notes you add appear here
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:61450/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-2.2-persist-after-reload-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  1 failed
+    [chromium] › tests/REQ-2.2.spec.ts:27:5 › persist_after_reload ─────────────────────────────────
+  1 passed (16.8s)
+

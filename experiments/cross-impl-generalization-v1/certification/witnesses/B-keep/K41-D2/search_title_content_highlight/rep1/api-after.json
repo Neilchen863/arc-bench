@@ -1,0 +1,72 @@
+{
+  "notes": [
+    {
+      "id": "hist-expired",
+      "title": "Expired seven-day note",
+      "content": "Historical expired content",
+      "trashed": true,
+      "deletedAt": "2026-07-14T12:00:00.000Z",
+      "archived": false,
+      "pinned": false,
+      "labels": [],
+      "color": null,
+      "createdAt": "2026-07-01T12:00:00.000Z"
+    },
+    {
+      "id": "hist-recent",
+      "title": "Recent six-day note",
+      "content": "Historical retained content",
+      "trashed": true,
+      "deletedAt": "2026-07-15T12:00:00.000Z",
+      "archived": false,
+      "pinned": false,
+      "labels": [],
+      "color": null,
+      "createdAt": "2026-07-01T12:00:00.000Z"
+    },
+    {
+      "title": "Study schedule aa06ab",
+      "content": "Math on Monday",
+      "pinned": false,
+      "color": null,
+      "labels": [],
+      "archived": false,
+      "trashed": false,
+      "editedAt": "2026-07-21T12:00:00.000Z",
+      "id": "cb898ac5-9c7b-4c19-8fb0-cca2fcc5e60b",
+      "createdAt": "2026-10-19T08:16:05.131Z"
+    },
+    {
+      "title": "Reading plan aa06ab",
+      "content": "Read a story",
+      "pinned": false,
+      "color": null,
+      "labels": [],
+      "archived": false,
+      "trashed": false,
+      "editedAt": "2026-07-21T12:00:00.000Z",
+      "id": "b0d9953e-a16d-4bf2-8d09-725e6e9b6f05",
+      "createdAt": "2026-10-19T08:16:06.393Z"
+    },
+    {
+      "title": "Ocean memo aa06ab",
+      "content": "Calm blue waves",
+      "pinned": false,
+      "color": null,
+      "labels": [],
+      "archived": false,
+      "trashed": false,
+      "editedAt": "2026-07-21T12:00:00.000Z",
+      "id": "d49bc581-7f9f-493c-9885-9afbc9024371",
+      "createdAt": "2026-10-19T08:16:07.694Z"
+    }
+  ],
+  "labels": [
+    {
+      "id": "reminders",
+      "name": "Reminders",
+      "builtin": true,
+      "createdAt": "2026-07-21T12:00:00.000Z"
+    }
+  ]
+}

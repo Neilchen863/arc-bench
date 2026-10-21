@@ -1,0 +1,32 @@
+{
+ "M2-REQ-4.1-g1r1": {
+  "cleared": false,
+  "reviewer": "executor (main context), 2026-10-19",
+  "finding": "observe.ts:128 page.getByRole('searchbox').first() \u2014 unscoped pick, breaks M0L unique-visible-match rule"
+ },
+ "M2-REQ-4.1-g1r2": {
+  "cleared": false,
+  "reviewer": "executor (main context), 2026-10-19",
+  "finding": "observe.ts:128,153 searchbox.first(); operations.ts:90 listbox button .first() \u2014 unscoped picks"
+ },
+ "M2-REQ-4.1-g1r3": {
+  "cleared": false,
+  "reviewer": "executor (main context), 2026-10-19",
+  "finding": "observe.ts:128,153 searchbox.first() \u2014 unscoped pick"
+ },
+ "M2-REQ-4.1-g2r1": {
+  "cleared": false,
+  "reviewer": "executor (main context), 2026-10-19",
+  "finding": "observe.ts:164-179 container .filter(hasText /Suggested|filter/).first() over section,div \u2014 can resolve to an outer page wrapper"
+ },
+ "M2-REQ-4.1-g2r2": {
+  "cleared": false,
+  "reviewer": "executor (main context), 2026-10-19",
+  "finding": "observe.ts:177-192 section/div .filter(hasText).first() \u2014 can resolve to an outer page wrapper"
+ },
+ "M2-REQ-4.1-g2r3": {
+  "cleared": false,
+  "reviewer": "executor (main context), 2026-10-19",
+  "finding": "observe.ts:164-180 region/section/div .first() \u2014 unscoped container picks"
+ }
+}

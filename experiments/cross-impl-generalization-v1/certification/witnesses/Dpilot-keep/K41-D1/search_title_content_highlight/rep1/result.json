@@ -1,0 +1,31 @@
+{
+ "material": "Dpilot-keep",
+ "variant": "K41-D1",
+ "scenario": "search_title_content_highlight",
+ "rep": 1,
+ "started": true,
+ "errors": [],
+ "pageErrors": [],
+ "obligations": {
+  "K41-O1": {
+   "holds": true,
+   "reason": "Study schedule visible cards=1"
+  },
+  "K41-O2": {
+   "holds": false,
+   "reason": "Reading plan visible cards=0"
+  },
+  "K41-O3": {
+   "holds": true,
+   "reason": "Ocean memo visible cards=0"
+  },
+  "K41-O4": {
+   "holds": false,
+   "reason": "highlights: [{\"note\":\"Study schedule\",\"inTitle\":[\"St\"],\"inBody\":[],\"nonSt\":[],\"v\":{\"bgDiff\":true,\"fw\":false,\"td\":false,\"bg\":\"rgb(255, 213, 79)\",\"parentBg\":\"rgb(255,255,255)\",\"w\":\"500\",\"pw\":\"500\",\"pass\":true}},{\"note\":\"Reading plan\",\"why\":\"note not shown\"}]"
+  },
+  "K41-O5": {
+   "holds": true,
+   "reason": "search value after clear=\"\", per note [count,contentVisible]=[{\"n\":1,\"content\":true},{\"n\":1,\"content\":true},{\"n\":1,\"content\":true}]"
+  }
+ }
+}

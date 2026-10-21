@@ -1,0 +1,10 @@
+{
+ "id": "M2-bookstack-REQ-6.4-g2-r2",
+ "problems": [],
+ "files": [
+  "tests/lib/operations.ts",
+  "tests/lib/observe.ts",
+  "tests/lib/adapt.ts"
+ ],
+ "status": "APPLIED"
+}

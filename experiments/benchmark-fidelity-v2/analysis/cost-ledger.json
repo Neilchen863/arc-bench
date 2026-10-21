@@ -1,0 +1,27 @@
+{
+ "note": "Executor wall-clock minutes (Claude Code session, single executor), not human hours; model calls = 0 for every method.",
+ "P0_B1_audit_and_label_review_min": 45,
+ "P1_three_case_diagnosis_min": 60,
+ "H_manual_bindings_min": {
+  "Cpilot-keep": 15,
+  "B-keep": 10,
+  "Dpilot-bookstack": 5
+ },
+ "D_initial_driver_dev_min": 120,
+ "D_fixes_min": {
+  "D-1..D-8 (P1 + self-test)": 95,
+  "D-9 N5": 10,
+  "D-10 N4": 10,
+  "D-11 N6": 15
+ },
+ "B_alignment_min": 20,
+ "new_dev_materials_build_and_certify_min": 110,
+ "runner_scorer_selftest_tooling_min": 70,
+ "model_calls": 0,
+ "model_cost_usd": 0,
+ "D-12_fix_min": 15,
+ "regression_run2_wall_min": 107,
+ "freeze_min": 5,
+ "acceptance_materials_build_and_certify_min": 75,
+ "acceptance_marginal_note": "Acceptance X1-X6 required 0 D/B changes (frozen); marginal per-new-implementation cost of D on acceptance = 0 executor min (if the gate holds)."
+}

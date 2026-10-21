@@ -1,0 +1,79 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-6.4.spec.ts:5:5 › REQ-6.4: Read selected page
+[1A[2K  1) [chromium] › tests/REQ-6.4.spec.ts:5:5 › REQ-6.4: Read selected page ──────────────────────────
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('link', { name: 'Create New Book', exact: true }).or(getByRole('button', { name: 'Create New Book', exact: true }))[22m
+
+
+       at helpers.ts:73
+
+      71 | export async function beginBook(page: Page) {
+      72 |   await go(page, 'Books');
+    > 73 |   await entry(page, 'Create New Book').click();
+         |                                        ^
+      74 | }
+      75 | export async function createShelf(page: Page, id: string, base: string, description = 'Reference shelf description.', tags = 'knowledge-base, docs') {
+      76 |   const name = named(id, base);
+        at beginBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/helpers.ts:73:40)
+        at createBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/helpers.ts:86:3)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/REQ-6.4.spec.ts:8:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-REQ-6-4-Read-selected-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-6.4-REQ-6-4-Read-selected-page-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-REQ-6-4-Read-selected-page-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-6.4-REQ-6-4-Read-selected-page-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-6.4.spec.ts:15:5 › REQ-6.4: Reopen page editor
+[1A[2K  2) [chromium] › tests/REQ-6.4.spec.ts:15:5 › REQ-6.4: Reopen page editor ─────────────────────────
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('link', { name: 'Create New Book', exact: true }).or(getByRole('button', { name: 'Create New Book', exact: true }))[22m
+
+
+       at helpers.ts:73
+
+      71 | export async function beginBook(page: Page) {
+      72 |   await go(page, 'Books');
+    > 73 |   await entry(page, 'Create New Book').click();
+         |                                        ^
+      74 | }
+      75 | export async function createShelf(page: Page, id: string, base: string, description = 'Reference shelf description.', tags = 'knowledge-base, docs') {
+      76 |   const name = named(id, base);
+        at beginBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/helpers.ts:73:40)
+        at createBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/helpers.ts:86:3)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/B-bookstack--B64-D2/rep3/work/tests/REQ-6.4.spec.ts:18:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-REQ-6-4-Reopen-page-editor-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-6.4-REQ-6-4-Reopen-page-editor-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-REQ-6-4-Reopen-page-editor-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-6.4-REQ-6-4-Reopen-page-editor-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-6.4.spec.ts:5:5 › REQ-6.4: Read selected page ───────────────────────────
+    [chromium] › tests/REQ-6.4.spec.ts:15:5 › REQ-6.4: Reopen page editor ──────────────────────────
+

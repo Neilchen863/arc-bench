@@ -1,0 +1,26 @@
+{
+  "frozen": "2026-10-19 (before any build)",
+  "defects": {
+    "keep": [
+      {"id": "K22-D1", "unit": "keep.REQ-2.2", "obligation": "K22-O2", "mechanism": "close_discards_input", "text": "K22-D1: Closing the note editor discards the typed title/content: no note is created (everything else unchanged)."},
+      {"id": "K22-D2", "unit": "keep.REQ-2.2", "obligation": "K22-O6", "mechanism": "memory_only_persistence", "text": "K22-D2: Closing the editor shows the new note in the list but never sends it to the server, so it disappears after a page reload."},
+      {"id": "K41-D1", "unit": "keep.REQ-4.1", "obligation": "K41-O2", "mechanism": "search_ignores_content", "text": "K41-D1: Keyword search matches note titles only; notes whose content (but not title) contains the keyword are hidden."},
+      {"id": "K41-D2", "unit": "keep.REQ-4.1", "obligation": "K41-O7", "mechanism": "label_filter_leaks_unlabeled", "text": "K41-D2: Choosing the Reminders suggested filter from the search panel also keeps notes without the Reminders label visible (unlabeled notes leak into the filtered result)."}
+    ],
+    "bookstack": [
+      {"id": "B64-D1", "unit": "bookstack.REQ-6.4", "obligation": "B64-O1", "mechanism": "opens_first_object", "text": "B64-D1: Selecting any page entry in a book's page list opens the FIRST page of that list instead of the selected one."},
+      {"id": "B64-D2", "unit": "bookstack.REQ-6.4", "obligation": "B64-O5", "mechanism": "editor_body_not_prefilled", "text": "B64-D2: Reopening an existing page's editor (Edit) prefills the title but leaves the body field empty."}
+    ]
+  },
+  "scope": {
+    "keep": "REQ-2.2 (create and autosave a note) and REQ-4.1 (search keywords and suggested filters), plus every prerequisite they need: REQ-1.1 workspace with Sidebar navigation (Notes and label entries required; other sidebar entries may be present but simple), REQ-2.8 label assignment from the note editor (label chooser with the default Reminders label and user labels), and REQ-2.1 note listing. Other requirements are out of scope.",
+    "bookstack": "REQ-6.4 (read a page or reopen its editor) plus every prerequisite it needs while logged out: REQ-1.1 home entry links, REQ-5.1/5.2 browse and open books, REQ-5.3 create book (Name, Description, Tags; save and cancel), REQ-6.1 publish a page (New Page, title, body, save page; it returns to the book, whose page list shows the page), and saving an edited page. Login, shelves, drafts, chapters and the dashboard are out of scope (Login/Shelves links may be present but can be stubs)."
+  },
+  "families": [
+    {"family": "A", "split": "dev", "framework": "React 18 (Vite)", "components": "native HTML controls, hand-written CSS, no component library", "naming_mode": "S0", "ports": {"keep": "39000-39009", "bookstack": "39010-39019"}},
+    {"family": "B", "split": "dev", "framework": "Vue 3 (Vite)", "components": "Element Plus component library (use its inputs, dialogs, buttons, tags, etc. idiomatically)", "naming_mode": "S1", "ports": {"keep": "39020-39029", "bookstack": "39030-39039"}},
+    {"family": "Cpilot", "split": "sealed", "framework": "React 18 (Vite)", "components": "MUI (@mui/material) component library used idiomatically", "naming_mode": {"keep": "S1", "bookstack": "S0"}, "ports": {"keep": "39040-39049", "bookstack": "39050-39059"}},
+    {"family": "Dpilot", "split": "sealed", "framework": "Vue 3 (Vite)", "components": "independently written custom components (no component library); e.g. a rich-text/contenteditable body or custom inputs where natural", "naming_mode": "S1", "ports": {"keep": "39060-39069", "bookstack": "39070-39079"}}
+  ],
+  "notes": "Cpilot keeps S0 names for BookStack so that a sealed family has an S0/S1 dual-compliant unit (plan §2.2). Family A keeps S0 as the S0 dev family. Svelte is reserved for formal F."
+}

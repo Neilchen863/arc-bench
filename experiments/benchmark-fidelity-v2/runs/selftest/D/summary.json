@@ -1,0 +1,102 @@
+[
+ {
+  "test": "nested chooser with same-named Done/Close: editor closed by its own Close after chooser is gone",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "label text with an aria-describedby hint still identifies the field",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "two same-named actions without a business scope are ambiguous (no first() pick)",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "a control behind a modal (aria-hidden) is not operable",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "label decorations: aria-hidden required marker and (optional) qualifier",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "label decoration rule does not merge different words (Tag line is not Tags)",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "token combobox: each tag committed with Enter and visible as a chip",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "token combobox that never shows tokens is an adaptation failure (not silently accepted)",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "editor still fading in when the chooser opens is not taken as the chooser",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "same text elsewhere on the page (toast) is not a second note",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "hidden template holding the full answer is not a note",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "note copy behind a modal (aria-hidden) is not counted twice",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "text inside an inline editor is not a saved note",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "highlight in an adjacent note is not attributed to this note",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "highlight with only a class name but no visual difference fails V-HL",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "editor shell kept, active controls closed -> closed",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "editor shell kept but title still in an editable field -> still open",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "modal editor dialog still shown with cleared fields -> still open",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "table-row note: cells are distinct lines (title cell, content cell)",
+  "status": "passed",
+  "error": ""
+ },
+ {
+  "test": "table-row note: lines joined in one cell are still one line (A-K22-1 negative)",
+  "status": "passed",
+  "error": ""
+ }
+]

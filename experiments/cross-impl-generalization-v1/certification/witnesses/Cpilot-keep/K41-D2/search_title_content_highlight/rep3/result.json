@@ -1,0 +1,31 @@
+{
+ "material": "Cpilot-keep",
+ "variant": "K41-D2",
+ "scenario": "search_title_content_highlight",
+ "rep": 3,
+ "started": true,
+ "errors": [],
+ "pageErrors": [],
+ "obligations": {
+  "K41-O1": {
+   "holds": true,
+   "reason": "Study schedule visible cards=1"
+  },
+  "K41-O2": {
+   "holds": true,
+   "reason": "Reading plan visible cards=1"
+  },
+  "K41-O3": {
+   "holds": true,
+   "reason": "Ocean memo visible cards=0"
+  },
+  "K41-O4": {
+   "holds": true,
+   "reason": "highlights: [{\"note\":\"Study schedule\",\"inTitle\":[\"St\"],\"inBody\":[],\"nonSt\":[],\"v\":{\"bgDiff\":true,\"fw\":true,\"td\":false,\"bg\":\"rgb(253, 214, 99)\",\"parentBg\":\"rgb(255,255,255)\",\"w\":\"600\",\"pw\":\"500\",\"pass\":true}},{\"note\":\"Reading plan\",\"inTitle\":[],\"inBody\":[\"st\"],\"nonSt\":[],\"v\":{\"bgDiff\":true,\"fw\":true,\"td\":false,\"bg\":\"rgb(253, 214, 99)\",\"parentBg\":\"rgb(255,255,255)\",\"w\":\"600\",\"pw\":\"400\",\"pass\":true}}]"
+  },
+  "K41-O5": {
+   "holds": true,
+   "reason": "search value after clear=\"\", per note [count,contentVisible]=[{\"n\":1,\"content\":true},{\"n\":1,\"content\":true},{\"n\":1,\"content\":true}]"
+  }
+ }
+}

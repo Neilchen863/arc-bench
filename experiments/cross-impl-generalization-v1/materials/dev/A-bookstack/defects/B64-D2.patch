@@ -1,0 +1,13 @@
+diff --git a/src/views/PageEditor.jsx b/src/views/PageEditor.jsx
+index 78ce4c3..7650646 100644
+--- a/src/views/PageEditor.jsx
++++ b/src/views/PageEditor.jsx
+@@ -22,7 +22,7 @@ export default function PageEditor({ bookId, pageId }) {
+         setMissing(true);
+       } else {
+         setTitle(p.title || '');
+-        setBody(p.body || '');
++        setBody('');
+       }
+       setLoaded(true);
+     });

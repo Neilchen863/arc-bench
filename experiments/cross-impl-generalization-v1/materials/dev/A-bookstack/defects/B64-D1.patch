@@ -1,0 +1,13 @@
+diff --git a/src/views/BookDetail.jsx b/src/views/BookDetail.jsx
+index 18e47ef..3072d34 100644
+--- a/src/views/BookDetail.jsx
++++ b/src/views/BookDetail.jsx
+@@ -57,7 +57,7 @@ export default function BookDetail({ bookId }) {
+                     <button
+                       type="button"
+                       className="entity-name"
+-                      onClick={() => navigate(`/books/${bookId}/pages/${p.id}`)}
++                      onClick={() => navigate(`/books/${bookId}/pages/${pages[0].id}`)}
+                     >
+                       {p.title}
+                     </button>

@@ -1,0 +1,20 @@
+- banner:
+  - navigation "Main":
+    - link "BookStack":
+      - /url: /
+    - search:
+      - searchbox "Search"
+    - link "Shelves":
+      - /url: /shelves
+    - link "Books":
+      - /url: /books
+    - link "Login":
+      - /url: /login
+- main:
+  - heading "Edit Page" [level=1]
+  - text: Page title
+  - textbox "Page title": Page B 6.4.2 [CERT-CB64D2e2]
+  - text: Write your page content here...
+  - textbox "Write your page content here..."
+  - button "Cancel"
+  - button "Save Page"

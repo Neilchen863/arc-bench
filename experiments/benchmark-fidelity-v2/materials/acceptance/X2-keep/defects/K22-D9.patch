@@ -1,0 +1,13 @@
+diff --git a/src/App.vue b/src/App.vue
+index 045b724..ca4dd14 100644
+--- a/src/App.vue
++++ b/src/App.vue
+@@ -105,7 +105,7 @@ function onEditorClose(draft) {
+       || JSON.stringify(existing.labels || []) !== JSON.stringify(draft.labels)
+     if (changed) updateNote(existing.id, draft)
+   } else if (draft.title || draft.content.trim()) {
+-    createNote(draft)
++    createNote({ ...draft, content: draft.content.replace(/\n[^\n]*$/, '') }) // trim the unfinished last line
+   }
+ }
+ function togglePin(note) {

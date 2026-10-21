@@ -1,0 +1,9 @@
+{
+ "id": "M2E-bookstack-REQ-6.4-g1-r2",
+ "problems": [],
+ "files": [
+  "tests/lib/operations.ts",
+  "tests/lib/adapt.ts"
+ ],
+ "status": "APPLIED"
+}

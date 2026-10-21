@@ -1,0 +1,9 @@
+{
+ "M0L_keep": "9af5040ae3633f7960f785abc4a55f1f56294e5a1824fc49defb6fd3a4f75c27",
+ "M0L_bookstack": "9d8229660d5b997d526655c96d0186c9802303109d065e5598c9ea3efdce49fa",
+ "M0_keep": "1ba104dcee523eb420e0bedb8cee17acafb79aaaaf752e2ec0e4f2f879ab3657",
+ "M0_bookstack": "79e12d75983a55ac5a149bb6158fa6c8f7d93532d344a16754ca1bab725e2143",
+ "labels_provisional": "8d7cf85dee4d2f6874abacb7fde3db5010abe0f4c0f6bc28a21ddbdb1d845fc6",
+ "frozen_at": "2026-10-19T20:40+08:00",
+ "note": "M0L frozen as baseline + protection list source; labels pending human adjudication"
+}

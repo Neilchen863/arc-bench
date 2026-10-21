@@ -1,0 +1,128 @@
+[
+  {
+    "fork": "arc-bench/bookstack/tests/REQ-6.4.spec.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/bookstack/tests/REQ-6.4.spec.ts",
+    "byte_identical": false,
+    "local_sha256": "3c7ceb45706071d00e013d83ba23cb465f896cd10ae62e092884f39ad2d1dfb8",
+    "fork_sha256": "76fa5c5641b54362f382c4f018ea7ac02444613d064d4be0d7c5cac69db85a2c"
+  },
+  {
+    "fork": "arc-bench/bookstack/tests/lib/capabilities.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/bookstack/tests/lib/capabilities.ts",
+    "byte_identical": true,
+    "local_sha256": "1211cc9dfb4898faca79ffde1059a21779b07372603321696100b15e60b4fc37",
+    "fork_sha256": "1211cc9dfb4898faca79ffde1059a21779b07372603321696100b15e60b4fc37"
+  },
+  {
+    "fork": "arc-bench/bookstack/tests/lib/drivers.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/common/drivers.ts",
+    "byte_identical": true,
+    "local_sha256": "5f1e3357a771ee9cfee9a965a1606c54c13497dc9c4e3a660e467dbc80bda2e2",
+    "fork_sha256": "5f1e3357a771ee9cfee9a965a1606c54c13497dc9c4e3a660e467dbc80bda2e2"
+  },
+  {
+    "fork": "arc-bench/bookstack/tests/lib/evidence.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/bookstack/tests/lib/evidence.ts",
+    "byte_identical": true,
+    "local_sha256": "924403c0ce5fd756587b8ff68fa189a7d48368e1fe655991c9cf20ab752fec35",
+    "fork_sha256": "924403c0ce5fd756587b8ff68fa189a7d48368e1fe655991c9cf20ab752fec35"
+  },
+  {
+    "fork": "arc-bench/bookstack/tests/lib/inputs.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/common/bookstack/inputs.ts",
+    "byte_identical": true,
+    "local_sha256": "bc94d7213aba02b0ae6a24fb329ca869ed1e48519efe3e69184846502bee43d8",
+    "fork_sha256": "bc94d7213aba02b0ae6a24fb329ca869ed1e48519efe3e69184846502bee43d8"
+  },
+  {
+    "fork": "arc-bench/bookstack/tests/lib/ledger.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/common/ledger.ts",
+    "byte_identical": true,
+    "local_sha256": "378eb4e716ba43ce61d715dc4e63485f19abb710e1b484429cc832af35d8d204",
+    "fork_sha256": "378eb4e716ba43ce61d715dc4e63485f19abb710e1b484429cc832af35d8d204"
+  },
+  {
+    "fork": "arc-bench/bookstack/tests/lib/observe.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/bookstack/tests/lib/observe.ts",
+    "byte_identical": true,
+    "local_sha256": "966a62fe46073b3104ab2773edb8c2b516bf1d02110f5fd1ed7cdf6b774a1e52",
+    "fork_sha256": "966a62fe46073b3104ab2773edb8c2b516bf1d02110f5fd1ed7cdf6b774a1e52"
+  },
+  {
+    "fork": "arc-bench/bookstack/tests/lib/oracle.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/common/bookstack/oracle.ts",
+    "byte_identical": true,
+    "local_sha256": "7c1995faeb46d2089d5e4d4b1cf9341e17e943147f96169de74a1e8e14dea249",
+    "fork_sha256": "7c1995faeb46d2089d5e4d4b1cf9341e17e943147f96169de74a1e8e14dea249"
+  },
+  {
+    "fork": "arc-bench/keep/tests/REQ-2.2.spec.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/keep/tests/REQ-2.2.spec.ts",
+    "byte_identical": false,
+    "local_sha256": "27401b7079b4260939bae6d4ce82f850801f00f69f9b1c4385360e03bd6a0cd7",
+    "fork_sha256": "0165e9646e6258dd2a74d465087aea254ab2e0a8ed9b69d20f6acb5ddcf35645"
+  },
+  {
+    "fork": "arc-bench/keep/tests/REQ-4.1.spec.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/keep/tests/REQ-4.1.spec.ts",
+    "byte_identical": false,
+    "local_sha256": "e9b71f35f54f8d254d3fa252dda4d64e04c06f376916694296a92fd92984b8a6",
+    "fork_sha256": "f60cd2540cd327358723389d28deeb53b3c9cc4ad55035037bda160bffeefbf6"
+  },
+  {
+    "fork": "arc-bench/keep/tests/lib/capabilities.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/keep/tests/lib/capabilities.ts",
+    "byte_identical": true,
+    "local_sha256": "768080fc22654d9992a2acda1df0d2d7db554792c6082ddc3ed4502aad2168a2",
+    "fork_sha256": "768080fc22654d9992a2acda1df0d2d7db554792c6082ddc3ed4502aad2168a2"
+  },
+  {
+    "fork": "arc-bench/keep/tests/lib/drivers.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/common/drivers.ts",
+    "byte_identical": true,
+    "local_sha256": "5f1e3357a771ee9cfee9a965a1606c54c13497dc9c4e3a660e467dbc80bda2e2",
+    "fork_sha256": "5f1e3357a771ee9cfee9a965a1606c54c13497dc9c4e3a660e467dbc80bda2e2"
+  },
+  {
+    "fork": "arc-bench/keep/tests/lib/editing-obs.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/common/keep/editing-obs.ts",
+    "byte_identical": true,
+    "local_sha256": "2d4655ba1e374ad9426f813cbf16d22598c94694f161350a06d340fa7ccee6f3",
+    "fork_sha256": "2d4655ba1e374ad9426f813cbf16d22598c94694f161350a06d340fa7ccee6f3"
+  },
+  {
+    "fork": "arc-bench/keep/tests/lib/evidence.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/keep/tests/lib/evidence.ts",
+    "byte_identical": true,
+    "local_sha256": "924403c0ce5fd756587b8ff68fa189a7d48368e1fe655991c9cf20ab752fec35",
+    "fork_sha256": "924403c0ce5fd756587b8ff68fa189a7d48368e1fe655991c9cf20ab752fec35"
+  },
+  {
+    "fork": "arc-bench/keep/tests/lib/inputs.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/common/keep/inputs.ts",
+    "byte_identical": true,
+    "local_sha256": "e80588a19c649461c9f7774ca112d6a26c7d0304ed16c21615dc3ab4d81c2bb5",
+    "fork_sha256": "e80588a19c649461c9f7774ca112d6a26c7d0304ed16c21615dc3ab4d81c2bb5"
+  },
+  {
+    "fork": "arc-bench/keep/tests/lib/ledger.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/common/ledger.ts",
+    "byte_identical": true,
+    "local_sha256": "378eb4e716ba43ce61d715dc4e63485f19abb710e1b484429cc832af35d8d204",
+    "fork_sha256": "378eb4e716ba43ce61d715dc4e63485f19abb710e1b484429cc832af35d8d204"
+  },
+  {
+    "fork": "arc-bench/keep/tests/lib/observe.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/D/keep/tests/lib/observe.ts",
+    "byte_identical": true,
+    "local_sha256": "466fd216879d2323b286a67944c43c91706bab49e22c4499ced5a23c6e8db96d",
+    "fork_sha256": "466fd216879d2323b286a67944c43c91706bab49e22c4499ced5a23c6e8db96d"
+  },
+  {
+    "fork": "arc-bench/keep/tests/lib/oracle.ts",
+    "local": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/methods/common/keep/oracle.ts",
+    "byte_identical": true,
+    "local_sha256": "9fca4774779a0a8103680e314d55b70d45fddbffed6a205e88578b4c9b858964",
+    "fork_sha256": "9fca4774779a0a8103680e314d55b70d45fddbffed6a205e88578b4c9b858964"
+  }
+]

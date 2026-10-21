@@ -1,0 +1,170 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-2.2.spec.ts:16:5 › autosave_on_close
+[1A[2K  1) [chromium] › tests/REQ-2.2.spec.ts:16:5 › autosave_on_close ───────────────────────────────────
+
+    Error: OBLIGATION_FAIL K22-O1: editor still active: [{"tag":"input","name":"Title","value":"New note [82f3e9c695-w0-37be560208]"},{"tag":"div","name":"Note text","value":"First line Second line"}] (surface <div role=dialog> modal=true shown=true)
+
+       at lib/oracle.ts:8
+
+       6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+       7 | }
+    >  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+         |                                                             ^
+       9 |
+      10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),
+      11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/lib/oracle.ts:8:61)
+        at Object.editorClosed (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/lib/oracle.ts:23:32)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/REQ-2.2.spec.ts:24:83)
+        at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/lib/ledger.ts:39:7)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/REQ-2.2.spec.ts:24:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-autosave-on-close-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    New note [82f3e9c695-w0-37be560208]
+    
+    First line
+    Second line
+    
+    New note
+    First line
+    Second line
+    Close
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:56140/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-2.2-autosave-on-close-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-autosave-on-close-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-2.2-autosave-on-close-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-2.2.spec.ts:30:5 › persist_after_reload
+[1A[2K  2) [chromium] › tests/REQ-2.2.spec.ts:30:5 › persist_after_reload ────────────────────────────────
+
+    Error: OBLIGATION_FAIL K22-O1: editor still active: [{"tag":"input","name":"Title","value":"Persistent note [82f3e9c695-w1-01c3c2598e]"},{"tag":"div","name":"Note text","value":"Saved personal content"}] (surface <div role=dialog> modal=true shown=true)
+
+       at lib/oracle.ts:8
+
+       6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+       7 | }
+    >  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+         |                                                             ^
+       9 |
+      10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),
+      11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/lib/oracle.ts:8:61)
+        at Object.editorClosed (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/lib/oracle.ts:23:32)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/REQ-2.2.spec.ts:37:83)
+        at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/lib/ledger.ts:39:7)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N2-keep.REQ-2.2.K22-D6/rep1/work/tests/REQ-2.2.spec.ts:37:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    Persistent note [82f3e9c695-w1-01c3c2598e]
+    
+    Saved personal content
+    
+    New note [82f3e9c695-w0-37be560208]
+    
+    First line
+    Second line
+    
+    New note
+    Saved personal content
+    Close
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:56140/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-2.2-persist-after-reload-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-2.2.spec.ts:16:5 › autosave_on_close ────────────────────────────────────
+    [chromium] › tests/REQ-2.2.spec.ts:30:5 › persist_after_reload ─────────────────────────────────
+

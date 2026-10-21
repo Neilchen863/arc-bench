@@ -1,0 +1,267 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-6.4.spec.ts",
+      "file": "REQ-6.4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "read_selected_page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12862,
+                  "error": {
+                    "message": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.1 [r2-w0-read-selected-page]\"; headings=[\"Page A 6.4.1 [r2-w0-read-selected-page]\",\"Details\",\"Actions\"]",
+                    "stack": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.1 [r2-w0-read-selected-page]\"; headings=[\"Page A 6.4.1 [r2-w0-read-selected-page]\",\"Details\",\"Actions\"]\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/REQ-6.4.spec.ts:29:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/REQ-6.4.spec.ts:29:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts",
+                      "column": 61,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts",
+                        "column": 61,
+                        "line": 5
+                      },
+                      "message": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.1 [r2-w0-read-selected-page]\"; headings=[\"Page A 6.4.1 [r2-w0-read-selected-page]\",\"Details\",\"Actions\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/REQ-6.4.spec.ts:29:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/REQ-6.4.spec.ts:29:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:43:51.956Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJQQVNTIiwiQjY0LU8xIjoiRkFJTCIsIkI2NC1PMiI6Ik5PVF9SRUFDSEVEIiwiQjY0LU8zIjoiTk9UX1JFQUNIRUQifSwiY2hlY2tzIjpbeyJvYmxpZ2F0aW9uIjoiQjY0LVAxIiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1wiZW50cmllc1wiOjEsXCJldmlkZW5jZVwiOlwiMSBtYXRjaGluZywgMSB2aXNpYmxlXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE3OjQzOjUzLjQ2N1oiLCJzdGVwIjoiY3JlYXRlIHBhZ2UgQSJ9LHsib2JsaWdhdGlvbiI6IkI2NC1QMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImVudHJpZXNcIjoxLFwiZXZpZGVuY2VcIjpcIjEgbWF0Y2hpbmcsIDEgdmlzaWJsZVwifSIsImF0IjoiMjAyNi0xMC0xOVQxNzo0Mzo1NC4wODNaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIFRBUkdFVCJ9LHsib2JsaWdhdGlvbiI6IkI2NC1QMSIsInN0YXR1cyI6IlBBU1MiLCJkZXRhaWwiOiIiLCJvYnNlcnZlZCI6IntcImVudHJpZXNcIjoxLFwiZXZpZGVuY2VcIjpcIjEgbWF0Y2hpbmcsIDEgdmlzaWJsZVwifSIsImF0IjoiMjAyNi0xMC0xOVQxNzo0Mzo1NC42OTlaIiwic3RlcCI6ImNyZWF0ZSBwYWdlIEMifSx7Im9ibGlnYXRpb24iOiJCNjQtTzEiLCJzdGF0dXMiOiJGQUlMIiwiZGV0YWlsIjoiT0JMSUdBVElPTl9GQUlMIEI2NC1PMTogbm8gaGVhZGluZyBcIlBhZ2UgQiA2LjQuMSBbcjItdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiOyBoZWFkaW5ncz1bXCJQYWdlIEEgNi40LjEgW3IyLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIkRldGFpbHNcIixcIkFjdGlvbnNcIl0iLCJvYnNlcnZlZCI6IntcImhlYWRpbmdzXCI6W1wiUGFnZSBBIDYuNC4xIFtyMi13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJEZXRhaWxzXCIsXCJBY3Rpb25zXCJdLFwibGluZXNcIjpbXCJTa2lwIHRvIGNvbnRlbnRcIixcIktub3dsZWRnZSBCYXNlXCIsXCJTaGVsdmVzXCIsXCJCb29rc1wiLFwiTG9nIGluXCIsXCJCb29rc1wiLFwiQm9vayA2LjQuMSBbcjItdzAtcmVhZC1zZWxlY3RlZC1wYWdlXVwiLFwiUGFnZSBBIDYuNC4xIFtyMi13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdXCIsXCJQYWdlIEEgNi40LjEgW3IyLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV1cIixcIlJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4xLlwiLFwiRGV0YWlsc1wiLFwiQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNlwiLFwiQWN0aW9uc1wiLFwiRWRpdFwiXSxcImV2aWRlbmNlXCI6XCJ1cmw9L2Jvb2tzLzU2MjYxN2U1LThkNGEtNDU1OC1hM2JlLTk2YWQzNjM1YTczOC9wYWdlcy82Y2VmODE2NC04NDdiLTRhMWQtYjg2ZC0xYTBlYzdkOTgxODFcIn0iLCJhdCI6IjIwMjYtMTAtMTlUMTc6NDQ6MDQuODQ3WiIsInN0ZXAiOiJvcGVuIHRhcmdldCBwYWdlIn1dLCJhY3Rpb25zIjpbXSwibGFzdF9zdGVwIjoib3BlbiB0YXJnZXQgcGFnZSIsInN0ZXBzIjpbImVudGVyIiwiY3JlYXRlIGJvb2siLCJjcmVhdGUgcGFnZSBBIiwiY3JlYXRlIHBhZ2UgVEFSR0VUIiwiY3JlYXRlIHBhZ2UgQyIsIm9wZW4gdGFyZ2V0IHBhZ2UiXX0="
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBsaW5rICJTa2lwIHRvIGNvbnRlbnQiOgogIC0gL3VybDogIiNtYWluIgotIGJhbm5lcjoKICAtIGxpbmsgIktub3dsZWRnZSBCYXNlIjoKICAgIC0gL3VybDogLwogIC0gc2VhcmNoOgogICAgLSB0ZXh0Ym94ICJTZWFyY2giCiAgLSBuYXZpZ2F0aW9uICJNYWluIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAgICAgLSAvdXJsOiAvc2hlbHZlcwogICAgICAtIGxpc3RpdGVtOgogICAgICAgIC0gbGluayAiQm9va3MiOgogICAgICAgICAgLSAvdXJsOiAvYm9va3MKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkxvZyBpbiI6CiAgICAgICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBuYXZpZ2F0aW9uICJCcmVhZGNydW1iIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBsaW5rICJCb29rIDYuNC4xIFtyMi13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzLzU2MjYxN2U1LThkNGEtNDU1OC1hM2JlLTk2YWQzNjM1YTczOAogICAgICAtIGxpc3RpdGVtOiBQYWdlIEEgNi40LjEgW3IyLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KICAtIGFydGljbGU6CiAgICAtIGhlYWRpbmcgIlBhZ2UgQSA2LjQuMSBbcjItdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSIgW2xldmVsPTFdCiAgICAtIHRleHQ6IFJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4xLgogIC0gY29tcGxlbWVudGFyeSAiUGFnZSBkZXRhaWxzIGFuZCBhY3Rpb25zIjoKICAgIC0gaGVhZGluZyAiRGV0YWlscyIgW2xldmVsPTJdCiAgICAtIHBhcmFncmFwaDogQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgogICAgLSBoZWFkaW5nICJBY3Rpb25zIiBbbGV2ZWw9Ml0KICAgIC0gYnV0dG9uICJFZGl0Ig=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "U2tpcCB0byBjb250ZW50Cktub3dsZWRnZSBCYXNlClNoZWx2ZXMKQm9va3MKTG9nIGluCkJvb2tzCkJvb2sgNi40LjEgW3IyLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KUGFnZSBBIDYuNC4xIFtyMi13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdClBhZ2UgQSA2LjQuMSBbcjItdzAtcmVhZC1zZWxlY3RlZC1wYWdlXQpSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMS4KRGV0YWlscwoKQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgoKQWN0aW9ucwpFZGl0"
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo1MjEwMy9ib29rcy81NjI2MTdlNS04ZDRhLTQ1NTgtYTNiZS05NmFkMzYzNWE3MzgvcGFnZXMvNmNlZjgxNjQtODQ3Yi00YTFkLWI4NmQtMWEwZWM3ZDk4MTgx"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/test-results/REQ-6.4-read-selected-page-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/test-results/REQ-6.4-read-selected-page-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts",
+                    "column": 61,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-5dd9605f98bc9ec040a8",
+          "file": "REQ-6.4.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "reopen_page_editor",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12808,
+                  "error": {
+                    "message": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.2 [r2-w1-reopen-page-editor]\"; headings=[\"Page A 6.4.2 [r2-w1-reopen-page-editor]\",\"Details\",\"Actions\"]",
+                    "stack": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.2 [r2-w1-reopen-page-editor]\"; headings=[\"Page A 6.4.2 [r2-w1-reopen-page-editor]\",\"Details\",\"Actions\"]\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/REQ-6.4.spec.ts:38:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/REQ-6.4.spec.ts:38:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts",
+                      "column": 61,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts",
+                        "column": 61,
+                        "line": 5
+                      },
+                      "message": "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.2 [r2-w1-reopen-page-editor]\"; headings=[\"Page A 6.4.2 [r2-w1-reopen-page-editor]\",\"Details\",\"Actions\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/REQ-6.4.spec.ts:38:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/REQ-6.4.spec.ts:38:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:44:05.492Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJQQVNTIiwiQjY0LU8xIjoiRkFJTCIsIkI2NC1PNCI6Ik5PVF9SRUFDSEVEIiwiQjY0LU81IjoiTk9UX1JFQUNIRUQiLCJCNjQtTzYiOiJOT1RfUkVBQ0hFRCJ9LCJjaGVja3MiOlt7Im9ibGlnYXRpb24iOiJCNjQtUDEiLCJzdGF0dXMiOiJQQVNTIiwiZGV0YWlsIjoiIiwib2JzZXJ2ZWQiOiJ7XCJlbnRyaWVzXCI6MSxcImV2aWRlbmNlXCI6XCIxIG1hdGNoaW5nLCAxIHZpc2libGVcIn0iLCJhdCI6IjIwMjYtMTAtMTlUMTc6NDQ6MDcuMDAwWiIsInN0ZXAiOiJjcmVhdGUgcGFnZSBBIn0seyJvYmxpZ2F0aW9uIjoiQjY0LVAxIiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1wiZW50cmllc1wiOjEsXCJldmlkZW5jZVwiOlwiMSBtYXRjaGluZywgMSB2aXNpYmxlXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE3OjQ0OjA3LjU5NVoiLCJzdGVwIjoiY3JlYXRlIHBhZ2UgVEFSR0VUIn0seyJvYmxpZ2F0aW9uIjoiQjY0LVAxIiwic3RhdHVzIjoiUEFTUyIsImRldGFpbCI6IiIsIm9ic2VydmVkIjoie1wiZW50cmllc1wiOjEsXCJldmlkZW5jZVwiOlwiMSBtYXRjaGluZywgMSB2aXNpYmxlXCJ9IiwiYXQiOiIyMDI2LTEwLTE5VDE3OjQ0OjA4LjIxN1oiLCJzdGVwIjoiY3JlYXRlIHBhZ2UgQyJ9LHsib2JsaWdhdGlvbiI6IkI2NC1PMSIsInN0YXR1cyI6IkZBSUwiLCJkZXRhaWwiOiJPQkxJR0FUSU9OX0ZBSUwgQjY0LU8xOiBubyBoZWFkaW5nIFwiUGFnZSBCIDYuNC4yIFtyMi13MS1yZW9wZW4tcGFnZS1lZGl0b3JdXCI7IGhlYWRpbmdzPVtcIlBhZ2UgQSA2LjQuMiBbcjItdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXVwiLFwiRGV0YWlsc1wiLFwiQWN0aW9uc1wiXSIsIm9ic2VydmVkIjoie1wiaGVhZGluZ3NcIjpbXCJQYWdlIEEgNi40LjIgW3IyLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cIixcIkRldGFpbHNcIixcIkFjdGlvbnNcIl0sXCJsaW5lc1wiOltcIlNraXAgdG8gY29udGVudFwiLFwiS25vd2xlZGdlIEJhc2VcIixcIlNoZWx2ZXNcIixcIkJvb2tzXCIsXCJMb2cgaW5cIixcIkJvb2tzXCIsXCJCb29rIDYuNC4yIFtyMi13MS1yZW9wZW4tcGFnZS1lZGl0b3JdXCIsXCJQYWdlIEEgNi40LjIgW3IyLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl1cIixcIlBhZ2UgQSA2LjQuMiBbcjItdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXVwiLFwiUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEEgNi40LjIuXCIsXCJEZXRhaWxzXCIsXCJDcmVhdGVkIDYgT2N0b2JlciAyMDI2XCIsXCJBY3Rpb25zXCIsXCJFZGl0XCJdLFwiZXZpZGVuY2VcIjpcInVybD0vYm9va3MvOTI0ZTU2ZjItNGZlNC00MjNkLWJlZjgtYzNiZWI1NDVmMmQ0L3BhZ2VzLzY3YmQ1YTNhLWNhNWQtNGY1ZC1hODMzLTQ1MmUxYTFiNThkM1wifSIsImF0IjoiMjAyNi0xMC0xOVQxNzo0NDoxOC4zMTBaIiwic3RlcCI6Im9wZW4gdGFyZ2V0IHBhZ2UifV0sImFjdGlvbnMiOltdLCJsYXN0X3N0ZXAiOiJvcGVuIHRhcmdldCBwYWdlIiwic3RlcHMiOlsiZW50ZXIiLCJjcmVhdGUgYm9vayIsImNyZWF0ZSBwYWdlIEEiLCJjcmVhdGUgcGFnZSBUQVJHRVQiLCJjcmVhdGUgcGFnZSBDIiwib3BlbiB0YXJnZXQgcGFnZSJdfQ=="
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBsaW5rICJTa2lwIHRvIGNvbnRlbnQiOgogIC0gL3VybDogIiNtYWluIgotIGJhbm5lcjoKICAtIGxpbmsgIktub3dsZWRnZSBCYXNlIjoKICAgIC0gL3VybDogLwogIC0gc2VhcmNoOgogICAgLSB0ZXh0Ym94ICJTZWFyY2giCiAgLSBuYXZpZ2F0aW9uICJNYWluIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAgICAgLSAvdXJsOiAvc2hlbHZlcwogICAgICAtIGxpc3RpdGVtOgogICAgICAgIC0gbGluayAiQm9va3MiOgogICAgICAgICAgLSAvdXJsOiAvYm9va3MKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkxvZyBpbiI6CiAgICAgICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBuYXZpZ2F0aW9uICJCcmVhZGNydW1iIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBsaW5rICJCb29rIDYuNC4yIFtyMi13MS1yZW9wZW4tcGFnZS1lZGl0b3JdIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzLzkyNGU1NmYyLTRmZTQtNDIzZC1iZWY4LWMzYmViNTQ1ZjJkNAogICAgICAtIGxpc3RpdGVtOiBQYWdlIEEgNi40LjIgW3IyLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KICAtIGFydGljbGU6CiAgICAtIGhlYWRpbmcgIlBhZ2UgQSA2LjQuMiBbcjItdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSIgW2xldmVsPTFdCiAgICAtIHRleHQ6IFJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4yLgogIC0gY29tcGxlbWVudGFyeSAiUGFnZSBkZXRhaWxzIGFuZCBhY3Rpb25zIjoKICAgIC0gaGVhZGluZyAiRGV0YWlscyIgW2xldmVsPTJdCiAgICAtIHBhcmFncmFwaDogQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgogICAgLSBoZWFkaW5nICJBY3Rpb25zIiBbbGV2ZWw9Ml0KICAgIC0gYnV0dG9uICJFZGl0Ig=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "U2tpcCB0byBjb250ZW50Cktub3dsZWRnZSBCYXNlClNoZWx2ZXMKQm9va3MKTG9nIGluCkJvb2tzCkJvb2sgNi40LjIgW3IyLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KUGFnZSBBIDYuNC4yIFtyMi13MS1yZW9wZW4tcGFnZS1lZGl0b3JdClBhZ2UgQSA2LjQuMiBbcjItdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXQpSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMi4KRGV0YWlscwoKQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgoKQWN0aW9ucwpFZGl0"
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo1MjEwMy9ib29rcy85MjRlNTZmMi00ZmU0LTQyM2QtYmVmOC1jM2JlYjU0NWYyZDQvcGFnZXMvNjdiZDVhM2EtY2E1ZC00ZjVkLWE4MzMtNDUyZTFhMWI1OGQz"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-bookstack.REQ-6.4.B64-D1/rep2/work/tests/lib/oracle.ts",
+                    "column": 61,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-a1c648922e744b6c557a",
+          "file": "REQ-6.4.spec.ts",
+          "line": 34,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T17:43:51.609Z",
+    "duration": 26958.171,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

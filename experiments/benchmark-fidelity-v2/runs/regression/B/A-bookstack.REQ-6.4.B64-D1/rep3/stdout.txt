@@ -1,0 +1,163 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-6.4.spec.ts:25:5 › read_selected_page
+[1A[2K  1) [chromium] › tests/REQ-6.4.spec.ts:25:5 › read_selected_page ──────────────────────────────────
+
+    Error: OBLIGATION_FAIL B64-O1: no heading "Page B 6.4.1 [r3-w0-read-selected-page]"; headings=["Page A 6.4.1 [r3-w0-read-selected-page]","Details","Actions"]
+
+       at lib/oracle.ts:5
+
+      3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+      4 | }
+    > 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+        |                                                             ^
+      6 | const norm = (s: string) => s.replace(/\r\n?/g, '\n').replace(/[ \t ]+/g, ' ').replace(/\n+/g, '\n').trim();
+      7 |
+      8 | // What a reading view shows: visible heading texts and visible text lines of the main content.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/lib/oracle.ts:5:61)
+        at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/lib/oracle.ts:17:52)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/REQ-6.4.spec.ts:29:51)
+        at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/lib/ledger.ts:39:7)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/REQ-6.4.spec.ts:29:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - link "BookStack":
+        - /url: /
+      - search:
+        - searchbox "Search"
+      - navigation "Main":
+        - link "Shelves":
+          - /url: /shelves
+        - link "Books":
+          - /url: /books
+        - link "Login":
+          - /url: /login
+    - main:
+      - navigation "Breadcrumb":
+        - text: Books
+        - link "...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    BookStack
+    Shelves
+    Books
+    Login
+    Books › Book 6.4.1 [r3-w0-read-selected-page] › Page A 6.4.1 [r3-w0-read-selected-page]
+    Page A 6.4.1 [r3-w0-read-selected-page]
+    
+    Reading content for Page A 6.4.1.
+    
+    Details
+    
+    Created 6 October 2026
+    
+    Updated 6 October 2026
+    
+    Actions
+    Edit
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:56481/books/6ebd0292-fdfd-4b86-af2e-55167e8a9b74/pages/873c011e-df8b-459f-af78-e00d14a96ad6
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-6.4-read-selected-page-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-read-selected-page-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-6.4-read-selected-page-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-6.4.spec.ts:34:5 › reopen_page_editor
+[1A[2K  2) [chromium] › tests/REQ-6.4.spec.ts:34:5 › reopen_page_editor ──────────────────────────────────
+
+    Error: OBLIGATION_FAIL B64-O1: no heading "Page B 6.4.2 [r3-w1-reopen-page-editor]"; headings=["Page A 6.4.2 [r3-w1-reopen-page-editor]","Details","Actions"]
+
+       at lib/oracle.ts:5
+
+      3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+      4 | }
+    > 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+        |                                                             ^
+      6 | const norm = (s: string) => s.replace(/\r\n?/g, '\n').replace(/[ \t ]+/g, ' ').replace(/\n+/g, '\n').trim();
+      7 |
+      8 | // What a reading view shows: visible heading texts and visible text lines of the main content.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/lib/oracle.ts:5:61)
+        at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/lib/oracle.ts:17:52)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/REQ-6.4.spec.ts:38:51)
+        at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/lib/ledger.ts:39:7)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/A-bookstack.REQ-6.4.B64-D1/rep3/work/tests/REQ-6.4.spec.ts:38:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - link "BookStack":
+        - /url: /
+      - search:
+        - searchbox "Search"
+      - navigation "Main":
+        - link "Shelves":
+          - /url: /shelves
+        - link "Books":
+          - /url: /books
+        - link "Login":
+          - /url: /login
+    - main:
+      - navigation "Breadcrumb":
+        - text: Books
+        - link "...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    BookStack
+    Shelves
+    Books
+    Login
+    Books › Book 6.4.2 [r3-w1-reopen-page-editor] › Page A 6.4.2 [r3-w1-reopen-page-editor]
+    Page A 6.4.2 [r3-w1-reopen-page-editor]
+    
+    Reading content for Page A 6.4.2.
+    
+    Details
+    
+    Created 6 October 2026
+    
+    Updated 6 October 2026
+    
+    Actions
+    Edit
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:56481/books/b918f98d-af03-4057-89b1-e66f5ccd9556/pages/f344bc3b-c1f6-4166-a08e-c803eec28b0b
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-6.4.spec.ts:25:5 › read_selected_page ───────────────────────────────────
+    [chromium] › tests/REQ-6.4.spec.ts:34:5 › reopen_page_editor ───────────────────────────────────
+

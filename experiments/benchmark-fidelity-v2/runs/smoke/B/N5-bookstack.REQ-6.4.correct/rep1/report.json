@@ -1,0 +1,267 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-6.4.spec.ts",
+      "file": "REQ-6.4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "read_selected_page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10466,
+                  "error": {
+                    "message": "Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)",
+                    "stack": "Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts:40:38)\n    at createBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/operations.ts:30:25)\n    at setup (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/REQ-6.4.spec.ts:15:24)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/REQ-6.4.spec.ts:27:30",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts",
+                      "column": 38,
+                      "line": 40
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts",
+                        "column": 38,
+                        "line": 40
+                      },
+                      "message": "Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts:40:38)\n    at createBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/operations.ts:30:25)\n    at setup (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/REQ-6.4.spec.ts:15:24)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/REQ-6.4.spec.ts:27:30"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:29:31.937Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJOT1RfUkVBQ0hFRCIsIkI2NC1PMSI6Ik5PVF9SRUFDSEVEIiwiQjY0LU8yIjoiTk9UX1JFQUNIRUQiLCJCNjQtTzMiOiJOT1RfUkVBQ0hFRCJ9LCJjaGVja3MiOltdLCJhY3Rpb25zIjpbXSwibGFzdF9zdGVwIjoiY3JlYXRlIGJvb2siLCJzdGVwcyI6WyJlbnRlciIsImNyZWF0ZSBib29rIl19"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBiYW5uZXI6CiAgLSBsaW5rICJCb29rU3RhY2siOgogICAgLSAvdXJsOiAvCiAgLSBzZWFyY2g6CiAgICAtIHNlYXJjaGJveCAiU2VhcmNoIgogIC0gbmF2aWdhdGlvbiAiTWFpbiI6CiAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAtIC91cmw6IC9zaGVsdmVzCiAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgLSAvdXJsOiAvYm9va3MKICAgIC0gbGluayAiTG9naW4iOgogICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBoZWFkaW5nICJDcmVhdGUgTmV3IEJvb2siIFtsZXZlbD0xXQogIC0gdGV4dDogTmFtZQogIC0gdGV4dGJveCAiTmFtZSI6IEJvb2sgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KICAtIHRleHQ6IERlc2NyaXB0aW9uCiAgLSB0ZXh0Ym94ICJEZXNjcmlwdGlvbiI6IFJlZmVyZW5jZSBib29rIGRlc2NyaXB0aW9uLgogIC0gdGV4dDogVGFncyAob3B0aW9uYWwpCiAgLSB0ZXh0Ym94ICJUYWdzIChvcHRpb25hbCkiCiAgLSB0ZXh0OiBTZXBhcmF0ZSB0YWdzIHdpdGggY29tbWFzLgogIC0gYnV0dG9uICJDYW5jZWwiCiAgLSBidXR0b24gIlNhdmUgQm9vayI="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "Qm9va1N0YWNrClNoZWx2ZXMKQm9va3MKTG9naW4KQ3JlYXRlIE5ldyBCb29rCk5hbWUgKgpEZXNjcmlwdGlvbgpUYWdzIChvcHRpb25hbCkKU2VwYXJhdGUgdGFncyB3aXRoIGNvbW1hcy4KQ2FuY2VsClNhdmUgQm9vaw=="
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo2NDI1NC9ib29rcy9uZXc="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-read-selected-page-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-read-selected-page-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts",
+                    "column": 38,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-5dd9605f98bc9ec040a8",
+          "file": "REQ-6.4.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "reopen_page_editor",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10492,
+                  "error": {
+                    "message": "Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)",
+                    "stack": "Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts:40:38)\n    at createBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/operations.ts:30:25)\n    at setup (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/REQ-6.4.spec.ts:15:24)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/REQ-6.4.spec.ts:36:22",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts",
+                      "column": 38,
+                      "line": 40
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts",
+                        "column": 38,
+                        "line": 40
+                      },
+                      "message": "Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts:40:38)\n    at createBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/operations.ts:30:25)\n    at setup (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/REQ-6.4.spec.ts:15:24)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/REQ-6.4.spec.ts:36:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:29:44.103Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6eyJCNjQtUDEiOiJOT1RfUkVBQ0hFRCIsIkI2NC1PMSI6Ik5PVF9SRUFDSEVEIiwiQjY0LU80IjoiTk9UX1JFQUNIRUQiLCJCNjQtTzUiOiJOT1RfUkVBQ0hFRCIsIkI2NC1PNiI6Ik5PVF9SRUFDSEVEIn0sImNoZWNrcyI6W10sImFjdGlvbnMiOltdLCJsYXN0X3N0ZXAiOiJjcmVhdGUgYm9vayIsInN0ZXBzIjpbImVudGVyIiwiY3JlYXRlIGJvb2siXX0="
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBiYW5uZXI6CiAgLSBsaW5rICJCb29rU3RhY2siOgogICAgLSAvdXJsOiAvCiAgLSBzZWFyY2g6CiAgICAtIHNlYXJjaGJveCAiU2VhcmNoIgogIC0gbmF2aWdhdGlvbiAiTWFpbiI6CiAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAtIC91cmw6IC9zaGVsdmVzCiAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgLSAvdXJsOiAvYm9va3MKICAgIC0gbGluayAiTG9naW4iOgogICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBoZWFkaW5nICJDcmVhdGUgTmV3IEJvb2siIFtsZXZlbD0xXQogIC0gdGV4dDogTmFtZQogIC0gdGV4dGJveCAiTmFtZSI6IEJvb2sgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KICAtIHRleHQ6IERlc2NyaXB0aW9uCiAgLSB0ZXh0Ym94ICJEZXNjcmlwdGlvbiI6IFJlZmVyZW5jZSBib29rIGRlc2NyaXB0aW9uLgogIC0gdGV4dDogVGFncyAob3B0aW9uYWwpCiAgLSB0ZXh0Ym94ICJUYWdzIChvcHRpb25hbCkiCiAgLSB0ZXh0OiBTZXBhcmF0ZSB0YWdzIHdpdGggY29tbWFzLgogIC0gYnV0dG9uICJDYW5jZWwiCiAgLSBidXR0b24gIlNhdmUgQm9vayI="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "Qm9va1N0YWNrClNoZWx2ZXMKQm9va3MKTG9naW4KQ3JlYXRlIE5ldyBCb29rCk5hbWUgKgpEZXNjcmlwdGlvbgpUYWdzIChvcHRpb25hbCkKU2VwYXJhdGUgdGFncyB3aXRoIGNvbW1hcy4KQ2FuY2VsClNhdmUgQm9vaw=="
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo2NDI1NC9ib29rcy9uZXc="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/smoke/B/N5-bookstack.REQ-6.4.correct/rep1/work/tests/lib/adapt.ts",
+                    "column": 38,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-a1c648922e744b6c557a",
+          "file": "REQ-6.4.spec.ts",
+          "line": 34,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T16:29:31.617Z",
+    "duration": 24282.515,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

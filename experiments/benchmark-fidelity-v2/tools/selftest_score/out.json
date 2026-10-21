@@ -1,0 +1,317 @@
+{
+ "set": [
+  "new-dev"
+ ],
+ "k": 3,
+ "C": 6,
+ "M": 12,
+ "labels_pending": [],
+ "methods": {
+  "X": {
+   "CAR": "1/6",
+   "CAR_value": 0.16666666666666666,
+   "EDR": "1/12",
+   "EDR_value": 0.08333333333333333,
+   "CAR_macro_req": 0.16666666666666666,
+   "EDR_macro_req": 0.08333333333333333,
+   "per_requirement": {
+    "REQ-2.2": {
+     "C": "1/2",
+     "M": "1/4"
+    },
+    "REQ-4.1": {
+     "C": "0/2",
+     "M": "0/4"
+    },
+    "REQ-6.4": {
+     "C": "0/2",
+     "M": "0/4"
+    }
+   },
+   "false_accept_units": [
+    "N1-keep.REQ-2.2.K22-D4"
+   ],
+   "false_accept_runs": 1,
+   "status_counts_runs": {
+    "PASS": 4,
+    "MISSING": 45,
+    "REQUIREMENT_FAIL": 5
+   },
+   "flip_units_pass_nonpass": [
+    "N1-keep.REQ-2.2.K22-D4"
+   ],
+   "status_transition_units": [
+    "N1-keep.REQ-2.2.K22-D4"
+   ],
+   "obligation_exec_coverage_correct": "0/3",
+   "target_reached_runs_defects": "0/36",
+   "runtime_ms_median": 1000,
+   "runtime_ms_p95": 1000,
+   "runs_counted": 9,
+   "infra_units": [
+    "N2-keep.REQ-2.2.K22-D5",
+    "N2-keep.REQ-2.2.K22-D6",
+    "N2-keep.REQ-2.2.correct",
+    "N3-keep.REQ-4.1.K41-D3",
+    "N3-keep.REQ-4.1.K41-D4",
+    "N3-keep.REQ-4.1.correct",
+    "N4-keep.REQ-4.1.K41-D5",
+    "N4-keep.REQ-4.1.K41-D6",
+    "N4-keep.REQ-4.1.correct",
+    "N5-bookstack.REQ-6.4.B64-D3",
+    "N5-bookstack.REQ-6.4.B64-D4",
+    "N5-bookstack.REQ-6.4.correct",
+    "N6-bookstack.REQ-6.4.B64-D5",
+    "N6-bookstack.REQ-6.4.B64-D6",
+    "N6-bookstack.REQ-6.4.correct"
+   ],
+   "CAR_upper_bound_infra": "6/6",
+   "accepted_correct": [
+    "N1-keep.REQ-2.2.correct"
+   ],
+   "rejected_correct": {
+    "N2-keep.REQ-2.2.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N3-keep.REQ-4.1.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N4-keep.REQ-4.1.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N5-bookstack.REQ-6.4.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N6-bookstack.REQ-6.4.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ]
+   },
+   "missed_pairs": {
+    "N1-keep.REQ-2.2.K22-D4": [
+     "REQUIREMENT_FAIL",
+     "PASS",
+     "REQUIREMENT_FAIL"
+    ],
+    "N2-keep.REQ-2.2.K22-D5": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N2-keep.REQ-2.2.K22-D6": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N3-keep.REQ-4.1.K41-D3": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N3-keep.REQ-4.1.K41-D4": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N4-keep.REQ-4.1.K41-D5": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N4-keep.REQ-4.1.K41-D6": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N5-bookstack.REQ-6.4.B64-D3": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N5-bookstack.REQ-6.4.B64-D4": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N6-bookstack.REQ-6.4.B64-D5": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N6-bookstack.REQ-6.4.B64-D6": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ]
+   }
+  },
+  "Y": {
+   "CAR": "0/6",
+   "CAR_value": 0.0,
+   "EDR": "0/12",
+   "EDR_value": 0.0,
+   "CAR_macro_req": 0.0,
+   "EDR_macro_req": 0.0,
+   "per_requirement": {
+    "REQ-2.2": {
+     "C": "0/2",
+     "M": "0/4"
+    },
+    "REQ-4.1": {
+     "C": "0/2",
+     "M": "0/4"
+    },
+    "REQ-6.4": {
+     "C": "0/2",
+     "M": "0/4"
+    }
+   },
+   "false_accept_units": [],
+   "false_accept_runs": 0,
+   "status_counts_runs": {
+    "PASS": 2,
+    "ADAPTATION_UNKNOWN": 1,
+    "MISSING": 45,
+    "REQUIREMENT_FAIL": 6
+   },
+   "flip_units_pass_nonpass": [
+    "N1-keep.REQ-2.2.correct"
+   ],
+   "status_transition_units": [
+    "N1-keep.REQ-2.2.correct"
+   ],
+   "obligation_exec_coverage_correct": "0/3",
+   "target_reached_runs_defects": "0/36",
+   "runtime_ms_median": 1000,
+   "runtime_ms_p95": 1000,
+   "runs_counted": 9,
+   "infra_units": [
+    "N2-keep.REQ-2.2.K22-D5",
+    "N2-keep.REQ-2.2.K22-D6",
+    "N2-keep.REQ-2.2.correct",
+    "N3-keep.REQ-4.1.K41-D3",
+    "N3-keep.REQ-4.1.K41-D4",
+    "N3-keep.REQ-4.1.correct",
+    "N4-keep.REQ-4.1.K41-D5",
+    "N4-keep.REQ-4.1.K41-D6",
+    "N4-keep.REQ-4.1.correct",
+    "N5-bookstack.REQ-6.4.B64-D3",
+    "N5-bookstack.REQ-6.4.B64-D4",
+    "N5-bookstack.REQ-6.4.correct",
+    "N6-bookstack.REQ-6.4.B64-D5",
+    "N6-bookstack.REQ-6.4.B64-D6",
+    "N6-bookstack.REQ-6.4.correct"
+   ],
+   "CAR_upper_bound_infra": "5/6",
+   "accepted_correct": [],
+   "rejected_correct": {
+    "N1-keep.REQ-2.2.correct": [
+     "PASS",
+     "PASS",
+     "ADAPTATION_UNKNOWN"
+    ],
+    "N2-keep.REQ-2.2.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N3-keep.REQ-4.1.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N4-keep.REQ-4.1.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N5-bookstack.REQ-6.4.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N6-bookstack.REQ-6.4.correct": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ]
+   },
+   "missed_pairs": {
+    "N1-keep.REQ-2.2.K22-D3": [
+     "REQUIREMENT_FAIL",
+     "REQUIREMENT_FAIL",
+     "REQUIREMENT_FAIL"
+    ],
+    "N1-keep.REQ-2.2.K22-D4": [
+     "REQUIREMENT_FAIL",
+     "REQUIREMENT_FAIL",
+     "REQUIREMENT_FAIL"
+    ],
+    "N2-keep.REQ-2.2.K22-D5": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N2-keep.REQ-2.2.K22-D6": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N3-keep.REQ-4.1.K41-D3": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N3-keep.REQ-4.1.K41-D4": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N4-keep.REQ-4.1.K41-D5": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N4-keep.REQ-4.1.K41-D6": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N5-bookstack.REQ-6.4.B64-D3": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N5-bookstack.REQ-6.4.B64-D4": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N6-bookstack.REQ-6.4.B64-D5": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ],
+    "N6-bookstack.REQ-6.4.B64-D6": [
+     "MISSING",
+     "MISSING",
+     "MISSING"
+    ]
+   }
+  }
+ },
+ "common_parent_subset": {
+  "pairs": 0,
+  "X": 0,
+  "Y": 0
+ }
+}

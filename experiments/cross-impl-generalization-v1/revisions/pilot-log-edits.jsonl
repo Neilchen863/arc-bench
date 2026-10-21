@@ -1,0 +1,18 @@
+{"method": "M2E-REQ-2.2-g1r1", "app": "keep", "req": "REQ-2.2", "gen": 1, "round": 1, "verdict": "INVALID", "problems": ["TEST_ERROR: no applicable file blocks"], "files": []}
+{"method": "M2E-REQ-2.2-g1r2", "app": "keep", "req": "REQ-2.2", "gen": 1, "round": 2, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts", "tests/lib/observe.ts"]}
+{"method": "M2E-REQ-2.2-g1r3", "app": "keep", "req": "REQ-2.2", "gen": 1, "round": 3, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts"]}
+{"method": "M2E-REQ-2.2-g2r1", "app": "keep", "req": "REQ-2.2", "gen": 2, "round": 1, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/observe.ts"]}
+{"method": "M2E-REQ-2.2-g2r2", "app": "keep", "req": "REQ-2.2", "gen": 2, "round": 2, "verdict": "INVALID", "problems": ["TEST_ERROR: no applicable file blocks"], "files": []}
+{"method": "M2E-REQ-2.2-g2r3", "app": "keep", "req": "REQ-2.2", "gen": 2, "round": 3, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts"]}
+{"method": "M2E-REQ-4.1-g1r1", "app": "keep", "req": "REQ-4.1", "gen": 1, "round": 1, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/observe.ts", "tests/lib/operations.ts"]}
+{"method": "M2E-REQ-4.1-g1r2", "app": "keep", "req": "REQ-4.1", "gen": 1, "round": 2, "verdict": "INVALID", "problems": ["TEST_ERROR: SEARCH block in tests/lib/adapt.ts matched 0 times", "TEST_ERROR: SEARCH block in tests/lib/operations.ts matched 0 times"], "files": ["tests/lib/adapt.ts", "tests/lib/operations.ts"]}
+{"method": "M2E-REQ-4.1-g1r3", "app": "keep", "req": "REQ-4.1", "gen": 1, "round": 3, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts", "tests/lib/observe.ts"]}
+{"method": "M2E-REQ-4.1-g2r1", "app": "keep", "req": "REQ-4.1", "gen": 2, "round": 1, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts", "tests/lib/observe.ts"]}
+{"method": "M2E-REQ-4.1-g2r2", "app": "keep", "req": "REQ-4.1", "gen": 2, "round": 2, "verdict": "INVALID", "problems": ["TEST_ERROR: no applicable file blocks"], "files": []}
+{"method": "M2E-REQ-4.1-g2r3", "app": "keep", "req": "REQ-4.1", "gen": 2, "round": 3, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts", "tests/lib/observe.ts"]}
+{"method": "M2E-REQ-6.4-g1r1", "app": "bookstack", "req": "REQ-6.4", "gen": 1, "round": 1, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts"]}
+{"method": "M2E-REQ-6.4-g1r2", "app": "bookstack", "req": "REQ-6.4", "gen": 1, "round": 2, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts", "tests/lib/adapt.ts"]}
+{"method": "M2E-REQ-6.4-g1r3", "app": "bookstack", "req": "REQ-6.4", "gen": 1, "round": 3, "verdict": "INVALID", "problems": ["TEST_ERROR: SEARCH block in tests/lib/operations.ts matched 0 times", "TEST_ERROR: SEARCH block in tests/lib/operations.ts matched 0 times"], "files": ["tests/lib/operations.ts"]}
+{"method": "M2E-REQ-6.4-g2r1", "app": "bookstack", "req": "REQ-6.4", "gen": 2, "round": 1, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts"]}
+{"method": "M2E-REQ-6.4-g2r2", "app": "bookstack", "req": "REQ-6.4", "gen": 2, "round": 2, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts", "tests/lib/observe.ts"]}
+{"method": "M2E-REQ-6.4-g2r3", "app": "bookstack", "req": "REQ-6.4", "gen": 2, "round": 3, "verdict": "APPLIED", "problems": [], "files": ["tests/lib/operations.ts"]}

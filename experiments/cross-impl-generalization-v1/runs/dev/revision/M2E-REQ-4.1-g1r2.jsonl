@@ -1,0 +1,1 @@
+{"unit_id": "candidate.REQ-4.1.apply", "execution_repeat": 1, "result": "TEST_ERROR", "split": "dev", "method": "M2E-REQ-4.1-g1r2", "cases": [{"title": "apply", "status": "failed", "errors": ["TEST_ERROR: SEARCH block in tests/lib/adapt.ts matched 0 times", "TEST_ERROR: SEARCH block in tests/lib/operations.ts matched 0 times"], "attachments": {}}]}

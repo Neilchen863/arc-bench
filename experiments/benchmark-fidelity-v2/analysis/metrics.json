@@ -1,0 +1,639 @@
+{
+ "regression-old": {
+  "C": 12,
+  "M": 24,
+  "common_parent_subset": {
+   "pairs": 18,
+   "B": 18,
+   "D": 18
+  },
+  "methods": {
+   "B": {
+    "CAR": "9/12",
+    "EDR": "18/24",
+    "CAR_macro_req": 0.75,
+    "EDR_macro_req": 0.75,
+    "per_requirement": {
+     "REQ-2.2": {
+      "C": "4/4",
+      "M": "8/8"
+     },
+     "REQ-4.1": {
+      "C": "2/4",
+      "M": "4/8"
+     },
+     "REQ-6.4": {
+      "C": "3/4",
+      "M": "6/8"
+     }
+    },
+    "false_accept_units": [],
+    "false_accept_runs": 0,
+    "status_counts_runs": {
+     "PASS": 27,
+     "ADAPTATION_UNKNOWN": 21,
+     "REQUIREMENT_FAIL": 60
+    },
+    "flip_units_pass_nonpass": [],
+    "status_transition_units": [],
+    "obligation_exec_coverage_correct": "222/264",
+    "target_reached_runs_defects": "60/72",
+    "runtime_ms_median": 18725.0,
+    "runtime_ms_p95": 27403,
+    "rejected_correct": {
+     "B-keep.REQ-4.1.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Cpilot-keep.REQ-4.1.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Dpilot-bookstack.REQ-6.4.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ]
+    },
+    "missed_pairs": {
+     "B-keep.REQ-4.1.K41-D1": [
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL"
+     ],
+     "B-keep.REQ-4.1.K41-D2": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Cpilot-keep.REQ-4.1.K41-D1": [
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL"
+     ],
+     "Cpilot-keep.REQ-4.1.K41-D2": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Dpilot-bookstack.REQ-6.4.B64-D1": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Dpilot-bookstack.REQ-6.4.B64-D2": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ]
+    }
+   },
+   "D": {
+    "CAR": "12/12",
+    "EDR": "24/24",
+    "CAR_macro_req": 1.0,
+    "EDR_macro_req": 1.0,
+    "per_requirement": {
+     "REQ-2.2": {
+      "C": "4/4",
+      "M": "8/8"
+     },
+     "REQ-4.1": {
+      "C": "4/4",
+      "M": "8/8"
+     },
+     "REQ-6.4": {
+      "C": "4/4",
+      "M": "8/8"
+     }
+    },
+    "false_accept_units": [],
+    "false_accept_runs": 0,
+    "status_counts_runs": {
+     "PASS": 36,
+     "REQUIREMENT_FAIL": 72
+    },
+    "flip_units_pass_nonpass": [],
+    "status_transition_units": [],
+    "obligation_exec_coverage_correct": "264/264",
+    "target_reached_runs_defects": "72/72",
+    "runtime_ms_median": 18280.0,
+    "runtime_ms_p95": 25979,
+    "rejected_correct": {},
+    "missed_pairs": {}
+   }
+  }
+ },
+ "regression-new-dev": {
+  "C": 6,
+  "M": 12,
+  "common_parent_subset": {
+   "pairs": 8,
+   "B": 8,
+   "D": 8
+  },
+  "methods": {
+   "B": {
+    "CAR": "4/6",
+    "EDR": "8/12",
+    "CAR_macro_req": 0.6666666666666666,
+    "EDR_macro_req": 0.6666666666666666,
+    "per_requirement": {
+     "REQ-2.2": {
+      "C": "2/2",
+      "M": "4/4"
+     },
+     "REQ-4.1": {
+      "C": "1/2",
+      "M": "2/4"
+     },
+     "REQ-6.4": {
+      "C": "1/2",
+      "M": "2/4"
+     }
+    },
+    "false_accept_units": [],
+    "false_accept_runs": 0,
+    "status_counts_runs": {
+     "PASS": 12,
+     "ADAPTATION_UNKNOWN": 18,
+     "REQUIREMENT_FAIL": 24
+    },
+    "flip_units_pass_nonpass": [],
+    "status_transition_units": [],
+    "obligation_exec_coverage_correct": "87/132",
+    "target_reached_runs_defects": "24/36",
+    "runtime_ms_median": 22643.0,
+    "runtime_ms_p95": 27770,
+    "rejected_correct": {
+     "N4-keep.REQ-4.1.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N5-bookstack.REQ-6.4.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ]
+    },
+    "missed_pairs": {
+     "N4-keep.REQ-4.1.K41-D5": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N4-keep.REQ-4.1.K41-D6": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N5-bookstack.REQ-6.4.B64-D3": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N5-bookstack.REQ-6.4.B64-D4": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ]
+    }
+   },
+   "D": {
+    "CAR": "6/6",
+    "EDR": "12/12",
+    "CAR_macro_req": 1.0,
+    "EDR_macro_req": 1.0,
+    "per_requirement": {
+     "REQ-2.2": {
+      "C": "2/2",
+      "M": "4/4"
+     },
+     "REQ-4.1": {
+      "C": "2/2",
+      "M": "4/4"
+     },
+     "REQ-6.4": {
+      "C": "2/2",
+      "M": "4/4"
+     }
+    },
+    "false_accept_units": [],
+    "false_accept_runs": 0,
+    "status_counts_runs": {
+     "PASS": 18,
+     "REQUIREMENT_FAIL": 36
+    },
+    "flip_units_pass_nonpass": [],
+    "status_transition_units": [],
+    "obligation_exec_coverage_correct": "132/132",
+    "target_reached_runs_defects": "36/36",
+    "runtime_ms_median": 17743.5,
+    "runtime_ms_p95": 25285,
+    "rejected_correct": {},
+    "missed_pairs": {}
+   }
+  }
+ },
+ "regression-all": {
+  "C": 18,
+  "M": 36,
+  "common_parent_subset": {
+   "pairs": 26,
+   "B": 26,
+   "D": 26
+  },
+  "methods": {
+   "B": {
+    "CAR": "13/18",
+    "EDR": "26/36",
+    "CAR_macro_req": 0.7222222222222222,
+    "EDR_macro_req": 0.7222222222222222,
+    "per_requirement": {
+     "REQ-2.2": {
+      "C": "6/6",
+      "M": "12/12"
+     },
+     "REQ-4.1": {
+      "C": "3/6",
+      "M": "6/12"
+     },
+     "REQ-6.4": {
+      "C": "4/6",
+      "M": "8/12"
+     }
+    },
+    "false_accept_units": [],
+    "false_accept_runs": 0,
+    "status_counts_runs": {
+     "PASS": 39,
+     "ADAPTATION_UNKNOWN": 39,
+     "REQUIREMENT_FAIL": 84
+    },
+    "flip_units_pass_nonpass": [],
+    "status_transition_units": [],
+    "obligation_exec_coverage_correct": "309/396",
+    "target_reached_runs_defects": "84/108",
+    "runtime_ms_median": 19253.5,
+    "runtime_ms_p95": 27441,
+    "rejected_correct": {
+     "B-keep.REQ-4.1.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Cpilot-keep.REQ-4.1.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Dpilot-bookstack.REQ-6.4.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N4-keep.REQ-4.1.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N5-bookstack.REQ-6.4.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ]
+    },
+    "missed_pairs": {
+     "B-keep.REQ-4.1.K41-D1": [
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL"
+     ],
+     "B-keep.REQ-4.1.K41-D2": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Cpilot-keep.REQ-4.1.K41-D1": [
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL"
+     ],
+     "Cpilot-keep.REQ-4.1.K41-D2": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Dpilot-bookstack.REQ-6.4.B64-D1": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "Dpilot-bookstack.REQ-6.4.B64-D2": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N4-keep.REQ-4.1.K41-D5": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N4-keep.REQ-4.1.K41-D6": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N5-bookstack.REQ-6.4.B64-D3": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "N5-bookstack.REQ-6.4.B64-D4": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ]
+    }
+   },
+   "D": {
+    "CAR": "18/18",
+    "EDR": "36/36",
+    "CAR_macro_req": 1.0,
+    "EDR_macro_req": 1.0,
+    "per_requirement": {
+     "REQ-2.2": {
+      "C": "6/6",
+      "M": "12/12"
+     },
+     "REQ-4.1": {
+      "C": "6/6",
+      "M": "12/12"
+     },
+     "REQ-6.4": {
+      "C": "6/6",
+      "M": "12/12"
+     }
+    },
+    "false_accept_units": [],
+    "false_accept_runs": 0,
+    "status_counts_runs": {
+     "PASS": 54,
+     "REQUIREMENT_FAIL": 108
+    },
+    "flip_units_pass_nonpass": [],
+    "status_transition_units": [],
+    "obligation_exec_coverage_correct": "396/396",
+    "target_reached_runs_defects": "108/108",
+    "runtime_ms_median": 18133.0,
+    "runtime_ms_p95": 25707,
+    "rejected_correct": {},
+    "missed_pairs": {}
+   }
+  }
+ },
+ "acceptance-k3": {
+  "C": 6,
+  "M": 12,
+  "common_parent_subset": {
+   "pairs": 8,
+   "B": 8,
+   "D": 8
+  },
+  "methods": {
+   "B": {
+    "CAR": "4/6",
+    "EDR": "8/12",
+    "CAR_macro_req": 0.6666666666666666,
+    "EDR_macro_req": 0.6666666666666666,
+    "per_requirement": {
+     "REQ-2.2": {
+      "C": "2/2",
+      "M": "4/4"
+     },
+     "REQ-4.1": {
+      "C": "1/2",
+      "M": "2/4"
+     },
+     "REQ-6.4": {
+      "C": "1/2",
+      "M": "2/4"
+     }
+    },
+    "false_accept_units": [],
+    "false_accept_runs": 0,
+    "status_counts_runs": {
+     "PASS": 12,
+     "ADAPTATION_UNKNOWN": 12,
+     "REQUIREMENT_FAIL": 30
+    },
+    "flip_units_pass_nonpass": [],
+    "status_transition_units": [],
+    "obligation_exec_coverage_correct": "102/132",
+    "target_reached_runs_defects": "30/36",
+    "runtime_ms_median": 21183.5,
+    "runtime_ms_p95": 34189,
+    "rejected_correct": {
+     "X3-keep.REQ-4.1.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "X6-bookstack.REQ-6.4.correct": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ]
+    },
+    "missed_pairs": {
+     "X3-keep.REQ-4.1.K41-D7": [
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL"
+     ],
+     "X3-keep.REQ-4.1.K41-D8": [
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL",
+      "REQUIREMENT_FAIL"
+     ],
+     "X6-bookstack.REQ-6.4.B64-D10": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ],
+     "X6-bookstack.REQ-6.4.B64-D9": [
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN",
+      "ADAPTATION_UNKNOWN"
+     ]
+    }
+   },
+   "D": {
+    "CAR": "6/6",
+    "EDR": "12/12",
+    "CAR_macro_req": 1.0,
+    "EDR_macro_req": 1.0,
+    "per_requirement": {
+     "REQ-2.2": {
+      "C": "2/2",
+      "M": "4/4"
+     },
+     "REQ-4.1": {
+      "C": "2/2",
+      "M": "4/4"
+     },
+     "REQ-6.4": {
+      "C": "2/2",
+      "M": "4/4"
+     }
+    },
+    "false_accept_units": [],
+    "false_accept_runs": 0,
+    "status_counts_runs": {
+     "PASS": 18,
+     "REQUIREMENT_FAIL": 36
+    },
+    "flip_units_pass_nonpass": [],
+    "status_transition_units": [],
+    "obligation_exec_coverage_correct": "132/132",
+    "target_reached_runs_defects": "36/36",
+    "runtime_ms_median": 17904.5,
+    "runtime_ms_p95": 27682,
+    "rejected_correct": {},
+    "missed_pairs": {}
+   }
+  }
+ },
+ "acceptance-k10": {
+  "C": 6,
+  "M": 12,
+  "common_parent_subset": null,
+  "methods": {
+   "D": {
+    "CAR": "6/6",
+    "EDR": "12/12",
+    "CAR_macro_req": 1.0,
+    "EDR_macro_req": 1.0,
+    "per_requirement": {
+     "REQ-2.2": {
+      "C": "2/2",
+      "M": "4/4"
+     },
+     "REQ-4.1": {
+      "C": "2/2",
+      "M": "4/4"
+     },
+     "REQ-6.4": {
+      "C": "2/2",
+      "M": "4/4"
+     }
+    },
+    "false_accept_units": [],
+    "false_accept_runs": 0,
+    "status_counts_runs": {
+     "PASS": 60,
+     "REQUIREMENT_FAIL": 120
+    },
+    "flip_units_pass_nonpass": [],
+    "status_transition_units": [],
+    "obligation_exec_coverage_correct": "440/440",
+    "target_reached_runs_defects": "120/120",
+    "runtime_ms_median": 17066.0,
+    "runtime_ms_p95": 27284,
+    "rejected_correct": {},
+    "missed_pairs": {}
+   }
+  }
+ },
+ "H_case_subset": {
+  "units": 9,
+  "correct_accepted": "3/3",
+  "defects_detected": "6/6",
+  "false_accept_runs": 0
+ },
+ "acceptance_per_dimension_k3": {
+  "X1-keep": {
+   "dimension": "dismiss control expression: text Close button -> icon-only close control (accessible name, tooltip) in the editor header; editor stays a modal",
+   "B": {
+    "C": "1/1",
+    "M": "2/2"
+   },
+   "D": {
+    "C": "1/1",
+    "M": "2/2"
+   }
+  },
+  "X2-keep": {
+   "dimension": "editor presentation: modal <dialog> -> inline composer that expands in place for new notes; composer shell remains after close",
+   "B": {
+    "C": "1/1",
+    "M": "2/2"
+   },
+   "D": {
+    "C": "1/1",
+    "M": "2/2"
+   }
+  },
+  "X3-keep": {
+   "dimension": "suggested-filter choices: tile grid -> menu/option list (MUI MenuList)",
+   "B": {
+    "C": "0/1",
+    "M": "2/2"
+   },
+   "D": {
+    "C": "1/1",
+    "M": "2/2"
+   }
+  },
+  "X4-keep": {
+   "dimension": "label chooser option control: native checkboxes -> role=switch toggle rows",
+   "B": {
+    "C": "1/1",
+    "M": "2/2"
+   },
+   "D": {
+    "C": "1/1",
+    "M": "2/2"
+   }
+  },
+  "X5-bookstack": {
+   "dimension": "page body editor: multiline TextField -> contenteditable rich-text editor with formatting toolbar (HTML body)",
+   "B": {
+    "C": "1/1",
+    "M": "2/2"
+   },
+   "D": {
+    "C": "1/1",
+    "M": "2/2"
+   }
+  },
+  "X6-bookstack": {
+   "dimension": "page list presentation: entity list -> card grid with stretched-link cards",
+   "B": {
+    "C": "0/1",
+    "M": "0/2"
+   },
+   "D": {
+    "C": "1/1",
+    "M": "2/2"
+   }
+  }
+ },
+ "release_gate_10_1": {
+  "acceptance_correct_stable_K3": "6/6",
+  "acceptance_correct_stable_K10": "6/6",
+  "defect_pairs_effective_K3": "12/12",
+  "defect_pairs_effective_K10": "12/12",
+  "false_accepts": 0,
+  "policy_invalid": 0,
+  "skipped_cases": 0,
+  "flips_K10": 0,
+  "regression_no_loss_vs_B": true,
+  "restores_confirmed_B_failures": 5,
+  "verdict": "MET (single-reviewer labels; post-freeze regression acceptance, not blind)"
+ },
+ "note_K10": "K=10 is a separate 10-repeat D run (runs/acceptance-k10); together with the K=3 run, D has 13 runs per acceptance unit, all consistent."
+}

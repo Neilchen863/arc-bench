@@ -1,0 +1,59 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-keep.REQ-4.1.K41-D1",
+ "method": "M0",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "08e24317eaa346e4b222f04a043b3aea4e4bb9834fa74aa0a0e086605cd86c8f",
+ "execution_repeat": 1,
+ "run_id": "r1",
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "dev-smoke",
+ "tag": "",
+ "served_build_hash": "a0e1c008bcc31e5b430b0b88eac08a47ca4ef20556401733e6ddd3bb1b701bc3",
+ "source_hash": "a0e1c008bcc31e5b430b0b88eac08a47ca4ef20556401733e6ddd3bb1b701bc3",
+ "runtime_ms": 14217,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "cases": [
+  {
+   "title": "REQ-4.1: Search title and content with highlights",
+   "file": "REQ-4.1.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 10945,
+   "errors": [
+    "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('region', { name: 'Reading plan [82f3e9c695-w0-7aa4be0e8e]', exact: true })\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('region', { name: 'Reading plan [82f3e9c695-w0-7aa4be0e8e]', exact: true })\u001b[22m\n\u001b[2m    14 \u00d7 locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  14 |   await search.fill('st');\n  15 |   await expect(note(page, titleMatch)).toHaveCount(1);\n> 16 |   await expect(note(page, contentMatch)).toHaveCount(1);\n     |                                          ^\n  17 |   await expect(note(page, other)).toBeHidden();\n  18 |   // Named highlight regions provide the portable semantic highlight contract.\n  19 |   for (const title of [titleMatch, contentMatch]) {\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev-smoke/M0/keep.REQ-4.1/A-keep--K41-D1/rep1/work/tests/REQ-4.1.spec.ts:16:42"
+   ],
+   "attachments": {}
+  },
+  {
+   "title": "REQ-4.1: Choose a suggested label filter",
+   "file": "REQ-4.1.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 946,
+   "errors": [],
+   "attachments": {}
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev-smoke/M0/keep.REQ-4.1/A-keep--K41-D1/rep1/report.json",
+ "trace_path": "runs/dev-smoke/M0/keep.REQ-4.1/A-keep--K41-D1/rep1/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

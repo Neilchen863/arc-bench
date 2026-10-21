@@ -1,0 +1,12 @@
+diff --git a/src/components/NoteEditor.vue b/src/components/NoteEditor.vue
+index cec5819..96d8f0b 100644
+--- a/src/components/NoteEditor.vue
++++ b/src/components/NoteEditor.vue
+@@ -62,7 +62,6 @@ async function close() {
+   } finally {
+     saving.value = false;
+   }
+-  emit('update:modelValue', false);
+ }
+ </script>
+ 

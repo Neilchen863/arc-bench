@@ -1,0 +1,23 @@
+{
+ "material": "Dpilot-keep",
+ "variant": "correct",
+ "scenario": "persist_after_reload",
+ "rep": 3,
+ "started": true,
+ "errors": [],
+ "pageErrors": [],
+ "obligations": {
+  "K22-O1": {
+   "holds": true,
+   "reason": "editor visible=false, visible dialogs=0"
+  },
+  "K22-O2": {
+   "holds": true,
+   "reason": "visible note cards with title=1, API active notes with title=1"
+  },
+  "K22-O6": {
+   "holds": true,
+   "reason": "after reload visible note cards with title=1, content visible=true"
+  }
+ }
+}

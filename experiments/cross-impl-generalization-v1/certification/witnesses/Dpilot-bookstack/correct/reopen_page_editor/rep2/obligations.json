@@ -1,0 +1,26 @@
+{
+  "B64-P1": {
+    "holds": true,
+    "reason": "page-list entry counts A/B/C = 1/1/1; API pages in book with each title exactly once: true"
+  },
+  "B64-O1": {
+    "holds": true,
+    "reason": "level-1 headings on opened view: [\"Page B 6.4.2 [CERT-Dcorrecte2]\"]"
+  },
+  "B64-O4": {
+    "holds": true,
+    "reason": "title field value: \"Page B 6.4.2 [CERT-Dcorrecte2]\""
+  },
+  "B64-O5": {
+    "holds": true,
+    "reason": "body field value: \"Reading content for Page B 6.4.2.\""
+  },
+  "B64-O6": {
+    "holds": true,
+    "reason": "save-page button visible: true ([\"Save page\"])"
+  },
+  "_no_page_errors": {
+    "holds": true,
+    "reason": "no uncaught page errors"
+  }
+}

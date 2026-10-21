@@ -1,0 +1,44 @@
+[
+ {
+  "n": 1,
+  "tag": "book-form",
+  "url": "http://127.0.0.1:57769/books/new"
+ },
+ {
+  "n": 2,
+  "tag": "book-with-pages",
+  "url": "http://127.0.0.1:57769/books/f7ddf6f4-3a65-4b11-ac9e-7554bba2c15e",
+  "text": "BookStack\nSHELVES\nBOOKS\nLOGIN\nBook W1\n\nReference book description.\n\nmanual\nhandbook\nPage A W1\n\nReading content for Page A W1.\n\nPage B W1\n\nReading content for Page B W1.\n\nPage C W1\n\nReading content for Page C W1.\n\nDetails\n\nCreated 6 October 2026\n\nActions\nNEW PAGE\nEDIT"
+ },
+ {
+  "n": 3,
+  "tag": "opened-target",
+  "url": "http://127.0.0.1:57769/books/f7ddf6f4-3a65-4b11-ac9e-7554bba2c15e/pages/7c9cd73f-8481-4027-9c1f-cee8c3666341",
+  "headings": [
+   "Page B W1",
+   "Details",
+   "Actions"
+  ],
+  "text": "BookStack\nSHELVES\nBOOKS\nLOGIN\nBook W1\n/\n\nPage B W1\n\nPage B W1\nReading content for Page B W1.\nDetails\n\nCreated 6 October 2026\n\nActions\nEDIT"
+ },
+ {
+  "n": 4,
+  "tag": "editor",
+  "url": "http://127.0.0.1:57769/books/f7ddf6f4-3a65-4b11-ac9e-7554bba2c15e/pages/7c9cd73f-8481-4027-9c1f-cee8c3666341/edit",
+  "fields": [
+   {
+    "label": "Search",
+    "value": ""
+   },
+   {
+    "label": ":r1h:",
+    "value": "Page B W1"
+   },
+   {
+    "label": "MuiBox-root css-1f9j99q",
+    "value": "Reading content for Page C W1."
+   }
+  ],
+  "text": "BookStack\nSHELVES\nBOOKS\nLOGIN\nEdit Page\nPage title\nPage title\n\nPage content\n\nB\nI\n•≡\nReading content for Page C W1.\nCANCEL\nSAVE PAGE"
+ }
+]

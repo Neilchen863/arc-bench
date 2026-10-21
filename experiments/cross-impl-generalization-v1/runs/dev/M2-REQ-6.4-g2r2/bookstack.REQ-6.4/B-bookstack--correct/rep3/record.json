@@ -1,0 +1,69 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "B-bookstack.REQ-6.4.correct",
+ "method": "M2-REQ-6.4-g2r2",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "24566947cc0eda14a830547de2e6ab12ba4ca81d7c6560ca464063ebb24c2034",
+ "execution_repeat": 3,
+ "run_id": "r3",
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "d0e3746a50c5fc65030fbe3367d135e62aeace301f24dccf07a958c7e71bd5ef",
+ "source_hash": "d0e3746a50c5fc65030fbe3367d135e62aeace301f24dccf07a958c7e71bd5ef",
+ "runtime_ms": 6942,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 2654,
+   "errors": [
+    "Error: locator.count: InvalidSelectorError: Error while parsing selector `link[name=[object Object]]` - unexpected symbol \"[\" at position 10 during parsing attribute value\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at visibleOnly (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/work/tests/lib/adapt.ts:21:21)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/work/tests/lib/adapt.ts:35:25)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/work/tests/lib/operations.ts:68:34)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/work/tests/REQ-6.4.spec.ts:27:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- link \"Skip to content\":\n  - /url: \"#main\"\n- banner:\n  - link \"Knowledge Base\":\n    - /url: /\n  - search:\n    - textbox \"Search\"\n  - navigation \"Main\":\n    - list:\n      - listitem:\n        - link \"Shelves\":\n          - /url: /shelves\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Log in\":\n          - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - list:\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem: Book 6.4.1 [r3-w0-read-selected-page]\n  - article:\n    - heading \"Book 6.4.1 [r3-w0-read-selected-page]\" [level=1]\n    - paragraph: Reference book description.\n    - list \"Tags\":\n      - listitem: manual\n      - listitem: handbook\n    - region \"Pages\":\n      - heading \"Pages\" [level=2]\n      - list:\n        - listitem:\n          - link \"Page A 6.4.1 [r3-w0-read-selected-page]\":\n            - /url: /books/20452d9d-9a39-4874-9e14-172fef89d24a/pages/a69ea52e-f303-468f-858a-63aa2f6f7778\n          - paragraph: Reading content for Page A 6.4.1.\n        - listitem:\n          - link \"Page B 6.4.1 [r3-w0-read-selected-page]\":\n            - /url: /books/20452d9d-9a39-4874-9e14-172fef89d24a/pages/07d42d7b-0d66-4dc8-8ca5-57904fdbf787\n          - paragraph: Reading content for Page B 6.4.1.\n        - listitem:\n          - link \"Page C 6.4.1 [r3-w0-read-selected-page]\":\n            - /url: /books/20452d9d-9a39-4874-9e14-172fef89d24a/pages/688c2352-93aa-4f19-a064-1913302e735a\n          - paragraph: Reading content for Page C 6.4.1.\n  - complementary \"Book details and actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"New page\"\n    - button \"Edit book\"",
+    "visible-text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook 6.4.1 [r3-w0-read-selected-page]\nBook 6.4.1 [r3-w0-read-selected-page]\n\nReference book description.\n\nmanual\nhandbook\nPages\nPage A 6.4.1 [r3-w0-read-selected-page]\n\nReading content for Page A 6.4.1.\n\nPage B 6.4.1 [r3-w0-read-selected-page]\n\nReading content for Page B 6.4.1.\n\nPage C 6.4.1 [r3-w0-read-selected-page]\n\nReading content for Page C 6.4.1.\n\nDetails\n\nCreated 6 October 2026\n\nActions\nNew page\nEdit book",
+    "url": "http://127.0.0.1:49879/books/20452d9d-9a39-4874-9e14-172fef89d24a"
+   }
+  },
+  {
+   "title": "reopen_page_editor",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 2655,
+   "errors": [
+    "Error: locator.count: InvalidSelectorError: Error while parsing selector `link[name=[object Object]]` - unexpected symbol \"[\" at position 10 during parsing attribute value\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at visibleOnly (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/work/tests/lib/adapt.ts:21:21)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/work/tests/lib/adapt.ts:35:25)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/work/tests/lib/operations.ts:68:34)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/work/tests/REQ-6.4.spec.ts:35:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- link \"Skip to content\":\n  - /url: \"#main\"\n- banner:\n  - link \"Knowledge Base\":\n    - /url: /\n  - search:\n    - textbox \"Search\"\n  - navigation \"Main\":\n    - list:\n      - listitem:\n        - link \"Shelves\":\n          - /url: /shelves\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Log in\":\n          - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - list:\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem: Book 6.4.2 [r3-w1-reopen-page-editor]\n  - article:\n    - heading \"Book 6.4.2 [r3-w1-reopen-page-editor]\" [level=1]\n    - paragraph: Reference book description.\n    - list \"Tags\":\n      - listitem: manual\n      - listitem: handbook\n    - region \"Pages\":\n      - heading \"Pages\" [level=2]\n      - list:\n        - listitem:\n          - link \"Page A 6.4.2 [r3-w1-reopen-page-editor]\":\n            - /url: /books/1fa13818-ab78-43b8-905a-ca6fdc327f45/pages/dee5d412-68e4-442d-a406-650b42b40962\n          - paragraph: Reading content for Page A 6.4.2.\n        - listitem:\n          - link \"Page B 6.4.2 [r3-w1-reopen-page-editor]\":\n            - /url: /books/1fa13818-ab78-43b8-905a-ca6fdc327f45/pages/238c2438-161d-4122-948a-761c781add1d\n          - paragraph: Reading content for Page B 6.4.2.\n        - listitem:\n          - link \"Page C 6.4.2 [r3-w1-reopen-page-editor]\":\n            - /url: /books/1fa13818-ab78-43b8-905a-ca6fdc327f45/pages/dd9bc68d-587d-4348-987a-f2c9ca1dbaf2\n          - paragraph: Reading content for Page C 6.4.2.\n  - complementary \"Book details and actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"New page\"\n    - button \"Edit book\"",
+    "visible-text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook 6.4.2 [r3-w1-reopen-page-editor]\nBook 6.4.2 [r3-w1-reopen-page-editor]\n\nReference book description.\n\nmanual\nhandbook\nPages\nPage A 6.4.2 [r3-w1-reopen-page-editor]\n\nReading content for Page A 6.4.2.\n\nPage B 6.4.2 [r3-w1-reopen-page-editor]\n\nReading content for Page B 6.4.2.\n\nPage C 6.4.2 [r3-w1-reopen-page-editor]\n\nReading content for Page C 6.4.2.\n\nDetails\n\nCreated 6 October 2026\n\nActions\nNew page\nEdit book",
+    "url": "http://127.0.0.1:49879/books/1fa13818-ab78-43b8-905a-ca6fdc327f45"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/report.json",
+ "trace_path": "runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/B-bookstack--correct/rep3/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

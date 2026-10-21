@@ -1,0 +1,47 @@
+## Analysis
+
+The development feedback shows consistent `ReferenceError: eventually is not defined` in `lib/operations.ts:79`. This occurs in the `closeEditor` function where `eventually` is used but not imported.
+
+Looking at the editable files:
+- `tests/lib/operations.ts` uses `eventually` at line 79 but does not import it
+- `tests/lib/adapt.ts` exports `eventually` 
+- `tests/lib/operations.ts` imports from `adapt.ts` but does not include `eventually` in its import statement
+
+The fix is to add `eventually` to the import statement in `operations.ts`.
+
+No other issues are indicated by the feedback - all failures are due to this single import omission.
+
+## Patch
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+import { expect, type Locator, type Page } from '@playwright/test';
+import { AdaptationFailure, byCss, byLabel, byPlaceholder, byRole, enterText, resolve, type Candidate } from './adapt';
+<<<REPLACE>>>
+import { expect, type Locator, type Page } from '@playwright/test';
+import { AdaptationFailure, byCss, byLabel, byPlaceholder, byRole, enterText, resolve, type Candidate, eventually } from './adapt';
+<<<END EDIT>>>
+
+## Obligation → Check Mapping
+
+| Obligation ID | Rule | Check Location | Evidence Used |
+|---------------|------|----------------|---------------|
+| K22-O1 (autosave_on_close) | editor closes | `closeEditor()` → `eventually(() => editorState(...))` | Dev feedback confirms `eventually` usage at line 79 |
+| K22-O2 (autosave_on_close) | exactly one note | `REQ-2.2.spec.ts` → `note(page, title)` | Not affected by this fix |
+| K22-O3 (autosave_on_close) | title visible | `REQ-2.2.spec.ts` → `O.showsTitle()` | Not affected by this fix |
+| K22-O4 (autosave_on_close) | content lines | `REQ-2.2.spec.ts` → `O.showsLines()` | Not affected by this fix |
+| K22-O5 (autosave_on_close) | no save action | `closeEditor()` name check | Not affected by this fix |
+| K22-O1 (persist_after_reload) | editor closes | Same as K22-O1 (autosave_on_close) | Same evidence |
+| K22-O2 (persist_after_reload) | exactly one note before reload | Same as K22-O2 (autosave_on_close) | Same evidence |
+| K22-O6 (persist_after_reload) | note persists after reload | `REQ-2.2.spec.ts` → `note(page, title)` after reload | Same evidence |
+
+## Evidence Used
+- Development feedback unit `A-keep.REQ-2.2.correct` through `B-keep.REQ-2.2.K22-D2` all show identical stack trace pointing to line 79 in `operations.ts`
+- Error: `ReferenceError: eventually is not defined`
+- Line 79 in `operations.ts` is the first use of `eventually` in the `closeEditor` function
+
+## Unresolved Failures and Uncertainties
+- **None** - The root cause is identified and the fix is straightforward
+- All test cases fail for the same reason (missing import)
+- No business logic or observation logic is affected
+- No uncertainty remains as the fix directly addresses the error in all 18 test runs across units

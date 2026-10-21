@@ -1,0 +1,59 @@
+diff --git a/src/LabelChooser.jsx b/src/LabelChooser.jsx
+index ea88c57..d651fe1 100644
+--- a/src/LabelChooser.jsx
++++ b/src/LabelChooser.jsx
+@@ -1,6 +1,6 @@
+ import { useEffect, useRef, useState } from 'react';
+ 
+-// "Note labels" dialog: one checkbox per available label, Done keeps the selection.
++// "Note labels" dialog: one toggle chip per available label (variant N3), Done keeps the selection.
+ export default function LabelChooser({ labels, selected, onDone }) {
+   const [checked, setChecked] = useState(() => new Set(selected));
+   const [busy, setBusy] = useState(false);
+@@ -37,21 +37,20 @@ export default function LabelChooser({ labels, selected, onDone }) {
+     <div className="backdrop backdrop--top" onMouseDown={(e) => e.target === e.currentTarget && finish()}>
+       <div className="dialog chooser" role="dialog" aria-modal="true" aria-label="Note labels" onKeyDown={onKeyDown}>
+         <h2 className="dialog__title">Label note</h2>
+-        <ul className="chooser__list">
++        <div className="chooser__chips" role="group" aria-label="Labels">
+           {labels.map((label, i) => (
+-            <li key={label.id}>
+-              <label className="chooser__item">
+-                <input
+-                  ref={i === 0 ? firstRef : undefined}
+-                  type="checkbox"
+-                  checked={checked.has(label.id)}
+-                  onChange={() => toggle(label.id)}
+-                />
+-                <span>{label.name}</span>
+-              </label>
+-            </li>
++            <button
++              key={label.id}
++              ref={i === 0 ? firstRef : undefined}
++              type="button"
++              className={`label-toggle${checked.has(label.id) ? ' is-on' : ''}`}
++              aria-pressed={checked.has(label.id) ? 'true' : 'false'}
++              onClick={() => toggle(label.id)}
++            >
++              {checked.has(label.id) ? '✓ ' : ''}{label.name}
++            </button>
+           ))}
+-        </ul>
++        </div>
+         <div className="dialog__actions">
+           <button type="button" className="text-button" onClick={finish} disabled={busy}>
+             Done
+diff --git a/src/styles.css b/src/styles.css
+index 71fbd8a..2b51ba5 100644
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -132,3 +132,8 @@ button { font: inherit; color: inherit; }
+ @media (max-width: 700px) {
+   .brand { display: none; }
+ }
++
++/* Variant N3: label toggle chips */
++.chooser__chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 0; }
++.label-toggle { border: 1px solid #dadce0; border-radius: 16px; background: #fff; padding: 4px 12px; font-size: 14px; cursor: pointer; }
++.label-toggle.is-on { background: #feefc3; border-color: #f9ab00; }

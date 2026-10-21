@@ -1,0 +1,255 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-6.4.spec.ts",
+      "file": "REQ-6.4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "read_selected_page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1710,
+                  "error": {
+                    "message": "Error: locator.count: InvalidSelectorError: Error while parsing selector `link[name=[object Object]]` - unexpected symbol \"[\" at position 10 during parsing attribute value\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+                    "stack": "Error: locator.count: InvalidSelectorError: Error while parsing selector `link[name=[object Object]]` - unexpected symbol \"[\" at position 10 during parsing attribute value\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at visibleOnly (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:21:21)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:35:25)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/operations.ts:68:34)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/REQ-6.4.spec.ts:27:3",
+                    "location": {
+                      "file": "<anonymous>",
+                      "column": 11,
+                      "line": 1693
+                    }
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<anonymous>",
+                        "column": 11,
+                        "line": 1693
+                      },
+                      "message": "Error: locator.count: InvalidSelectorError: Error while parsing selector `link[name=[object Object]]` - unexpected symbol \"[\" at position 10 during parsing attribute value\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at visibleOnly (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:21:21)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:35:25)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/operations.ts:68:34)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/REQ-6.4.spec.ts:27:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T11:15:47.230Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBiYW5uZXI6CiAgLSBsaW5rICJCb29rU3RhY2siOgogICAgLSAvdXJsOiAvCiAgLSBzZWFyY2g6CiAgICAtIHNlYXJjaGJveCAiU2VhcmNoIgogIC0gbmF2aWdhdGlvbiAiTWFpbiI6CiAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAtIC91cmw6IC9zaGVsdmVzCiAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgLSAvdXJsOiAvYm9va3MKICAgIC0gbGluayAiTG9naW4iOgogICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBuYXZpZ2F0aW9uICJCcmVhZGNydW1iIjogQm9va3MgQm9vayA2LjQuMSBbcjMtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXQogIC0gaGVhZGluZyAiQm9vayA2LjQuMSBbcjMtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSIgW2xldmVsPTFdCiAgLSBwYXJhZ3JhcGg6IFJlZmVyZW5jZSBib29rIGRlc2NyaXB0aW9uLgogIC0gbGlzdCAiVGFncyI6CiAgICAtIGxpc3RpdGVtOiBtYW51YWwKICAgIC0gbGlzdGl0ZW06IGhhbmRib29rCiAgLSByZWdpb24gIlBhZ2UgbGlzdCI6CiAgICAtIGxpc3Q6CiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBidXR0b24gIlBhZ2UgQSA2LjQuMSBbcjMtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSIKICAgICAgICAtIHBhcmFncmFwaDogUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEEgNi40LjEuCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBidXR0b24gIlBhZ2UgQiA2LjQuMSBbcjMtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSIKICAgICAgICAtIHBhcmFncmFwaDogUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjEuCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBidXR0b24gIlBhZ2UgQyA2LjQuMSBbcjMtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSIKICAgICAgICAtIHBhcmFncmFwaDogUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEMgNi40LjEuCiAgLSBjb21wbGVtZW50YXJ5ICJBY3Rpb25zIjoKICAgIC0gaGVhZGluZyAiRGV0YWlscyIgW2xldmVsPTJdCiAgICAtIHBhcmFncmFwaDogQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgogICAgLSBwYXJhZ3JhcGg6IFVwZGF0ZWQgNiBPY3RvYmVyIDIwMjYKICAgIC0gaGVhZGluZyAiQWN0aW9ucyIgW2xldmVsPTJdCiAgICAtIGJ1dHRvbiAiTmV3IFBhZ2UiCiAgICAtIGJ1dHRvbiAiRWRpdCI="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "Qm9va1N0YWNrClNoZWx2ZXMKQm9va3MKTG9naW4KQm9va3Mg4oC6IEJvb2sgNi40LjEgW3IzLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KQm9vayA2LjQuMSBbcjMtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXQoKUmVmZXJlbmNlIGJvb2sgZGVzY3JpcHRpb24uCgptYW51YWwKaGFuZGJvb2sKUGFnZSBBIDYuNC4xIFtyMy13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdCgpSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMS4KClBhZ2UgQiA2LjQuMSBbcjMtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXQoKUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjEuCgpQYWdlIEMgNi40LjEgW3IzLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KClJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBDIDYuNC4xLgoKRGV0YWlscwoKQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgoKVXBkYXRlZCA2IE9jdG9iZXIgMjAyNgoKQWN0aW9ucwpOZXcgUGFnZQpFZGl0"
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo0OTgxMS9ib29rcy82ZGZmNjdjMy1jOWIxLTQyYjctOWI2NC04Mzk2YjZkNDg4N2E="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/test-results/REQ-6.4-read-selected-page-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/test-results/REQ-6.4-read-selected-page-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<anonymous>",
+                    "column": 11,
+                    "line": 1693
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-5dd9605f98bc9ec040a8",
+          "file": "REQ-6.4.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "reopen_page_editor",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1662,
+                  "error": {
+                    "message": "Error: locator.count: InvalidSelectorError: Error while parsing selector `link[name=[object Object]]` - unexpected symbol \"[\" at position 10 during parsing attribute value\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+                    "stack": "Error: locator.count: InvalidSelectorError: Error while parsing selector `link[name=[object Object]]` - unexpected symbol \"[\" at position 10 during parsing attribute value\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at visibleOnly (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:21:21)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:35:25)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/operations.ts:68:34)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/REQ-6.4.spec.ts:35:3",
+                    "location": {
+                      "file": "<anonymous>",
+                      "column": 11,
+                      "line": 1693
+                    }
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<anonymous>",
+                        "column": 11,
+                        "line": 1693
+                      },
+                      "message": "Error: locator.count: InvalidSelectorError: Error while parsing selector `link[name=[object Object]]` - unexpected symbol \"[\" at position 10 during parsing attribute value\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at syntaxError (<anonymous>:1693:11)\n    at readAttribute (<anonymous>:1825:7)\n    at parseAttributeSelector (<anonymous>:1838:28)\n    at Object.queryAll (<anonymous>:4942:22)\n    at InjectedScript._queryEngineAll (<anonymous>:6789:49)\n    at InjectedScript.querySelectorAll (<anonymous>:6776:30)\n    at eval (eval at evaluate (:290:30), <anonymous>:2:23)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at visibleOnly (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:21:21)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:35:25)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/operations.ts:68:34)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/REQ-6.4.spec.ts:35:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T11:15:49.431Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBiYW5uZXI6CiAgLSBsaW5rICJCb29rU3RhY2siOgogICAgLSAvdXJsOiAvCiAgLSBzZWFyY2g6CiAgICAtIHNlYXJjaGJveCAiU2VhcmNoIgogIC0gbmF2aWdhdGlvbiAiTWFpbiI6CiAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAtIC91cmw6IC9zaGVsdmVzCiAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgLSAvdXJsOiAvYm9va3MKICAgIC0gbGluayAiTG9naW4iOgogICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBuYXZpZ2F0aW9uICJCcmVhZGNydW1iIjogQm9va3MgQm9vayA2LjQuMiBbcjMtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXQogIC0gaGVhZGluZyAiQm9vayA2LjQuMiBbcjMtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSIgW2xldmVsPTFdCiAgLSBwYXJhZ3JhcGg6IFJlZmVyZW5jZSBib29rIGRlc2NyaXB0aW9uLgogIC0gbGlzdCAiVGFncyI6CiAgICAtIGxpc3RpdGVtOiBtYW51YWwKICAgIC0gbGlzdGl0ZW06IGhhbmRib29rCiAgLSByZWdpb24gIlBhZ2UgbGlzdCI6CiAgICAtIGxpc3Q6CiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBidXR0b24gIlBhZ2UgQSA2LjQuMiBbcjMtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSIKICAgICAgICAtIHBhcmFncmFwaDogUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEEgNi40LjIuCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBidXR0b24gIlBhZ2UgQiA2LjQuMiBbcjMtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSIKICAgICAgICAtIHBhcmFncmFwaDogUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjIuCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBidXR0b24gIlBhZ2UgQyA2LjQuMiBbcjMtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSIKICAgICAgICAtIHBhcmFncmFwaDogUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEMgNi40LjIuCiAgLSBjb21wbGVtZW50YXJ5ICJBY3Rpb25zIjoKICAgIC0gaGVhZGluZyAiRGV0YWlscyIgW2xldmVsPTJdCiAgICAtIHBhcmFncmFwaDogQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgogICAgLSBwYXJhZ3JhcGg6IFVwZGF0ZWQgNiBPY3RvYmVyIDIwMjYKICAgIC0gaGVhZGluZyAiQWN0aW9ucyIgW2xldmVsPTJdCiAgICAtIGJ1dHRvbiAiTmV3IFBhZ2UiCiAgICAtIGJ1dHRvbiAiRWRpdCI="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "Qm9va1N0YWNrClNoZWx2ZXMKQm9va3MKTG9naW4KQm9va3Mg4oC6IEJvb2sgNi40LjIgW3IzLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KQm9vayA2LjQuMiBbcjMtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXQoKUmVmZXJlbmNlIGJvb2sgZGVzY3JpcHRpb24uCgptYW51YWwKaGFuZGJvb2sKUGFnZSBBIDYuNC4yIFtyMy13MS1yZW9wZW4tcGFnZS1lZGl0b3JdCgpSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMi4KClBhZ2UgQiA2LjQuMiBbcjMtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXQoKUmVhZGluZyBjb250ZW50IGZvciBQYWdlIEIgNi40LjIuCgpQYWdlIEMgNi40LjIgW3IzLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KClJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBDIDYuNC4yLgoKRGV0YWlscwoKQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgoKVXBkYXRlZCA2IE9jdG9iZXIgMjAyNgoKQWN0aW9ucwpOZXcgUGFnZQpFZGl0"
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo0OTgxMS9ib29rcy8xZmE5M2VlNi1lNGM4LTQwZWQtOGNiZi02ZjYzYjM1YWI1NDU="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g2r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<anonymous>",
+                    "column": 11,
+                    "line": 1693
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-a1c648922e744b6c557a",
+          "file": "REQ-6.4.spec.ts",
+          "line": 33,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T11:15:46.915Z",
+    "duration": 4345.098999999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

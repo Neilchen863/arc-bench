@@ -1,0 +1,153 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-2.2.spec.ts:16:5 › autosave_on_close
+[1A[2K  1) [chromium] › tests/REQ-2.2.spec.ts:16:5 › autosave_on_close ───────────────────────────────────
+
+    Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled "New note [82f3e9c695-w0-37be560208]", observed 0 ()
+
+       at lib/oracle.ts:8
+
+       6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+       7 | }
+    >  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+         |                                                             ^
+       9 |
+      10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),
+      11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/lib/oracle.ts:8:61)
+        at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/lib/oracle.ts:27:24)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/REQ-2.2.spec.ts:25:54)
+        at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/lib/ledger.ts:39:7)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/REQ-2.2.spec.ts:25:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-autosave-on-close-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Toggle sidebar" [expanded]
+      - heading "Keep" [level=1]
+      - searchbox "Search"
+      - button "List view"
+      - button "Settings menu"
+    - navigation "Sidebar":
+      - list:
+        - listitem:
+          - button "Notes"
+        - listitem:
+          - button "Reminders"
+        - listitem:
+          - button "E...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit Labels
+    Archived
+    Trash
+    Take a note
+    PINNED
+    
+    No pinned notes
+    
+    OTHERS
+    
+    Notes you add appear here
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:57142/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-2.2-autosave-on-close-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-autosave-on-close-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-2.2-autosave-on-close-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-2.2.spec.ts:30:5 › persist_after_reload
+[1A[2K  2) [chromium] › tests/REQ-2.2.spec.ts:30:5 › persist_after_reload ────────────────────────────────
+
+    Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled "Persistent note [82f3e9c695-w1-01c3c2598e]", observed 0 ()
+
+       at lib/oracle.ts:8
+
+       6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+       7 | }
+    >  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+         |                                                             ^
+       9 |
+      10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),
+      11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/lib/oracle.ts:8:61)
+        at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/lib/oracle.ts:27:24)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/REQ-2.2.spec.ts:38:54)
+        at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/lib/ledger.ts:39:7)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/N1-keep.REQ-2.2.K22-D3/rep1/work/tests/REQ-2.2.spec.ts:38:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Toggle sidebar" [expanded]
+      - heading "Keep" [level=1]
+      - searchbox "Search"
+      - button "List view"
+      - button "Settings menu"
+    - navigation "Sidebar":
+      - list:
+        - listitem:
+          - button "Notes"
+        - listitem:
+          - button "Reminders"
+        - listitem:
+          - button "E...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit Labels
+    Archived
+    Trash
+    Take a note
+    PINNED
+    
+    No pinned notes
+    
+    OTHERS
+    
+    Notes you add appear here
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:57142/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-2.2-persist-after-reload-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-2.2.spec.ts:16:5 › autosave_on_close ────────────────────────────────────
+    [chromium] › tests/REQ-2.2.spec.ts:30:5 › persist_after_reload ─────────────────────────────────
+

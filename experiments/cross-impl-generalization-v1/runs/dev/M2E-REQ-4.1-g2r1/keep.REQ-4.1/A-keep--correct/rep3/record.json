@@ -1,0 +1,57 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-keep.REQ-4.1.correct",
+ "method": "M2E-REQ-4.1-g2r1",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "794988b5414769d1fdfcc6573bdec5f66671a02877d8492e624c69f1eb0b96f8",
+ "execution_repeat": 3,
+ "run_id": "r3",
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "3c67c056feeeeabd5c7a7416122fefeec6acc23f3b20b5269932a383ec87126e",
+ "source_hash": "3c67c056feeeeabd5c7a7416122fefeec6acc23f3b20b5269932a383ec87126e",
+ "runtime_ms": 4630,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "file": "REQ-4.1.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 1625,
+   "errors": [],
+   "attachments": {}
+  },
+  {
+   "title": "suggested_label_filter",
+   "file": "REQ-4.1.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 1278,
+   "errors": [],
+   "attachments": {}
+  }
+ ],
+ "case_check_problems": [],
+ "result": "PASS",
+ "failure_cause": null,
+ "raw_report_path": "runs/dev/M2E-REQ-4.1-g2r1/keep.REQ-4.1/A-keep--correct/rep3/report.json",
+ "trace_path": "runs/dev/M2E-REQ-4.1-g2r1/keep.REQ-4.1/A-keep--correct/rep3/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

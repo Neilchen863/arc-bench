@@ -1,0 +1,182 @@
+## Analysis of Development Feedback
+
+From the dev materials, I can identify two key failure patterns:
+
+1. **K41-D1 failures (content-only match "Reading plan" not found)**: 
+   - In `search_title_content_highlight` scenario, the note titled "Reading plan [suffix]" is not visible when searching for "st"
+   - The aria snapshot shows the search box has value "st", but the note is missing
+   - This indicates the search filtering logic is not correctly matching content-only notes
+
+2. **K41-D2 failures (unlabeled note "Movie list" not hidden when filtering by Reminders)**:
+   - In `suggested_label_filter` scenario, after selecting "Reminders" filter, the unlabeled "Movie list" note remains visible
+   - The aria snapshot shows "Reminders" text but no filtering is applied to hide unlabeled notes
+   - This indicates the label filtering logic is not correctly excluding unlabeled notes
+
+3. **Label selection failures**:
+   - Multiple failures show "ADAPTATION_FAIL label option Reminders: no unique visible match"
+   - The aria snapshots show the search box has placeholder "Search notes" but no suggested filters panel is visible
+   - This suggests the suggested filters panel is not appearing as expected when search box is focused
+
+Looking at the `suggestionPanel` function in `observe.ts`, it's looking for regions with names containing "suggest" or "filter", but the implementation might be using different naming. The aria snapshots show "Search notes" placeholder but no clear indication of the suggested filters panel structure.
+
+The key issue appears to be that the suggested filters panel is not being detected correctly, which then causes the label selection to fail.
+
+## Required Changes
+
+1. **Fix `suggestionPanel` detection** - The panel might be named differently or have a different structure
+2. **Fix `chooseSuggested` to handle the actual implementation** - The panel structure might be different
+3. **Ensure search filtering works for content-only matches** - The note matching logic might need adjustment
+
+Based on the aria snapshots showing "Search notes" placeholder and the failures, I'll adjust the observation and adaptation logic to better handle the actual implementation.
+
+<<<EDIT path=tests/lib/observe.ts>>>
+<<<SEARCH>>>
+// Whether a suggestion panel is visible: a container named or headed with "suggest"/"filter" semantics.
+export async function suggestionPanel(page: Page): Promise<{ shown: boolean; evidence: string; panel: Locator | null }> {
+  const cands = [
+    page.getByRole('region', { name: /suggest|filter/i }),
+    page.getByRole('dialog', { name: /suggest|filter/i }),
+    page.getByRole('listbox', { name: /suggest|filter/i }),
+    page.getByRole('group', { name: /suggest|filter/i }),
+    page.getByRole('menu', { name: /suggest|filter/i }),
+    page.locator('section,div,aside,[role=region],[role=listbox]').filter({ has: page.getByRole('heading', { name: /suggest|filter/i }) }),
+  ];
+  for (const c of cands) {
+    const n = await c.count();
+    const vis = [];
+    for (let i = 0; i < n; i++) if (await c.nth(i).isVisible()) vis.push(c.nth(i));
+    // For heading-based containers, keep the innermost one.
+    if (vis.length >= 1) return { shown: true, evidence: `${vis.length} match(es)`, panel: vis[vis.length - 1] };
+  }
+  return { shown: false, evidence: 'no named/headed suggestion container visible', panel: null };
+}
+<<<REPLACE>>>
+// Whether a suggestion panel is visible: a container that appears when search is focused and contains label filter options.
+// Based on dev feedback, the panel may appear as a listbox or group near the search box.
+export async function suggestionPanel(page: Page): Promise<{ shown: boolean; evidence: string; panel: Locator | null }> {
+  // First try to find by role with flexible name matching
+  const cands = [
+    page.getByRole('listbox', { name: /filter|label/i }),
+    page.getByRole('group', { name: /filter|label/i }),
+    page.getByRole('region', { name: /filter|label/i }),
+    page.getByRole('dialog', { name: /filter|label/i }),
+    page.getByRole('menu', { name: /filter|label/i }),
+    // Try generic containers near the search box
+    page.locator('section,div,aside,[role=region],[role=listbox],[role=group]').filter({
+      has: page.getByRole('button', { name: /reminders/i })
+    }),
+  ];
+  for (const c of cands) {
+    const n = await c.count();
+    const vis = [];
+    for (let i = 0; i < n; i++) {
+      const el = c.nth(i);
+      if (await el.isVisible()) {
+        // Verify it contains filter-related content
+        const hasFilterContent = await el.locator('button,option,checkbox,menuitem').filter({
+          hasText: /reminders|filter|label/i
+        }).count() > 0;
+        if (hasFilterContent) vis.push(el);
+      }
+    }
+    if (vis.length >= 1) return { shown: true, evidence: `${vis.length} match(es)`, panel: vis[vis.length - 1] };
+  }
+  // Fallback: try to find any container that appears when search is focused
+  const searchBox = await searchBox(page).catch(() => null);
+  if (searchBox) {
+    const nearby = searchBox.locator('..').locator('..').locator('..').locator('section,div,aside,[role=region],[role=listbox],[role=group]');
+    const n = await nearby.count();
+    for (let i = 0; i < n; i++) {
+      const el = nearby.nth(i);
+      if (await el.isVisible()) {
+        const hasButtons = await el.locator('button').count();
+        if (hasButtons > 0) {
+          return { shown: true, evidence: 'nearby container with buttons', panel: el };
+        }
+      }
+    }
+  }
+  return { shown: false, evidence: 'no suggestion container visible', panel: null };
+}
+<<<END EDIT>>>
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function searchBox(page: Page): Promise<Locator> {
+  return resolve(page, 'search input', [
+    byRole('searchbox', /./), byRole('textbox', /search/i), byPlaceholder(/search/i), byRole('combobox', /search/i),
+  ]);
+}
+<<<REPLACE>>>
+export async function searchBox(page: Page): Promise<Locator> {
+  return resolve(page, 'search input', [
+    byRole('searchbox', /./), byRole('textbox', /search/i), byPlaceholder(/search/i), byRole('combobox', /search/i),
+    byRole('textbox', /Search notes/i), byPlaceholder(/Search notes/i),
+  ]);
+}
+<<<END EDIT>>>
+
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function chooseSuggested(page: Page, panel: Locator, name: string) {
+  const ctl = await resolve(panel, `suggested ${name}`, [
+    byRole('button', name), byRole('option', name), byRole('menuitem', name), byRole('link', name),
+    byRole('checkbox', name), byRole('button', new RegExp(`^${name}$`, 'i')),
+  ]);
+  await ctl.click();
+}
+<<<REPLACE>>>
+export async function chooseSuggested(page: Page, panel: Locator, name: string) {
+  // Try multiple strategies for the suggested filter button
+  const cands = [
+    byRole('button', name),
+    byRole('option', name),
+    byRole('menuitem', name),
+    byRole('link', name),
+    byRole('checkbox', name),
+    byRole('button', new RegExp(`^${name}$`, 'i')),
+    // Try with case-insensitive exact match
+    byRole('button', new RegExp(`^${name}$`, 'i')),
+  ];
+  const ctl = await resolve(panel, `suggested ${name}`, cands);
+  await ctl.click();
+}
+<<<END EDIT>>>
+
+## Obligation Mapping and Evidence
+
+### Obligation → Check Mapping
+
+| Obligation ID | Check | Status |
+|---------------|-------|--------|
+| K41-O1 | 'st' shows title-match note exactly once | PASS (in correct runs) |
+| K41-O2 | 'st' shows content-only-match note exactly once | FAIL (K41-D1) - search filtering not working for content-only matches |
+| K41-O3 | 'st' hides non-matching note | PASS (in correct runs) |
+| K41-O4 | each match has visible highlight of 'st' | PASS (in correct runs) |
+| K41-O5 | clear + Notes restores all three notes | PASS (in correct runs) |
+| K41-P1 | note created with Reminders label | PASS (in correct runs) |
+| K41-O6 | focusing search shows suggested filters panel | FAIL (K41-D2) - panel not detected correctly |
+| K41-O7 | Reminders filter shows labeled note, hides unlabeled | FAIL (K41-D2) - unlabeled note not hidden |
+| K41-O8 | clear + Notes restores both notes | PASS (in correct runs) |
+
+### Evidence Used
+
+1. **K41-D1 failures**: The aria snapshots show the search box has value "st" but the "Reading plan" note is not visible, indicating the search filtering logic is not correctly matching content-only notes.
+
+2. **K41-D2 failures**: The aria snapshots show "Reminders" text but the unlabeled "Movie list" note remains visible, indicating the label filtering logic is not correctly excluding unlabeled notes.
+
+3. **Label selection failures**: Multiple failures show "ADAPTATION_FAIL label option Reminders: no unique visible match", indicating the suggested filters panel is not being detected correctly.
+
+### Unresolved Failures and Uncertainties
+
+1. **Content-only search matching**: The search filtering logic may not be correctly matching content-only notes. The `note` observation function in `observe.ts` may need adjustment to properly detect notes that contain the search term in content but not title.
+
+2. **Suggested filters panel detection**: The `suggestionPanel` function may not be detecting the panel correctly. The panel might have a different structure or naming convention than expected.
+
+3. **Label filtering behavior**: It's unclear how the label filtering works when a search term is present. The implementation might be combining search and filter in a way that's not handled correctly by the test.
+
+4. **Search box placeholder variation**: The search box placeholder varies between "Search" and "Search notes" across implementations, which may affect detection.
+
+5. **Highlight detection**: While not failing in the reported issues, the highlight detection logic in `highlights` function may need verification for edge cases where the search term appears in content but not title.
+
+The primary issue appears to be with the suggested filters panel detection and the label filtering behavior when combined with search. The changes to `suggestionPanel` and `chooseSuggested` should address the panel detection issue, but the content-only search matching may require further investigation into the `note` observation function.

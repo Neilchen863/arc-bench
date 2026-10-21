@@ -1,0 +1,1 @@
+{"family":"Cpilot","app":"keep","start":"PORT=<port> APP=keep STATIC_DIR=app/dist node server/server.mjs","health":"/__health","reset":"POST /__reset","build":"cd app && npm ci && npm run build","framework":"react@18.3.1 (vite@5.4.21)","component_library":"@mui/material@7.3.11","naming_mode":"S1"}

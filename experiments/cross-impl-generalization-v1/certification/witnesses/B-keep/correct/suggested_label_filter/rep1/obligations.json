@@ -1,0 +1,25 @@
+{
+  "variant": "correct",
+  "scenario": "suggested_label_filter",
+  "rep": 1,
+  "obligations": {
+    "K41-P1": {
+      "holds": true,
+      "reason": "reminder note API labels [[\"reminders\"]]; \"Reminders\" tag visible on the card: true"
+    },
+    "K41-O6": {
+      "holds": true,
+      "reason": "on focus a panel with visible heading \"Filter by label\" containing label choices appears (suggested-filter meaning)"
+    },
+    "K41-O7": {
+      "holds": true,
+      "reason": "reminder note cards 1 (content visible true); Movie list cards 0; total cards shown 1"
+    },
+    "K41-O8": {
+      "holds": true,
+      "reason": "reminder note cards 1 content true; Movie list cards 1 content true"
+    }
+  },
+  "error": null,
+  "pageErrors": []
+}

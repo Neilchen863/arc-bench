@@ -1,0 +1,276 @@
+{
+ "status": "DRAFT_NOT_FROZEN (pilot P0/P1 in progress)",
+ "protocol_version": "1.1",
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "spec_track": "S1",
+ "owner": "executor (Claude Code main context, on behalf of the user)",
+ "reviewer": null,
+ "freeze_timestamp": null,
+ "pilot": {
+  "requirements": [
+   "keep.REQ-2.2",
+   "keep.REQ-4.1",
+   "bookstack.REQ-6.4"
+  ],
+  "family_split": {
+   "dev": [
+    "A",
+    "B"
+   ],
+   "validation": [],
+   "sealed": [
+    "Cpilot",
+    "Dpilot"
+   ]
+  },
+  "framework_plan": {
+   "A": "React 18 + native controls (S0)",
+   "B": "Vue 3 + Element Plus (S1)",
+   "Cpilot": "React 18 + MUI (keep S1, bookstack S0)",
+   "Dpilot": "Vue 3 + custom controls (S1)"
+  },
+  "mutants_per_correct_unit": 2,
+  "correct_units": 12,
+  "mutant_units": 24,
+  "generation_repeats": 2,
+  "methods": [
+   "M0",
+   "M0L",
+   "M1",
+   "M2"
+  ],
+  "sealed_system_variants": 6,
+  "sealed_requirement_runs": 324,
+  "input_coverage_change": "bookstack REQ-6.4: three pages A/TARGET/C (spec-audit A-B64-3)"
+ },
+ "formal": {
+  "requirements": [
+   "keep.REQ-2.2",
+   "keep.REQ-4.1",
+   "bookstack.REQ-6.4",
+   "keep.REQ-2.4",
+   "keep.REQ-2.6",
+   "ctrip.REQ-2.4"
+  ],
+  "expected_original_case_counts": {
+   "keep.REQ-2.2": 2,
+   "keep.REQ-4.1": 2,
+   "bookstack.REQ-6.4": 2,
+   "keep.REQ-2.4": 3,
+   "keep.REQ-2.6": 3,
+   "ctrip.REQ-2.4": 3
+  },
+  "family_split": {
+   "dev": [
+    "A",
+    "B",
+    "C"
+   ],
+   "validation": [
+    "D"
+   ],
+   "sealed": [
+    "E",
+    "F"
+   ]
+  },
+  "framework_plan": {
+   "A": "React",
+   "B": "Vue",
+   "C": "React",
+   "D": "Vue",
+   "E": "React",
+   "F": "Svelte"
+  },
+  "component_libraries_and_versions": null,
+  "mutants_per_correct_unit": 3,
+  "correct_units": 36,
+  "mutant_units": 108,
+  "generation_repeats": 3,
+  "methods": [
+   "M0",
+   "M0L",
+   "M1",
+   "M2",
+   "M3",
+   "M4"
+  ],
+  "sealed_system_variants": 14,
+  "sealed_requirement_runs": 2016,
+  "new_fault_mechanism_reservations": null,
+  "natural_fault_pairs_target": 6,
+  "ablations_enabled_before_unsealing": [],
+  "stability_subset_unit_ids": null
+ },
+ "execution": {
+  "node_major": 22,
+  "node_patch": "22.23.3",
+  "playwright_version": "1.57.0",
+  "chromium_build": null,
+  "environment_digest": null,
+  "viewport": {
+   "width": 1440,
+   "height": 900
+  },
+  "locale": "en-US",
+  "workers": 1,
+  "retries": 0,
+  "execution_repeats": 3,
+  "case_timeout_ms": 120000,
+  "expect_timeout_ms": 10000,
+  "action_timeout_ms": 15000,
+  "navigation_timeout_ms": 30000,
+  "obligation_wait_overrides": {
+   "keep.REQ-2.4.auto_dismiss_ms": 60000
+  },
+  "business_clocks": {
+   "keep": "2026-07-21T12:00:00Z",
+   "ctrip": "2026-07-19T08:00:00+08:00",
+   "bookstack": "2026-10-06T12:00:00Z"
+  },
+  "timezones": {
+   "keep": "UTC",
+   "bookstack": "UTC",
+   "ctrip": "Asia/Shanghai"
+  },
+  "schedule_random_seed": 20261019,
+  "input_seed_schedule": null,
+  "max_external_infra_recovery_attempts": 2,
+  "reporter": "json",
+  "target_url_from_manifest": true,
+  "config_sha256": "cc01bebada84d409be32351f6d0b4addcc3afd403c4df4c1fc786204a9f93218"
+ },
+ "revision": {
+  "provider": "PENDING_USER_APPROVAL",
+  "model_snapshot": "PENDING_USER_APPROVAL",
+  "temperature_if_supported": 0.2,
+  "max_calls_per_requirement_repeat": {
+   "M1": 1,
+   "M2": 3,
+   "M3": 3,
+   "M4": 3
+  },
+  "max_input_tokens_per_call": 24000,
+  "max_output_tokens_per_call": 6000,
+  "shared_first_candidate": [
+   "M1",
+   "M2"
+  ],
+  "M2_M3_edit_base": "previous_output_unconditionally",
+  "M3_new_feedback_forbidden": [
+   "execution_results",
+   "compiler_errors",
+   "acceptance_bit",
+   "execution_selected_base"
+  ],
+  "selection_after_all_candidates": true,
+  "fixed_protection_baseline": "M0L",
+  "candidate_order": [
+   "CAR_at_3_desc",
+   "EDR_at_3_desc",
+   "earlier_candidate"
+  ],
+  "fallback": "M0L",
+  "validation_submissions_per_requirement_repeat": 1,
+  "validation_details_to_model": false,
+  "allowed_edit_paths": {
+   "keep": [
+    "tests/lib/operations.ts",
+    "tests/lib/observe.ts",
+    "tests/lib/adapt.ts",
+    "tests/REQ-2.2.spec.ts",
+    "tests/REQ-4.1.spec.ts",
+    "tests/lib/evidence.ts"
+   ],
+   "bookstack": [
+    "tests/lib/operations.ts",
+    "tests/lib/observe.ts",
+    "tests/lib/adapt.ts",
+    "tests/REQ-6.4.spec.ts",
+    "tests/lib/evidence.ts"
+   ]
+  },
+  "oracle_core_hash": {
+   "methods/M0L/keep/tests/lib/oracle.ts": "5079e548ddd7aa1b2f232f1beb236806b456575226ed537c700eb4dc0e374ca7",
+   "methods/M0L/bookstack/tests/lib/oracle.ts": "7c1995faeb46d2089d5e4d4b1cf9341e17e943147f96169de74a1e8e14dea249"
+  },
+  "shared_scenario_bundle_hash": {
+   "methods/M0L/keep/tests/lib/inputs.ts": "e80588a19c649461c9f7774ca112d6a26c7d0304ed16c21615dc3ab4d81c2bb5",
+   "methods/M0L/bookstack/tests/lib/inputs.ts": "bc94d7213aba02b0ae6a24fb329ca869ed1e48519efe3e69184846502bee43d8"
+  },
+  "M0_to_M0L_change_ledger": "protocol/M0-to-M0L-ledger.md",
+  "price_record": null,
+  "M0L_static_adapter_hours_per_requirement": 4,
+  "M0L_has_same_S1_spec_as_revision_methods": true
+ },
+ "analysis": {
+  "primary_practical_comparison": [
+   "M2",
+   "M0L"
+  ],
+  "required_incremental_comparison": [
+   "M2",
+   "M0L"
+  ],
+  "mechanism_comparisons": [
+   [
+    "M2",
+    "M3"
+   ],
+   [
+    "M2",
+    "M4"
+   ]
+  ],
+  "primary_aggregation": "requirement_macro",
+  "additional_aggregation": [
+   "application_macro",
+   "implementation_family",
+   "fault_mechanism",
+   "generation_repeat"
+  ],
+  "fixed_denominator": true,
+  "EDR_requires_parent_all_pass_and_target_all_fail": true,
+  "unresolved_policy": "fixed_denominator_lower_upper_bounds_and_complete_cases",
+  "bootstrap_if_used": {
+   "repeats": 10000,
+   "seed": null,
+   "status": "exploratory_small_sample"
+  },
+  "formal_engineering_targets": {
+   "CAR_gain_percentage_points": 10,
+   "EDR_drop_allowed": 0,
+   "Flaky_increase_percentage_points_max": 5
+  },
+  "critical_mutant_ids": [
+   "K22-D1",
+   "K22-D2",
+   "K41-D1",
+   "K41-D2",
+   "B64-D1",
+   "B64-D2"
+  ],
+  "historical_tool_comparison": [
+   "M2",
+   "M0"
+  ]
+ },
+ "required_freeze_assets": [
+  "obligations",
+  "ambiguity_adjudication",
+  "material_manifest",
+  "certification",
+  "split",
+  "exposure_ledger",
+  "fault_mechanisms",
+  "model_and_budget",
+  "candidate_selection",
+  "environment",
+  "analysis_plan",
+  "S0_to_S1_relaxation_manifest"
+ ],
+ "null_fields_note": "必须按协议补齐或注明不适用后再冻结。此文件是填写模板，不是已实施的实验配置。",
+ "S0_role": "historical_compatibility_reference_not_normative_optimum",
+ "S1_relaxation_manifest": "protocol/s1-relaxation-manifest.json",
+ "S0_compatible_unit_ids_frozen_before_methods": null
+}

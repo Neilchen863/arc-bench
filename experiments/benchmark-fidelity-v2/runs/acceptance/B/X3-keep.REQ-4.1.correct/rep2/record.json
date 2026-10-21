@@ -1,0 +1,192 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "X3-keep.REQ-4.1.correct",
+ "parent_id": null,
+ "method_id": "B",
+ "material_hash": "0418ae066a7621f0",
+ "binding_hash": "d2ba0b9330eddae5",
+ "common_hash": "b040fe2b11c65085",
+ "binding_source": "generic M0L rules",
+ "reference_label": "SATISFIED",
+ "target_obligation": null,
+ "execution_repeat": 2,
+ "reset_id": "r2-1792438156",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "acceptance",
+ "tag": "post-freeze-k3",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 19042,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "result": "ADAPTATION_UNKNOWN",
+ "obligation_results": {
+  "K41-O1": "PASS",
+  "K41-O2": "PASS",
+  "K41-O3": "PASS",
+  "K41-O4": "PASS",
+  "K41-O5": "PASS",
+  "K41-O6": "NOT_REACHED",
+  "K41-O7": "NOT_REACHED",
+  "K41-O8": "NOT_REACHED",
+  "K41-P1": "FAIL"
+ },
+ "failure_detail": "prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{\"tag\":\"input\",\"name\":\"Title\",\"value\":\"Call dentist existing [db77fd01af-w0-fb7b338c04]\"},{\"tag\":\"textarea\",\"name\":\"Note text\",\"value\":\"Reminder content\"}] (surface <div role=dialog> modal=true shown=true)\n\n   at lib/oracle.ts:8\n\n   6 |   construc",
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "status": "passed",
+   "duration_ms": 3868,
+   "errors": [],
+   "last_step": "select Notes",
+   "checks": [
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T19:29:19.971Z",
+     "step": "create Study schedule [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"Math on Monday\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T19:29:19.976Z",
+     "step": "create Study schedule [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T19:29:21.098Z",
+     "step": "create Reading plan [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"Read a story\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T19:29:21.101Z",
+     "step": "create Reading plan [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T19:29:22.235Z",
+     "step": "create Ocean memo [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"Calm blue waves\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T19:29:22.244Z",
+     "step": "create Ocean memo [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-O3",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"matches\":0,\"visible\":false,\"titleShown\":false,\"lines\":[],\"evidence\":\"\"}",
+     "at": "2026-10-19T19:29:22.278Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"Math on Monday\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T19:29:22.280Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"Read a story\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T19:29:22.282Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O4",
+     "status": "PASS",
+     "detail": "",
+     "observed": "[{\"text\":\"St\",\"vhl\":true,\"vhlReason\":\"bg rgb(253, 214, 99) vs rgba(0, 0, 0, 0); weight 600 vs 500\"}]",
+     "at": "2026-10-19T19:29:22.285Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O4",
+     "status": "PASS",
+     "detail": "",
+     "observed": "[{\"text\":\"st\",\"vhl\":true,\"vhlReason\":\"bg rgb(253, 214, 99) vs rgba(0, 0, 0, 0); weight 600 vs 400\"}]",
+     "at": "2026-10-19T19:29:22.287Z",
+     "step": "search"
+    },
+    {
+     "obligation": "K41-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"Math on Monday\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T19:29:22.343Z",
+     "step": "select Notes"
+    },
+    {
+     "obligation": "K41-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Reading plan [db77fd01af-w0-c0bcaedb24]\",\"Read a story\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T19:29:22.345Z",
+     "step": "select Notes"
+    },
+    {
+     "obligation": "K41-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Ocean memo [db77fd01af-w0-c0bcaedb24]\",\"Calm blue waves\"],\"evidence\":\"<article role=null class=\\\"MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-d4w0u3\\\">\"}",
+     "at": "2026-10-19T19:29:22.346Z",
+     "step": "select Notes"
+    }
+   ],
+   "actions": []
+  },
+  {
+   "title": "suggested_label_filter",
+   "status": "failed",
+   "duration_ms": 10729,
+   "errors": [
+    "Error: OBLIGATION_FAIL K41-P1: editor still active: [{\"tag\":\"input\",\"name\":\"Title\",\"value\":\"Call dentist existing [db77fd01af-w0-fb7b338c04]\"},{\"tag\":\"textarea\",\"name\":\"Note text\",\"value\":\"Reminder content\"}] (surface <div role=dialog> modal=true shown=true)\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X3-keep.REQ-4.1.correct/rep2/work/tests/lib/oracle.ts:8:61)\n    at Object.editorClosed (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X3-keep.REQ-4.1.correct/rep2/work/tests/lib/oracle.ts:23:32)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X3-keep.REQ-4.1.correct/rep2/work/tests/REQ-4.1.spec.ts:22:83)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X3-keep.REQ-4.1.correct/rep2/work/tests/lib/ledger.ts:39:7)\n    at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X3-keep.REQ-4.1.correct/rep2/work/tests/REQ-4.1.spec.ts:22:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X3-keep.REQ-4.1.correct/rep2/work/tests/REQ-4.1.spec.ts:51:3"
+   ],
+   "last_step": "create Call dentist existing [db77fd01af-w0-fb7b338c04]",
+   "checks": [
+    {
+     "obligation": "K41-P1",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL K41-P1: editor still active: [{\"tag\":\"input\",\"name\":\"Title\",\"value\":\"Call dentist existing [db77fd01af-w0-fb7b338c04]\"},{\"tag\":\"textarea\",\"name\":\"Note text\",\"value\":\"Reminder content\"}] (surface <div role=dialog> modal=true shown=true)",
+     "observed": "{\"activeControls\":[{\"tag\":\"input\",\"name\":\"Title\",\"value\":\"Call dentist existing [db77fd01af-w0-fb7b338c04]\"},{\"tag\":\"textarea\",\"name\":\"Note text\",\"value\":\"Reminder content\"}],\"modalSurfaceShown\":true,\"evidence\":\"surface <div role=dialog> modal=true shown=true\"}",
+     "at": "2026-10-19T19:29:33.131Z",
+     "step": "create Call dentist existing [db77fd01af-w0-fb7b338c04]"
+    }
+   ],
+   "actions": []
+  }
+ ],
+ "target_failure_confirmed": null,
+ "evidence_paths": [
+  "runs/acceptance/B/X3-keep.REQ-4.1.correct/rep2/report.json",
+  "runs/acceptance/B/X3-keep.REQ-4.1.correct/rep2/test-results"
+ ]
+}

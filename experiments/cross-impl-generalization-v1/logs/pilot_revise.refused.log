@@ -1,0 +1,24 @@
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g1-r1.json
+call failed: REFUSED: model calls need explicit user approval (set ARC_REVISION_APPROVED=1 after approval).
+
+FAILED keep:REQ-2.2 g1
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-2.2-g2-r1.json
+call failed: REFUSED: model calls need explicit user approval (set ARC_REVISION_APPROVED=1 after approval).
+
+FAILED keep:REQ-2.2 g2
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g1-r1.json
+call failed: REFUSED: model calls need explicit user approval (set ARC_REVISION_APPROVED=1 after approval).
+
+FAILED keep:REQ-4.1 g1
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-keep-REQ-4.1-g2-r1.json
+call failed: REFUSED: model calls need explicit user approval (set ARC_REVISION_APPROVED=1 after approval).
+
+FAILED keep:REQ-4.1 g2
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g1-r1.json
+call failed: REFUSED: model calls need explicit user approval (set ARC_REVISION_APPROVED=1 after approval).
+
+FAILED bookstack:REQ-6.4 g1
+$ python3 tools/revise.py call --request /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/revisions/request/M2-bookstack-REQ-6.4-g2-r1.json
+call failed: REFUSED: model calls need explicit user approval (set ARC_REVISION_APPROVED=1 after approval).
+
+FAILED bookstack:REQ-6.4 g2

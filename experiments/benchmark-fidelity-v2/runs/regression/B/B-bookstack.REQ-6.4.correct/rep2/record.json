@@ -1,0 +1,172 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "B-bookstack.REQ-6.4.correct",
+ "parent_id": null,
+ "method_id": "B",
+ "material_hash": "c3efaf923306a8fd",
+ "binding_hash": "aa496db7b0687966",
+ "common_hash": "8aa3ade3303fdbeb",
+ "binding_source": "generic M0L rules",
+ "reference_label": "SATISFIED",
+ "target_obligation": null,
+ "execution_repeat": 2,
+ "reset_id": "r2-1792433711",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "regression",
+ "tag": "formal-regression-run2",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 7217,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "result": "PASS",
+ "obligation_results": {
+  "B64-O1": "PASS",
+  "B64-O2": "PASS",
+  "B64-O3": "PASS",
+  "B64-O4": "PASS",
+  "B64-O5": "PASS",
+  "B64-O6": "PASS",
+  "B64-P1": "PASS"
+ },
+ "failure_detail": null,
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "status": "passed",
+   "duration_ms": 2886,
+   "errors": [],
+   "last_step": "open target page",
+   "checks": [
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:15:14.979Z",
+     "step": "create page A"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:15:15.581Z",
+     "step": "create page TARGET"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:15:16.180Z",
+     "step": "create page C"
+    },
+    {
+     "obligation": "B64-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.1 [r2-w0-read-selected-page]\",\"Details\",\"Actions\"],\"lines\":[\"Skip to content\",\"Knowledge Base\",\"Shelves\",\"Books\",\"Log in\",\"Books\",\"Book 6.4.1 [r2-w0-read-selected-page]\",\"Page B 6.4.1 [r2-w0-read-selected-page]\",\"Page B 6.4.1 [r2-w0-read-selected-page]\",\"Reading content for Page B 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/7fe22bd7-8b57-4c2f-8078-b216fbe9d55c/pages/8518901e-84af-4495-8d2f-4954f2a67bd9\"}",
+     "at": "2026-10-19T18:15:16.471Z",
+     "step": "open target page"
+    },
+    {
+     "obligation": "B64-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.1 [r2-w0-read-selected-page]\",\"Details\",\"Actions\"],\"lines\":[\"Skip to content\",\"Knowledge Base\",\"Shelves\",\"Books\",\"Log in\",\"Books\",\"Book 6.4.1 [r2-w0-read-selected-page]\",\"Page B 6.4.1 [r2-w0-read-selected-page]\",\"Page B 6.4.1 [r2-w0-read-selected-page]\",\"Reading content for Page B 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/7fe22bd7-8b57-4c2f-8078-b216fbe9d55c/pages/8518901e-84af-4495-8d2f-4954f2a67bd9\"}",
+     "at": "2026-10-19T18:15:16.473Z",
+     "step": "open target page"
+    },
+    {
+     "obligation": "B64-O3",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.1 [r2-w0-read-selected-page]\",\"Details\",\"Actions\"],\"lines\":[\"Skip to content\",\"Knowledge Base\",\"Shelves\",\"Books\",\"Log in\",\"Books\",\"Book 6.4.1 [r2-w0-read-selected-page]\",\"Page B 6.4.1 [r2-w0-read-selected-page]\",\"Page B 6.4.1 [r2-w0-read-selected-page]\",\"Reading content for Page B 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/7fe22bd7-8b57-4c2f-8078-b216fbe9d55c/pages/8518901e-84af-4495-8d2f-4954f2a67bd9\"}",
+     "at": "2026-10-19T18:15:16.474Z",
+     "step": "open target page"
+    }
+   ],
+   "actions": []
+  },
+  {
+   "title": "reopen_page_editor",
+   "status": "passed",
+   "duration_ms": 3114,
+   "errors": [],
+   "last_step": "open editor",
+   "checks": [
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:15:17.827Z",
+     "step": "create page A"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:15:18.428Z",
+     "step": "create page TARGET"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:15:19.043Z",
+     "step": "create page C"
+    },
+    {
+     "obligation": "B64-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.2 [r2-w0-reopen-page-editor]\",\"Details\",\"Actions\"],\"lines\":[\"Skip to content\",\"Knowledge Base\",\"Shelves\",\"Books\",\"Log in\",\"Books\",\"Book 6.4.2 [r2-w0-reopen-page-editor]\",\"Page B 6.4.2 [r2-w0-reopen-page-editor]\",\"Page B 6.4.2 [r2-w0-reopen-page-editor]\",\"Reading content for Page B 6.4.2.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/346b6d11-a32b-4fdb-8528-c866ea9597cd/pages/7ca90f4b-6fb2-404a-8c99-fc837a1840e4\"}",
+     "at": "2026-10-19T18:15:19.337Z",
+     "step": "open target page"
+    },
+    {
+     "obligation": "B64-O4",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"titleValue\":\"Page B 6.4.2 [r2-w0-reopen-page-editor]\",\"bodyValue\":\"Reading content for Page B 6.4.2.\",\"saveVisible\":true,\"evidence\":\"title=true body=true save=true\"}",
+     "at": "2026-10-19T18:15:19.635Z",
+     "step": "open editor"
+    },
+    {
+     "obligation": "B64-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"titleValue\":\"Page B 6.4.2 [r2-w0-reopen-page-editor]\",\"bodyValue\":\"Reading content for Page B 6.4.2.\",\"saveVisible\":true,\"evidence\":\"title=true body=true save=true\"}",
+     "at": "2026-10-19T18:15:19.640Z",
+     "step": "open editor"
+    },
+    {
+     "obligation": "B64-O6",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"titleValue\":\"Page B 6.4.2 [r2-w0-reopen-page-editor]\",\"bodyValue\":\"Reading content for Page B 6.4.2.\",\"saveVisible\":true,\"evidence\":\"title=true body=true save=true\"}",
+     "at": "2026-10-19T18:15:19.645Z",
+     "step": "open editor"
+    }
+   ],
+   "actions": []
+  }
+ ],
+ "target_failure_confirmed": null,
+ "evidence_paths": [
+  "runs/regression/B/B-bookstack.REQ-6.4.correct/rep2/report.json",
+  "runs/regression/B/B-bookstack.REQ-6.4.correct/rep2/test-results"
+ ]
+}

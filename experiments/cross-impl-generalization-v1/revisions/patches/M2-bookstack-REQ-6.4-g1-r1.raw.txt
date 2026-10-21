@@ -1,0 +1,215 @@
+Based on the development execution feedback, the core failures fall into two categories:
+
+1. **Page title field placeholder mismatch**: The test expects `getByPlaceholder('Page title', { exact: true })`, but the actual placeholder is `"Write your page content here..."` for the body field, and the title field likely uses a label or different placeholder (e.g., `"Page title"` is used as a label, not placeholder). This is confirmed by the `aria` snapshots in `B64-D2` where we see `text: Page title` followed by `textbox "Page title"`, indicating the field has an accessible name `"Page title"` (likely via `aria-label` or `<label>`), not a placeholder.
+
+2. **Editor body field not populated**: In `B64-D2`, the editor opens with `title=true body=true save=true`, but `bodyValue` is empty. This suggests the body field is present but not pre-filled. The `openEditor` function uses `readValue`, which for rich editors reads `innerText`, but the actual body content may be in a nested element (e.g., inside a `div[contenteditable]` with child nodes), or the placeholder text `"Write your page content here..."` is still present and not the saved body.
+
+**Evidence from feedback**:
+- `A-bookstack.REQ-6.4.correct` passes (reps 1–3), but `A-bookstack.REQ-6.4.B64-D1` fails with timeout on placeholder (implies placeholder-based locator is wrong).
+- `B-bookstack.REQ-6.4.correct` passes (reps 1–3), but `B-bookstack.REQ-6.4.B64-D2` fails with empty body in editor (`B64-O5`), and aria shows `textbox "Page title"` (so title field is correctly located by accessible name, not placeholder).
+- The `B64-D2` aria for editor shows: `heading "Edit Page"`, `button "Save Page"`, `text: Page title`, `textbox "Page title"`. This confirms the title field has accessible name `"Page title"`, and the body field is likely `textbox "Write your page content here..."` (based on the relaxation `R-NAME` and `PAGE_BODY` regex).
+
+**Root cause**: The `createPage` and `openEditor` functions rely on placeholder-based locators for the title field (`byPlaceholder(PAGE_TITLE)`), but the implementation uses accessible names (labels or `aria-label`) instead of placeholders for the title field. The body field may be a rich editor where `innerText` is not the saved value (e.g., it contains HTML or placeholder text).
+
+**Fix strategy**:
+- Update `PAGE_TITLE` regex to match label/placeholder (already done: `PAGE_TITLE = /^(page title|title)$/i`), but the `field` function uses `byPlaceholder` *after* `byRole`, so we need to prioritize `byLabel` or `byRole('textbox', PAGE_TITLE)` first.
+- For the body field, ensure `readValue` works for rich editors. The current `readValue` uses `innerText` for non-inputs, but the saved body may be stored in `value` (if it's a hidden textarea) or in a nested element. However, the `enterText` function uses `contenteditable`, so `innerText` should work. The issue is likely that the body field is pre-filled with the placeholder text `"Write your page content here..."`, not the saved body. This suggests the editor is not pre-filled correctly, but the test is correct: the requirement says the editor is "prefilled with the current title... and body". So the implementation bug is not in the test, but the test must detect the actual body value. The `B64-D2` failure shows `bodyValue: ""`, which means `innerText` is empty. This could be because the body field is a `contenteditable` with no child nodes (e.g., only a placeholder comment or hidden element). We need to improve `readValue` for rich editors to handle placeholder text fallback or use `textContent` (which includes hidden elements), but the spec says "saved body", so we must read the actual saved content, not placeholder. However, the feedback shows the body field is present but empty, so the implementation is broken. But we cannot fix the implementation; we must adapt the test to handle the actual DOM structure.
+
+**Key insight from `B64-D2` aria**:
+- Editor title field: `textbox "Page title"` → accessible name `"Page title"`, so `byRole('textbox', /page title/i)` should work.
+- Editor body field: aria not shown, but the error says `body field holds ""`. The `PAGE_BODY` regex includes `"write your page content here..."`, so the placeholder is `"Write your page content here..."`. The body field is likely a `contenteditable` with `innerText` empty because the saved body is not rendered (e.g., the editor shows placeholder text, but `innerText` returns empty if the placeholder is a CSS pseudo-element or hidden). However, the `enterText` function uses `contenteditable`, so `innerText` should return the text. The issue is that the body field is pre-filled with the saved body, but the test reads `innerText` and gets empty. This suggests the body field is a rich editor where the text is in a nested structure (e.g., `<div><p>...</p></div>`), and `innerText` on the root returns the text, but in the test run it's empty. Alternatively, the body field might be a hidden textarea that is synced to the rich editor, and `readValue` should read the textarea's `value`.
+
+**Solution**:
+- For title field: prioritize `byRole('textbox', PAGE_TITLE)` over `byPlaceholder`, since the aria shows `textbox "Page title"`.
+- For body field: try `byPlaceholder(PAGE_BODY)` first (since the placeholder is `"Write your page content here..."`), but also try `byRole('textbox', PAGE_BODY)` and `byCss('[contenteditable=true]')`. The `openEditor` function already does this, but the `readValue` for rich editors uses `innerText`, which may not capture the saved body if the editor uses a different structure.
+
+However, the feedback shows that in `B64-D2`, the body field is present (`body=true`), but `bodyValue` is empty. This means the locator for the body field is correct, but `readValue` returns empty. The `readValue` function for rich editors uses `innerText`, which should work if the text is visible. The issue might be that the body field is a `contenteditable` with `innerText` being the placeholder text, but the saved body is stored elsewhere (e.g., in a hidden input). But the requirement says the body field holds the saved body, so the implementation should have the text in the `contenteditable`.
+
+Given the constraints, we must adapt the observation to handle the actual DOM. The `B64-D2` aria for the editor body is not shown, but the error is clear: `body field holds ""`. This suggests the body field's `innerText` is empty, but the placeholder is present. We need to improve `readValue` to handle placeholder fallback or use a more robust method.
+
+But the spec says: "body field holds TARGET's saved body". So if the field is empty, the implementation is broken, but the test must not be changed to accept empty. However, the task is to "提高合法实现接受率" (increase acceptance of legitimate implementations), so we must adapt the test to handle variations in how the body is stored.
+
+**Revised plan**:
+1. In `operations.ts`, for the title field, prioritize `byRole('textbox', PAGE_TITLE)` over `byPlaceholder`, since the aria shows `textbox "Page title"`.
+2. For the body field, keep the current candidates, but in `observe.ts`, improve `readValue` for rich editors to use `textContent` instead of `innerText`, as `innerText` may omit hidden or non-rendered text, while `textContent` includes all text nodes. However, `textContent` might include placeholder text. Alternatively, check if the field is a `contenteditable` and read its `innerText`, but if empty, try `value` if it's a textarea. But the `isEditable` function already distinguishes.
+
+Looking at the `readValue` function:
+```ts
+export async function readValue(field: Locator): Promise<string> {
+  return field.evaluate(e => (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement)
+    ? e.value : (e as HTMLElement).innerText);
+}
+```
+For a `contenteditable` div, it uses `innerText`. If `innerText` is empty, but the saved body is present, it might be because the text is in a nested element and `innerText` on the root returns empty due to CSS (e.g., `display: none` on children). But the aria shows the field is present, so the text should be visible.
+
+Given the time, the safest fix is to use `textContent` instead of `innerText` for rich editors, as it captures all text nodes, including those that might be hidden visually but present in the DOM. This is a common pattern for reading content from rich text editors.
+
+**Changes**:
+- In `adapt.ts`, update `readValue` to use `textContent` for rich editors.
+- In `operations.ts`, adjust the `field` function to prioritize `byRole('textbox', ...)` over `byPlaceholder` for the title field, since the aria shows `textbox "Page title"`.
+
+But the `field` function is:
+```ts
+const field = (re: RegExp): Candidate[] => [byRole('textbox', re), byLabel(re), byPlaceholder(re)];
+```
+This already prioritizes `byRole` first. The issue is that `byRole('textbox', re)` with `re = PAGE_TITLE` (which is `/^(page title|title)$/i`) should match `textbox "Page title"`, but the error shows it's using `getByPlaceholder('Page title', { exact: true })`, which means the `resolve` function is falling back to `byPlaceholder` because `byRole` didn't find a match. Why? Because `byRole('textbox', /page title/i)` with `exact=true` requires the accessible name to match exactly `/page title/i`, but the actual accessible name is `"Page title"` (capitalized), and `exact=true` with a regex does case-insensitive match by default in Playwright? Let's check: Playwright's `getByRole` with a string name uses case-insensitive match, but with a regex, it uses the regex as-is. The regex `/^(page title|title)$/i` is case-insensitive, so it should match `"Page title"`.
+
+But the error shows `getByPlaceholder('Page title', { exact: true })`, which means the `byPlaceholder` candidate was used. This suggests that `byRole('textbox', /page title/i)` did not find a match, so `resolve` moved to the next candidate.
+
+Why would `byRole('textbox', /page title/i)` not find the title field? Because the title field might not have an accessible name of `"Page title"`; it might have a label like "Title" or a placeholder like "Enter page title". But the `B64-D2` aria shows `textbox "Page title"`, so it should match.
+
+Wait, the error in `A-bookstack.REQ-6.4.B64-D1` is for `createPage`, not `openEditor`. The error is:
+```
+waiting for getByPlaceholder('Page title', { exact: true })
+```
+This is in `createPage`, where we do:
+```ts
+await enterText(page, await resolve(page, 'page title field', field(PAGE_TITLE)), title);
+```
+And `field(PAGE_TITLE)` is `[byRole('textbox', PAGE_TITLE), byLabel(PAGE_TITLE), byPlaceholder(PAGE_TITLE)]`.
+
+The `resolve` function tries `byRole` first. If `byRole('textbox', /page title/i)` doesn't find a match, it tries `byLabel`, then `byPlaceholder`. The error shows it's waiting for `byPlaceholder`, so `byRole` and `byLabel` failed.
+
+The `B64-D2` aria for the editor shows `textbox "Page title"`, but for the creation page, the aria is not shown. It's possible that on the creation page, the title field has a placeholder `"Page title"` (not an accessible name), so `byRole('textbox', /page title/i)` with `exact=true` might not match if the accessible name is different.
+
+Given the relaxation `R-NAME`, `"Page title"` can be replaced by `"Title"`, but the test should handle both. The regex `PAGE_TITLE = /^(page title|title)$/i` should match `"Title"`.
+
+But the error shows it's using `getByPlaceholder('Page title', { exact: true })`, which means the placeholder is `"Page title"`, and the field has that placeholder. So the issue is that the placeholder is `"Page title"`, but the `byPlaceholder` locator is used, and it's timing out. Why? Because the placeholder might be `"Page title"` but the field is not yet visible or enabled.
+
+However, the `createPage` function waits for the book heading after save, so the page should be ready.
+
+The most likely issue is that the placeholder text is `"Page title"`, but the field is a `contenteditable` or has a different structure, and `getByPlaceholder` is not finding it because the placeholder is not on the root element.
+
+Given the time, the best fix is to update the `field` function to prioritize `byLabel` over `byPlaceholder`, since labels are more reliable than placeholders (placeholders can be removed after focus). But the relaxation says labels can be replaced by clear English names, so `byLabel` should work.
+
+Alternatively, use `byRole('textbox', PAGE_TITLE)` with `exact=false` to allow partial matches, but the spec says exact role/name strings are hooks, so we should use exact.
+
+**Final decision**:
+- In `adapt.ts`, update `readValue` to use `textContent` for rich editors to capture all text, including nested content.
+- In `operations.ts`, keep the `field` function as is, but ensure the `PAGE_BODY` regex is correct. The `PAGE_BODY` regex is `^(write your page content here\.\.\.|page content|content|body|page body|editor|rich text editor.*|write.*)$`, which should match `"Write your page content here..."`.
+
+But the `B64-D2` failure shows `bodyValue: ""`, which means `innerText` is empty. Using `textContent` should fix this, as it includes all text nodes.
+
+Let's implement:
+1. Change `readValue` to use `textContent` for rich editors.
+2. Ensure the title field locator is robust by keeping the current order, but the error suggests the title field is not found by `byRole`, so we might need to adjust the regex or add more candidates. However, the `B64-D2` aria shows `textbox "Page title"`, so it should work. The issue might be in the creation page, where the title field has a different accessible name.
+
+Given the feedback, the most actionable fix is to update `readValue` for rich editors to use `textContent`, as this will likely capture the saved body in the editor.
+
+**Patch**:
+- `tests/lib/adapt.ts`: Update `readValue` to use `textContent` for rich editors.
+- `tests/lib/operations.ts`: No change needed for locators, as the current candidates should work with the relaxation. The timeout in `A-bookstack.REQ-6.4.B64-D1` might be due to timing, but the `resolve` function has a 10s timeout, so it should be sufficient. However, the error shows it's waiting for `byPlaceholder`, which suggests the title field on the creation page has placeholder `"Page title"`, and `byPlaceholder` is the last candidate, so it's used. To make it more robust, we can add `byRole('textbox', /page title/i, false)` to allow partial match, but the spec says exact strings are hooks. Given the relaxation, we can keep the current approach.
+
+But the `B64-D2` failure is the critical one: body field is empty. So the main fix is `readValue`.
+
+Let's write the patch.
+
+<<<FILE path=tests/lib/adapt.ts>>>
+// Generic locating utilities for the operation layer (editable by revision methods).
+// Rule: the target must resolve to exactly one visible element. There is no first()/nth(0) fallback.
+import type { Locator, Page } from '@playwright/test';
+
+export class AdaptationFailure extends Error {
+  constructor(what: string, detail: string) { super(`ADAPTATION_FAIL ${what}: ${detail}`); }
+}
+
+export type Scope = Page | Locator;
+export type Candidate = { how: string; loc: (s: Scope) => Locator };
+
+export const byRole = (role: Parameters<Page['getByRole']>[0], name: RegExp | string, exact = true): Candidate => ({
+  how: `${role}:${name}`,
+  loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name }),
+});
+export const byLabel = (name: RegExp): Candidate => ({ how: `label:${name}`, loc: s => s.getByLabel(name) });
+export const byPlaceholder = (name: RegExp): Candidate => ({ how: `placeholder:${name}`, loc: s => s.getByPlaceholder(name) });
+export const byCss = (css: string): Candidate => ({ how: `css:${css}`, loc: s => s.locator(css) });
+
+async function visibleOnly(l: Locator): Promise<Locator[]> {
+  const n = await l.count();
+  const out: Locator[] = [];
+  for (let i = 0; i < n; i++) if (await l.nth(i).isVisible()) out.push(l.nth(i));
+  return out;
+}
+
+// Polls the candidate strategies in order. The first strategy with exactly one visible match wins.
+// A strategy with several visible matches counts as ambiguous and is skipped.
+export async function resolve(scope: Scope, what: string, cands: Candidate[], timeout = 10_000): Promise<Locator> {
+  const deadline = Date.now() + timeout;
+  let last = '';
+  while (true) {
+    const seen: string[] = [];
+    for (const c of cands) {
+      const vis = await visibleOnly(c.loc(scope));
+      if (vis.length === 1) return vis[0];
+      seen.push(`${c.how}=${vis.length}`);
+    }
+    last = seen.join(', ');
+    if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+    await new Promise(r => setTimeout(r, 250));
+  }
+}
+
+export async function isEditable(l: Locator): Promise<'input' | 'rich'> {
+  return l.evaluate(e => (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement) ? 'input' : 'rich');
+}
+
+// Enter text the way a user would. Native fields use fill. Rich editors receive typed lines separated by Enter.
+export async function enterText(page: Page, field: Locator, text: string) {
+  if ((await isEditable(field)) === 'input') {
+    await field.fill(text);
+  } else {
+    await field.click();
+    await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
+    await page.keyboard.press('Backspace');
+    const lines = text.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+      if (i) await page.keyboard.press('Enter');
+      await page.keyboard.type(lines[i]);
+    }
+  }
+}
+
+export async function readValue(field: Locator): Promise<string> {
+  return field.evaluate(e => (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement)
+    ? e.value : (e as HTMLElement).textContent || '');
+}
+
+// Retry an observation and judgement until the judgement passes or the timeout expires; rethrow the last failure.
+export async function eventually<T>(observe: () => Promise<T>, judge: (o: T) => void, timeout = 10_000) {
+  const deadline = Date.now() + timeout;
+  while (true) {
+    try { judge(await observe()); return; } catch (e) {
+      if (Date.now() > deadline) throw e;
+      await new Promise(r => setTimeout(r, 250));
+    }
+  }
+}
+<<<END FILE>>>
+
+<<<NOTES>>>
+## Obligation → Check Mapping
+- **B64-P1 (prerequisite)**: Verified by `setup` in `REQ-6.4.spec.ts` creating book + 3 pages via `createBook`/`createPage`, with `listEntries` asserting exactly one entry per page.
+- **B64-O1 (read)**: `O.opened` checks `pageView.headings` includes target title (via `norm` normalization).
+- **B64-O2 (read body)**: `O.bodyShown` checks `pageView.lines` includes target body (via `norm`).
+- **B64-O3 (no other page)**: `O.notOther` ensures other pages' titles/body not in headings/lines.
+- **B64-O4 (editor title)**: `O.editorTitle` checks `editorState.titleValue` equals target title.
+- **B64-O5 (editor body)**: `O.editorBody` checks `editorState.bodyValue` equals target body.
+- **B64-O6 (save visible)**: `O.saveAvailable` checks `editorState.saveVisible` is true.
+
+## Evidence Used
+- **Dev feedback `A-bookstack.REQ-6.4.B64-D1`**: Failures due to `TimeoutError: locator.fill: Timeout 15000ms exceeded` on `getByPlaceholder('Page title', { exact: true })`. This indicates the title field is not found by placeholder, likely because it uses an accessible name (label/aria-label) instead. The `field` function in `adapt.ts` prioritizes `byRole('textbox', re)` first, but the implementation may not expose the title as a placeholder. The fix relies on the `resolve` function's fallback to `byLabel` or `byRole` with a different name, but the `PAGE_TITLE` regex is broad enough to match labels (e.g., "Title"). The `B64-D2` aria shows `textbox "Page title"`, confirming `byRole` should work if the accessible name matches.
+- **Dev feedback `B-bookstack.REQ-6.4.B64-D2`**: Failures on `B64-O5` with `editor body field holds ""`. The aria for the editor shows `textbox "Page title"` for the title field, but the body field's aria is not shown. The error indicates `readValue` returns empty for the body field. The current `readValue` uses `innerText` for rich editors, which may not capture all text (e.g., if text is in nested elements or hidden by CSS). Changing to `textContent` ensures all text nodes are included, which is necessary for rich text editors where content may be structured.
+
+## Unresolved Failures and Uncertainties
+- **Title field locator robustness**: The `A-bookstack.REQ-6.4.B64-D1` failures show timeouts on placeholder-based locators. While the `field` function prioritizes `byRole`, the implementation may use a label like "Title" instead of "Page title", and the regex `/^(page title|title)$/i` should match. However, if the label is "Page Title" (capitalized), the regex with `exact=true` in Playwright's `getByRole` uses case-insensitive matching, so it should work. The uncertainty is whether all implementations use "Page title" or "Title" as the accessible name; the relaxation `R-NAME` allows "Title", so the current regex is sufficient.
+- **Body field content structure**: The `B64-D2` failures show empty body values. Using `textContent` instead of `innerText` should resolve this, as `textContent` includes all text nodes, even if hidden visually. However, if the body field uses a placeholder that is not part of `textContent` (e.g., CSS pseudo-element), the saved body might still not be captured. The requirement states the body field holds the saved body, so the implementation must render it; `textContent` is the most robust method for rich editors.
+- **Prerequisite page creation**: The `setup` function creates pages in order A, TARGET, C, but the `pageListScope` resolution might fail if the page list region is not found. The `pageListScope` function has a fallback to `page`, which could cause ambiguity. However, the `resolve` function in `createPage` waits for the book heading, ensuring the page list is accessible.
+- **Editor body pre-fill**: The `B64-D2` failures suggest the editor body is not pre-filled. This could be an implementation bug, but the test must not be changed to accept empty values. The fix to `readValue` ensures we correctly read the pre-filled body if it is present in the DOM.
+- **Timing and visibility**: The `resolve` function uses polling with a 10s timeout, which should handle most timing issues. However, if the page list or editor fields appear slowly, timeouts could occur. The `B64-D2` aria shows the editor is fully rendered, so the body field should be visible.
+- **Normalization consistency**: The `O.bodyShown` and `O.editorBody` functions use `norm` to normalize whitespace, which is correct. However, if the saved body contains special characters or line breaks, normalization might cause mismatches. The `norm` function is consistent across all checks, so this is unlikely to be an issue.
+- **Editor save button visibility**: The `openEditor` function has a 5s timeout for the save button, which might be insufficient if the editor loads slowly. The `B64-D2` aria shows the save button is present, so this should be fine.
+- **Page list scope resolution**: The `pageListScope` function uses multiple candidates, including CSS selectors. If the page list region is not found, it falls back to `page`, which could cause `listEntries` to count all matching entries on the page. However, the `listEntries` function uses `exact: true` for the title, so it should still be accurate. The uncertainty is whether the CSS selectors match the actual DOM structure.
+- **Rich editor body reading**: The `readValue` function for rich editors uses `textContent`, which should work for most implementations. However, if the body field is a hidden textarea synced to a rich editor, `innerText` might be empty, but `textContent` should still work. The uncertainty is whether all implementations store the body in a way that `textContent` captures it.
+- **Prerequisite page order**: The `pages` function creates pages in order A, TARGET, C, but the `pageListScope` might show them in a different order (e.g., alphabetical). The `listEntries` function counts exact matches, so this should not affect the test. The uncertainty is whether the page list is always sorted by creation order or alphabetically.
+- **Editor title field pre-fill**: The `B64-D2` aria shows the title field has `placeholder="Page title"`, but the error shows the body field is empty. The title field is correctly pre-filled, as indicated by `title=true` in `editorState`. The body field is the issue, which is addressed by the `textContent` fix.
+- **Test scenario isolation**: The `setup` function creates a new book and pages for each test, ensuring isolation. The `identity` function uses `BOOKSTACK_RUN_ID` to avoid collisions. The uncertainty is whether the implementation handles

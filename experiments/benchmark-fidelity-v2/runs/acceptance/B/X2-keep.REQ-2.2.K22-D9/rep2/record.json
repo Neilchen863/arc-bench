@@ -1,0 +1,133 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "X2-keep.REQ-2.2.K22-D9",
+ "parent_id": "X2-keep.REQ-2.2.correct",
+ "method_id": "B",
+ "material_hash": "a1777be3a7a93a57",
+ "binding_hash": "d2ba0b9330eddae5",
+ "common_hash": "b040fe2b11c65085",
+ "binding_source": "generic M0L rules",
+ "reference_label": "VIOLATED",
+ "target_obligation": "K22-O4",
+ "execution_repeat": 2,
+ "reset_id": "r2-1792439899",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "split": "acceptance",
+ "tag": "post-freeze-k3",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 24972,
+ "case_ids_observed": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "result": "REQUIREMENT_FAIL",
+ "obligation_results": {
+  "K22-O1": "PASS",
+  "K22-O2": "PASS",
+  "K22-O3": "PASS",
+  "K22-O4": "FAIL",
+  "K22-O5": "PASS",
+  "K22-O6": "PASS"
+ },
+ "failure_detail": "failed: K22-O4",
+ "cases": [
+  {
+   "title": "autosave_on_close",
+   "status": "failed",
+   "duration_ms": 16636,
+   "errors": [
+    "Error: OBLIGATION_FAIL K22-O4: content lines [\"First line\",\"Second line\"] not shown as consecutive lines; observed [\"New note [db77fd01af-w0-37be560208]\",\"First line\"]\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X2-keep.REQ-2.2.K22-D9/rep2/work/tests/lib/oracle.ts:8:61)\n    at Object.showsLines (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X2-keep.REQ-2.2.K22-D9/rep2/work/tests/lib/oracle.ts:43:3)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X2-keep.REQ-2.2.K22-D9/rep2/work/tests/REQ-2.2.spec.ts:27:54)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X2-keep.REQ-2.2.K22-D9/rep2/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X2-keep.REQ-2.2.K22-D9/rep2/work/tests/REQ-2.2.spec.ts:27:3"
+   ],
+   "last_step": "dismiss editor",
+   "checks": [
+    {
+     "obligation": "K22-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "\"close action only (operation layer refuses save-like controls)\"",
+     "at": "2026-10-19T19:58:27.229Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T19:58:28.241Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"New note [db77fd01af-w0-37be560208]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"New note [db77fd01af-w0-37be560208]\",\"First line\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T19:58:28.253Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O3",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"New note [db77fd01af-w0-37be560208]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"New note [db77fd01af-w0-37be560208]\",\"First line\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T19:58:28.258Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O4",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL K22-O4: content lines [\"First line\",\"Second line\"] not shown as consecutive lines; observed [\"New note [db77fd01af-w0-37be560208]\",\"First line\"]",
+     "observed": "{\"title\":\"New note [db77fd01af-w0-37be560208]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"New note [db77fd01af-w0-37be560208]\",\"First line\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T19:58:38.427Z",
+     "step": "dismiss editor"
+    }
+   ],
+   "actions": []
+  },
+  {
+   "title": "persist_after_reload",
+   "status": "passed",
+   "duration_ms": 6723,
+   "errors": [],
+   "last_step": "reload",
+   "checks": [
+    {
+     "obligation": "K22-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T19:58:45.719Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Persistent note [db77fd01af-w1-01c3c2598e]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Persistent note [db77fd01af-w1-01c3c2598e]\",\"Saved personal content\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T19:58:45.730Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O6",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Persistent note [db77fd01af-w1-01c3c2598e]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Persistent note [db77fd01af-w1-01c3c2598e]\",\"Saved personal content\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T19:58:45.759Z",
+     "step": "reload"
+    }
+   ],
+   "actions": []
+  }
+ ],
+ "target_failure_confirmed": true,
+ "evidence_paths": [
+  "runs/acceptance/B/X2-keep.REQ-2.2.K22-D9/rep2/report.json",
+  "runs/acceptance/B/X2-keep.REQ-2.2.K22-D9/rep2/test-results"
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "B-keep.REQ-2.2.K22-D1",
+ "method": "M2-REQ-2.2-g2r3",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "97e62f5931e187fa7f86b23504197f3d161b044ede3da113810488a4e856a686",
+ "execution_repeat": 1,
+ "run_id": "r1",
+ "case_ids_expected": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "4d3fb7c6ae8e88c4724b46ce0a0be5cc02c9fcb655b13ad06beff93e52ce6c4a",
+ "source_hash": "4d3fb7c6ae8e88c4724b46ce0a0be5cc02c9fcb655b13ad06beff93e52ce6c4a",
+ "runtime_ms": 26872,
+ "case_ids_observed": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "cases": [
+  {
+   "title": "autosave_on_close",
+   "file": "REQ-2.2.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 11479,
+   "errors": [
+    "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"New note [82f3e9c695-w0-37be560208]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/lib/oracle.ts:23:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/REQ-2.2.spec.ts:21:52)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/lib/adapt.ts:74:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/REQ-2.2.spec.ts:21:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Main menu\" [expanded]:\n    - img\n  - heading \"Keep\" [level=1]\n  - search:\n    - img\n    - searchbox \"Search notes\"\n  - button \"List view\":\n    - img\n  - button \"Settings\":\n    - img\n- navigation \"Main navigation\":\n  - list:\n    - listitem:\n      - button \"Notes\":\n        - img\n        - text: Notes\n    - listitem:\n      - button \"Reminders\":\n        - img\n        - text: Reminders\n    - listitem:\n      - button \"Edit labels\":\n        - img\n        - text: Edit labels\n    - listitem:\n      - button \"Archive\":\n        - img\n        - text: Archive\n    - listitem:\n      - button \"Trash\":\n        - img\n        - text: Trash\n- main:\n  - heading \"Notes\" [level=2]\n  - button \"Take a note\u2026\"\n  - paragraph: Notes you add appear here",
+    "visible-text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nNotes\nTake a note\u2026\n\nNotes you add appear here",
+    "url": "http://127.0.0.1:61575/"
+   }
+  },
+  {
+   "title": "persist_after_reload",
+   "file": "REQ-2.2.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 11498,
+   "errors": [
+    "Error: OBLIGATION_FAIL K22-O2: expected exactly one note titled \"Persistent note [82f3e9c695-w1-01c3c2598e]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/lib/oracle.ts:23:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/REQ-2.2.spec.ts:34:52)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/lib/adapt.ts:74:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/work/tests/REQ-2.2.spec.ts:34:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Main menu\" [expanded]:\n    - img\n  - heading \"Keep\" [level=1]\n  - search:\n    - img\n    - searchbox \"Search notes\"\n  - button \"List view\":\n    - img\n  - button \"Settings\":\n    - img\n- navigation \"Main navigation\":\n  - list:\n    - listitem:\n      - button \"Notes\":\n        - img\n        - text: Notes\n    - listitem:\n      - button \"Reminders\":\n        - img\n        - text: Reminders\n    - listitem:\n      - button \"Edit labels\":\n        - img\n        - text: Edit labels\n    - listitem:\n      - button \"Archive\":\n        - img\n        - text: Archive\n    - listitem:\n      - button \"Trash\":\n        - img\n        - text: Trash\n- main:\n  - heading \"Notes\" [level=2]\n  - button \"Take a note\u2026\"\n  - paragraph: Notes you add appear here",
+    "visible-text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nNotes\nTake a note\u2026\n\nNotes you add appear here",
+    "url": "http://127.0.0.1:61575/"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/report.json",
+ "trace_path": "runs/dev/M2-REQ-2.2-g2r3/keep.REQ-2.2/B-keep--K22-D1/rep1/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

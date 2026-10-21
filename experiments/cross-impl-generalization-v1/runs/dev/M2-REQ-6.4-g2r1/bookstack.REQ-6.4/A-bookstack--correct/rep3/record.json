@@ -1,0 +1,57 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-bookstack.REQ-6.4.correct",
+ "method": "M2-REQ-6.4-g2r1",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "1f1ed59b2d0701f2a0256f62ab8173a87cb66c840f4838be9994bb8a75bc2485",
+ "execution_repeat": 3,
+ "run_id": "r3",
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "de6995d23f82860e9f17900238b196d8e93e528f5d416e02c925c6fabc924c8d",
+ "source_hash": "de6995d23f82860e9f17900238b196d8e93e528f5d416e02c925c6fabc924c8d",
+ "runtime_ms": 5450,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "file": "REQ-6.4.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 2070,
+   "errors": [],
+   "attachments": {}
+  },
+  {
+   "title": "reopen_page_editor",
+   "file": "REQ-6.4.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 2269,
+   "errors": [],
+   "attachments": {}
+  }
+ ],
+ "case_check_problems": [],
+ "result": "PASS",
+ "failure_cause": null,
+ "raw_report_path": "runs/dev/M2-REQ-6.4-g2r1/bookstack.REQ-6.4/A-bookstack--correct/rep3/report.json",
+ "trace_path": "runs/dev/M2-REQ-6.4-g2r1/bookstack.REQ-6.4/A-bookstack--correct/rep3/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

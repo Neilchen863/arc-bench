@@ -1,0 +1,15 @@
+{
+  "K22-O1": {
+    "holds": true,
+    "reason": "no dialog visible after Close"
+  },
+  "K22-O2": {
+    "holds": false,
+    "reason": "visible notes with title=1, active API notes with title=0"
+  },
+  "K22-O6": {
+    "holds": false,
+    "reason": "after reload visible notes with title=0; card text=null"
+  },
+  "_page_errors": []
+}

@@ -1,0 +1,33 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 6c1c037..7f31400 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -27,6 +27,7 @@ export default function App() {
+   const [layout, setLayout] = useState('grid');
+   const [view, setView] = useState({ type: 'notes' });
+   const [search, setSearch] = useState(EMPTY_SEARCH);
++  const [recentQuery, setRecentQuery] = useState(''); // last query, kept to narrow the notes list
+   const [editor, setEditor] = useState(null); // { note } ; note null => new note
+   const [labelTarget, setLabelTarget] = useState(null);
+   const [editLabelsOpen, setEditLabelsOpen] = useState(false);
+@@ -113,9 +114,9 @@ export default function App() {
+       case 'trash':
+         return { heading: 'Trash', visibleNotes: notes.filter((n) => n.trashed), emptyText: 'No notes in Trash', mode: 'trash' };
+       default:
+-        return { heading: 'Notes', visibleNotes: notes.filter(isActive), emptyText: 'Notes you add appear here', mode: 'notes' };
++        return { heading: 'Notes', visibleNotes: notes.filter((n) => isActive(n) && matchesKeyword(n, recentQuery)), emptyText: 'Notes you add appear here', mode: 'notes' };
+     }
+-  }, [notes, search, view, currentLabel]);
++  }, [notes, search, view, currentLabel, recentQuery]);
+ 
+   const showFilters = search.active && !normalizeQuery(search.query) && !search.labelId;
+   const canCreate = !search.active && (view.type === 'notes' || view.type === 'label');
+@@ -129,7 +130,7 @@ export default function App() {
+         labels={labels}
+         searchInputRef={searchInputRef}
+         onSearchFocus={() => setSearch((s) => ({ ...s, active: true }))}
+-        onQueryChange={(query) => setSearch((s) => ({ ...s, active: true, query }))}
++        onQueryChange={(query) => { if (query.trim()) setRecentQuery(query); setSearch((s) => ({ ...s, active: true, query })); }}
+         onClearLabelFilter={() => setSearch((s) => ({ ...s, labelId: null }))}
+         onClearSearch={clearSearch}
+         layout={layout}

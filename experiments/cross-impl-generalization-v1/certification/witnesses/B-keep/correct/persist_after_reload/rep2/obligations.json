@@ -1,0 +1,21 @@
+{
+  "variant": "correct",
+  "scenario": "persist_after_reload",
+  "rep": 2,
+  "obligations": {
+    "K22-O1": {
+      "holds": true,
+      "reason": "editor dialog \"New note\" hidden after the Close click"
+    },
+    "K22-O2": {
+      "holds": true,
+      "reason": "visible note cards with title: 1 (headings 1); active API notes with title: 1"
+    },
+    "K22-O6": {
+      "holds": true,
+      "reason": "after reload: note cards with title 1; \"Saved personal content\" visible in it: true; active API notes with title: 1"
+    }
+  },
+  "error": null,
+  "pageErrors": []
+}

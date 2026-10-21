@@ -1,0 +1,13 @@
+diff --git a/src/views/PageEditor.jsx b/src/views/PageEditor.jsx
+index b584221..bf806d6 100644
+--- a/src/views/PageEditor.jsx
++++ b/src/views/PageEditor.jsx
+@@ -23,7 +23,7 @@ export default function PageEditor() {
+           if (page.bookId !== bookId) throw new Error('page not in book');
+           if (!alive) return;
+           setTitle(page.title || '');
+-          setBody(page.body || '');
++          setBody('');
+         })
+       : api.get('books', bookId);
+     load.then(() => alive && setStatus('ready'), () => alive && setStatus('missing'));

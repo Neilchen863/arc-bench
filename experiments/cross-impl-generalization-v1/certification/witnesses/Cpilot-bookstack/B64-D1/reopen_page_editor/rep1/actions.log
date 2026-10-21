@@ -1,0 +1,29 @@
+server pid=56691 build=Cpilot-bookstack--B64-D1--c62007dcb7b9ba33 health={"ok":true,"app":"bookstack","build_hash":"f7c2207756f8e912f4d5150a57903950678ebdf4f8c166ad866e646bb7af9d1f"}
+goto / (fresh anonymous context)
+click link "Books" in navigation "Main" (role=link, exact visible name)
+click button "Create New Book" (role=button)
+type "Book 6.4.2 [CERT-CB64D1e1]" into textbox "Name" (role=textbox by label)
+type description into textbox "Description"
+type "certification, reading" into textbox whose name starts with "Tags"
+click button "Save Book"
+book details heading visible
+click button "New Page"
+type "Page A 6.4.2 [CERT-CB64D1e1]" into page title textbox (accessible name "Page title")
+type "Reading content for Page A 6.4.2." into page body textbox
+click save-page button (name matching /^Save page$/i)
+back on book details
+click button "New Page"
+type "Page B 6.4.2 [CERT-CB64D1e1]" into page title textbox (accessible name "Page title")
+type "Reading content for Page B 6.4.2." into page body textbox
+click save-page button (name matching /^Save page$/i)
+back on book details
+click button "New Page"
+type "Page C 6.4.2 [CERT-CB64D1e1]" into page title textbox (accessible name "Page title")
+type "Reading content for Page C 6.4.2." into page body textbox
+click save-page button (name matching /^Save page$/i)
+back on book details
+page list visible order: "Page A 6.4.2 [CERT-CB64D1e1]\n\nReading content for Page A 6.4.2.\n\nPage B 6.4.2 [CERT-CB64D1e1]\n\nReading content for Page B 6.4.2.\n\nPage C 6.4.2 [CERT-CB64D1e1]\n\nReading content for Page C 6.4.2."
+click Page list entry named exactly "Page B 6.4.2 [CERT-CB64D1e1]" (button or link inside the page-list region)
+edit control found: ["EDIT"]
+click edit control (role=button, name matching /^Edit( page)?$/)
+page errors: []

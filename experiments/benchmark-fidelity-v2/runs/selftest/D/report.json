@@ -1,0 +1,1032 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/work/selftest",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/work/selftest",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "keep-driver.spec.ts",
+      "file": "keep-driver.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "nested chooser with same-named Done/Close: editor closed by its own Close after chooser is gone",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 893,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:25:56.719Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-nested-chooser-df59e-Close-after-chooser-is-gone-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6e30sImNoZWNrcyI6W10sImFjdGlvbnMiOlt7ImF0IjoiMjAyNi0xMC0xOVQxNzoyNTo1Ny4wNDVaIiwiaW50ZW50Ijoib3BlbiBub3RlIGVkaXRvciIsInRhcmdldCI6Im5ldyBub3RlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIlRha2UgYSBub3Rl4oCmXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxNzoyNTo1Ny4wNzNaIiwiaW50ZW50IjoiYmluZCBub3RlIGVkaXRvciIsInRhcmdldCI6Im5ldyBub3RlIiwiY29udHJvbCI6IjxkaXYgcm9sZT1kaWFsb2cgY2xhc3M9XCJcIj4iLCJob3ciOiJuZWFyZXN0IG1vZGFsL2Zvcm0gYW5jZXN0b3Igb2YgdGl0bGUgZmllbGQsIGVsc2Ugc21hbGxlc3QgYW5jZXN0b3Igd2l0aCBjb250ZW50IGZpZWxkIn0seyJhdCI6IjIwMjYtMTAtMTlUMTc6MjU6NTcuMDgxWiIsImludGVudCI6ImVudGVyIG5vdGUgdGl0bGUiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJUaXRsZVwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IlQxIn0seyJhdCI6IjIwMjYtMTAtMTlUMTc6MjU6NTcuMDg4WiIsImludGVudCI6ImVudGVyIG5vdGUgY29udGVudCIsImNvbnRyb2wiOiI8dGV4dGFyZWE+IG5hbWVzPVtcIk5vdGUgdGV4dFwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IkMxIn0seyJhdCI6IjIwMjYtMTAtMTlUMTc6MjU6NTcuMTM4WiIsImludGVudCI6Im9wZW4gbGFiZWwgY2hvb3NlciIsInRhcmdldCI6Im5vdGUgZWRpdG9yIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIkNoYW5nZSBsYWJlbHNcIixcIvCfj7dcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE3OjI1OjU3LjE0M1oiLCJpbnRlbnQiOiJiaW5kIGxhYmVsIGNob29zZXIiLCJjb250cm9sIjoiPGRpdiByb2xlPWRpYWxvZyBuYW1lPUxhYmVsIG5vdGU+In0seyJhdCI6IjIwMjYtMTAtMTlUMTc6MjU6NTcuMTkwWiIsImludGVudCI6InNlbGVjdCBsYWJlbCIsInRhcmdldCI6IlJlbWluZGVycyIsImNvbnRyb2wiOiI8aW5wdXQ+IG5hbWVzPVtcIlJlbWluZGVyc1wiXSAodmlhIHZpc2libGUgbGFiZWwpIiwiaG93IjoiY2xpY2sgdmlzaWJsZSBsYWJlbCIsImJlZm9yZSI6ZmFsc2UsImFmdGVyIjp0cnVlfSx7ImF0IjoiMjAyNi0xMC0xOVQxNzoyNTo1Ny4yMThaIiwiaW50ZW50IjoiY29uZmlybSBsYWJlbCBjaG9vc2VyIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIkRvbmVcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE3OjI1OjU3LjcwMloiLCJpbnRlbnQiOiJkaXNtaXNzIG5vdGUgZWRpdG9yIiwidGFyZ2V0Ijoibm90ZSBlZGl0b3IiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiQ2xvc2VcIl0iLCJob3ciOiJjbGljayJ9XSwibGFzdF9zdGVwIjoic3RhcnQiLCJzdGVwcyI6W119"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-nested-chooser-df59e-Close-after-chooser-is-gone-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c81926216169e93bbe1-5ce5305acf59dd8440f2",
+          "file": "keep-driver.spec.ts",
+          "line": 30,
+          "column": 5
+        },
+        {
+          "title": "label text with an aria-describedby hint still identifies the field",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 122,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:25:57.765Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-label-text-wit-93690--still-identifies-the-field-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6e30sImNoZWNrcyI6W10sImFjdGlvbnMiOltdLCJsYXN0X3N0ZXAiOiJzdGFydCIsInN0ZXBzIjpbXX0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-label-text-wit-93690--still-identifies-the-field-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c81926216169e93bbe1-72d7c8d3e763eca0c606",
+          "file": "keep-driver.spec.ts",
+          "line": 39,
+          "column": 5
+        },
+        {
+          "title": "two same-named actions without a business scope are ambiguous (no first() pick)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 639,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:25:57.900Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-two-same-named-86a1a-re-ambiguous-no-first-pick--chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6e30sImNoZWNrcyI6W10sImFjdGlvbnMiOltdLCJsYXN0X3N0ZXAiOiJzdGFydCIsInN0ZXBzIjpbXX0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-two-same-named-86a1a-re-ambiguous-no-first-pick--chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c81926216169e93bbe1-910788c7905cc2829f86",
+          "file": "keep-driver.spec.ts",
+          "line": 46,
+          "column": 5
+        },
+        {
+          "title": "a control behind a modal (aria-hidden) is not operable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 638,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:25:58.549Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-a-control-behi-b538b-aria-hidden-is-not-operable-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6e30sImNoZWNrcyI6W10sImFjdGlvbnMiOltdLCJsYXN0X3N0ZXAiOiJzdGFydCIsInN0ZXBzIjpbXX0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-a-control-behi-b538b-aria-hidden-is-not-operable-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c81926216169e93bbe1-1ae743e2ebb0ba122777",
+          "file": "keep-driver.spec.ts",
+          "line": 51,
+          "column": 5
+        },
+        {
+          "title": "label decorations: aria-hidden required marker and (optional) qualifier",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 137,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:25:59.198Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-label-decorati-21a6c-rker-and-optional-qualifier-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6e30sImNoZWNrcyI6W10sImFjdGlvbnMiOltdLCJsYXN0X3N0ZXAiOiJzdGFydCIsInN0ZXBzIjpbXX0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-label-decorati-21a6c-rker-and-optional-qualifier-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c81926216169e93bbe1-3c3cdf069b9add519047",
+          "file": "keep-driver.spec.ts",
+          "line": 56,
+          "column": 5
+        },
+        {
+          "title": "label decoration rule does not merge different words (Tag line is not Tags)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 616,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:25:59.346Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-label-decorati-14c7b-words-Tag-line-is-not-Tags--chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6e30sImNoZWNrcyI6W10sImFjdGlvbnMiOltdLCJsYXN0X3N0ZXAiOiJzdGFydCIsInN0ZXBzIjpbXX0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-label-decorati-14c7b-words-Tag-line-is-not-Tags--chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c81926216169e93bbe1-65e74f36f8efc979c885",
+          "file": "keep-driver.spec.ts",
+          "line": 63,
+          "column": 5
+        },
+        {
+          "title": "token combobox: each tag committed with Enter and visible as a chip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 217,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:25:59.972Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-token-combobox-3bc4e-Enter-and-visible-as-a-chip-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6e30sImNoZWNrcyI6W10sImFjdGlvbnMiOlt7ImF0IjoiMjAyNi0xMC0xOVQxNzoyNjowMC4xNDhaIiwiaW50ZW50IjoidGFncyIsImNvbnRyb2wiOiI8aW5wdXQgcm9sZT1jb21ib2JveD4gbmFtZXM9W1wiVGFnc1wiXSIsImhvdyI6InRva2VuIGVudHJ5ICh0eXBlICsgRW50ZXIgcGVyIGl0ZW0pIiwiYWZ0ZXIiOlsibWFudWFsIiwiaGFuZGJvb2siXSwibm90ZSI6InRva2VucyB2aXNpYmxlOiB0cnVlIn1dLCJsYXN0X3N0ZXAiOiJzdGFydCIsInN0ZXBzIjpbXX0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-token-combobox-3bc4e-Enter-and-visible-as-a-chip-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c81926216169e93bbe1-0b461d35dcaef41fb5ce",
+          "file": "keep-driver.spec.ts",
+          "line": 72,
+          "column": 5
+        },
+        {
+          "title": "token combobox that never shows tokens is an adaptation failure (not silently accepted)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 186,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:00.198Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-token-combobox-d5fac-lure-not-silently-accepted--chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6e30sImNoZWNrcyI6W10sImFjdGlvbnMiOlt7ImF0IjoiMjAyNi0xMC0xOVQxNzoyNjowMC4zMzBaIiwiaW50ZW50IjoidGFncyIsImNvbnRyb2wiOiI8aW5wdXQgcm9sZT1jb21ib2JveD4gbmFtZXM9W1wiVGFnc1wiXSIsImhvdyI6InRva2VuIGVudHJ5ICh0eXBlICsgRW50ZXIgcGVyIGl0ZW0pIiwiYWZ0ZXIiOlsibWFudWFsIl0sIm5vdGUiOiJ0b2tlbnMgdmlzaWJsZTogZmFsc2UifV0sImxhc3Rfc3RlcCI6InN0YXJ0Iiwic3RlcHMiOltdfQ=="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-token-combobox-d5fac-lure-not-silently-accepted--chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c81926216169e93bbe1-f8871c535d4f8303d813",
+          "file": "keep-driver.spec.ts",
+          "line": 78,
+          "column": 5
+        },
+        {
+          "title": "editor still fading in when the chooser opens is not taken as the chooser",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 794,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:00.395Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-editor-still-f-bec88-is-not-taken-as-the-chooser-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "arc-ledger",
+                      "contentType": "application/json",
+                      "body": "eyJvYmxpZ2F0aW9ucyI6e30sImNoZWNrcyI6W10sImFjdGlvbnMiOlt7ImF0IjoiMjAyNi0xMC0xOVQxNzoyNjowMC41MTBaIiwiaW50ZW50Ijoib3BlbiBub3RlIGVkaXRvciIsInRhcmdldCI6Im5ldyBub3RlIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIlRha2UgYSBub3Rl4oCmXCJdIiwiaG93IjoiY2xpY2sifSx7ImF0IjoiMjAyNi0xMC0xOVQxNzoyNjowMC41NTNaIiwiaW50ZW50IjoiYmluZCBub3RlIGVkaXRvciIsInRhcmdldCI6Im5ldyBub3RlIiwiY29udHJvbCI6IjxkaXYgcm9sZT1kaWFsb2cgY2xhc3M9XCJmYWRlaW5cIj4iLCJob3ciOiJuZWFyZXN0IG1vZGFsL2Zvcm0gYW5jZXN0b3Igb2YgdGl0bGUgZmllbGQsIGVsc2Ugc21hbGxlc3QgYW5jZXN0b3Igd2l0aCBjb250ZW50IGZpZWxkIn0seyJhdCI6IjIwMjYtMTAtMTlUMTc6MjY6MDAuNTU4WiIsImludGVudCI6ImVudGVyIG5vdGUgdGl0bGUiLCJjb250cm9sIjoiPGlucHV0PiBuYW1lcz1bXCJUaXRsZVwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IlQyIn0seyJhdCI6IjIwMjYtMTAtMTlUMTc6MjY6MDAuNTY0WiIsImludGVudCI6ImVudGVyIG5vdGUgY29udGVudCIsImNvbnRyb2wiOiI8dGV4dGFyZWE+IG5hbWVzPVtcIk5vdGUgdGV4dFwiXSIsImhvdyI6ImZpbGwiLCJhZnRlciI6IkMyIn0seyJhdCI6IjIwMjYtMTAtMTlUMTc6MjY6MDAuNjA0WiIsImludGVudCI6Im9wZW4gbGFiZWwgY2hvb3NlciIsInRhcmdldCI6Im5vdGUgZWRpdG9yIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIkNoYW5nZSBsYWJlbHNcIixcIvCfj7dcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE3OjI2OjAwLjYwN1oiLCJpbnRlbnQiOiJiaW5kIGxhYmVsIGNob29zZXIiLCJjb250cm9sIjoiPGRpdiByb2xlPWRpYWxvZyBuYW1lPUxhYmVsIG5vdGU+In0seyJhdCI6IjIwMjYtMTAtMTlUMTc6MjY6MDAuNjM2WiIsImludGVudCI6InNlbGVjdCBsYWJlbCIsInRhcmdldCI6IlJlbWluZGVycyIsImNvbnRyb2wiOiI8aW5wdXQ+IG5hbWVzPVtcIlJlbWluZGVyc1wiXSAodmlhIHZpc2libGUgbGFiZWwpIiwiaG93IjoiY2xpY2sgdmlzaWJsZSBsYWJlbCIsImJlZm9yZSI6ZmFsc2UsImFmdGVyIjp0cnVlfSx7ImF0IjoiMjAyNi0xMC0xOVQxNzoyNjowMC42NjlaIiwiaW50ZW50IjoiY29uZmlybSBsYWJlbCBjaG9vc2VyIiwiY29udHJvbCI6IjxidXR0b24+IG5hbWVzPVtcIkRvbmVcIl0iLCJob3ciOiJjbGljayJ9LHsiYXQiOiIyMDI2LTEwLTE5VDE3OjI2OjAxLjE1NFoiLCJpbnRlbnQiOiJkaXNtaXNzIG5vdGUgZWRpdG9yIiwidGFyZ2V0Ijoibm90ZSBlZGl0b3IiLCJjb250cm9sIjoiPGJ1dHRvbj4gbmFtZXM9W1wiQ2xvc2VcIl0iLCJob3ciOiJjbGljayJ9XSwibGFzdF9zdGVwIjoic3RhcnQiLCJzdGVwcyI6W119"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-driver-editor-still-f-bec88-is-not-taken-as-the-chooser-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c81926216169e93bbe1-76d6bd811f974ac597de",
+          "file": "keep-driver.spec.ts",
+          "line": 83,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "keep-observer.spec.ts",
+      "file": "keep-observer.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "same text elsewhere on the page (toast) is not a second note",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 100,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:01.203Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-same-text-el-81092--toast-is-not-a-second-note-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-same-text-el-81092--toast-is-not-a-second-note-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-10fed703dd727829ef30",
+          "file": "keep-observer.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "hidden template holding the full answer is not a note",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 109,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:01.311Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-hidden-templ-ee406-e-full-answer-is-not-a-note-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-hidden-templ-ee406-e-full-answer-is-not-a-note-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-888b7b4526728c23c406",
+          "file": "keep-observer.spec.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "note copy behind a modal (aria-hidden) is not counted twice",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 93,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:01.427Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-note-copy-be-35b80-hidden-is-not-counted-twice-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-note-copy-be-35b80-hidden-is-not-counted-twice-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-59ca89f9b244f6ff7495",
+          "file": "keep-observer.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "text inside an inline editor is not a saved note",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 93,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:01.527Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-text-inside--f6fed--editor-is-not-a-saved-note-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-text-inside--f6fed--editor-is-not-a-saved-note-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-4f304b92b73b02fc6155",
+          "file": "keep-observer.spec.ts",
+          "line": 31,
+          "column": 5
+        },
+        {
+          "title": "highlight in an adjacent note is not attributed to this note",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 110,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:01.627Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-highlight-in-f6371-not-attributed-to-this-note-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-highlight-in-f6371-not-attributed-to-this-note-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-a9b84d430582596966ab",
+          "file": "keep-observer.spec.ts",
+          "line": 37,
+          "column": 5
+        },
+        {
+          "title": "highlight with only a class name but no visual difference fails V-HL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 107,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:01.745Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-highlight-wi-09270-isual-difference-fails-V-HL-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-highlight-wi-09270-isual-difference-fails-V-HL-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-5c13b7bd1d0f45f26fb2",
+          "file": "keep-observer.spec.ts",
+          "line": 43,
+          "column": 5
+        },
+        {
+          "title": "editor shell kept, active controls closed -> closed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 109,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:01.860Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-editor-shell-ca3a4-ve-controls-closed---closed-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-editor-shell-ca3a4-ve-controls-closed---closed-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-2de347b183b1f79ec96e",
+          "file": "keep-observer.spec.ts",
+          "line": 49,
+          "column": 5
+        },
+        {
+          "title": "editor shell kept but title still in an editable field -> still open",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 107,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:01.977Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-editor-shell-01061-editable-field---still-open-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-editor-shell-01061-editable-field---still-open-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-b73820d3e25ee0346f6a",
+          "file": "keep-observer.spec.ts",
+          "line": 55,
+          "column": 5
+        },
+        {
+          "title": "modal editor dialog still shown with cleared fields -> still open",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 109,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:02.091Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-modal-editor-531c8-cleared-fields---still-open-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-modal-editor-531c8-cleared-fields---still-open-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-096d79f281bb47a26164",
+          "file": "keep-observer.spec.ts",
+          "line": 61,
+          "column": 5
+        },
+        {
+          "title": "table-row note: cells are distinct lines (title cell, content cell)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 96,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:02.206Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-table-row-no-ea1ca-es-title-cell-content-cell--chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-table-row-no-ea1ca-es-title-cell-content-cell--chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-b6cdad62545f2925dd38",
+          "file": "keep-observer.spec.ts",
+          "line": 67,
+          "column": 5
+        },
+        {
+          "title": "table-row note: lines joined in one cell are still one line (A-K22-1 negative)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 93,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T17:26:02.310Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-table-row-no-8b65c--one-line-A-K22-1-negative--chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/D/test-results/keep-observer-table-row-no-8b65c--one-line-A-K22-1-negative--chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-c6caf327e91df7d0d1e9",
+          "file": "keep-observer.spec.ts",
+          "line": 75,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T17:25:56.376Z",
+    "duration": 6058.974999999999,
+    "expected": 20,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

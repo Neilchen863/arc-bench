@@ -1,0 +1,32 @@
+{
+  "Study schedule 26d8f7": [
+    {
+      "tag": "mark",
+      "text": "St",
+      "bg": "rgb(251, 188, 4)",
+      "parentEffBg": "rgb(255,255,255)",
+      "bgDiff": 251,
+      "fontWeight": "500",
+      "parentFontWeight": "500",
+      "textDecoration": "none",
+      "w": 17.859375,
+      "h": 18,
+      "parentTag": "h3"
+    }
+  ],
+  "Reading plan 26d8f7": [
+    {
+      "tag": "mark",
+      "text": "st",
+      "bg": "rgb(251, 188, 4)",
+      "parentEffBg": "rgb(255,255,255)",
+      "bgDiff": 251,
+      "fontWeight": "400",
+      "parentFontWeight": "400",
+      "textDecoration": "none",
+      "w": 14.046875,
+      "h": 17,
+      "parentTag": "p"
+    }
+  ]
+}

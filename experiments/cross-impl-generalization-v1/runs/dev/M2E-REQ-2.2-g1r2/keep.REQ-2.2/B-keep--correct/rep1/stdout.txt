@@ -1,0 +1,161 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-2.2.spec.ts:14:5 › autosave_on_close
+[1A[2K  1) [chromium] › tests/REQ-2.2.spec.ts:14:5 › autosave_on_close ───────────────────────────────────
+
+    ReferenceError: eventually is not defined
+
+       at lib/operations.ts:79
+
+      77 |   await btn.click();
+      78 |   // Ensure the editor is actually closed before returning (K22-O1)
+    > 79 |   await eventually(() => editorState(ed.surface), e => {
+         |   ^
+      80 |     if (e.open) throw new Error(`closeEditor: editor still open after click (${e.evidence})`);
+      81 |   }, 5_000);
+      82 | }
+        at closeEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--correct/rep1/work/tests/lib/operations.ts:79:3)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--correct/rep1/work/tests/REQ-2.2.spec.ts:19:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-autosave-on-close-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    New note [82f3e9c695-w0-37be560208]
+    
+    First line
+    Second line
+    
+    New note
+    Close
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:52871/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-2.2-autosave-on-close-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-autosave-on-close-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-2.2-autosave-on-close-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-2.2.spec.ts:27:5 › persist_after_reload
+[1A[2K  2) [chromium] › tests/REQ-2.2.spec.ts:27:5 › persist_after_reload ────────────────────────────────
+
+    ReferenceError: eventually is not defined
+
+       at lib/operations.ts:79
+
+      77 |   await btn.click();
+      78 |   // Ensure the editor is actually closed before returning (K22-O1)
+    > 79 |   await eventually(() => editorState(ed.surface), e => {
+         |   ^
+      80 |     if (e.open) throw new Error(`closeEditor: editor still open after click (${e.evidence})`);
+      81 |   }, 5_000);
+      82 | }
+        at closeEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--correct/rep1/work/tests/lib/operations.ts:79:3)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--correct/rep1/work/tests/REQ-2.2.spec.ts:32:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    Persistent note [82f3e9c695-w1-01c3c2598e]
+    
+    Saved personal content
+    
+    New note [82f3e9c695-w0-37be560208]
+    
+    First line
+    Second line
+    
+    New note
+    Close
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:52871/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-2.2-persist-after-reload-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-2.2.spec.ts:14:5 › autosave_on_close ────────────────────────────────────
+    [chromium] › tests/REQ-2.2.spec.ts:27:5 › persist_after_reload ─────────────────────────────────
+

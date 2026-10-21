@@ -1,0 +1,36 @@
+A-bookstack.REQ-6.4.correct M0 rep1: FAIL ADAPTATION_FAIL?
+A-bookstack.REQ-6.4.correct M0 rep2: FAIL ADAPTATION_FAIL?
+A-bookstack.REQ-6.4.correct M0 rep3: FAIL ADAPTATION_FAIL?
+A-bookstack.REQ-6.4.correct M0L rep1: PASS 
+A-bookstack.REQ-6.4.correct M0L rep2: PASS 
+A-bookstack.REQ-6.4.correct M0L rep3: PASS 
+A-bookstack.REQ-6.4.B64-D1 M0 rep1: FAIL ADAPTATION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M0 rep2: FAIL ADAPTATION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M0 rep3: FAIL ADAPTATION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M0L rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M0L rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D1 M0L rep3: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M0 rep1: FAIL ADAPTATION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M0 rep2: FAIL ADAPTATION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M0 rep3: FAIL ADAPTATION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M0L rep1: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M0L rep2: FAIL ASSERTION_FAIL?
+A-bookstack.REQ-6.4.B64-D2 M0L rep3: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.correct M0 rep1: FAIL ADAPTATION_FAIL?
+B-bookstack.REQ-6.4.correct M0 rep2: FAIL ADAPTATION_FAIL?
+B-bookstack.REQ-6.4.correct M0 rep3: FAIL ADAPTATION_FAIL?
+B-bookstack.REQ-6.4.correct M0L rep1: PASS 
+B-bookstack.REQ-6.4.correct M0L rep2: PASS 
+B-bookstack.REQ-6.4.correct M0L rep3: PASS 
+B-bookstack.REQ-6.4.B64-D1 M0 rep1: FAIL ADAPTATION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M0 rep2: FAIL ADAPTATION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M0 rep3: FAIL ADAPTATION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M0L rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M0L rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D1 M0L rep3: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M0 rep1: FAIL ADAPTATION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M0 rep2: FAIL ADAPTATION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M0 rep3: FAIL ADAPTATION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M0L rep1: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M0L rep2: FAIL ASSERTION_FAIL?
+B-bookstack.REQ-6.4.B64-D2 M0L rep3: FAIL ASSERTION_FAIL?

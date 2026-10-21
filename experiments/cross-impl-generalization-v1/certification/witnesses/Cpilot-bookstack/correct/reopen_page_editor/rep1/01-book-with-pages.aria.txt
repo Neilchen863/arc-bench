@@ -1,0 +1,35 @@
+- banner:
+  - navigation "Main":
+    - link "BookStack":
+      - /url: /
+    - search:
+      - searchbox "Search"
+    - link "Shelves":
+      - /url: /shelves
+    - link "Books":
+      - /url: /books
+    - link "Login":
+      - /url: /login
+- main:
+  - article:
+    - heading "Book 6.4.2 [CERT-Ccorrecte1]" [level=1]
+    - paragraph: Certification book for 6.4.2.
+    - list "Tags":
+      - listitem: certification
+      - listitem: reading
+    - region "Page list":
+      - list:
+        - listitem:
+          - button "Page A 6.4.2 [CERT-Ccorrecte1]"
+          - paragraph: Reading content for Page A 6.4.2.
+        - listitem:
+          - button "Page B 6.4.2 [CERT-Ccorrecte1]"
+          - paragraph: Reading content for Page B 6.4.2.
+        - listitem:
+          - button "Page C 6.4.2 [CERT-Ccorrecte1]"
+          - paragraph: Reading content for Page C 6.4.2.
+  - heading "Details" [level=2]
+  - paragraph: Created 6 October 2026
+  - heading "Actions" [level=2]
+  - button "New Page"
+  - button "Edit"

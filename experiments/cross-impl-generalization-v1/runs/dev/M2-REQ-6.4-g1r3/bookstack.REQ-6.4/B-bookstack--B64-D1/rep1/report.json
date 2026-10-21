@@ -1,0 +1,257 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-6.4.spec.ts",
+      "file": "REQ-6.4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "read_selected_page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12886,
+                  "error": {
+                    "message": "Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.1 [r1-w0-read-selected-page]=0)",
+                    "stack": "Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.1 [r1-w0-read-selected-page]=0)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts:40:38)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/operations.ts:68:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/REQ-6.4.spec.ts:27:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts",
+                      "column": 38,
+                      "line": 40
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts",
+                        "column": 38,
+                        "line": 40
+                      },
+                      "message": "Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.1 [r1-w0-read-selected-page]=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts:40:38)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/operations.ts:68:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/REQ-6.4.spec.ts:27:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T11:06:50.403Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBsaW5rICJTa2lwIHRvIGNvbnRlbnQiOgogIC0gL3VybDogIiNtYWluIgotIGJhbm5lcjoKICAtIGxpbmsgIktub3dsZWRnZSBCYXNlIjoKICAgIC0gL3VybDogLwogIC0gc2VhcmNoOgogICAgLSB0ZXh0Ym94ICJTZWFyY2giCiAgLSBuYXZpZ2F0aW9uICJNYWluIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAgICAgLSAvdXJsOiAvc2hlbHZlcwogICAgICAtIGxpc3RpdGVtOgogICAgICAgIC0gbGluayAiQm9va3MiOgogICAgICAgICAgLSAvdXJsOiAvYm9va3MKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkxvZyBpbiI6CiAgICAgICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBuYXZpZ2F0aW9uICJCcmVhZGNydW1iIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBsaW5rICJCb29rIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzL2U3YmUwYWZlLTY1OWYtNDRlZS1hM2Y5LWRkMjczMTNkOTlmYgogICAgICAtIGxpc3RpdGVtOiBQYWdlIEEgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KICAtIGFydGljbGU6CiAgICAtIGhlYWRpbmcgIlBhZ2UgQSA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSIgW2xldmVsPTFdCiAgICAtIHRleHQ6IFJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4xLgogIC0gY29tcGxlbWVudGFyeSAiUGFnZSBkZXRhaWxzIGFuZCBhY3Rpb25zIjoKICAgIC0gaGVhZGluZyAiRGV0YWlscyIgW2xldmVsPTJdCiAgICAtIHBhcmFncmFwaDogQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgogICAgLSBoZWFkaW5nICJBY3Rpb25zIiBbbGV2ZWw9Ml0KICAgIC0gYnV0dG9uICJFZGl0Ig=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "U2tpcCB0byBjb250ZW50Cktub3dsZWRnZSBCYXNlClNoZWx2ZXMKQm9va3MKTG9nIGluCkJvb2tzCkJvb2sgNi40LjEgW3IxLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KUGFnZSBBIDYuNC4xIFtyMS13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdClBhZ2UgQSA2LjQuMSBbcjEtdzAtcmVhZC1zZWxlY3RlZC1wYWdlXQpSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMS4KRGV0YWlscwoKQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgoKQWN0aW9ucwpFZGl0"
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo0OTE2Ni9ib29rcy9lN2JlMGFmZS02NTlmLTQ0ZWUtYTNmOS1kZDI3MzEzZDk5ZmIvcGFnZXMvYjc3MzYyNDUtZjVlNC00NTA4LWIwMDMtZWNmZjgxYWI2OWY1"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/test-results/REQ-6.4-read-selected-page-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/test-results/REQ-6.4-read-selected-page-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts",
+                    "column": 38,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-5dd9605f98bc9ec040a8",
+          "file": "REQ-6.4.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "reopen_page_editor",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12726,
+                  "error": {
+                    "message": "Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.2 [r1-w1-reopen-page-editor]=0)",
+                    "stack": "Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.2 [r1-w1-reopen-page-editor]=0)\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts:40:38)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/operations.ts:68:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/REQ-6.4.spec.ts:35:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts",
+                      "column": 38,
+                      "line": 40
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts",
+                        "column": 38,
+                        "line": 40
+                      },
+                      "message": "Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.2 [r1-w1-reopen-page-editor]=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts:40:38)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/operations.ts:68:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/REQ-6.4.spec.ts:35:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T11:07:03.927Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBsaW5rICJTa2lwIHRvIGNvbnRlbnQiOgogIC0gL3VybDogIiNtYWluIgotIGJhbm5lcjoKICAtIGxpbmsgIktub3dsZWRnZSBCYXNlIjoKICAgIC0gL3VybDogLwogIC0gc2VhcmNoOgogICAgLSB0ZXh0Ym94ICJTZWFyY2giCiAgLSBuYXZpZ2F0aW9uICJNYWluIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAgICAgLSAvdXJsOiAvc2hlbHZlcwogICAgICAtIGxpc3RpdGVtOgogICAgICAgIC0gbGluayAiQm9va3MiOgogICAgICAgICAgLSAvdXJsOiAvYm9va3MKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkxvZyBpbiI6CiAgICAgICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBuYXZpZ2F0aW9uICJCcmVhZGNydW1iIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBsaW5rICJCb29rIDYuNC4yIFtyMS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzLzRjZDEzMjQ0LTM2MTgtNGQzMi1hMDA1LTllNmQxYzE2ZWVhMwogICAgICAtIGxpc3RpdGVtOiBQYWdlIEEgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KICAtIGFydGljbGU6CiAgICAtIGhlYWRpbmcgIlBhZ2UgQSA2LjQuMiBbcjEtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSIgW2xldmVsPTFdCiAgICAtIHRleHQ6IFJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4yLgogIC0gY29tcGxlbWVudGFyeSAiUGFnZSBkZXRhaWxzIGFuZCBhY3Rpb25zIjoKICAgIC0gaGVhZGluZyAiRGV0YWlscyIgW2xldmVsPTJdCiAgICAtIHBhcmFncmFwaDogQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgogICAgLSBoZWFkaW5nICJBY3Rpb25zIiBbbGV2ZWw9Ml0KICAgIC0gYnV0dG9uICJFZGl0Ig=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "U2tpcCB0byBjb250ZW50Cktub3dsZWRnZSBCYXNlClNoZWx2ZXMKQm9va3MKTG9nIGluCkJvb2tzCkJvb2sgNi40LjIgW3IxLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KUGFnZSBBIDYuNC4yIFtyMS13MS1yZW9wZW4tcGFnZS1lZGl0b3JdClBhZ2UgQSA2LjQuMiBbcjEtdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXQpSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMi4KRGV0YWlscwoKQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgoKQWN0aW9ucwpFZGl0"
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo0OTE2Ni9ib29rcy80Y2QxMzI0NC0zNjE4LTRkMzItYTAwNS05ZTZkMWMxNmVlYTMvcGFnZXMvZTViY2Y2MDUtMjY4YS00NjgzLWJkODEtM2FkZGY5YmFkYzM3"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts",
+                    "column": 38,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-a1c648922e744b6c557a",
+          "file": "REQ-6.4.spec.ts",
+          "line": 33,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T11:06:50.078Z",
+    "duration": 26829.074,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

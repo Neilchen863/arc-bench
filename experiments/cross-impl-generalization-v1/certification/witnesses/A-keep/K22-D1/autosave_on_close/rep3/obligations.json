@@ -1,0 +1,23 @@
+{
+  "K22-O1": {
+    "holds": true,
+    "reason": "no dialog visible after Close"
+  },
+  "K22-O2": {
+    "holds": false,
+    "reason": "visible notes with title=0, active API notes with title=0"
+  },
+  "K22-O3": {
+    "holds": false,
+    "reason": "title not visible in any note"
+  },
+  "K22-O4": {
+    "holds": false,
+    "reason": "line text not found in card: null card=null"
+  },
+  "K22-O5": {
+    "holds": true,
+    "reason": "only Close was clicked to finish; save-like controls offered by the editor: []"
+  },
+  "_page_errors": []
+}

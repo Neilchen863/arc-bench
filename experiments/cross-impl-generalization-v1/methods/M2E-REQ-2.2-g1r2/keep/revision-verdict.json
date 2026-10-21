@@ -1,0 +1,9 @@
+{
+ "id": "M2E-keep-REQ-2.2-g1-r2",
+ "problems": [],
+ "files": [
+  "tests/lib/operations.ts",
+  "tests/lib/observe.ts"
+ ],
+ "status": "APPLIED"
+}

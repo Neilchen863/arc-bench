@@ -1,0 +1,108 @@
+Cpilot-keep.REQ-2.2.correct M0 rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.correct M0 rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.correct M0 rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.correct M0L rep1: PASS 
+Cpilot-keep.REQ-2.2.correct M0L rep2: PASS 
+Cpilot-keep.REQ-2.2.correct M0L rep3: PASS 
+Cpilot-keep.REQ-2.2.K22-D1 M0 rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D1 M0 rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D1 M0 rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D1 M0L rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D1 M0L rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D1 M0L rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D2 M0 rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D2 M0 rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D2 M0 rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D2 M0L rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D2 M0L rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-2.2.K22-D2 M0L rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.correct M0 rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.correct M0 rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.correct M0 rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.correct M0L rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.correct M0L rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.correct M0L rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D1 M0 rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D1 M0 rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D1 M0 rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D1 M0L rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D1 M0L rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D1 M0L rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D2 M0 rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D2 M0 rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D2 M0 rep3: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D2 M0L rep1: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D2 M0L rep2: FAIL ASSERTION_FAIL?
+Cpilot-keep.REQ-4.1.K41-D2 M0L rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.correct M0 rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.correct M0 rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.correct M0 rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.correct M0L rep1: PASS 
+Dpilot-keep.REQ-2.2.correct M0L rep2: PASS 
+Dpilot-keep.REQ-2.2.correct M0L rep3: PASS 
+Dpilot-keep.REQ-2.2.K22-D1 M0 rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D1 M0 rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D1 M0 rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D1 M0L rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D1 M0L rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D1 M0L rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D2 M0 rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D2 M0 rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D2 M0 rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D2 M0L rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D2 M0L rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-2.2.K22-D2 M0L rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.correct M0 rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.correct M0 rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.correct M0 rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.correct M0L rep1: PASS 
+Dpilot-keep.REQ-4.1.correct M0L rep2: PASS 
+Dpilot-keep.REQ-4.1.correct M0L rep3: PASS 
+Dpilot-keep.REQ-4.1.K41-D1 M0 rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D1 M0 rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D1 M0 rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D1 M0L rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D1 M0L rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D1 M0L rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D2 M0 rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D2 M0 rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D2 M0 rep3: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D2 M0L rep1: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D2 M0L rep2: FAIL ASSERTION_FAIL?
+Dpilot-keep.REQ-4.1.K41-D2 M0L rep3: FAIL ASSERTION_FAIL?
+Cpilot-bookstack.REQ-6.4.correct M0 rep1: FAIL ADAPTATION_FAIL?
+Cpilot-bookstack.REQ-6.4.correct M0 rep2: FAIL ADAPTATION_FAIL?
+Cpilot-bookstack.REQ-6.4.correct M0 rep3: FAIL ADAPTATION_FAIL?
+Cpilot-bookstack.REQ-6.4.correct M0L rep1: PASS 
+Cpilot-bookstack.REQ-6.4.correct M0L rep2: PASS 
+Cpilot-bookstack.REQ-6.4.correct M0L rep3: PASS 
+Cpilot-bookstack.REQ-6.4.B64-D1 M0 rep1: FAIL ADAPTATION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D1 M0 rep2: FAIL ADAPTATION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D1 M0 rep3: FAIL ADAPTATION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D1 M0L rep1: FAIL ASSERTION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D1 M0L rep2: FAIL ASSERTION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D1 M0L rep3: FAIL ASSERTION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D2 M0 rep1: FAIL ADAPTATION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D2 M0 rep2: FAIL ADAPTATION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D2 M0 rep3: FAIL ADAPTATION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D2 M0L rep1: FAIL ASSERTION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D2 M0L rep2: FAIL ASSERTION_FAIL?
+Cpilot-bookstack.REQ-6.4.B64-D2 M0L rep3: FAIL ASSERTION_FAIL?
+Dpilot-bookstack.REQ-6.4.correct M0 rep1: FAIL ADAPTATION_FAIL?
+Dpilot-bookstack.REQ-6.4.correct M0 rep2: FAIL ADAPTATION_FAIL?
+Dpilot-bookstack.REQ-6.4.correct M0 rep3: FAIL ADAPTATION_FAIL?
+Dpilot-bookstack.REQ-6.4.correct M0L rep1: FAIL ASSERTION_FAIL?
+Dpilot-bookstack.REQ-6.4.correct M0L rep2: FAIL ASSERTION_FAIL?
+Dpilot-bookstack.REQ-6.4.correct M0L rep3: FAIL ASSERTION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D1 M0 rep1: FAIL ADAPTATION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D1 M0 rep2: FAIL ADAPTATION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D1 M0 rep3: FAIL ADAPTATION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D1 M0L rep1: FAIL ASSERTION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D1 M0L rep2: FAIL ASSERTION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D1 M0L rep3: FAIL ASSERTION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D2 M0 rep1: FAIL ADAPTATION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D2 M0 rep2: FAIL ADAPTATION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D2 M0 rep3: FAIL ADAPTATION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D2 M0L rep1: FAIL ASSERTION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D2 M0L rep2: FAIL ASSERTION_FAIL?
+Dpilot-bookstack.REQ-6.4.B64-D2 M0L rep3: FAIL ASSERTION_FAIL?

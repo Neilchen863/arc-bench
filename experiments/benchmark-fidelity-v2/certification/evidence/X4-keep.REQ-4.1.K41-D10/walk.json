@@ -1,0 +1,72 @@
+[
+ {
+  "n": 1,
+  "tag": "search-st",
+  "text": "Notes\nNotes\nReminders\nEdit Labels\nArchived\nTrash\nSearch\n2 RESULTS\nReading plan W1\n\nRead a story\n\nStudy schedule W1\n\nMath on Monday",
+  "marks": [
+   {
+    "text": "st",
+    "bg": "rgb(255, 213, 79)",
+    "fw": "400"
+   },
+   {
+    "text": "St",
+    "bg": "rgb(255, 213, 79)",
+    "fw": "500"
+   }
+  ]
+ },
+ {
+  "n": 2,
+  "tag": "cleared-notes",
+  "text": "Notes\nNotes\nReminders\nEdit Labels\nArchived\nTrash\nNotes\nNew note\nOcean memo W1\n\nCalm blue waves\n\nReading plan W1\n\nRead a story\n\nStudy schedule W1\n\nMath on Monday"
+ },
+ {
+  "n": 3,
+  "tag": "labelled-created",
+  "api": [
+   {
+    "title": "Study schedule W1",
+    "content": "Math on Monday",
+    "labels": []
+   },
+   {
+    "title": "Reading plan W1",
+    "content": "Read a story",
+    "labels": []
+   },
+   {
+    "title": "Ocean memo W1",
+    "content": "Calm blue waves",
+    "labels": []
+   },
+   {
+    "title": "Call dentist W1",
+    "content": "Reminder content",
+    "labels": [
+     "reminders"
+    ]
+   },
+   {
+    "title": "Movie list W1",
+    "content": "Unlabeled content",
+    "labels": []
+   }
+  ]
+ },
+ {
+  "n": 4,
+  "tag": "search-focused",
+  "text": "Notes\nNotes\nReminders\nEdit Labels\nArchived\nTrash\nSearch\nFilter by label\nReminders"
+ },
+ {
+  "n": 5,
+  "tag": "reminders-filter",
+  "text": "Notes\nReminders\nNotes\nReminders\nEdit Labels\nArchived\nTrash\nSearch\n5 RESULTS\nMovie list W1\n\nUnlabeled content\n\nCall dentist W1\n\nReminder content\n\nReminders\nOcean memo W1\n\nCalm blue waves\n\nReading plan W1\n\nRead a story\n\nStudy schedule W1\n\nMath on Monday"
+ },
+ {
+  "n": 6,
+  "tag": "cleared-notes-2",
+  "text": "Notes\nNotes\nReminders\nEdit Labels\nArchived\nTrash\nNotes\nNew note\nMovie list W1\n\nUnlabeled content\n\nCall dentist W1\n\nReminder content\n\nReminders\nOcean memo W1\n\nCalm blue waves\n\nReading plan W1\n\nRead a story\n\nStudy schedule W1\n\nMath on Monday"
+ }
+]

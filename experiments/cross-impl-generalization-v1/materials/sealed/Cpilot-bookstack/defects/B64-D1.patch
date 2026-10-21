@@ -1,0 +1,13 @@
+diff --git a/src/views/BookDetail.jsx b/src/views/BookDetail.jsx
+index 86d6fd4..10f7b24 100644
+--- a/src/views/BookDetail.jsx
++++ b/src/views/BookDetail.jsx
+@@ -41,7 +41,7 @@ export default function BookDetail() {
+               <List>
+                 {pages.map((p) => (
+                   <ListItem key={p.id} disablePadding sx={{ display: 'block', borderLeft: 3, borderColor: 'primary.light', mb: 1 }}>
+-                    <ListItemButton onClick={() => navigate(`/books/${bookId}/pages/${p.id}`)}>
++                    <ListItemButton onClick={() => navigate(`/books/${bookId}/pages/${pages[0].id}`)}>
+                       <ListItemText primary={p.title} primaryTypographyProps={{ variant: 'h6', component: 'span' }} />
+                     </ListItemButton>
+                     <Typography variant="body2" color="text.secondary" sx={{ px: 2, pb: 1 }} noWrap>

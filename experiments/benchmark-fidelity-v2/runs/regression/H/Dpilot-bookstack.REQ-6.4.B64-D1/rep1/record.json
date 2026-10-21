@@ -1,0 +1,136 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "Dpilot-bookstack.REQ-6.4.B64-D1",
+ "parent_id": "Dpilot-bookstack.REQ-6.4.correct",
+ "method_id": "H",
+ "material_hash": "15cd60dc56c3089d",
+ "binding_hash": "93d371709b78c24c",
+ "common_hash": "8aa3ade3303fdbeb",
+ "binding_source": "manual per-implementation binding",
+ "reference_label": "VIOLATED",
+ "target_obligation": "B64-O1",
+ "execution_repeat": 1,
+ "reset_id": "r1-1792436251",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "regression",
+ "tag": "formal-regression-run2",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 26000,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "result": "REQUIREMENT_FAIL",
+ "obligation_results": {
+  "B64-O1": "FAIL",
+  "B64-O2": "NOT_REACHED",
+  "B64-O3": "NOT_REACHED",
+  "B64-O4": "NOT_REACHED",
+  "B64-O5": "NOT_REACHED",
+  "B64-O6": "NOT_REACHED",
+  "B64-P1": "PASS"
+ },
+ "failure_detail": "failed: B64-O1",
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "status": "failed",
+   "duration_ms": 12117,
+   "errors": [
+    "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.1 [r1-w0-read-selected-page]\"; headings=[\"Page A 6.4.1 [r1-w0-read-selected-page]\",\"Details\",\"Actions\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:29:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:29:3"
+   ],
+   "last_step": "open target page",
+   "checks": [
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:57:34.252Z",
+     "step": "create page A"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:57:34.649Z",
+     "step": "create page TARGET"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:57:34.997Z",
+     "step": "create page C"
+    },
+    {
+     "obligation": "B64-O1",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.1 [r1-w0-read-selected-page]\"; headings=[\"Page A 6.4.1 [r1-w0-read-selected-page]\",\"Details\",\"Actions\"]",
+     "observed": "{\"headings\":[\"Page A 6.4.1 [r1-w0-read-selected-page]\",\"Details\",\"Actions\"],\"lines\":[\"Skip to content\",\"BookStack\",\"Shelves\",\"Books\",\"Login\",\"Books\",\"\u203a\",\"Book 6.4.1 [r1-w0-read-selected-page]\",\"\u203a\",\"Page A 6.4.1 [r1-w0-read-selected-page]\",\"Page A 6.4.1 [r1-w0-read-selected-page]\",\"Reading content for Page A 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit page\"],\"evidence\":\"url=/pages/f62f8335-ed13-47da-a597-25f0460a8a39\"}",
+     "at": "2026-10-19T18:57:45.256Z",
+     "step": "open target page"
+    }
+   ],
+   "actions": []
+  },
+  {
+   "title": "reopen_page_editor",
+   "status": "failed",
+   "duration_ms": 12160,
+   "errors": [
+    "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.2 [r1-w1-reopen-page-editor]\"; headings=[\"Page A 6.4.2 [r1-w1-reopen-page-editor]\",\"Details\",\"Actions\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:38:51)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/work/tests/REQ-6.4.spec.ts:38:3"
+   ],
+   "last_step": "open target page",
+   "checks": [
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:57:47.050Z",
+     "step": "create page A"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:57:47.459Z",
+     "step": "create page TARGET"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"1 matching, 1 visible\"}",
+     "at": "2026-10-19T18:57:47.862Z",
+     "step": "create page C"
+    },
+    {
+     "obligation": "B64-O1",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.2 [r1-w1-reopen-page-editor]\"; headings=[\"Page A 6.4.2 [r1-w1-reopen-page-editor]\",\"Details\",\"Actions\"]",
+     "observed": "{\"headings\":[\"Page A 6.4.2 [r1-w1-reopen-page-editor]\",\"Details\",\"Actions\"],\"lines\":[\"Skip to content\",\"BookStack\",\"Shelves\",\"Books\",\"Login\",\"Books\",\"\u203a\",\"Book 6.4.2 [r1-w1-reopen-page-editor]\",\"\u203a\",\"Page A 6.4.2 [r1-w1-reopen-page-editor]\",\"Page A 6.4.2 [r1-w1-reopen-page-editor]\",\"Reading content for Page A 6.4.2.\",\"Details\",\"Created 6 October 2026\",\"Actions\",\"Edit page\"],\"evidence\":\"url=/pages/86cdaa74-e9ee-488c-a856-d3ac86121a7f\"}",
+     "at": "2026-10-19T18:57:57.997Z",
+     "step": "open target page"
+    }
+   ],
+   "actions": []
+  }
+ ],
+ "target_failure_confirmed": true,
+ "evidence_paths": [
+  "runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/report.json",
+  "runs/regression/H/Dpilot-bookstack.REQ-6.4.B64-D1/rep1/test-results"
+ ]
+}

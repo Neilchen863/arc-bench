@@ -1,0 +1,12 @@
+diff --git a/src/views/PageEditorView.vue b/src/views/PageEditorView.vue
+index 6296ae3..ab79d31 100644
+--- a/src/views/PageEditorView.vue
++++ b/src/views/PageEditorView.vue
+@@ -21,7 +21,6 @@ onMounted(async () => {
+   try {
+     const page = await api.get('pages', props.id);
+     title.value = page.title || '';
+-    body.value = page.html || '';
+     parentBookId.value = page.bookId;
+     loaded.value = true;
+   } catch { error.value = 'This page could not be found.'; }

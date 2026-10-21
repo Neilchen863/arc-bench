@@ -1,0 +1,16 @@
+diff --git a/src/Highlighted.jsx b/src/Highlighted.jsx
+index 83ce863..bfa18b7 100644
+--- a/src/Highlighted.jsx
++++ b/src/Highlighted.jsx
+@@ -5,9 +5,9 @@ export default function Highlighted({ text, query }) {
+   const keyword = query.trim();
+   return splitMatches(text, keyword).map((part, i) =>
+     part.match ? (
+-      <mark key={i} role="region" aria-label={`Highlight ${keyword}`} className="highlight">
++      <span key={i} role="region" aria-label={`Highlight ${keyword}`}>
+         {part.text}
+-      </mark>
++      </span>
+     ) : (
+       <span key={i}>{part.text}</span>
+     )

@@ -1,0 +1,18 @@
+diff --git a/src/store.js b/src/store.js
+index ab81862..0ba4503 100644
+--- a/src/store.js
++++ b/src/store.js
+@@ -50,13 +50,6 @@ export async function createNote(draft) {
+   // Optimistic: show immediately, then replace with the server copy.
+   const temp = { ...doc, id: `pending-${++tempSeq}`, pending: true }
+   store.notes.push(temp)
+-  try {
+-    const saved = await api.create('notes', doc)
+-    const i = store.notes.findIndex(n => n.id === temp.id)
+-    if (i >= 0) store.notes.splice(i, 1, saved)
+-  } catch (err) {
+-    report(err, 'Your note could not be saved. It will be lost on reload.')
+-  }
+ }
+ 
+ export async function updateNote(id, changes) {

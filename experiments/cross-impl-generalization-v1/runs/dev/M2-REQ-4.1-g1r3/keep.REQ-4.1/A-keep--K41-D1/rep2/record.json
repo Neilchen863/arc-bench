@@ -1,0 +1,63 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-keep.REQ-4.1.K41-D1",
+ "method": "M2-REQ-4.1-g1r3",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "3cbe684fcd84605e7c222951ef9f070b108fba066078dbb3dc08291a1ff1a2b2",
+ "execution_repeat": 2,
+ "run_id": "r2",
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "a0e1c008bcc31e5b430b0b88eac08a47ca4ef20556401733e6ddd3bb1b701bc3",
+ "source_hash": "a0e1c008bcc31e5b430b0b88eac08a47ca4ef20556401733e6ddd3bb1b701bc3",
+ "runtime_ms": 14234,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "file": "REQ-4.1.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 11394,
+   "errors": [
+    "Error: OBLIGATION_FAIL K41-O2: expected exactly one note titled \"Reading plan [db77fd01af-w0-c0bcaedb24]\", observed 0 ()\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--K41-D1/rep2/work/tests/lib/oracle.ts:8:61)\n    at Object.exactlyOneVisible (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--K41-D1/rep2/work/tests/lib/oracle.ts:23:24)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--K41-D1/rep2/work/tests/REQ-4.1.spec.ts:33:48)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--K41-D1/rep2/work/tests/lib/adapt.ts:74:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--K41-D1/rep2/work/tests/REQ-4.1.spec.ts:33:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Toggle sidebar\" [expanded]\n  - heading \"Keep\" [level=1]\n  - searchbox \"Search\": st\n  - button \"Clear search\"\n  - button \"List view\"\n  - button \"Settings menu\"\n- navigation \"Sidebar\":\n  - list:\n    - listitem:\n      - button \"Notes\"\n    - listitem:\n      - button \"Reminders\"\n    - listitem:\n      - button \"Edit Labels\"\n    - listitem:\n      - button \"Archived\"\n    - listitem:\n      - button \"Trash\"\n- main:\n  - paragraph: 1 matching note\n  - region \"Pinned notes\":\n    - heading \"Pinned\" [level=2]\n    - paragraph: No pinned notes\n  - region \"Other notes\":\n    - heading \"Others\" [level=2]\n    - region \"Study schedule [db77fd01af-w0-c0bcaedb24]\":\n      - heading \"Highlight study schedule [db77fd01af-w0-c0bcaedb24]\" [level=3]:\n        - region \"Highlight st\": St\n        - text: udy schedule [db77fd01af-w0-c0bcaedb24]\n      - paragraph: Math on Monday\n      - button \"Open Study schedule [db77fd01af-w0-c0bcaedb24]\"\n      - button \"More options Study schedule [db77fd01af-w0-c0bcaedb24]\"",
+    "visible-text": "Keep\nNotes\nReminders\nEdit Labels\nArchived\nTrash\n\n1 matching note\n\nPINNED\n\nNo pinned notes\n\nOTHERS\nStudy schedule [db77fd01af-w0-c0bcaedb24]\n\nMath on Monday",
+    "url": "http://127.0.0.1:62811/"
+   }
+  },
+  {
+   "title": "suggested_label_filter",
+   "file": "REQ-4.1.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 1187,
+   "errors": [],
+   "attachments": {}
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M2-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--K41-D1/rep2/report.json",
+ "trace_path": "runs/dev/M2-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--K41-D1/rep2/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

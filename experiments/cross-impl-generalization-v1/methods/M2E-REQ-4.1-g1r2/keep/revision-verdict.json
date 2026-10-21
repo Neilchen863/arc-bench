@@ -1,0 +1,12 @@
+{
+ "id": "M2E-keep-REQ-4.1-g1-r2",
+ "problems": [
+  "TEST_ERROR: SEARCH block in tests/lib/adapt.ts matched 0 times",
+  "TEST_ERROR: SEARCH block in tests/lib/operations.ts matched 0 times"
+ ],
+ "files": [
+  "tests/lib/adapt.ts",
+  "tests/lib/operations.ts"
+ ],
+ "status": "INVALID"
+}

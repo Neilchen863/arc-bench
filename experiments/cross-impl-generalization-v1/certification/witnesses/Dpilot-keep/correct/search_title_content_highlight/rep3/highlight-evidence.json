@@ -1,0 +1,52 @@
+[
+ {
+  "note": "Study schedule [9e58c5]",
+  "where": "title",
+  "candidates": [
+   {
+    "text": "St",
+    "tag": "MARK",
+    "v": {
+     "bgDiff": true,
+     "fw": false,
+     "td": false,
+     "bg": "rgb(255, 213, 79)",
+     "parentBg": "rgb(255,255,255)",
+     "w": "500",
+     "pw": "500",
+     "pass": true
+    }
+   }
+  ],
+  "sameKindNonSt": [],
+  "inTitle": [
+   "St"
+  ],
+  "inBody": []
+ },
+ {
+  "note": "Reading plan [9e58c5]",
+  "where": "content",
+  "candidates": [
+   {
+    "text": "st",
+    "tag": "MARK",
+    "v": {
+     "bgDiff": true,
+     "fw": false,
+     "td": false,
+     "bg": "rgb(255, 213, 79)",
+     "parentBg": "rgb(255,255,255)",
+     "w": "400",
+     "pw": "400",
+     "pass": true
+    }
+   }
+  ],
+  "sameKindNonSt": [],
+  "inTitle": [],
+  "inBody": [
+   "st"
+  ]
+ }
+]

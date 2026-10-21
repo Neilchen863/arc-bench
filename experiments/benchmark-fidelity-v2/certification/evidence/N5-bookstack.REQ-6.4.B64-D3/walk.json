@@ -1,0 +1,44 @@
+[
+ {
+  "n": 1,
+  "tag": "book-form",
+  "url": "http://127.0.0.1:64140/books/new"
+ },
+ {
+  "n": 2,
+  "tag": "book-with-pages",
+  "url": "http://127.0.0.1:64140/books/69dec482-0668-4581-8aa6-f6ab2c02d8d1",
+  "text": "BookStack\nShelves\nBooks\nLogin\nBooks › Book W1\nBook W1\n\nReference book description.\n\nmanual\nhandbook\nPage A W1\n\nReading content for Page A W1.\n\nPage B W1\n\nReading content for Page B W1.\n\nPage C W1\n\nReading content for Page C W1.\n\nDetails\n\nCreated 6 October 2026\n\nUpdated 6 October 2026\n\nActions\nNew Page\nEdit"
+ },
+ {
+  "n": 3,
+  "tag": "opened-target",
+  "url": "http://127.0.0.1:64140/books/69dec482-0668-4581-8aa6-f6ab2c02d8d1/pages/ba5cdc81-e40f-4732-b275-3d3469ab08e3",
+  "headings": [
+   "Page C W1",
+   "Details",
+   "Actions"
+  ],
+  "text": "BookStack\nShelves\nBooks\nLogin\nBooks › Book W1 › Page C W1\nPage C W1\n\nReading content for Page C W1.\n\nDetails\n\nCreated 6 October 2026\n\nUpdated 6 October 2026\n\nActions\nEdit"
+ },
+ {
+  "n": 4,
+  "tag": "editor",
+  "url": "http://127.0.0.1:64140/books/69dec482-0668-4581-8aa6-f6ab2c02d8d1/pages/ba5cdc81-e40f-4732-b275-3d3469ab08e3/edit",
+  "fields": [
+   {
+    "label": "Search",
+    "value": ""
+   },
+   {
+    "label": "page-title",
+    "value": "Page C W1"
+   },
+   {
+    "label": "page-body",
+    "value": "Reading content for Page C W1."
+   }
+  ],
+  "text": "BookStack\nShelves\nBooks\nLogin\nEdit Page\nCancel\nSave Page\nPage title * Shown as the page heading\nPage content"
+ }
+]

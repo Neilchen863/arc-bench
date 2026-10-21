@@ -1,0 +1,65 @@
+{
+  "status": "DRAFT_PENDING_HUMAN_SIGNOFF",
+  "track": "S1",
+  "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+  "principle": "Existing exact role/name strings are an automation hook, not automatically a business requirement. Each item was decided and recorded before any new material was built (2026-10-19).",
+  "unchanged_global_requirements": [
+    "Every action used by a scenario is visible/discoverable by a normal user and operable by mouse and keyboard.",
+    "Interactive controls expose an appropriate role and a meaningful accessible name (icon buttons included).",
+    "Fields have an associated accessible name (label, aria-label or placeholder).",
+    "Each business object (note, page, book) is visibly identified by its business title, and its actions/fields are scoped to it.",
+    "Page/book titles on detail views are headings."
+  ],
+  "relaxations": [
+    {
+      "relaxation_id": "R-NAME",
+      "dimension": "name_expression",
+      "applies_to": ["keep.REQ-2.2", "keep.REQ-4.1", "bookstack.REQ-6.4"],
+      "source_clauses": ["K22-C1", "K22-C2", "K22-C3", "K41-C1", "K41-C4", "K41-C5", "K41-C6", "K41-C7", "B64-C1", "B64-C3", "B64-C4", "B64-C6"],
+      "source_role_or_name_purpose": "Fixed English labels such as Take a note, Close, Title, Content, Search, Suggested filters, Edit, Save Page, Page title, Page list let the current tests locate controls.",
+      "relaxed_constraint": "A fixed label may be replaced by another clear English name for the same operation or field. Examples: 'Close' -> 'Done' / 'Close editor' / an x icon named 'Close note'; 'Take a note' -> 'New note' / 'Create note'; 'Save Page' -> 'Save' / 'Publish page'; 'Page title' -> 'Title'.",
+      "retained_business_obligations": ["operation meaning", "target object", "discoverability"],
+      "still_invalid_examples": [
+        "a name that no longer conveys the operation (e.g. 'OK' for creating a note with no context)",
+        "replacing autosave-on-close by a 'Save' button that must be clicked",
+        "unnamed icon-only controls"
+      ]
+    },
+    {
+      "relaxation_id": "R-CONTROL",
+      "dimension": "control_expression",
+      "applies_to": ["keep.REQ-2.2", "keep.REQ-4.1", "bookstack.REQ-6.4"],
+      "source_clauses": ["K22-C2", "K41-C1", "K41-C5", "K41-C7", "B64-C3"],
+      "source_role_or_name_purpose": "role=textbox/searchbox/button/checkbox/dialog is how the tests find and operate controls.",
+      "relaxed_constraint": "When the semantics match, a native input/textarea, a contenteditable rich-text editor, a component-library input, a menu option, a listbox option, a toggle chip or a switch may be used, each with its normal operation. The editor surface may be a dialog, an inline expanding card, or a drawer.",
+      "retained_business_obligations": ["can enter text", "can select/toggle", "the value can be read back by a user", "the result is reached through the specified interaction"],
+      "still_invalid_examples": ["a clickable div with no role/keyboard access", "a field that cannot be typed into by keyboard"]
+    },
+    {
+      "relaxation_id": "R-OBJECT",
+      "dimension": "object_organisation",
+      "applies_to": ["keep.REQ-2.2", "keep.REQ-4.1", "bookstack.REQ-6.4"],
+      "source_clauses": ["K22-C8", "B64-C1"],
+      "source_role_or_name_purpose": "Each note is region '{title}', each page entry is button/link '{title}' inside region 'Page list'; these are test anchors.",
+      "relaxed_constraint": "Notes and page lists may be organised as cards, list items, table rows or plain sections without a test-only region/listitem accessible name.",
+      "retained_business_obligations": ["visible unique business identifier per object", "object's actions and fields distinguishable from other objects", "the page list is identifiable as the book's pages (e.g. a heading 'Pages')"],
+      "still_invalid_examples": ["two notes merged in one container with no visible boundary", "page entries without a visible title"]
+    },
+    {
+      "relaxation_id": "R-RESULT",
+      "dimension": "result_presentation",
+      "applies_to": ["keep.REQ-2.2", "keep.REQ-4.1", "bookstack.REQ-6.4"],
+      "source_clauses": ["K22-C3", "K41-C2", "K41-C4", "B64-C2"],
+      "source_role_or_name_purpose": "Body text exactness, 'Highlight st' region and 'Suggested filters' region let tests read results.",
+      "relaxed_constraint": "Body line breaks may be rendered as pre-wrap text, <br> or separate block elements. The highlight element/markup is free (mark, span, strong). The suggested-filters panel may be any container that is identifiable by a visible heading or an accessible name with that meaning.",
+      "retained_business_obligations": ["specified content, quantity and order", "both lines visible on distinct lines (A-K22-1)", "the highlight is real and visible per V-HL", "the panel appears on focus"],
+      "still_invalid_examples": ["lines joined into one line", "highlight that only exists as an aria name with no visual difference", "highlight of a whole word instead of the match"]
+    }
+  ],
+  "not_shared_with_method": ["sealed_implementation_aliases", "sealed_DOM_selectors", "sealed_screenshots"],
+  "implementer_input": "Implementers receive the S1 meaning+constraints (this manifest's relaxed_constraint text plus the requirements), NOT an alias table from the method developer.",
+  "reviewer": "executor (single person, procedural isolation)",
+  "second_reviewer": null,
+  "adjudication": "PENDING_HUMAN_SIGNOFF",
+  "frozen_at": null
+}

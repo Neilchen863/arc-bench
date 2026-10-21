@@ -1,0 +1,159 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-6.4.spec.ts:25:5 › read_selected_page
+[1A[2K  1) [chromium] › tests/REQ-6.4.spec.ts:25:5 › read_selected_page ──────────────────────────────────
+
+    Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.1 [r1-w0-read-selected-page]=0)
+
+       at lib/adapt.ts:40
+
+      38 |     }
+      39 |     last = seen.join(', ');
+    > 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+         |                                      ^
+      41 |     await new Promise(r => setTimeout(r, 250));
+      42 |   }
+      43 | }
+        at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts:40:38)
+        at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep1/work/tests/lib/operations.ts:68:3)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep1/work/tests/REQ-6.4.spec.ts:27:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - link "BookStack":
+        - /url: /
+      - search:
+        - searchbox "Search"
+      - navigation "Main":
+        - link "Shelves":
+          - /url: /shelves
+        - link "Books":
+          - /url: /books
+        - link "Login":
+          - /url: /login
+    - main:
+      - navigation "Breadcrumb":
+        - text: Books
+        - link "...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    BookStack
+    Shelves
+    Books
+    Login
+    Books › Book 6.4.1 [r1-w0-read-selected-page] › Page A 6.4.1 [r1-w0-read-selected-page]
+    Page A 6.4.1 [r1-w0-read-selected-page]
+    
+    Reading content for Page A 6.4.1.
+    
+    Details
+    
+    Created 6 October 2026
+    
+    Updated 6 October 2026
+    
+    Actions
+    Edit
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:65386/books/5b06063a-9ab3-4abd-97db-b0b249fb8bc8/pages/91b1b714-c829-4419-95b3-6cca8af220fe
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-6.4-read-selected-page-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-read-selected-page-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-6.4-read-selected-page-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-6.4.spec.ts:33:5 › reopen_page_editor
+[1A[2K  2) [chromium] › tests/REQ-6.4.spec.ts:33:5 › reopen_page_editor ──────────────────────────────────
+
+    Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.2 [r1-w1-reopen-page-editor]=0)
+
+       at lib/adapt.ts:40
+
+      38 |     }
+      39 |     last = seen.join(', ');
+    > 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+         |                                      ^
+      41 |     await new Promise(r => setTimeout(r, 250));
+      42 |   }
+      43 | }
+        at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep1/work/tests/lib/adapt.ts:40:38)
+        at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep1/work/tests/lib/operations.ts:68:3)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep1/work/tests/REQ-6.4.spec.ts:35:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - link "BookStack":
+        - /url: /
+      - search:
+        - searchbox "Search"
+      - navigation "Main":
+        - link "Shelves":
+          - /url: /shelves
+        - link "Books":
+          - /url: /books
+        - link "Login":
+          - /url: /login
+    - main:
+      - navigation "Breadcrumb":
+        - text: Books
+        - link "...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    BookStack
+    Shelves
+    Books
+    Login
+    Books › Book 6.4.2 [r1-w1-reopen-page-editor] › Page A 6.4.2 [r1-w1-reopen-page-editor]
+    Page A 6.4.2 [r1-w1-reopen-page-editor]
+    
+    Reading content for Page A 6.4.2.
+    
+    Details
+    
+    Created 6 October 2026
+    
+    Updated 6 October 2026
+    
+    Actions
+    Edit
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:65386/books/c5339c55-cb09-44be-a205-52c465232505/pages/8940b35b-c897-4c25-a61f-fd0e43c93cac
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-6.4.spec.ts:25:5 › read_selected_page ───────────────────────────────────
+    [chromium] › tests/REQ-6.4.spec.ts:33:5 › reopen_page_editor ───────────────────────────────────
+

@@ -1,0 +1,17 @@
+diff --git a/src/views/PageView.vue b/src/views/PageView.vue
+index d82f6bd..be41b39 100644
+--- a/src/views/PageView.vue
++++ b/src/views/PageView.vue
+@@ -17,6 +17,12 @@ onMounted(async () => {
+   const [b, p] = await Promise.all([api.get('books', props.bookId), api.get('pages', props.pageId)]);
+   book.value = b;
+   page.value = p && p.bookId === props.bookId ? p : null;
++  if (page.value) {
++    // show the body of the page created just before this one
++    const all = (await api.list('pages')).filter((x) => x.bookId === props.bookId).sort((a, c) => String(a.createdAt).localeCompare(String(c.createdAt)));
++    const i = all.findIndex((x) => x.id === page.value.id);
++    if (i > 0) page.value = { ...page.value, body: all[i - 1].body };
++  }
+   loading.value = false;
+ });
+ </script>

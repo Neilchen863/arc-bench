@@ -1,0 +1,10 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1280, height: 720 } });
+await p.goto('http://127.0.0.1:39041');
+await p.getByRole('button', { name: 'Take a note…' }).click();
+await p.getByRole('textbox', { name: 'Title' }).fill('Shot note'); await p.getByRole('textbox', { name: 'Note text' }).fill('Line a\nLine b');
+await p.screenshot({ path: 'selfcheck/tmp/editor.png' });
+await p.getByRole('button', { name: 'Close' }).click(); await p.waitForTimeout(400);
+await p.screenshot({ path: 'selfcheck/tmp/home.png' });
+await p.getByRole('searchbox').click(); await p.waitForTimeout(200); await p.screenshot({ path: 'selfcheck/tmp/search.png' });
+await b.close();

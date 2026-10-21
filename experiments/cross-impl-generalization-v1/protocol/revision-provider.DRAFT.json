@@ -1,0 +1,5 @@
+{"status": "DRAFT - not active until the user picks the model; revise.py reads protocol/revision-provider.json only",
+ "provider": "NUS SoCLaaS", "base_url": "https://soclaas-api.comp.nus.edu.sg/v1", "api_key_env": "NUS_API_KEY",
+ "model": "<qwen3-coder-next | x-test-1>", "temperature": 0.2,
+ "catalogue_prices_usd_per_M": {"qwen3-coder-next": [0.210357, 1.040429], "x-test-1": [0.136, 0.447]},
+ "catalogue_checked": "2026-10-19", "log_served_model": true}

@@ -1,0 +1,10 @@
+{
+ "dialogNoteEditor": 0,
+ "textboxTitle": 1,
+ "textboxContent": 0,
+ "buttonClose": 1,
+ "saveLikeButtonsInEditor": 0,
+ "regionSuggestedFilters": 0,
+ "searchboxSearch": 0,
+ "buttonRemindersInSuggested": 1
+}

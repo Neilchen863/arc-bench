@@ -1,0 +1,77 @@
+{
+  "playwright": "1.61.1",
+  "browser": "149.0.7827.55",
+  "results": [
+    {
+      "name": "multiline-prewrap",
+      "result": 1
+    },
+    {
+      "name": "multiline-br",
+      "result": 0
+    },
+    {
+      "name": "multiline-br-whitespace",
+      "result": 1
+    },
+    {
+      "name": "multiline-paragraphs",
+      "result": 0
+    },
+    {
+      "name": "stacked-notices",
+      "error": "expect(locator).toBeVisible() failed\n\nLocator: getByRole('status', { name: 'Note deleted', exact: true })\nExpected: visible\nError: strict mode violation: getByRole('status', { name: 'Note deleted', exact: true }) resolved to 2 elements:"
+    },
+    {
+      "name": "order-br",
+      "result": 0
+    },
+    {
+      "name": "order-text",
+      "result": 0
+    },
+    {
+      "name": "order-strong",
+      "result": 1
+    },
+    {
+      "name": "train-th",
+      "result": {
+        "cells": [
+          "08:00",
+          "Book"
+        ],
+        "ids": [],
+        "helperThrows": true
+      }
+    },
+    {
+      "name": "train-td",
+      "result": {
+        "cells": [
+          "G1001",
+          "08:00",
+          "Book"
+        ],
+        "ids": [
+          "G1001"
+        ],
+        "helperThrows": false
+      }
+    },
+    {
+      "name": "nested-flights",
+      "result": {
+        "count": 5,
+        "missingFlightIdentity": 2
+      }
+    },
+    {
+      "name": "view-count",
+      "result": {
+        "status": "42",
+        "viewedCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,432 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "A-bookstack.REQ-6.4.B64-D2",
+ "parent_id": "A-bookstack.REQ-6.4.correct",
+ "method_id": "D",
+ "material_hash": "7817d335c2b0bc2e",
+ "binding_hash": "dc174e21efae4f17",
+ "common_hash": "a58eeb340368d37f",
+ "binding_source": "generic drivers",
+ "reference_label": "VIOLATED",
+ "target_obligation": "B64-O5",
+ "execution_repeat": 3,
+ "reset_id": "r3-1792436536",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "regression",
+ "tag": "formal-regression-run2",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 15721,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "result": "REQUIREMENT_FAIL",
+ "obligation_results": {
+  "B64-O1": "PASS",
+  "B64-O2": "PASS",
+  "B64-O3": "PASS",
+  "B64-O4": "PASS",
+  "B64-O5": "FAIL",
+  "B64-O6": "NOT_REACHED",
+  "B64-P1": "PASS"
+ },
+ "failure_detail": "failed: B64-O5",
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "status": "passed",
+   "duration_ms": 2055,
+   "errors": [],
+   "last_step": "open target page",
+   "checks": [
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"<button> names=[\\\"Page A 6.4.1 [r3-w0-read-selected-page]\\\"]\"}",
+     "at": "2026-10-19T19:02:19.578Z",
+     "step": "create page A"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"<button> names=[\\\"Page B 6.4.1 [r3-w0-read-selected-page]\\\"]\"}",
+     "at": "2026-10-19T19:02:19.933Z",
+     "step": "create page TARGET"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"<button> names=[\\\"Page C 6.4.1 [r3-w0-read-selected-page]\\\"]\"}",
+     "at": "2026-10-19T19:02:20.292Z",
+     "step": "create page C"
+    },
+    {
+     "obligation": "B64-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Details\",\"Actions\"],\"lines\":[\"BookStack\",\"Shelves\",\"Books\",\"Login\",\"Books \u203a Book 6.4.1 [r3-w0-read-selected-page] \u203a Page B 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Reading content for Page B 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Updated 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/8fddac70-09ab-410d-a55d-b912a8083d48/pages/58561f41-b5de-459f-a74c-9be8f97560ef\"}",
+     "at": "2026-10-19T19:02:20.593Z",
+     "step": "open target page"
+    },
+    {
+     "obligation": "B64-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Details\",\"Actions\"],\"lines\":[\"BookStack\",\"Shelves\",\"Books\",\"Login\",\"Books \u203a Book 6.4.1 [r3-w0-read-selected-page] \u203a Page B 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Reading content for Page B 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Updated 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/8fddac70-09ab-410d-a55d-b912a8083d48/pages/58561f41-b5de-459f-a74c-9be8f97560ef\"}",
+     "at": "2026-10-19T19:02:20.597Z",
+     "step": "open target page"
+    },
+    {
+     "obligation": "B64-O3",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Details\",\"Actions\"],\"lines\":[\"BookStack\",\"Shelves\",\"Books\",\"Login\",\"Books \u203a Book 6.4.1 [r3-w0-read-selected-page] \u203a Page B 6.4.1 [r3-w0-read-selected-page]\",\"Page B 6.4.1 [r3-w0-read-selected-page]\",\"Reading content for Page B 6.4.1.\",\"Details\",\"Created 6 October 2026\",\"Updated 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/8fddac70-09ab-410d-a55d-b912a8083d48/pages/58561f41-b5de-459f-a74c-9be8f97560ef\"}",
+     "at": "2026-10-19T19:02:20.600Z",
+     "step": "open target page"
+    }
+   ],
+   "actions": [
+    {
+     "at": "2026-10-19T19:02:18.737Z",
+     "intent": "enter app",
+     "how": "goto /"
+    },
+    {
+     "at": "2026-10-19T19:02:18.843Z",
+     "intent": "open books",
+     "control": "<a> names=[\"Books\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:18.881Z",
+     "intent": "create book",
+     "control": "<button> names=[\"Create New Book\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:18.891Z",
+     "intent": "enter book name",
+     "control": "<input> names=[\"Name\"]",
+     "how": "fill",
+     "after": "Book 6.4.1 [r3-w0-read-selected-page]"
+    },
+    {
+     "at": "2026-10-19T19:02:18.907Z",
+     "intent": "enter book description",
+     "control": "<textarea> names=[\"Description\"]",
+     "how": "fill",
+     "after": "Reference book description."
+    },
+    {
+     "at": "2026-10-19T19:02:18.923Z",
+     "intent": "enter book tags",
+     "control": "<input> names=[\"Tags\"]",
+     "how": "fill",
+     "after": "manual, handbook"
+    },
+    {
+     "at": "2026-10-19T19:02:18.963Z",
+     "intent": "save book",
+     "control": "<button> names=[\"Save Book\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:19.262Z",
+     "intent": "new page",
+     "control": "<button> names=[\"New Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:19.271Z",
+     "intent": "enter page title",
+     "control": "<input> names=[\"Page title\",\"Page Title\"]",
+     "how": "fill",
+     "after": "Page A 6.4.1 [r3-w0-read-selected-page]"
+    },
+    {
+     "at": "2026-10-19T19:02:19.280Z",
+     "intent": "enter page body",
+     "control": "<textarea> names=[\"Write your page content here...\"]",
+     "how": "fill",
+     "after": "Reading content for Page A 6.4.1."
+    },
+    {
+     "at": "2026-10-19T19:02:19.313Z",
+     "intent": "save page",
+     "control": "<button> names=[\"Save Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:19.611Z",
+     "intent": "new page",
+     "control": "<button> names=[\"New Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:19.620Z",
+     "intent": "enter page title",
+     "control": "<input> names=[\"Page title\",\"Page Title\"]",
+     "how": "fill",
+     "after": "Page B 6.4.1 [r3-w0-read-selected-page]"
+    },
+    {
+     "at": "2026-10-19T19:02:19.628Z",
+     "intent": "enter page body",
+     "control": "<textarea> names=[\"Write your page content here...\"]",
+     "how": "fill",
+     "after": "Reading content for Page B 6.4.1."
+    },
+    {
+     "at": "2026-10-19T19:02:19.663Z",
+     "intent": "save page",
+     "control": "<button> names=[\"Save Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:19.963Z",
+     "intent": "new page",
+     "control": "<button> names=[\"New Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:19.972Z",
+     "intent": "enter page title",
+     "control": "<input> names=[\"Page title\",\"Page Title\"]",
+     "how": "fill",
+     "after": "Page C 6.4.1 [r3-w0-read-selected-page]"
+    },
+    {
+     "at": "2026-10-19T19:02:19.981Z",
+     "intent": "enter page body",
+     "control": "<textarea> names=[\"Write your page content here...\"]",
+     "how": "fill",
+     "after": "Reading content for Page C 6.4.1."
+    },
+    {
+     "at": "2026-10-19T19:02:20.012Z",
+     "intent": "save page",
+     "control": "<button> names=[\"Save Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:20.332Z",
+     "intent": "open page",
+     "target": "Page B 6.4.1 [r3-w0-read-selected-page]",
+     "control": "<button> names=[\"Page B 6.4.1 [r3-w0-read-selected-page]\"]",
+     "how": "click"
+    }
+   ]
+  },
+  {
+   "title": "reopen_page_editor",
+   "status": "failed",
+   "duration_ms": 12515,
+   "errors": [
+    "Error: OBLIGATION_FAIL B64-O5: editor body field holds \"\", expected \"Reading content for Page B 6.4.2.\" (title=<input> names=[\"Page title\",\"Page Title\"] body=<textarea> names=[\"Write your page content here...\"] save=<button> names=[\"Save Page\"])\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/A-bookstack.REQ-6.4.B64-D2/rep3/work/tests/lib/oracle.ts:5:61)\n    at Object.editorBody (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/A-bookstack.REQ-6.4.B64-D2/rep3/work/tests/lib/oracle.ts:32:65)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/A-bookstack.REQ-6.4.B64-D2/rep3/work/tests/REQ-6.4.spec.ts:42:53)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/A-bookstack.REQ-6.4.B64-D2/rep3/work/tests/lib/ledger.ts:39:7)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/D/A-bookstack.REQ-6.4.B64-D2/rep3/work/tests/REQ-6.4.spec.ts:42:3"
+   ],
+   "last_step": "open editor",
+   "checks": [
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"<button> names=[\\\"Page A 6.4.2 [r3-w0-reopen-page-editor]\\\"]\"}",
+     "at": "2026-10-19T19:02:21.575Z",
+     "step": "create page A"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"<button> names=[\\\"Page B 6.4.2 [r3-w0-reopen-page-editor]\\\"]\"}",
+     "at": "2026-10-19T19:02:21.957Z",
+     "step": "create page TARGET"
+    },
+    {
+     "obligation": "B64-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"entries\":1,\"evidence\":\"<button> names=[\\\"Page C 6.4.2 [r3-w0-reopen-page-editor]\\\"]\"}",
+     "at": "2026-10-19T19:02:22.325Z",
+     "step": "create page C"
+    },
+    {
+     "obligation": "B64-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"headings\":[\"Page B 6.4.2 [r3-w0-reopen-page-editor]\",\"Details\",\"Actions\"],\"lines\":[\"BookStack\",\"Shelves\",\"Books\",\"Login\",\"Books \u203a Book 6.4.2 [r3-w0-reopen-page-editor] \u203a Page B 6.4.2 [r3-w0-reopen-page-editor]\",\"Page B 6.4.2 [r3-w0-reopen-page-editor]\",\"Reading content for Page B 6.4.2.\",\"Details\",\"Created 6 October 2026\",\"Updated 6 October 2026\",\"Actions\",\"Edit\"],\"evidence\":\"url=/books/c86ff211-3c75-4dff-8487-464f7f2460b8/pages/979d401f-ff8d-4f79-b70a-0a4203aaa51f\"}",
+     "at": "2026-10-19T19:02:22.626Z",
+     "step": "open target page"
+    },
+    {
+     "obligation": "B64-O4",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"titleValue\":\"Page B 6.4.2 [r3-w0-reopen-page-editor]\",\"bodyValue\":\"\",\"saveVisible\":true,\"evidence\":\"title=<input> names=[\\\"Page title\\\",\\\"Page Title\\\"] body=<textarea> names=[\\\"Write your page content here...\\\"] save=<button> names=[\\\"Save Page\\\"]\"}",
+     "at": "2026-10-19T19:02:22.951Z",
+     "step": "open editor"
+    },
+    {
+     "obligation": "B64-O5",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL B64-O5: editor body field holds \"\", expected \"Reading content for Page B 6.4.2.\" (title=<input> names=[\"Page title\",\"Page Title\"] body=<textarea> names=[\"Write your page content here...\"] save=<button> names=[\"Save Page\"])",
+     "observed": "{\"titleValue\":\"Page B 6.4.2 [r3-w0-reopen-page-editor]\",\"bodyValue\":\"\",\"saveVisible\":true,\"evidence\":\"title=<input> names=[\\\"Page title\\\",\\\"Page Title\\\"] body=<textarea> names=[\\\"Write your page content here...\\\"] save=<button> names=[\\\"Save Page\\\"]\"}",
+     "at": "2026-10-19T19:02:33.159Z",
+     "step": "open editor"
+    }
+   ],
+   "actions": [
+    {
+     "at": "2026-10-19T19:02:20.786Z",
+     "intent": "enter app",
+     "how": "goto /"
+    },
+    {
+     "at": "2026-10-19T19:02:20.831Z",
+     "intent": "open books",
+     "control": "<a> names=[\"Books\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:20.878Z",
+     "intent": "create book",
+     "control": "<button> names=[\"Create New Book\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:20.890Z",
+     "intent": "enter book name",
+     "control": "<input> names=[\"Name\"]",
+     "how": "fill",
+     "after": "Book 6.4.2 [r3-w0-reopen-page-editor]"
+    },
+    {
+     "at": "2026-10-19T19:02:20.899Z",
+     "intent": "enter book description",
+     "control": "<textarea> names=[\"Description\"]",
+     "how": "fill",
+     "after": "Reference book description."
+    },
+    {
+     "at": "2026-10-19T19:02:20.908Z",
+     "intent": "enter book tags",
+     "control": "<input> names=[\"Tags\"]",
+     "how": "fill",
+     "after": "manual, handbook"
+    },
+    {
+     "at": "2026-10-19T19:02:20.946Z",
+     "intent": "save book",
+     "control": "<button> names=[\"Save Book\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:21.248Z",
+     "intent": "new page",
+     "control": "<button> names=[\"New Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:21.258Z",
+     "intent": "enter page title",
+     "control": "<input> names=[\"Page title\",\"Page Title\"]",
+     "how": "fill",
+     "after": "Page A 6.4.2 [r3-w0-reopen-page-editor]"
+    },
+    {
+     "at": "2026-10-19T19:02:21.269Z",
+     "intent": "enter page body",
+     "control": "<textarea> names=[\"Write your page content here...\"]",
+     "how": "fill",
+     "after": "Reading content for Page A 6.4.2."
+    },
+    {
+     "at": "2026-10-19T19:02:21.295Z",
+     "intent": "save page",
+     "control": "<button> names=[\"Save Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:21.613Z",
+     "intent": "new page",
+     "control": "<button> names=[\"New Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:21.627Z",
+     "intent": "enter page title",
+     "control": "<input> names=[\"Page title\",\"Page Title\"]",
+     "how": "fill",
+     "after": "Page B 6.4.2 [r3-w0-reopen-page-editor]"
+    },
+    {
+     "at": "2026-10-19T19:02:21.636Z",
+     "intent": "enter page body",
+     "control": "<textarea> names=[\"Write your page content here...\"]",
+     "how": "fill",
+     "after": "Reading content for Page B 6.4.2."
+    },
+    {
+     "at": "2026-10-19T19:02:21.679Z",
+     "intent": "save page",
+     "control": "<button> names=[\"Save Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:21.997Z",
+     "intent": "new page",
+     "control": "<button> names=[\"New Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:22.006Z",
+     "intent": "enter page title",
+     "control": "<input> names=[\"Page title\",\"Page Title\"]",
+     "how": "fill",
+     "after": "Page C 6.4.2 [r3-w0-reopen-page-editor]"
+    },
+    {
+     "at": "2026-10-19T19:02:22.016Z",
+     "intent": "enter page body",
+     "control": "<textarea> names=[\"Write your page content here...\"]",
+     "how": "fill",
+     "after": "Reading content for Page C 6.4.2."
+    },
+    {
+     "at": "2026-10-19T19:02:22.044Z",
+     "intent": "save page",
+     "control": "<button> names=[\"Save Page\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:22.363Z",
+     "intent": "open page",
+     "target": "Page B 6.4.2 [r3-w0-reopen-page-editor]",
+     "control": "<button> names=[\"Page B 6.4.2 [r3-w0-reopen-page-editor]\"]",
+     "how": "click"
+    },
+    {
+     "at": "2026-10-19T19:02:22.664Z",
+     "intent": "open page editor",
+     "control": "<button> names=[\"Edit\"]",
+     "how": "click"
+    }
+   ]
+  }
+ ],
+ "target_failure_confirmed": true,
+ "evidence_paths": [
+  "runs/regression/D/A-bookstack.REQ-6.4.B64-D2/rep3/report.json",
+  "runs/regression/D/A-bookstack.REQ-6.4.B64-D2/rep3/test-results"
+ ]
+}

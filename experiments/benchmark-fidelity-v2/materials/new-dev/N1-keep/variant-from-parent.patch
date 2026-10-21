@@ -1,0 +1,123 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 0edca49..33401a7 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -273,9 +273,13 @@ export default function App() {
+       <>
+         {!searching && (
+           <div className="composer">
+-            <button type="button" ref={takeNoteRef} className="composer__button" onClick={openNew}>
+-              Take a note
+-            </button>
++            {editor && !editor.initial.id ? (
++              <NoteEditor inline initial={editor.initial} labels={orderedLabels} onClose={closeEditor} />
++            ) : (
++              <button type="button" ref={takeNoteRef} className="composer__button" onClick={openNew}>
++                Take a note
++              </button>
++            )}
+           </div>
+         )}
+         {searching && (
+@@ -457,7 +461,7 @@ export default function App() {
+         </div>
+       </div>
+ 
+-      {editor && <NoteEditor initial={editor.initial} labels={orderedLabels} onClose={closeEditor} />}
++      {editor && editor.initial.id && <NoteEditor initial={editor.initial} labels={orderedLabels} onClose={closeEditor} />}
+       {chooserNote && <LabelChooser labels={orderedLabels} selected={chooserNote.labels || []} onDone={saveNoteLabels} />}
+       {editLabelsOpen && (
+         <EditLabels labels={labels} onCreate={createLabel} onSave={renameLabel} onDelete={deleteLabel} onDone={() => setEditLabelsOpen(false)} />
+diff --git a/src/NoteEditor.jsx b/src/NoteEditor.jsx
+index 9506772..21a02e0 100644
+--- a/src/NoteEditor.jsx
++++ b/src/NoteEditor.jsx
+@@ -6,7 +6,7 @@ import LabelChooser from './LabelChooser.jsx';
+ 
+ // "Note editor" dialog used both for new notes and for editing existing ones.
+ // There is no Save button: Close (or Escape / clicking outside) autosaves.
+-export default function NoteEditor({ initial, labels, onClose }) {
++export default function NoteEditor({ initial, labels, onClose, inline = false }) {
+   const [draft, setDraft] = useState(initial);
+   const [paletteOpen, setPaletteOpen] = useState(false);
+   const [chooserOpen, setChooserOpen] = useState(false);
+@@ -44,16 +44,20 @@ export default function NoteEditor({ initial, labels, onClose }) {
+ 
+   const assigned = labels.filter((l) => (draft.labels || []).includes(l.id));
+ 
++  // Variant N1: a new note is written in an inline composer that expands in place (no dialog);
++  // existing notes still open in the dialog.
++  const Shell = inline ? InlineShell : DialogShell;
+   return (
+-    <div className="backdrop" onMouseDown={(e) => e.target === e.currentTarget && close()}>
+-      <div
+-        className="dialog editor"
+-        role="dialog"
+-        aria-modal="true"
+-        aria-label="Note editor"
+-        style={{ background: colorValue(draft.color) }}
+-        onKeyDown={onKeyDown}
+-      >
++    <Shell close={close} color={colorValue(draft.color)} onKeyDown={onKeyDown} chooser={chooserOpen && (
++        <LabelChooser
++          labels={labels}
++          selected={draft.labels || []}
++          onDone={(ids) => {
++            update({ labels: ids });
++            setChooserOpen(false);
++          }}
++        />
++      )}>
+         <div className="editor__head">
+           <input
+             ref={titleRef}
+@@ -138,17 +142,28 @@ export default function NoteEditor({ initial, labels, onClose }) {
+             ))}
+           </div>
+         )}
++    </Shell>
++  );
++}
++
++function DialogShell({ close, color, onKeyDown, chooser, children }) {
++  return (
++    <div className="backdrop" onMouseDown={(e) => e.target === e.currentTarget && close()}>
++      <div className="dialog editor" role="dialog" aria-modal="true" aria-label="Note editor" style={{ background: color }} onKeyDown={onKeyDown}>
++        {children}
+       </div>
+-      {chooserOpen && (
+-        <LabelChooser
+-          labels={labels}
+-          selected={draft.labels || []}
+-          onDone={(ids) => {
+-            update({ labels: ids });
+-            setChooserOpen(false);
+-          }}
+-        />
+-      )}
++      {chooser}
+     </div>
+   );
+ }
++
++function InlineShell({ color, onKeyDown, chooser, children }) {
++  return (
++    <>
++      <section className="editor editor--inline" aria-label="New note" style={{ background: color }} onKeyDown={onKeyDown}>
++        {children}
++      </section>
++      {chooser}
++    </>
++  );
++}
+diff --git a/src/styles.css b/src/styles.css
+index 71fbd8a..2cbfef1 100644
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -132,3 +132,6 @@ button { font: inherit; color: inherit; }
+ @media (max-width: 700px) {
+   .brand { display: none; }
+ }
++
++/* Variant N1: inline composer editor */
++.editor--inline { background: #fff; border-radius: 8px; box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15); padding: 12px 16px; width: min(600px, 100%); margin: 0 auto; }

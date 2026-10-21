@@ -1,0 +1,131 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "N2-keep.REQ-2.2.correct",
+ "parent_id": null,
+ "method_id": "B",
+ "material_hash": "325828af13a976b9",
+ "binding_hash": "d2ba0b9330eddae5",
+ "common_hash": "b040fe2b11c65085",
+ "binding_source": "generic M0L rules",
+ "reference_label": "SATISFIED",
+ "target_obligation": null,
+ "execution_repeat": 1,
+ "reset_id": "r1-1792427970",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "split": "smoke",
+ "tag": "",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 6043,
+ "case_ids_observed": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "result": "PASS",
+ "obligation_results": {
+  "K22-O1": "PASS",
+  "K22-O2": "PASS",
+  "K22-O3": "PASS",
+  "K22-O4": "PASS",
+  "K22-O5": "PASS",
+  "K22-O6": "PASS"
+ },
+ "failure_detail": null,
+ "cases": [
+  {
+   "title": "autosave_on_close",
+   "status": "passed",
+   "duration_ms": 2468,
+   "errors": [],
+   "last_step": "dismiss editor",
+   "checks": [
+    {
+     "obligation": "K22-O5",
+     "status": "PASS",
+     "detail": "",
+     "observed": "\"close action only (operation layer refuses save-like controls)\"",
+     "at": "2026-10-19T16:39:33.736Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T16:39:35.264Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"New note [82f3e9c695-w0-37be560208]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"New note [82f3e9c695-w0-37be560208]\",\"First line\",\"Second line\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T16:39:35.298Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O3",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"New note [82f3e9c695-w0-37be560208]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"New note [82f3e9c695-w0-37be560208]\",\"First line\",\"Second line\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T16:39:35.303Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O4",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"New note [82f3e9c695-w0-37be560208]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"New note [82f3e9c695-w0-37be560208]\",\"First line\",\"Second line\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T16:39:35.307Z",
+     "step": "dismiss editor"
+    }
+   ],
+   "actions": []
+  },
+  {
+   "title": "persist_after_reload",
+   "status": "passed",
+   "duration_ms": 2450,
+   "errors": [],
+   "last_step": "reload",
+   "checks": [
+    {
+     "obligation": "K22-O1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T16:39:37.712Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O2",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Persistent note [82f3e9c695-w0-01c3c2598e]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Persistent note [82f3e9c695-w0-01c3c2598e]\",\"Saved personal content\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T16:39:37.724Z",
+     "step": "dismiss editor"
+    },
+    {
+     "obligation": "K22-O6",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"title\":\"Persistent note [82f3e9c695-w0-01c3c2598e]\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Persistent note [82f3e9c695-w0-01c3c2598e]\",\"Saved personal content\"],\"evidence\":\"<article role=null class=\\\"note-card\\\">\"}",
+     "at": "2026-10-19T16:39:37.820Z",
+     "step": "reload"
+    }
+   ],
+   "actions": []
+  }
+ ],
+ "target_failure_confirmed": null,
+ "evidence_paths": [
+  "runs/smoke/B/N2-keep.REQ-2.2.correct/rep1/report.json",
+  "runs/smoke/B/N2-keep.REQ-2.2.correct/rep1/test-results"
+ ]
+}

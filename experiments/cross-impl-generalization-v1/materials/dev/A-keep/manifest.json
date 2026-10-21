@@ -1,0 +1,1 @@
+{"family":"A","app":"keep","start":"PORT=<port> APP=keep STATIC_DIR=app/dist node server/server.mjs","health":"/__health","reset":"POST /__reset","build":"cd app && npm ci && npm run build","framework":"react@18.3.1 (vite@5.4.21)","component_library":"none","naming_mode":"S0"}

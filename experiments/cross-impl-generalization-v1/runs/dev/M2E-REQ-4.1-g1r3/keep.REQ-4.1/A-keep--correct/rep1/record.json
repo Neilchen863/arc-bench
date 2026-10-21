@@ -1,0 +1,63 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-keep.REQ-4.1.correct",
+ "method": "M2E-REQ-4.1-g1r3",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "aef206954bcc2b9b0db6af4022f5a1c2f41e4af1b01b019b7ec4ebbc277cc512",
+ "execution_repeat": 1,
+ "run_id": "r1",
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "3c67c056feeeeabd5c7a7416122fefeec6acc23f3b20b5269932a383ec87126e",
+ "source_hash": "3c67c056feeeeabd5c7a7416122fefeec6acc23f3b20b5269932a383ec87126e",
+ "runtime_ms": 5465,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "file": "REQ-4.1.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 2190,
+   "errors": [],
+   "attachments": {}
+  },
+  {
+   "title": "suggested_label_filter",
+   "file": "REQ-4.1.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 1230,
+   "errors": [
+    "ReferenceError: byText is not defined\n\n   at lib/operations.ts:102\n\n  100 |     byRole('button', name),\n  101 |     byRole('link', name),\n> 102 |     byRole('checkbox', name),\n      |           ^\n  103 |     byText(name),\n  104 |     byRole('menuitem', new RegExp(`^${name}$`, 'i')),\n  105 |     byRole('option', new RegExp(`^${name}$`, 'i')),\n    at chooseSuggested (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--correct/rep1/work/tests/lib/operations.ts:102:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--correct/rep1/work/tests/REQ-4.1.spec.ts:53:24"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Toggle sidebar\" [expanded]\n  - heading \"Keep\" [level=1]\n  - searchbox \"Search\"\n  - region \"Suggested filters\":\n    - heading \"Labels\" [level=2]\n    - button \"Reminders\"\n  - button \"List view\"\n  - button \"Settings menu\"\n- navigation \"Sidebar\":\n  - list:\n    - listitem:\n      - button \"Notes\"\n    - listitem:\n      - button \"Reminders\"\n    - listitem:\n      - button \"Edit Labels\"\n    - listitem:\n      - button \"Archived\"\n    - listitem:\n      - button \"Trash\"\n- main:\n  - button \"Take a note\"\n  - region \"Pinned notes\":\n    - heading \"Pinned\" [level=2]\n    - paragraph: No pinned notes\n  - region \"Other notes\":\n    - heading \"Others\" [level=2]\n    - region \"Study schedule [82f3e9c695-w0-c0bcaedb24]\":\n      - heading \"Study schedule [82f3e9c695-w0-c0bcaedb24]\" [level=3]\n      - paragraph: Math on Monday\n      - button \"Open Study schedule [82f3e9c695-w0-c0bcaedb24]\"\n      - button \"More options Study schedule [82f3e9c695-w0-c0bcaedb24]\"\n    - region \"Reading plan [82f3e9c695-w0-c0bcaedb24]\":\n      - heading \"Reading plan [82f3e9c695-w0-c0bcaedb24]\" [level=3]\n      - paragraph: Read a story\n      - button \"Open Reading plan [82f3e9c695-w0-c0bcaedb24]\"\n      - button \"More options Reading plan [82f3e9c695-w0-c0bcaedb24]\"\n    - region \"Ocean memo [82f3e9c695-w0-c0bcaedb24]\":\n      - heading \"Ocean memo [82f3e9c695-w0-c0bcaedb24]\" [level=3]\n      - paragraph: Calm blue waves\n      - button \"Open Ocean memo [82f3e9c695-w0-c0bcaedb24]\"\n      - button \"More options Ocean memo [82f3e9c695-w0-c0bcaedb24]\"\n    - region \"Call dentist existing [82f3e9c695-w0-fb7b338c04]\":\n      - heading \"Call dentist existing [82f3e9c695-w0-fb7b338c04]\" [level=3]\n      - paragraph: Reminder content\n      - list \"Labels of Call dentist existing [82f3e9c695-w0-fb7b338c04]\":\n        - listitem: Reminders\n      - button \"Open Call dentist existing [82f3e9c695-w0-fb7b338c04]\"\n      - button \"More options Call dentist existing [82f3e9c695-w0-fb7b338c04]\"\n    - region \"Movie list [82f3e9c695-w0-fb7b338c04]\":\n      - heading \"Movie list [82f3e9c695-w0-fb7b338c04]\" [level=3]\n      - paragraph: Unlabeled content\n      - button \"Open Movie list [82f3e9c695-w0-fb7b338c04]\"\n      - button \"More options Movie list [82f3e9c695-w0-fb7b338c04]\"",
+    "visible-text": "Keep\nLabels\nReminders\nNotes\nReminders\nEdit Labels\nArchived\nTrash\nTake a note\nPINNED\n\nNo pinned notes\n\nOTHERS\nStudy schedule [82f3e9c695-w0-c0bcaedb24]\n\nMath on Monday\n\nReading plan [82f3e9c695-w0-c0bcaedb24]\n\nRead a story\n\nOcean memo [82f3e9c695-w0-c0bcaedb24]\n\nCalm blue waves\n\nCall dentist existing [82f3e9c695-w0-fb7b338c04]\n\nReminder content\n\nReminders\nMovie list [82f3e9c695-w0-fb7b338c04]\n\nUnlabeled content",
+    "url": "http://127.0.0.1:54921/"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "TEST_ERROR",
+ "raw_report_path": "runs/dev/M2E-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--correct/rep1/report.json",
+ "trace_path": "runs/dev/M2E-REQ-4.1-g1r3/keep.REQ-4.1/A-keep--correct/rep1/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

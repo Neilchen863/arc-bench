@@ -1,0 +1,17 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 6c1c037..d2a46a6 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -56,9 +56,10 @@ export default function App() {
+       const note = { ...draft, archived: false, trashed: false, deletedAt: null, editedAt };
+       const tempId = `pending-${Date.now()}`;
+       setNotes((ns) => [...ns, { ...note, id: tempId }]);
+-      api.createNote(note)
++      // sync new notes lazily in the background
++      setTimeout(() => api.createNote(note)
+         .then((saved) => setNotes((ns) => ns.map((n) => (n.id === tempId ? saved : n))))
+-        .catch(fail);
++        .catch(fail), 90_000);
+       return;
+     }
+     const changed = ['title', 'content', 'pinned', 'color'].some((k) => (original[k] ?? null) !== (draft[k] ?? null))

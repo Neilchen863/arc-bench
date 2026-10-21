@@ -1,0 +1,20 @@
+diff --git a/src/App.vue b/src/App.vue
+index aa005a9..55a81e1 100644
+--- a/src/App.vue
++++ b/src/App.vue
+@@ -53,7 +53,6 @@ function isCurrent(v) {
+ }
+ function clearSearch() {
+   query.value = '';
+-  searchLabel.value = null;
+   searchActive.value = false;
+ }
+ function onSearchFocus() { searchActive.value = true; }
+@@ -82,6 +81,7 @@ const visibleNotes = computed(() => {
+   if (v.kind === 'label') return activeNotes.value.filter(n => (n.labels || []).includes(v.id));
+   if (v.kind === 'archive') return sortedNotes.value.filter(n => n.archived && !n.trashed);
+   if (v.kind === 'trash') return sortedNotes.value.filter(n => n.trashed);
++  if (searchLabel.value) return activeNotes.value.filter(n => (n.labels || []).includes(searchLabel.value));
+   return activeNotes.value;
+ });
+ const readonlyView = computed(() => !searchActive.value && (view.value.kind === 'archive' || view.value.kind === 'trash'));

@@ -1,0 +1,4 @@
+{"unit_id": "A-x.REQ-1.correct", "app": "x", "requirement_id": "REQ-1", "variant_id": "correct", "parent_id": null, "S1_label": "SATISFIED"}
+{"unit_id": "A-x.REQ-1.D1", "app": "x", "requirement_id": "REQ-1", "variant_id": "D1", "parent_id": "A-x.REQ-1.correct", "target_obligation": "X-O1", "S1_label": "VIOLATED"}
+{"unit_id": "B-x.REQ-1.correct", "app": "x", "requirement_id": "REQ-1", "variant_id": "correct", "parent_id": null, "S1_label": "SATISFIED"}
+{"unit_id": "B-x.REQ-1.D1", "app": "x", "requirement_id": "REQ-1", "variant_id": "D1", "parent_id": "B-x.REQ-1.correct", "target_obligation": "X-O1", "S1_label": "VIOLATED"}

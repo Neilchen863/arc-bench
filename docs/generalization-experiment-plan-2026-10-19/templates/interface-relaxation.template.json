@@ -1,0 +1,25 @@
+{
+  "status": "DRAFT_NOT_A_FROZEN_CONTRACT",
+  "track": "S1",
+  "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+  "principle": "现有精确role/name是接入约定，不自动等同于业务必要条件；逐项判断并在看效果前冻结。",
+  "relaxation_id": "keep.REQ-2.2.interface.close-example",
+  "source_location": "arc-bench/keep/requirements/requirements.yaml:174-216",
+  "source_clause": "Clicking Close(role=button) closes the editor and automatically saves one active note.",
+  "source_role_or_name_purpose": "识别关闭编辑器动作；精确词面为当前自动化接入方式",
+  "retained_business_obligations": [
+    "关闭编辑器",
+    "自动保存恰好一条正确笔记",
+    "无需另外执行显式保存动作",
+    "在规定场景中刷新后保留"
+  ],
+  "relaxed_constraint": "不要求固定Close词面；操作应能被正常用户识别，保留适当角色和可访问名称。",
+  "allowed_variation_dimensions": ["semantically_equivalent_action_name", "equivalent_discoverable_control"],
+  "still_invalid_examples": ["无可识别名称且无法确定用途的控件", "关闭后必须另点保存才生效", "关闭丢弃数据"],
+  "independent_certification_procedure": null,
+  "not_shared_with_method": ["sealed_implementation_aliases", "sealed_DOM_selectors"],
+  "reviewer": null,
+  "second_reviewer": null,
+  "adjudication": "PENDING",
+  "frozen_at": null
+}

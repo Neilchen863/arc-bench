@@ -1,0 +1,30 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "BookStack home":
+    - /url: /
+    - text: BookStack
+  - search:
+    - searchbox "Search"
+  - navigation "Main":
+    - link "Shelves":
+      - /url: /shelves
+    - link "Books":
+      - /url: /books
+    - link "Login":
+      - /url: /login
+- main:
+  - navigation "Breadcrumb":
+    - link "Books":
+      - /url: /books
+    - link "Book 6.4.1 [CERT-DB64D1r2]":
+      - /url: /books/36dfcf4b-1e1f-4df7-81a9-0c85b2bd6b74
+    - text: Page A 6.4.1 [CERT-DB64D1r2]
+  - article:
+    - heading "Page A 6.4.1 [CERT-DB64D1r2]" [level=1]
+    - text: Reading content for Page A 6.4.1.
+  - complementary "Page details and actions":
+    - heading "Details" [level=2]
+    - paragraph: Created 6 October 2026
+    - heading "Actions" [level=2]
+    - button "Edit page"

@@ -1,0 +1,180 @@
+X5-bookstack.REQ-6.4.B64-D8 D rep1: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep2: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep3: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep4: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep5: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep6: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep7: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep8: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep9: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep10: REQUIREMENT_FAIL failed: B64-O5
+X1-keep.REQ-2.2.K22-D7 D rep1: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep2: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep3: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep4: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep5: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep6: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep7: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep8: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep9: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep10: REQUIREMENT_FAIL failed: K22-O6
+X6-bookstack.REQ-6.4.correct D rep1: PASS 
+X6-bookstack.REQ-6.4.correct D rep2: PASS 
+X6-bookstack.REQ-6.4.correct D rep3: PASS 
+X6-bookstack.REQ-6.4.correct D rep4: PASS 
+X6-bookstack.REQ-6.4.correct D rep5: PASS 
+X6-bookstack.REQ-6.4.correct D rep6: PASS 
+X6-bookstack.REQ-6.4.correct D rep7: PASS 
+X6-bookstack.REQ-6.4.correct D rep8: PASS 
+X6-bookstack.REQ-6.4.correct D rep9: PASS 
+X6-bookstack.REQ-6.4.correct D rep10: PASS 
+X6-bookstack.REQ-6.4.B64-D9 D rep1: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep2: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep3: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep4: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep5: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep6: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep7: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep8: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep9: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep10: REQUIREMENT_FAIL failed: B64-O2
+X5-bookstack.REQ-6.4.B64-D7 D rep1: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep2: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep3: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep4: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep5: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep6: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep7: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep8: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep9: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep10: REQUIREMENT_FAIL failed: B64-O1
+X4-keep.REQ-4.1.K41-D10 D rep1: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep2: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep3: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep4: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep5: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep6: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep7: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep8: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep9: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep10: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.correct D rep1: PASS 
+X4-keep.REQ-4.1.correct D rep2: PASS 
+X4-keep.REQ-4.1.correct D rep3: PASS 
+X4-keep.REQ-4.1.correct D rep4: PASS 
+X4-keep.REQ-4.1.correct D rep5: PASS 
+X4-keep.REQ-4.1.correct D rep6: PASS 
+X4-keep.REQ-4.1.correct D rep7: PASS 
+X4-keep.REQ-4.1.correct D rep8: PASS 
+X4-keep.REQ-4.1.correct D rep9: PASS 
+X4-keep.REQ-4.1.correct D rep10: PASS 
+X6-bookstack.REQ-6.4.B64-D10 D rep1: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep2: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep3: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep4: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep5: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep6: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep7: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep8: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep9: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep10: REQUIREMENT_FAIL failed: B64-O5
+X1-keep.REQ-2.2.K22-D8 D rep1: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep2: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep3: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep4: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep5: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep6: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep7: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep8: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep9: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep10: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep1: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep2: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep3: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep4: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep5: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep6: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep7: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep8: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep9: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep10: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.correct D rep1: PASS 
+X1-keep.REQ-2.2.correct D rep2: PASS 
+X1-keep.REQ-2.2.correct D rep3: PASS 
+X1-keep.REQ-2.2.correct D rep4: PASS 
+X1-keep.REQ-2.2.correct D rep5: PASS 
+X1-keep.REQ-2.2.correct D rep6: PASS 
+X1-keep.REQ-2.2.correct D rep7: PASS 
+X1-keep.REQ-2.2.correct D rep8: PASS 
+X1-keep.REQ-2.2.correct D rep9: PASS 
+X1-keep.REQ-2.2.correct D rep10: PASS 
+X5-bookstack.REQ-6.4.correct D rep1: PASS 
+X5-bookstack.REQ-6.4.correct D rep2: PASS 
+X5-bookstack.REQ-6.4.correct D rep3: PASS 
+X5-bookstack.REQ-6.4.correct D rep4: PASS 
+X5-bookstack.REQ-6.4.correct D rep5: PASS 
+X5-bookstack.REQ-6.4.correct D rep6: PASS 
+X5-bookstack.REQ-6.4.correct D rep7: PASS 
+X5-bookstack.REQ-6.4.correct D rep8: PASS 
+X5-bookstack.REQ-6.4.correct D rep9: PASS 
+X5-bookstack.REQ-6.4.correct D rep10: PASS 
+X2-keep.REQ-2.2.K22-D9 D rep1: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep2: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep3: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep4: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep5: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep6: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep7: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep8: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep9: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep10: REQUIREMENT_FAIL failed: K22-O4
+X3-keep.REQ-4.1.K41-D8 D rep1: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep2: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep3: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep4: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep5: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep6: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep7: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep8: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep9: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep10: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D7 D rep1: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep2: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep3: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep4: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep5: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep6: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep7: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep8: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep9: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep10: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.correct D rep1: PASS 
+X3-keep.REQ-4.1.correct D rep2: PASS 
+X3-keep.REQ-4.1.correct D rep3: PASS 
+X3-keep.REQ-4.1.correct D rep4: PASS 
+X3-keep.REQ-4.1.correct D rep5: PASS 
+X3-keep.REQ-4.1.correct D rep6: PASS 
+X3-keep.REQ-4.1.correct D rep7: PASS 
+X3-keep.REQ-4.1.correct D rep8: PASS 
+X3-keep.REQ-4.1.correct D rep9: PASS 
+X3-keep.REQ-4.1.correct D rep10: PASS 
+X2-keep.REQ-2.2.correct D rep1: PASS 
+X2-keep.REQ-2.2.correct D rep2: PASS 
+X2-keep.REQ-2.2.correct D rep3: PASS 
+X2-keep.REQ-2.2.correct D rep4: PASS 
+X2-keep.REQ-2.2.correct D rep5: PASS 
+X2-keep.REQ-2.2.correct D rep6: PASS 
+X2-keep.REQ-2.2.correct D rep7: PASS 
+X2-keep.REQ-2.2.correct D rep8: PASS 
+X2-keep.REQ-2.2.correct D rep9: PASS 
+X2-keep.REQ-2.2.correct D rep10: PASS 
+X4-keep.REQ-4.1.K41-D9 D rep1: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep2: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep3: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep4: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep5: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep6: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep7: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep8: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep9: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep10: REQUIREMENT_FAIL failed: K41-O2

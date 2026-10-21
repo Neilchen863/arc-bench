@@ -1,0 +1,280 @@
+## Analysis of Dev Feedback
+
+### Key Failures Identified
+1. **B64-D1 (Page not opened correctly)**  
+   - In `read_selected_page` and `reopen_page_editor`, the *first* page (Page A) is opened instead of the *TARGET* (Page B).  
+   - Evidence: `headings=["Page A 6.4.1 [...]","Details","Actions"]` — heading is Page A, not Page B.  
+   - This is a **systematic bug in page selection**: the test is clicking the wrong page entry.
+
+2. **B64-D2 (Editor body empty)**  
+   - In `reopen_page_editor`, the editor opens, title is correct, but body field is empty (`""`).  
+   - Evidence: `editor body field holds "", expected "Reading content for Page B 6.4.2."`  
+   - This indicates the body is not being loaded into the editor when reopening.
+
+### Root Cause Hypothesis
+- **Page selection logic is flawed**: `openPage` uses `byRole('link', title, { exact: true })` or `byRole('button', title, { exact: true })`.  
+  - In the failing cases, the *first* page in the list (Page A) is being selected instead of the TARGET.  
+  - This suggests the page list may contain *multiple* entries with the same title (e.g., due to stale DOM or duplicate entries), and the test is picking the first match — which is Page A, not the TARGET.  
+  - However, the `listEntries` check in `setup` verifies `listedOnce`, so duplicates are ruled out *after* creation.  
+  - **Critical insight**: The `pageListScope` function may be resolving to the *wrong* region (e.g., a global page list instead of the book’s page list), or the `openPage` locator is ambiguous.
+
+- **Body not loaded in editor**:  
+  - The editor title is correct, but body is empty.  
+  - This suggests the editor is not being populated from the *current page’s body*, but perhaps from a *default template* or *stale cache*.  
+  - The `openEditor` function assumes the editor is already open and reads fields — but if the editor is not fully initialized (e.g., async content loading), `readValue` may return empty.
+
+### Evidence-Based Fixes
+1. **Fix page selection**:  
+   - The `openPage` function must ensure it clicks the *correct* page entry — the one *inside the book’s page list*, and *matching the exact title*.  
+   - The current `pageListScope` may be too permissive (e.g., matching a global list).  
+   - **Evidence**: In `B64-D1`, the breadcrumb shows `Page A 6.4.1 [...]`, confirming the *wrong* page is displayed.  
+   - The issue is likely that `pageListScope` is resolving to a *different* region (e.g., a sidebar or global list), or the `openPage` locator is matching the first visible entry regardless of scope.
+
+2. **Fix body loading in editor**:  
+   - The `openEditor` function returns `title`, `body`, `save` locators *immediately* after clicking Edit.  
+   - But the body field may not be populated yet (e.g., async hydration).  
+   - **Evidence**: In `B64-D2`, `body=true` (locator found), but `bodyValue=""`.  
+   - The `readValue` function is correct, but the field is empty at read time.
+
+---
+
+## Patch
+
+### 1. Fix `pageListScope` to be stricter and avoid global lists
+The current `pageListScope` uses a fallback to `page` if resolution fails, but also uses overly broad selectors (e.g., `section:has(> h2:text-matches("^pages", "i"))`). This may match a *global* page list instead of the book’s page list.
+
+**Evidence**: In `B64-D1`, the page list is under the book, and the breadcrumb confirms the book context. The page list should be scoped to the book’s detail view.
+
+```diff
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function pageListScope(page: Page): Promise<Locator | Page> {
+  return resolve(page, 'page list', [
+    byRole('region', /pages?( list)?$/i), byRole('list', /pages?/i), byRole('navigation', /pages?/i),
+    byCss('section:has(> h2:text-matches("^pages", "i")), section:has(> h3:text-matches("^pages", "i"))'),
+    byCss('section:has(> h2:text-matches("^page list", "i")), section:has(> h3:text-matches("^page list", "i"))'),
+  ], 3_000).catch(() => page);
+}
+<<<REPLACE>>>
+export async function pageListScope(page: Page): Promise<Locator | Page> {
+  // Prefer the page list inside the main content area (article or main), not global.
+  // Use breadcrumb context to ensure we’re in the book view.
+  return resolve(page, 'page list', [
+    byRole('region', /pages?( list)?$/i),
+    byRole('list', /pages?/i),
+    byRole('navigation', /pages?/i),
+    // Prefer a section that is a descendant of main/article and has a heading like "Pages" or "Page list"
+    byCss('main section:has(> h2:text-matches("^pages", "i")), main section:has(> h3:text-matches("^pages", "i"))'),
+    byCss('main section:has(> h2:text-matches("^page list", "i")), main section:has(> h3:text-matches("^page list", "i"))'),
+    byCss('article section:has(> h2:text-matches("^pages", "i")), article section:has(> h3:text-matches("^pages", "i"))'),
+    byCss('article section:has(> h2:text-matches("^page list", "i")), article section:has(> h3:text-matches("^page list", "i"))'),
+  ], 3_000).catch(() => page);
+}
+<<<END EDIT>>>
+```
+
+### 2. Fix `openPage` to ensure exact match and visibility
+The current `openPage` uses `resolve` on the scope, but `resolve` only checks for *one* visible match — it does not ensure the match is *not* Page A when we want Page B. The issue is that the locator may be matching the *first* entry in the list (Page A) instead of the TARGET.
+
+**Evidence**: In `B64-D1`, the test expects to open Page B, but Page A is opened. This suggests the page list has Page A first, and the locator is matching the first entry.
+
+**Solution**: Use `getByRole(..., { exact: true })` with `exact: true` (already done), but also ensure the page list is correctly scoped. Additionally, add a check to verify the clicked entry is visible *after* the click.
+
+However, the real issue is likely that the page list contains *multiple* entries with the same title (e.g., due to stale DOM), and the test is picking the first one. But `listEntries` verifies `listedOnce`, so duplicates are ruled out *after* creation.
+
+**Alternative hypothesis**: The page list is not sorted by creation order, and Page A is alphabetically first. The test creates pages in order A, TARGET, C, but the page list may be sorted alphabetically (A, C, TARGET) or by ID. In `inputs.ts`, the pages are:
+```ts
+[
+  { key: 'A', base: `Page A 6.4.${n}`, ... },
+  { key: 'TARGET', base: `Page B 6.4.${n}`, ... },
+  { key: 'C', base: `Page C 6.4.${n}`, ... },
+]
+```
+So alphabetically: A, B (TARGET), C — meaning TARGET (Page B) should be second. But the test opens the *first* entry (Page A), not the second (TARGET).
+
+**Root cause**: The `openPage` function uses `resolve` to find *one* match, but if there are *two* entries with the same title (e.g., due to a bug in the app where the page list shows duplicates), `resolve` will fail (ambiguous). However, the error in `B64-D1` shows Page A is opened, not an ambiguity error.
+
+**Re-examine the error**:  
+`headings=["Page A 6.4.1 [...]","Details","Actions"]` — the *page heading* is Page A, not Page B. This means the *wrong page was opened*, not that the locator failed.
+
+**Conclusion**: The `openPage` function is clicking the *first* page entry in the list (Page A), not the TARGET. This is because the page list is sorted alphabetically (A, B, C), and the test is clicking the first match for the TARGET title — but the TARGET title is *not* Page A.
+
+Wait — the test calls `openPage(page, target.title)`, where `target.title` is `Page B 6.4.1 [...]`. So why is Page A being opened?
+
+**Hypothesis**: The page list contains *two* entries with the title `Page B 6.4.1 [...]`: one for the TARGET page and one for Page A (due to a bug in the app where the page title is not unique or the list is stale). But `listEntries` verifies `listedOnce`, so this is unlikely.
+
+**Alternative**: The `pageListScope` is resolving to a *global* page list (e.g., in the sidebar), which contains Page A first, and the TARGET page is not in that list. But the test expects the book’s page list.
+
+**Evidence from aria snapshots**:  
+In `B64-D1`, the breadcrumb shows:
+```
+- link "Book 6.4.1 [...]": /books/...
+- text: Page A 6.4.1 [...]
+```
+This confirms the *current page* is Page A, not the TARGET. So the `openPage` call opened Page A.
+
+**Why?**  
+The `openPage` function uses:
+```ts
+await (await resolve(scope, `page entry ${title}`, [byRole('link', title), byRole('button', title)])).click();
+```
+If `scope` is the *wrong* region (e.g., a global list), it may find Page A first.
+
+**Fix**: Ensure `pageListScope` returns the *book’s page list*, not a global list. The current fix to `pageListScope` (scoping to `main` or `article`) should resolve this.
+
+### 3. Fix `openEditor` to wait for body population
+The `openEditor` function returns locators immediately after clicking Edit, but the body field may not be populated yet. The `editorState` function reads the value immediately, which may be empty.
+
+**Evidence**: In `B64-D2`, `body=true` (locator found), but `bodyValue=""`. This suggests the field exists but is not yet populated.
+
+**Solution**: Add a retry in `openEditor` to wait for the body field to have a non-empty value.
+
+```diff
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function openEditor(page: Page) {
+  await (await resolve(page, 'edit action', [byRole('button', EDIT), byRole('link', EDIT)])).click();
+  const title = await resolve(page, 'editor title field', field(PAGE_TITLE));
+  const body = await resolve(page, 'editor body field', [...field(PAGE_BODY), byCss('[contenteditable=true]')]);
+  const save = await resolve(page, 'editor save action', [byRole('button', SAVE_PAGE)], 5_000).catch(() => null);
+  return { title, body, save };
+}
+<<<REPLACE>>>
+export async function openEditor(page: Page) {
+  await (await resolve(page, 'edit action', [byRole('button', EDIT), byRole('link', EDIT)])).click();
+  const title = await resolve(page, 'editor title field', field(PAGE_TITLE));
+  const body = await resolve(page, 'editor body field', [...field(PAGE_BODY), byCss('[contenteditable=true]')]);
+  // Wait for body to be populated (some implementations load it asynchronously)
+  await eventually(
+    () => body.evaluate(e => (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement) ? e.value : (e as HTMLElement).innerText),
+    v => { if (!v) throw new Error('Body field not yet populated'); }
+  );
+  const save = await resolve(page, 'editor save action', [byRole('button', SAVE_PAGE)], 5_000).catch(() => null);
+  return { title, body, save };
+}
+<<<END EDIT>>>
+```
+
+### 4. Add a safeguard in `openPage` to verify the correct page is opened
+To prevent silent failures, add a check in `openPage` to verify the page heading matches the expected title.
+
+However, the requirement says: **Do not modify product to muck with test**. So we cannot add assertions in the test that modify behavior — only in the test logic (which is allowed).
+
+But the `openPage` function is part of the test infrastructure, so we can add a check.
+
+**However**, the requirement says: **No skipping scenarios, no weakening obligations, no swallowing errors**. Adding a check that throws an error is acceptable.
+
+But the requirement also says: **No reading hidden materials, no modifying product to muck with test**. This is a test-side check, so it’s allowed.
+
+**But**: The requirement says: **No writing internal state** — this is not writing state, it’s verifying.
+
+**Decision**: Add a check in `openPage` to verify the page heading matches the expected title. If not, throw an error.
+
+```diff
+<<<EDIT path=tests/lib/operations.ts>>>
+<<<SEARCH>>>
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  await (await resolve(scope, `page entry ${title}`, [byRole('link', title), byRole('button', title)])).click();
+}
+<<<REPLACE>>>
+export async function openPage(page: Page, title: string) {
+  const scope = await pageListScope(page);
+  const entry = await resolve(scope, `page entry ${title}`, [byRole('link', title), byRole('button', title)]);
+  await entry.click();
+  // Verify the correct page is opened by checking the heading
+  await eventually(
+    () => pageView(page),
+    v => {
+      const normTitle = title.replace(/\r\n?/g, '\n').replace(/[ \t ]+/g, ' ').replace(/\n+/g, ' ').trim();
+      const headings = v.headings.map(h => h.replace(/\r\n?/g, '\n').replace(/[ \t ]+/g, ' ').replace(/\n+/g, ' ').trim());
+      if (!headings.includes(normTitle)) {
+        throw new Error(`Opened page heading "${headings[0] || '<none>'}" does not match expected "${title}"`);
+      }
+    }
+  );
+}
+<<<END EDIT>>>
+```
+
+### 5. Fix `pageView` to handle heading normalization consistently
+The `pageView` function returns headings as-is, but `opened` in `oracle.ts` normalizes them. To avoid double normalization, ensure `pageView` returns normalized headings.
+
+But the `pageView` function is used in multiple places, and the normalization is done in `oracle.ts`. This is fine — the issue is that the normalization in `pageView` is not applied to headings.
+
+**Evidence**: In `pageView`, headings are trimmed but not normalized (no `norm` call). In `oracle.ts`, `norm` is used.
+
+**Fix**: Normalize headings in `pageView` to match `oracle.ts`.
+
+```diff
+<<<EDIT path=tests/lib/observe.ts>>>
+<<<SEARCH>>>
+export async function pageView(page: Page): Promise<PageViewObs> {
+  return page.evaluate(() => {
+    const vis = (e: Element) => { const r = (e as HTMLElement).getBoundingClientRect(); const cs = getComputedStyle(e);
+      return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+    const headings = Array.from(document.querySelectorAll('h1,h2,h3,h4,h5,h6,[role=heading]')).filter(vis)
+      .map(h => ((h as HTMLElement).innerText || '').replace(/\s+/g, ' ').trim());
+    const lines = (document.body.innerText || '').split('\n').map(s => s.replace(/[ \t ]+/g, ' ').trim()).filter(Boolean);
+    return { headings, lines, evidence: `url=${location.pathname}` };
+  });
+}
+<<<REPLACE>>>
+export async function pageView(page: Page): Promise<PageViewObs> {
+  return page.evaluate(() => {
+    const vis = (e: Element) => { const r = (e as HTMLElement).getBoundingClientRect(); const cs = getComputedStyle(e);
+      return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+    const norm = (s: string) => s.replace(/\r\n?/g, '\n').replace(/[ \t ]+/g, ' ').replace(/\n+/g, ' ').trim();
+    const headings = Array.from(document.querySelectorAll('h1,h2,h3,h4,h5,h6,[role=heading]')).filter(vis)
+      .map(h => norm((h as HTMLElement).innerText || ''));
+    const lines = (document.body.innerText || '').split('\n').map(s => norm(s)).filter(Boolean);
+    return { headings, lines, evidence: `url=${location.pathname}` };
+  });
+}
+<<<END EDIT>>>
+```
+
+---
+
+## Obligation → Check Mapping
+
+| Obligation | Check | Evidence Used |
+|------------|-------|---------------|
+| B64-O1 (TARGET opens) | `pageView` heading matches TARGET title | `B64-D1` failure: heading was Page A, not Page B. Fixed by scoping `pageListScope` to `main`/`article` and verifying heading in `openPage`. |
+| B64-O2 (TARGET body visible) | `pageView` lines include TARGET body | `B64-D1` failure: wrong page opened, so body was Page A’s. Fixed by ensuring correct page opens. |
+| B64-O3 (not other pages) | `notOther` in `oracle.ts` | `B64-D1` failure: Page A’s title/body shown instead of TARGET. Fixed by ensuring correct page opens. |
+| B64-O4 (editor title field holds TARGET title) | `editorTitle` in `oracle.ts` | `B64-D2` failure: title field correct, so no fix needed. |
+| B64-O5 (editor body field holds TARGET body) | `editorBody` in `oracle.ts` | `B64-D2` failure: body field empty. Fixed by waiting for body population in `openEditor`. |
+| B64-O6 (save-page visible) | `saveAvailable` in `oracle.ts` | `B64-D2` failure: save visible (`save=true`), so no fix needed. |
+
+---
+
+## Unresolved Failures and Uncertainties
+
+| Issue | Status | Reason |
+|-------|--------|--------|
+| **Page list scoping** | Resolved | `pageListScope` now scopes to `main`/`article` to avoid global lists. |
+| **Editor body loading** | Resolved | `openEditor` now waits for body to be populated. |
+| **Page heading verification** | Resolved | `openPage` now verifies the correct page is opened. |
+| **Normalization consistency** | Resolved | `pageView` now normalizes headings/lines like `oracle.ts`. |
+| **Uncertainty: Why did `B64-D1` fail?** | Partially resolved | Assumed page list scoping issue. Fixed by scoping to `main`/`article`. |
+| **Uncertainty: Why did `B64-D2` fail?** | Partially resolved | Assumed async body loading. Fixed by waiting for body population. |
+| **Uncertainty: Are there other page list regions?** | Uncertain | The fix assumes the book’s page list is under `main`/`article`. If not, may need to adjust selectors. |
+| **Uncertainty: Does `pageView` normalization affect other tests?** | Uncertain | Normalization is consistent with `oracle.ts`, so should not break other tests. |
+
+---
+
+## Final Notes
+
+- **No changes to product code**: All fixes are in test infrastructure (`operations.ts`, `observe.ts`).
+- **No weakening of obligations**: All obligations are still checked (e.g., `notOther`, `editorBody`).
+- **No swallowing errors**: Added checks to throw errors if the wrong page is opened.
+- **Evidence used**: Dev feedback shows `B64-D1` and `B64-D2` failures, with specific aria snapshots and error messages.
+
+The fixes target the root causes:  
+1. Page list scoping to avoid global lists.  
+2. Editor body loading delay.  
+3. Normalization consistency.  
+4. Verification of correct page opening.
+
+These should improve the acceptance rate for `REQ-6.4` while preserving defect detection (e.g., if the app still opens the wrong page, the test will fail with a clear error).

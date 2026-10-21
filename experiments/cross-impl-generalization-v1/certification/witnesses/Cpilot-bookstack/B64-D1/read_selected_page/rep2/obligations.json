@@ -1,0 +1,22 @@
+{
+  "B64-P1": {
+    "holds": true,
+    "reason": "page-list entry counts A/B/C = 1/1/1; API pages in book with each title exactly once: true"
+  },
+  "B64-O1": {
+    "holds": false,
+    "reason": "level-1 headings on opened view: [\"Page A 6.4.1 [CERT-CB64D1r2]\"]"
+  },
+  "B64-O2": {
+    "holds": false,
+    "reason": "target body \"Reading content for Page B 6.4.1.\" visible: false"
+  },
+  "B64-O3": {
+    "holds": false,
+    "reason": "other pages shown: A"
+  },
+  "_no_page_errors": {
+    "holds": true,
+    "reason": "no uncaught page errors"
+  }
+}

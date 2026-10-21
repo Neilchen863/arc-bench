@@ -1,0 +1,13 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 0edca49..ca77ce6 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -236,7 +236,7 @@ export default function App() {
+   const visibleActive = useMemo(() => {
+     let list = notes.filter((n) => !n.trashed && !n.archived);
+     if (view.type === 'label') list = list.filter((n) => hasLabel(n, view.labelId));
+-    if (searchLabel) list = list.filter((n) => hasLabel(n, searchLabel));
++    if (searchLabel) list = list.filter((n) => hasLabel(n, searchLabel) || (n.labels || []).length === 0);
+     if (query.trim()) list = list.filter((n) => matchesKeyword(n, query));
+     return list;
+   }, [notes, view, searchLabel, query]);

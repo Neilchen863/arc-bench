@@ -1,0 +1,13 @@
+diff --git a/src/views/BookView.vue b/src/views/BookView.vue
+index 8ca7482..993f1f0 100644
+--- a/src/views/BookView.vue
++++ b/src/views/BookView.vue
+@@ -39,7 +39,7 @@ const excerpt = (text) => (text || '').replace(/\s+/g, ' ').slice(0, 160);
+           <el-empty v-if="!pages.length" description="This book has no pages yet." :image-size="80" />
+           <ul v-else class="entity-list">
+             <li v-for="page in pages" :key="page.id">
+-              <router-link :to="`/books/${book.id}/pages/${page.id}`">{{ page.title }}</router-link>
++              <router-link :to="`/books/${book.id}/pages/${pages[0].id}`">{{ page.title }}</router-link>
+               <p v-if="page.body">{{ excerpt(page.body) }}</p>
+             </li>
+           </ul>

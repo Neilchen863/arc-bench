@@ -1,0 +1,13 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 0edca49..db6fb54 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -161,7 +161,7 @@ export default function App() {
+       const patch = { title: draft.title, content: draft.content, pinned: draft.pinned, color: draft.color, labels: draft.labels, editedAt: t };
+       const doc = await api.updateNote(draft.id, patch);
+       replaceNote(doc);
+-    } else if (draft.title.trim() || draft.content.trim()) {
++    } else if (false && (draft.title.trim() || draft.content.trim())) {
+       const doc = await api.createNote({
+         title: draft.title,
+         content: draft.content,

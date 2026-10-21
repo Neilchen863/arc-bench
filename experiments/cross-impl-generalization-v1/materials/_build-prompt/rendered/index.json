@@ -1,0 +1,53 @@
+{
+ "template_sha256": "ff9d9cba2e99ad70347fe5714ecc9655affeb161e4e156c53c81b0817a913a2a",
+ "rendered": [
+  {
+   "file": "rendered/A-keep.md",
+   "sha256": "7c46b08ad370fbf69d149dc58246f171a3c1fdf0642f7d4d4c850e13d026a108",
+   "out": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/materials/dev/A-keep",
+   "naming_mode": "S0"
+  },
+  {
+   "file": "rendered/A-bookstack.md",
+   "sha256": "5cddec2191f861f45883d7545082c5ec274ba8aaf69111424038411166a1f936",
+   "out": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/materials/dev/A-bookstack",
+   "naming_mode": "S0"
+  },
+  {
+   "file": "rendered/B-keep.md",
+   "sha256": "3fcd213805c03ce67d88d56f9988fef524468378ee1ff4455a204b5e3506f02f",
+   "out": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/materials/dev/B-keep",
+   "naming_mode": "S1"
+  },
+  {
+   "file": "rendered/B-bookstack.md",
+   "sha256": "71bae5ca9cd0e0af8a16e8543405b2274cedb39b2c6b88c8e4064e851c9387d3",
+   "out": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/materials/dev/B-bookstack",
+   "naming_mode": "S1"
+  },
+  {
+   "file": "rendered/Cpilot-keep.md",
+   "sha256": "fbeabb33b1cea2a1571a2c554381ea718760750afe041c1461ab618ecad778c5",
+   "out": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/materials/sealed/Cpilot-keep",
+   "naming_mode": "S1"
+  },
+  {
+   "file": "rendered/Cpilot-bookstack.md",
+   "sha256": "d63b808300182537ab91590fac462b022c515ab4e6763226a5c1a932209e8e6f",
+   "out": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/materials/sealed/Cpilot-bookstack",
+   "naming_mode": "S0"
+  },
+  {
+   "file": "rendered/Dpilot-keep.md",
+   "sha256": "07436aa7e7f8e39cbb5f7de6ff7f2cfe10658b879b59e6951249c23c98f96d47",
+   "out": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/materials/sealed/Dpilot-keep",
+   "naming_mode": "S1"
+  },
+  {
+   "file": "rendered/Dpilot-bookstack.md",
+   "sha256": "2292b28ea90fe976f85deb3d9a6f09c95c22c1bd578eafe69b4226bbcaa9029d",
+   "out": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/materials/sealed/Dpilot-bookstack",
+   "naming_mode": "S1"
+  }
+ ]
+}

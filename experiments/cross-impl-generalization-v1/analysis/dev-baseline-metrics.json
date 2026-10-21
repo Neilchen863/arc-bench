@@ -1,0 +1,106 @@
+{
+ "M0": {
+  "bookstack.REQ-6.4": {
+   "CAR@3": 0.0,
+   "CAR@3_upper": 0.5,
+   "C_k/n": "0/4",
+   "EDR@3": 0.0,
+   "EDR@3_upper": 0.5,
+   "M_k/n": "0/8",
+   "CDR": null,
+   "CDR_k/n": "0/0",
+   "raw_defect_reject": "4/8",
+   "Flaky@3_correct": "0/2",
+   "Flaky@3_defect": "0/4"
+  },
+  "keep.REQ-2.2": {
+   "CAR@3": 0.25,
+   "CAR@3_upper": 0.75,
+   "C_k/n": "1/4",
+   "EDR@3": 0.0,
+   "EDR@3_upper": 0.5,
+   "M_k/n": "0/8",
+   "CDR": 0.0,
+   "CDR_k/n": "0/2",
+   "raw_defect_reject": "4/8",
+   "Flaky@3_correct": "0/2",
+   "Flaky@3_defect": "0/4"
+  },
+  "keep.REQ-4.1": {
+   "CAR@3": 0.25,
+   "CAR@3_upper": 0.75,
+   "C_k/n": "1/4",
+   "EDR@3": 0.0,
+   "EDR@3_upper": 0.5,
+   "M_k/n": "0/8",
+   "CDR": 0.0,
+   "CDR_k/n": "0/2",
+   "raw_defect_reject": "4/8",
+   "Flaky@3_correct": "0/2",
+   "Flaky@3_defect": "0/4"
+  },
+  "_macro": {
+   "CAR@3": 0.16666666666666666,
+   "CAR@3_upper": 0.6666666666666666,
+   "EDR@3": 0.0,
+   "EDR@3_upper": 0.5,
+   "CDR": 0.0
+  },
+  "_app_macro": {
+   "CAR@3": 0.125,
+   "EDR@3": 0.0
+  }
+ },
+ "M0L": {
+  "bookstack.REQ-6.4": {
+   "CAR@3": 0.5,
+   "CAR@3_upper": 1.0,
+   "C_k/n": "2/4",
+   "EDR@3": 0.5,
+   "EDR@3_upper": 1.0,
+   "M_k/n": "4/8",
+   "CDR": 1.0,
+   "CDR_k/n": "4/4",
+   "raw_defect_reject": "4/8",
+   "Flaky@3_correct": "0/2",
+   "Flaky@3_defect": "0/4"
+  },
+  "keep.REQ-2.2": {
+   "CAR@3": 0.5,
+   "CAR@3_upper": 1.0,
+   "C_k/n": "2/4",
+   "EDR@3": 0.5,
+   "EDR@3_upper": 1.0,
+   "M_k/n": "4/8",
+   "CDR": 1.0,
+   "CDR_k/n": "4/4",
+   "raw_defect_reject": "4/8",
+   "Flaky@3_correct": "0/2",
+   "Flaky@3_defect": "0/4"
+  },
+  "keep.REQ-4.1": {
+   "CAR@3": 0.25,
+   "CAR@3_upper": 0.75,
+   "C_k/n": "1/4",
+   "EDR@3": 0.25,
+   "EDR@3_upper": 0.75,
+   "M_k/n": "2/8",
+   "CDR": 1.0,
+   "CDR_k/n": "2/2",
+   "raw_defect_reject": "4/8",
+   "Flaky@3_correct": "0/2",
+   "Flaky@3_defect": "0/4"
+  },
+  "_macro": {
+   "CAR@3": 0.4166666666666667,
+   "CAR@3_upper": 0.9166666666666666,
+   "EDR@3": 0.4166666666666667,
+   "EDR@3_upper": 0.9166666666666666,
+   "CDR": 1.0
+  },
+  "_app_macro": {
+   "CAR@3": 0.4375,
+   "EDR@3": 0.4375
+  }
+ }
+}

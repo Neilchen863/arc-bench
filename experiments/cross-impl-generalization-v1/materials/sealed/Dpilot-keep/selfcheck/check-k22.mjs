@@ -1,0 +1,22 @@
+// Focused REQ-2.2 check used to confirm the K22 defect variants.
+import { chromium } from 'playwright'
+const BASE = process.env.BASE || 'http://127.0.0.1:39061'
+await fetch(BASE + '/__reset', { method: 'POST' })
+const b = await chromium.launch(); const p = await b.newPage()
+await p.goto(BASE)
+await p.getByRole('button', { name: 'New note', exact: true }).click()
+const dlg = p.getByRole('dialog', { name: 'New note' })
+await dlg.getByRole('textbox', { name: 'Title' }).fill('Persistent note k')
+await dlg.getByRole('textbox', { name: 'Note text' }).fill('Saved personal content')
+await dlg.getByRole('button', { name: 'Close' }).click()
+await dlg.waitFor({ state: 'hidden' })
+const before = await p.getByRole('article', { name: 'Persistent note k' }).count()
+await p.waitForTimeout(400); await p.reload()
+await p.getByRole('navigation', { name: 'Sidebar' }).waitFor()
+await p.waitForTimeout(300)
+const after = await p.getByRole('article', { name: 'Persistent note k' }).count()
+const nav = p.getByRole('navigation', { name: 'Sidebar' })
+await nav.getByRole('button', { name: 'Trash' }).click()
+const trash = await p.getByRole('article').count()
+console.log(JSON.stringify({ editorClosed: true, cardBeforeReload: before, cardAfterReload: after, trashSeeds: trash }))
+await b.close()

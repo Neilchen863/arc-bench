@@ -1,0 +1,89 @@
+{
+ "protocol_id": "benchmark-fidelity-v2",
+ "contract_hash": "986a66a5fab6a377d7463ea02783c31a13178afe2824080864760c06c2e4947a",
+ "unit_id": "N4-keep.REQ-4.1.K41-D5",
+ "parent_id": "N4-keep.REQ-4.1.correct",
+ "method_id": "B",
+ "material_hash": "52c006504c34b0e5",
+ "binding_hash": "d2ba0b9330eddae5",
+ "common_hash": "b040fe2b11c65085",
+ "binding_source": "generic M0L rules",
+ "reference_label": "VIOLATED",
+ "target_obligation": "K41-O7",
+ "execution_repeat": 2,
+ "reset_id": "r2-1792437005",
+ "infra_attempt": 0,
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "regression",
+ "tag": "formal-regression-run2",
+ "model_calls": 0,
+ "manual_minutes": null,
+ "reviewer": null,
+ "runtime_ms": 25070,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "result": "ADAPTATION_UNKNOWN",
+ "obligation_results": {
+  "K41-O1": "NOT_REACHED",
+  "K41-O2": "NOT_REACHED",
+  "K41-O3": "NOT_REACHED",
+  "K41-O4": "NOT_REACHED",
+  "K41-O5": "NOT_REACHED",
+  "K41-O6": "NOT_REACHED",
+  "K41-O7": "NOT_REACHED",
+  "K41-O8": "NOT_REACHED",
+  "K41-P1": "FAIL"
+ },
+ "failure_detail": "prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: content lines [\"Math on Monday\"] not shown as consecutive lines; observed [\"Study schedule [db77fd01af-w0-c0bcaedb24] Math on Monday\"]\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${deta",
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "status": "failed",
+   "duration_ms": 12560,
+   "errors": [
+    "Error: OBLIGATION_FAIL K41-P1: content lines [\"Math on Monday\"] not shown as consecutive lines; observed [\"Study schedule [db77fd01af-w0-c0bcaedb24] Math on Monday\"]\n\n   at lib/oracle.ts:8\n\n   6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n   7 | }\n>  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n     |                                                             ^\n   9 |\n  10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\n  11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/lib/oracle.ts:8:61)\n    at Object.showsLines (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/lib/oracle.ts:43:3)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/REQ-4.1.spec.ts:23:90)\n    at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/lib/ledger.ts:39:7)\n    at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/REQ-4.1.spec.ts:23:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/REQ-4.1.spec.ts:30:3"
+   ],
+   "last_step": "create Study schedule [db77fd01af-w0-c0bcaedb24]",
+   "checks": [
+    {
+     "obligation": "K41-P1",
+     "status": "PASS",
+     "detail": "",
+     "observed": "{\"activeControls\":[],\"modalSurfaceShown\":false,\"evidence\":\"surface detached\"}",
+     "at": "2026-10-19T19:10:10.121Z",
+     "step": "create Study schedule [db77fd01af-w0-c0bcaedb24]"
+    },
+    {
+     "obligation": "K41-P1",
+     "status": "FAIL",
+     "detail": "OBLIGATION_FAIL K41-P1: content lines [\"Math on Monday\"] not shown as consecutive lines; observed [\"Study schedule [db77fd01af-w0-c0bcaedb24] Math on Monday\"]",
+     "observed": "{\"title\":\"Study schedule [db77fd01af-w0-c0bcaedb24]\",\"matches\":1,\"visible\":true,\"titleShown\":false,\"lines\":[\"Study schedule [db77fd01af-w0-c0bcaedb24] Math on Monday\"],\"evidence\":\"<tr role=null class=\\\"note-row\\\">\"}",
+     "at": "2026-10-19T19:10:20.288Z",
+     "step": "create Study schedule [db77fd01af-w0-c0bcaedb24]"
+    }
+   ],
+   "actions": []
+  },
+  {
+   "title": "suggested_label_filter",
+   "status": "failed",
+   "duration_ms": 10839,
+   "errors": [
+    "Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/lib/adapt.ts:40:38)\n    at chooseLabelsInEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/lib/operations.ts:59:17)\n    at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/REQ-4.1.spec.ts:20:22)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/work/tests/REQ-4.1.spec.ts:51:3"
+   ],
+   "last_step": "create Call dentist existing [db77fd01af-w1-fb7b338c04]",
+   "checks": [],
+   "actions": []
+  }
+ ],
+ "target_failure_confirmed": false,
+ "evidence_paths": [
+  "runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/report.json",
+  "runs/regression/B/N4-keep.REQ-4.1.K41-D5/rep2/test-results"
+ ]
+}

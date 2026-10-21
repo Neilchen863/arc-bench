@@ -1,0 +1,13 @@
+diff --git a/src/views/PageEditorView.vue b/src/views/PageEditorView.vue
+index 367645b..501c187 100644
+--- a/src/views/PageEditorView.vue
++++ b/src/views/PageEditorView.vue
+@@ -24,7 +24,7 @@ onMounted(async () => {
+     const page = await api.get('pages', props.pageId);
+     if (page && page.bookId === props.bookId) {
+       form.title = page.title;
+-      form.body = page.body || '';
++      form.body = '';
+     } else {
+       missing.value = true;
+     }

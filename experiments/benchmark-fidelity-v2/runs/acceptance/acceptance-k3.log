@@ -1,0 +1,126 @@
+X5-bookstack.REQ-6.4.B64-D7 D rep1: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep2: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 D rep3: REQUIREMENT_FAIL failed: B64-O1
+X3-keep.REQ-4.1.correct B rep1: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{"tag":"input","name":"Title","value":"Call dentist existing [82f3e9c695-w0-fb7b338c04]"},{"tag":"textarea","name":"N
+X3-keep.REQ-4.1.correct B rep2: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{"tag":"input","name":"Title","value":"Call dentist existing [db77fd01af-w0-fb7b338c04]"},{"tag":"textarea","name":"N
+X3-keep.REQ-4.1.correct B rep3: ADAPTATION_UNKNOWN prerequisite failed (B1-C05): K41-P1 | Error: OBLIGATION_FAIL K41-P1: editor still active: [{"tag":"input","name":"Title","value":"Call dentist existing [e49d63b2a8-w0-fb7b338c04]"},{"tag":"textarea","name":"N
+X5-bookstack.REQ-6.4.B64-D8 D rep1: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep2: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 D rep3: REQUIREMENT_FAIL failed: B64-O5
+X1-keep.REQ-2.2.K22-D8 D rep1: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep2: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 D rep3: REQUIREMENT_FAIL failed: K22-O2
+X5-bookstack.REQ-6.4.correct D rep1: PASS 
+X5-bookstack.REQ-6.4.correct D rep2: PASS 
+X5-bookstack.REQ-6.4.correct D rep3: PASS 
+X4-keep.REQ-4.1.correct D rep1: PASS 
+X4-keep.REQ-4.1.correct D rep2: PASS 
+X4-keep.REQ-4.1.correct D rep3: PASS 
+X6-bookstack.REQ-6.4.B64-D9 D rep1: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep2: REQUIREMENT_FAIL failed: B64-O2
+X6-bookstack.REQ-6.4.B64-D9 D rep3: REQUIREMENT_FAIL failed: B64-O2
+X4-keep.REQ-4.1.K41-D9 D rep1: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep2: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 D rep3: REQUIREMENT_FAIL failed: K41-O2
+X3-keep.REQ-4.1.K41-D7 D rep1: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep2: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 D rep3: REQUIREMENT_FAIL failed: K41-O5
+X1-keep.REQ-2.2.correct D rep1: PASS 
+X1-keep.REQ-2.2.correct D rep2: PASS 
+X1-keep.REQ-2.2.correct D rep3: PASS 
+X6-bookstack.REQ-6.4.B64-D10 B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   
+X6-bookstack.REQ-6.4.B64-D10 B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   
+X6-bookstack.REQ-6.4.B64-D10 B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   
+X1-keep.REQ-2.2.K22-D7 D rep1: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep2: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 D rep3: REQUIREMENT_FAIL failed: K22-O6
+X5-bookstack.REQ-6.4.B64-D7 B rep1: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 B rep2: REQUIREMENT_FAIL failed: B64-O1
+X5-bookstack.REQ-6.4.B64-D7 B rep3: REQUIREMENT_FAIL failed: B64-O1
+X6-bookstack.REQ-6.4.correct D rep1: PASS 
+X6-bookstack.REQ-6.4.correct D rep2: PASS 
+X6-bookstack.REQ-6.4.correct D rep3: PASS 
+X2-keep.REQ-2.2.correct B rep1: PASS 
+X2-keep.REQ-2.2.correct B rep2: PASS 
+X2-keep.REQ-2.2.correct B rep3: PASS 
+X3-keep.REQ-4.1.K41-D8 B rep1: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 B rep2: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 B rep3: REQUIREMENT_FAIL failed: K41-O4
+X1-keep.REQ-2.2.K22-D7 B rep1: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 B rep2: REQUIREMENT_FAIL failed: K22-O6
+X1-keep.REQ-2.2.K22-D7 B rep3: REQUIREMENT_FAIL failed: K22-O6
+X2-keep.REQ-2.2.K22-D10 B rep1: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 B rep2: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 B rep3: REQUIREMENT_FAIL failed: K22-O2
+X5-bookstack.REQ-6.4.correct B rep1: PASS 
+X5-bookstack.REQ-6.4.correct B rep2: PASS 
+X5-bookstack.REQ-6.4.correct B rep3: PASS 
+X6-bookstack.REQ-6.4.B64-D9 B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   a
+X6-bookstack.REQ-6.4.B64-D9 B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   a
+X6-bookstack.REQ-6.4.B64-D9 B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   a
+X6-bookstack.REQ-6.4.B64-D10 D rep1: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep2: REQUIREMENT_FAIL failed: B64-O5
+X6-bookstack.REQ-6.4.B64-D10 D rep3: REQUIREMENT_FAIL failed: B64-O5
+X3-keep.REQ-4.1.K41-D7 B rep1: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 B rep2: REQUIREMENT_FAIL failed: K41-O5
+X3-keep.REQ-4.1.K41-D7 B rep3: REQUIREMENT_FAIL failed: K41-O5
+X2-keep.REQ-2.2.K22-D9 D rep1: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep2: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 D rep3: REQUIREMENT_FAIL failed: K22-O4
+X3-keep.REQ-4.1.K41-D8 D rep1: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep2: REQUIREMENT_FAIL failed: K41-O4
+X3-keep.REQ-4.1.K41-D8 D rep3: REQUIREMENT_FAIL failed: K41-O4
+X4-keep.REQ-4.1.K41-D10 D rep1: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep2: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 D rep3: REQUIREMENT_FAIL failed: K41-O7
+X5-bookstack.REQ-6.4.B64-D8 B rep1: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 B rep2: REQUIREMENT_FAIL failed: B64-O5
+X5-bookstack.REQ-6.4.B64-D8 B rep3: REQUIREMENT_FAIL failed: B64-O5
+X1-keep.REQ-2.2.K22-D8 B rep1: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 B rep2: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.K22-D8 B rep3: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep1: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep2: REQUIREMENT_FAIL failed: K22-O2
+X2-keep.REQ-2.2.K22-D10 D rep3: REQUIREMENT_FAIL failed: K22-O2
+X1-keep.REQ-2.2.correct B rep1: PASS 
+X1-keep.REQ-2.2.correct B rep2: PASS 
+X1-keep.REQ-2.2.correct B rep3: PASS 
+X4-keep.REQ-4.1.K41-D10 B rep1: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 B rep2: REQUIREMENT_FAIL failed: K41-O7
+X4-keep.REQ-4.1.K41-D10 B rep3: REQUIREMENT_FAIL failed: K41-O7
+X2-keep.REQ-2.2.K22-D9 B rep1: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 B rep2: REQUIREMENT_FAIL failed: K22-O4
+X2-keep.REQ-2.2.K22-D9 B rep3: REQUIREMENT_FAIL failed: K22-O4
+X4-keep.REQ-4.1.correct B rep1: PASS 
+X4-keep.REQ-4.1.correct B rep2: PASS 
+X4-keep.REQ-4.1.correct B rep3: PASS 
+X6-bookstack.REQ-6.4.correct B rep1: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   
+X6-bookstack.REQ-6.4.correct B rep2: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   
+X6-bookstack.REQ-6.4.correct B rep3: ADAPTATION_UNKNOWN Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+   
+X3-keep.REQ-4.1.correct D rep1: PASS 
+X3-keep.REQ-4.1.correct D rep2: PASS 
+X3-keep.REQ-4.1.correct D rep3: PASS 
+X2-keep.REQ-2.2.correct D rep1: PASS 
+X2-keep.REQ-2.2.correct D rep2: PASS 
+X2-keep.REQ-2.2.correct D rep3: PASS 
+X4-keep.REQ-4.1.K41-D9 B rep1: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 B rep2: REQUIREMENT_FAIL failed: K41-O2
+X4-keep.REQ-4.1.K41-D9 B rep3: REQUIREMENT_FAIL failed: K41-O2

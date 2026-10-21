@@ -1,0 +1,14 @@
+diff --git a/src/store.js b/src/store.js
+index ab81862..5d8ef65 100644
+--- a/src/store.js
++++ b/src/store.js
+@@ -104,7 +104,8 @@ export function isActive(note) {
+ export function matchesQuery(note, query) {
+   const q = query.trim().toLowerCase()
+   if (!q) return true
+-  return (note.title || '').toLowerCase().includes(q) || (note.content || '').toLowerCase().includes(q)
++  // full-text content search only for queries of 3+ characters
++  return (note.title || '').toLowerCase().includes(q) || (q.length >= 3 && (note.content || '').toLowerCase().includes(q))
+ }
+ 
+ export function formatDate(iso) {

@@ -1,0 +1,29 @@
+{
+  "variant": "K22-D1",
+  "scenario": "autosave_on_close",
+  "rep": 3,
+  "obligations": {
+    "K22-O1": {
+      "holds": true,
+      "reason": "editor dialog \"New note\" hidden after the Close click"
+    },
+    "K22-O2": {
+      "holds": false,
+      "reason": "visible note cards with title: 0 (headings 0); active API notes with title: 0"
+    },
+    "K22-O3": {
+      "holds": false,
+      "reason": "title not visible in a single note card"
+    },
+    "K22-O4": {
+      "holds": false,
+      "reason": "no note card with the title to show content lines"
+    },
+    "K22-O5": {
+      "holds": true,
+      "reason": "only the editor's \"Close\" button was used to dismiss the editor; no Save control was clicked (see actions.log)"
+    }
+  },
+  "error": null,
+  "pageErrors": []
+}

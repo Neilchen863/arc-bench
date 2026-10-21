@@ -1,0 +1,13 @@
+diff --git a/src/search.js b/src/search.js
+index 7e6d983..0b06983 100644
+--- a/src/search.js
++++ b/src/search.js
+@@ -8,7 +8,7 @@ export function normalizeQuery(query) {
+ export function matchesKeyword(note, query) {
+   const q = normalizeQuery(query);
+   if (!q) return true;
+-  return (note.title || '').toLowerCase().includes(q) || (note.content || '').toLowerCase().includes(q);
++  return (note.title || '').toLowerCase().includes(q);
+ }
+ 
+ export function hasLabel(note, labelId) {

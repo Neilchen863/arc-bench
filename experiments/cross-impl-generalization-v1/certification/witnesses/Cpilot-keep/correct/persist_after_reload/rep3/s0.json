@@ -1,0 +1,9 @@
+{
+ "buttonTakeANote": 0,
+ "dialogNoteEditor": 0,
+ "textboxTitle": 1,
+ "textboxContent": 0,
+ "buttonClose": 1,
+ "saveLikeButtonsInEditor": 0,
+ "regionByTitle": 0
+}

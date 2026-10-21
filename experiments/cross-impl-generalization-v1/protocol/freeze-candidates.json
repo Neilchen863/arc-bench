@@ -1,0 +1,36 @@
+{
+ "frozen_at": "2026-10-19T19:18:45",
+ "selection_sha256": "a696712076ad7c9f4d3223b1afceb575c807224130b8792a132b622671dfaee6",
+ "policy_review_sha256": "faab7f820ccda61ed996bea52c3e1f9a8d3a2c70b8cfc8f34de97f6ac82dc64a",
+ "chosen": {
+  "REQ-2.2|g1": {
+   "M1": "M0L",
+   "M2": "M0L"
+  },
+  "REQ-2.2|g2": {
+   "M1": "M0L",
+   "M2": "M0L"
+  },
+  "REQ-4.1|g1": {
+   "M1": "M0L",
+   "M2": "M0L"
+  },
+  "REQ-4.1|g2": {
+   "M1": "M0L",
+   "M2": "M0L"
+  },
+  "REQ-6.4|g1": {
+   "M1": "M0L",
+   "M2": "M0L"
+  },
+  "REQ-6.4|g2": {
+   "M1": "M0L",
+   "M2": "M0L"
+  }
+ },
+ "M0L_tree": {
+  "keep": "9af5040ae3633f7960f785abc4a55f1f56294e5a1824fc49defb6fd3a4f75c27",
+  "bookstack": "9d8229660d5b997d526655c96d0186c9802303109d065e5598c9ea3efdce49fa"
+ },
+ "note": "No revised candidate strictly beat M0L on dev (ties broken toward the earlier candidate = M0L, plan 7.4). M1=M2=M0L for every requirement x generation; sealed M1/M2 results are therefore the M0L package results."
+}

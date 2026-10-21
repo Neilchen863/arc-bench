@@ -1,0 +1,27 @@
+- banner:
+  - navigation "Main":
+    - link "BookStack":
+      - /url: /
+    - search:
+      - searchbox "Search"
+    - link "Shelves":
+      - /url: /shelves
+    - link "Books":
+      - /url: /books
+    - link "Login":
+      - /url: /login
+- main:
+  - navigation "Breadcrumb":
+    - list:
+      - listitem:
+        - link "Book 6.4.1 [CERT-CB64D1r3]":
+          - /url: /books/07cf3e02-48c1-4615-9b5e-a077ba373fea
+      - listitem:
+        - paragraph: Page A 6.4.1 [CERT-CB64D1r3]
+  - article:
+    - heading "Page A 6.4.1 [CERT-CB64D1r3]" [level=1]
+    - paragraph: Reading content for Page A 6.4.1.
+  - heading "Details" [level=2]
+  - paragraph: Created 6 October 2026
+  - heading "Actions" [level=2]
+  - button "Edit"

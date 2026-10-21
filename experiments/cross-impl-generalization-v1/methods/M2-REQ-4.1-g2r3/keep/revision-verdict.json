@@ -1,0 +1,10 @@
+{
+ "id": "M2-keep-REQ-4.1-g2-r3",
+ "problems": [
+  "POLICY_AUDIT: unscoped first/last in tests/lib/observe.ts (/\\.first\\(\\)|\\.nth\\(0\\)|\\.last\\(\\)/) \u2014 needs review"
+ ],
+ "files": [
+  "tests/lib/observe.ts"
+ ],
+ "status": "APPLIED"
+}

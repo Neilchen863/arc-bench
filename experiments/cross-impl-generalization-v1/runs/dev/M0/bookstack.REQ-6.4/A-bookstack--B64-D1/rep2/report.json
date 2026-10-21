@@ -1,0 +1,227 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-6.4.spec.ts",
+      "file": "REQ-6.4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "REQ-6.4: Read selected page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15692,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Page title', { exact: true })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Page title', { exact: true })\u001b[22m\n\n    at createPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts:105:62)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:9:16",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts",
+                      "column": 62,
+                      "line": 105
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers.ts:105\n\n  103 |   await button(page, 'New Page').click();\n  104 |   const name = named(id, base);\n> 105 |   await page.getByPlaceholder('Page title', { exact: true }).fill(name);\n      |                                                              ^\n  106 |   await page.getByPlaceholder('Write your page content here...', { exact: true }).fill(content);\n  107 |   await button(page, draft ? 'Save Draft' : 'Save Page').click();\n  108 |   if (draft) {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts",
+                        "column": 62,
+                        "line": 105
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Page title', { exact: true })\u001b[22m\n\n\n   at helpers.ts:105\n\n  103 |   await button(page, 'New Page').click();\n  104 |   const name = named(id, base);\n> 105 |   await page.getByPlaceholder('Page title', { exact: true }).fill(name);\n      |                                                              ^\n  106 |   await page.getByPlaceholder('Write your page content here...', { exact: true }).fill(content);\n  107 |   await button(page, draft ? 'Save Draft' : 'Save Page').click();\n  108 |   if (draft) {\n    at createPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts:105:62)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:9:16"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T08:05:48.057Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/test-results/REQ-6.4-REQ-6-4-Read-selected-page-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/test-results/REQ-6.4-REQ-6-4-Read-selected-page-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/test-results/REQ-6.4-REQ-6-4-Read-selected-page-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts",
+                    "column": 62,
+                    "line": 105
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-5c4b412359ef6bbf5e94",
+          "file": "REQ-6.4.spec.ts",
+          "line": 5,
+          "column": 5
+        },
+        {
+          "title": "REQ-6.4: Reopen page editor",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15737,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Page title', { exact: true })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Page title', { exact: true })\u001b[22m\n\n    at createPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts:105:62)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:19:16",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts",
+                      "column": 62,
+                      "line": 105
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers.ts:105\n\n  103 |   await button(page, 'New Page').click();\n  104 |   const name = named(id, base);\n> 105 |   await page.getByPlaceholder('Page title', { exact: true }).fill(name);\n      |                                                              ^\n  106 |   await page.getByPlaceholder('Write your page content here...', { exact: true }).fill(content);\n  107 |   await button(page, draft ? 'Save Draft' : 'Save Page').click();\n  108 |   if (draft) {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts",
+                        "column": 62,
+                        "line": 105
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Page title', { exact: true })\u001b[22m\n\n\n   at helpers.ts:105\n\n  103 |   await button(page, 'New Page').click();\n  104 |   const name = named(id, base);\n> 105 |   await page.getByPlaceholder('Page title', { exact: true }).fill(name);\n      |                                                              ^\n  106 |   await page.getByPlaceholder('Write your page content here...', { exact: true }).fill(content);\n  107 |   await button(page, draft ? 'Save Draft' : 'Save Page').click();\n  108 |   if (draft) {\n    at createPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts:105:62)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:19:16"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T08:06:05.304Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/test-results/REQ-6.4-REQ-6-4-Reopen-page-editor-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/test-results/REQ-6.4-REQ-6-4-Reopen-page-editor-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/test-results/REQ-6.4-REQ-6-4-Reopen-page-editor-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/helpers.ts",
+                    "column": 62,
+                    "line": 105
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-d5b2ca050b71f41574e3",
+          "file": "REQ-6.4.spec.ts",
+          "line": 15,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T08:05:47.730Z",
+    "duration": 35158.309,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

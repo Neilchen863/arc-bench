@@ -1,0 +1,227 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-2.2.spec.ts",
+      "file": "REQ-2.2.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "REQ-2.2: Autosave on closing the editor",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10227,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Take a note', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Take a note', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })\u001b[22m\n\n    at openHome (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts:23:45)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/REQ-2.2.spec.ts:6:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts",
+                      "column": 45,
+                      "line": 23
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers.ts:23\n\n  21 | export async function openHome(page: Page) {\n  22 |   await page.goto('/');\n> 23 |   await expect(action(page, 'Take a note')).toBeVisible();\n     |                                             ^\n  24 | }\n  25 | export async function navigate(page: Page, name: string) {\n  26 |   await action(page.getByRole('navigation', { name: 'Sidebar', exact: true }), name).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts",
+                        "column": 45,
+                        "line": 23
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Take a note', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })\u001b[22m\n\n\n   at helpers.ts:23\n\n  21 | export async function openHome(page: Page) {\n  22 |   await page.goto('/');\n> 23 |   await expect(action(page, 'Take a note')).toBeVisible();\n     |                                             ^\n  24 | }\n  25 | export async function navigate(page: Page, name: string) {\n  26 |   await action(page.getByRole('navigation', { name: 'Sidebar', exact: true }), name).click();\n    at openHome (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts:23:45)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/REQ-2.2.spec.ts:6:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T11:23:25.491Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/test-results/REQ-2.2-REQ-2-2-Autosave-on-closing-the-editor-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/test-results/REQ-2.2-REQ-2-2-Autosave-on-closing-the-editor-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/test-results/REQ-2.2-REQ-2-2-Autosave-on-closing-the-editor-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts",
+                    "column": 45,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bcc76bf73e172b9e647c-88bbed7d340bf8b57e1e",
+          "file": "REQ-2.2.spec.ts",
+          "line": 5,
+          "column": 5
+        },
+        {
+          "title": "REQ-2.2: Keep a created note after reload",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10242,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Take a note', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Take a note', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })\u001b[22m\n\n    at openHome (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts:23:45)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/REQ-2.2.spec.ts:11:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts",
+                      "column": 45,
+                      "line": 23
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers.ts:23\n\n  21 | export async function openHome(page: Page) {\n  22 |   await page.goto('/');\n> 23 |   await expect(action(page, 'Take a note')).toBeVisible();\n     |                                             ^\n  24 | }\n  25 | export async function navigate(page: Page, name: string) {\n  26 |   await action(page.getByRole('navigation', { name: 'Sidebar', exact: true }), name).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts",
+                        "column": 45,
+                        "line": 23
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Take a note', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })\u001b[22m\n\n\n   at helpers.ts:23\n\n  21 | export async function openHome(page: Page) {\n  22 |   await page.goto('/');\n> 23 |   await expect(action(page, 'Take a note')).toBeVisible();\n     |                                             ^\n  24 | }\n  25 | export async function navigate(page: Page, name: string) {\n  26 |   await action(page.getByRole('navigation', { name: 'Sidebar', exact: true }), name).click();\n    at openHome (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts:23:45)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/REQ-2.2.spec.ts:11:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T11:23:36.269Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/test-results/REQ-2.2-REQ-2-2-Keep-a-created-note-after-reload-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/test-results/REQ-2.2-REQ-2-2-Keep-a-created-note-after-reload-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/test-results/REQ-2.2-REQ-2-2-Keep-a-created-note-after-reload-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Cpilot-keep--K22-D2/rep3/work/tests/helpers.ts",
+                    "column": 45,
+                    "line": 23
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bcc76bf73e172b9e647c-683274c658dce93cbc7b",
+          "file": "REQ-2.2.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T11:23:25.185Z",
+    "duration": 21509.691,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

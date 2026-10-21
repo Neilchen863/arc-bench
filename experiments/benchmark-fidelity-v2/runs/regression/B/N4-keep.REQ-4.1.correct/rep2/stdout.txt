@@ -1,0 +1,165 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-4.1.spec.ts:26:5 › search_title_content_highlight
+[1A[2K  1) [chromium] › tests/REQ-4.1.spec.ts:26:5 › search_title_content_highlight ──────────────────────
+
+    Error: OBLIGATION_FAIL K41-P1: content lines ["Math on Monday"] not shown as consecutive lines; observed ["Study schedule [db77fd01af-w0-c0bcaedb24] Math on Monday"]
+
+       at lib/oracle.ts:8
+
+       6 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }
+       7 | }
+    >  8 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };
+         |                                                             ^
+       9 |
+      10 | // A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),
+      11 | // trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.
+        at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/lib/oracle.ts:8:61)
+        at Object.showsLines (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/lib/oracle.ts:43:3)
+        at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/REQ-4.1.spec.ts:23:90)
+        at ob (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/lib/ledger.ts:39:7)
+        at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/REQ-4.1.spec.ts:23:3)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/REQ-4.1.spec.ts:30:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-search-title-content-highlight-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    Title	Note	Labels	
+    Actions
+    
+    Study schedule [db77fd01af-w0-c0bcaedb24]	Math on Monday		
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:54488/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-search-title-content-highlight-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-search-title-content-highlight-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-search-title-content-highlight-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-4.1.spec.ts:47:5 › suggested_label_filter
+[1A[2K  2) [chromium] › tests/REQ-4.1.spec.ts:47:5 › suggested_label_filter ──────────────────────────────
+
+    Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+
+       at lib/adapt.ts:40
+
+      38 |     }
+      39 |     last = seen.join(', ');
+    > 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+         |                                      ^
+      41 |     await new Promise(r => setTimeout(r, 250));
+      42 |   }
+      43 | }
+        at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/lib/adapt.ts:40:38)
+        at chooseLabelsInEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/lib/operations.ts:59:17)
+        at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/REQ-4.1.spec.ts:20:22)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/N4-keep.REQ-4.1.correct/rep2/work/tests/REQ-4.1.spec.ts:51:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-suggested-label-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    Title	Note	Labels	
+    Actions
+    
+    Study schedule [db77fd01af-w0-c0bcaedb24]	Math on Monday		
+    New note
+    Close
+    Label note
+    
+    Labels for “Call dentist existing [db77fd01af-w1-fb7b338c04]”
+    
+    Reminders
+    Done
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:54488/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-suggested-label-filter-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-4.1.spec.ts:26:5 › search_title_content_highlight ───────────────────────
+    [chromium] › tests/REQ-4.1.spec.ts:47:5 › suggested_label_filter ───────────────────────────────
+

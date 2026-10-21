@@ -1,0 +1,28 @@
+{
+ "spec_files": {
+  "REQ-2.2": "tests/REQ-2.2.spec.ts",
+  "REQ-4.1": "tests/REQ-4.1.spec.ts"
+ },
+ "cases": {
+  "REQ-2.2": {
+   "autosave_on_close": "autosave_on_close",
+   "persist_after_reload": "persist_after_reload"
+  },
+  "REQ-4.1": {
+   "search_title_content_highlight": "search_title_content_highlight",
+   "suggested_label_filter": "suggested_label_filter"
+  }
+ },
+ "read_only": [
+  "tests/lib/oracle.ts",
+  "tests/lib/inputs.ts"
+ ],
+ "editable": [
+  "tests/lib/operations.ts",
+  "tests/lib/observe.ts",
+  "tests/lib/adapt.ts",
+  "tests/REQ-2.2.spec.ts",
+  "tests/REQ-4.1.spec.ts",
+  "tests/lib/evidence.ts"
+ ]
+}

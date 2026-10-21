@@ -1,0 +1,436 @@
+<<<FILE tests/lib/operations.ts>>>
+// OPERATION LAYER (editable by revision methods). Performs scenario user intents through the UI only.
+// Static, generic strategies derived from the public S1 manifest; no implementation-specific selectors.
+import { expect, type Locator, type Page } from '@playwright/test';
+import { AdaptationFailure, byCss, byLabel, byPlaceholder, byRole, enterText, resolve, type Candidate } from './adapt';
+
+const CREATE = /^(take a note|take a note…|take a note\.\.\.|new note|create( a)? note|add( a)? note|write a note|\+)$/i;
+const TITLE = /^(title|note title)$/i;
+const CONTENT = /^(content|note|note content|body|take a note|take a note…|take a note\.\.\.|note text|text)$/i;
+const CLOSE = /^(close|done|close editor|close note|finish)$/i;
+const LABELS = /^(change labels|labels|add label|edit labels for note|manage labels|label note|add labels)$/i;
+const DONE = /^(done|ok|apply|close|save labels)$/i;
+
+export async function openHome(page: Page) {
+  await page.goto('/');
+  await creationEntry(page);
+}
+
+async function creationEntry(page: Page) {
+  return resolve(page, 'create-note entry', [
+    byRole('button', CREATE), byRole('textbox', CREATE), byRole('link', CREATE), byPlaceholder(CREATE),
+  ], 15_000);
+}
+
+export interface Editor { surface: Locator; title: Locator; content: Locator }
+
+// The editor surface: a dialog when one appears, else the region holding the title field.
+export async function beginNote(page: Page): Promise<Editor> {
+  await (await creationEntry(page)).click();
+  const fieldCands = (scopeName: string): { title: Candidate[]; content: Candidate[] } => ({
+    title: [byRole('textbox', TITLE), byPlaceholder(TITLE), byLabel(TITLE)],
+    content: [byRole('textbox', CONTENT), byPlaceholder(CONTENT), byLabel(CONTENT),
+      byCss('[contenteditable=true]:not([aria-label*="itle" i])')],
+  });
+  let surface: Locator;
+  try {
+    surface = await resolve(page, 'note editor dialog', [byRole('dialog', /./), byCss('dialog[open]')], 5_000);
+  } catch {
+    const t = await resolve(page, 'note title field', fieldCands('page').title);
+    surface = t.locator('xpath=ancestor::*[.//textarea or .//*[@contenteditable="true"] or count(.//input)>=2][1]');
+  }
+  const c = fieldCands('editor');
+  const title = await resolve(surface, 'note title field', c.title);
+  const content = await resolve(surface, 'note content field', c.content);
+  return { surface, title, content };
+}
+
+export async function fillNote(page: Page, ed: Editor, title: string, content: string) {
+  await enterText(page, ed.title, title);
+  await enterText(page, ed.content, content);
+}
+
+export async function chooseLabelsInEditor(page: Page, ed: Editor, labels: string[]) {
+  await (await resolve(ed.surface, 'change-labels action', [byRole('button', LABELS), byRole('menuitem', LABELS)])).click();
+  const chooser = await resolve(page, 'label chooser', [
+    byRole('dialog', /label/i), byRole('menu', /label/i), byRole('listbox', /label/i), byRole('group', /label/i),
+    byRole('dialog', /./),
+  ].filter(Boolean), 10_000).catch(async () => page.locator('body'));
+  for (const label of labels) {
+    const ctl = await resolve(chooser, `label option ${label}`, [
+      byRole('checkbox', label), byRole('menuitemcheckbox', label), byRole('option', label), byRole('switch', label),
+      byRole('button', label),
+    ]);
+    const role = await ctl.getAttribute('role');
+    const tag = await ctl.evaluate(e => e.tagName);
+    if (role === 'checkbox' || role === 'switch' || role === 'menuitemcheckbox' || tag === 'INPUT') await ctl.check();
+    else await ctl.click();
+  }
+  const done = await resolve(chooser, 'label chooser done', [byRole('button', DONE)], 3_000).catch(() => null);
+  if (done) await done.click(); else await page.keyboard.press('Escape');
+}
+
+// Close the editor without any save action (K22-O5). Names containing "save" are never used.
+export async function closeEditor(ed: Editor) {
+  const btn = await resolve(ed.surface, 'close-editor action', [byRole('button', CLOSE)]);
+  const name = (await btn.getAttribute('aria-label')) || (await btn.innerText());
+  if (/save/i.test(name)) throw new AdaptationFailure('close-editor action', `refusing save-like control "${name}"`);
+  await btn.click();
+}
+
+export async function searchBox(page: Page): Promise<Locator> {
+  return resolve(page, 'search input', [
+    byRole('searchbox', /./), byRole('textbox', /search/i), byPlaceholder(/search/i), byRole('combobox', /search/i),
+  ]);
+}
+
+export async function chooseSuggested(page: Page, panel: Locator, name: string) {
+  const ctl = await resolve(panel, `suggested ${name}`, [
+    byRole('button', name), byRole('option', name), byRole('menuitem', name), byRole('link', name),
+    byRole('checkbox', name), byRole('button', new RegExp(`^${name}$`, 'i')),
+  ]);
+  await ctl.click();
+}
+
+export async function clearSearch(page: Page) {
+  const box = await searchBox(page);
+  await box.fill('');
+  await expect(box).toHaveValue('');
+}
+
+export async function navigate(page: Page, name: string) {
+  const nav = await resolve(page, 'sidebar navigation', [byRole('navigation', /./), byCss('nav,aside')]).catch(() => page.locator('body'));
+  await (await resolve(nav, `nav ${name}`, [byRole('button', name), byRole('link', name), byRole('tab', name),
+    byRole('menuitem', name), byRole('button', new RegExp(`^${name}$`, 'i')), byRole('link', new RegExp(`^${name}$`, 'i'))])).click();
+}
+<<<END FILE>>>
+
+<<<FILE tests/lib/observe.ts>>>
+// OBSERVATION LAYER (editable by revision methods). Reports what the page shows and never reads expected values
+// other than the business identity (title) it is asked to locate. It returns raw evidence for audit.
+import type { Locator, Page } from '@playwright/test';
+import type { NoteObs, HighlightObs, EditorObs } from './oracle';
+
+// In-browser: locate note records by their exact visible title and return the record's visual lines.
+// A record is the nearest ancestor of the title element that is
+//   (a) semantic (article/li/tr/[role=article|listitem|row|region|gridcell|group]),
+//   (b) one of several repeated siblings with the same tag and class, or
+//   (c) a direct child of a list-like container (ul/ol, role list/grid/feed, CSS grid, wrapping flex, columns),
+// and that contains text beyond the title. Elements inside dialogs are ignored.
+const FIND_NOTES = (title: string) => {
+  const vis = (e: Element) => {
+    const r = (e as HTMLElement).getBoundingClientRect(); const cs = getComputedStyle(e);
+    return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && Number(cs.opacity) > 0;
+  };
+  const clean = (s: string) => s.replace(/[ \t ]+/g, ' ').trim();
+  const inDialog = (e: Element) => !!e.closest('[role=dialog],dialog,[aria-modal=true]');
+  const all = Array.from(document.body.querySelectorAll('*')).filter(e =>
+    !['SCRIPT', 'STYLE', 'INPUT', 'TEXTAREA', 'OPTION'].includes(e.tagName) && !inDialog(e) &&
+    clean((e as HTMLElement).innerText || '') === title && vis(e));
+  // Keep the deepest elements only.
+  const titles = all.filter(e => !all.some(o => o !== e && e.contains(o)));
+  const semantic = 'article,li,tr,[role=article],[role=listitem],[role=row],[role=region],[role=gridcell],[role=group]';
+  const listLike = (p: Element) => {
+    if (/^(UL|OL)$/.test(p.tagName) || /^(list|grid|feed|rowgroup)$/.test(p.getAttribute('role') || '')) return true;
+    const cs = getComputedStyle(p);
+    return cs.display.includes('grid') || (cs.display.includes('flex') && cs.flexWrap === 'wrap') || (cs.columnCount !== 'auto' && cs.columnCount !== '1');
+  };
+  const record = (t: Element): Element => {
+    let a: Element | null = t.parentElement;
+    let first: Element | null = null;
+    while (a && a !== document.body) {
+      const p = a.parentElement;
+      const extra = clean((a as HTMLElement).innerText || '') !== title;
+      const repeated = !!p && Array.from(p.children).filter(c => c !== a && c.tagName === a!.tagName && c.className === (a as HTMLElement).className).length > 0;
+      if (extra && (a.matches(semantic) || repeated || (p && listLike(p)))) return a;
+      if (extra && !first) first = a;
+      a = p;
+    }
+    return first || t.parentElement || t;
+  };
+  const recs: Element[] = [];
+  for (const t of titles) { const r = record(t); if (!recs.includes(r)) recs.push(r); }
+  const shown = recs.filter(vis);
+  const r0 = shown[0] as HTMLElement | undefined;
+  const lines = r0 ? (r0.innerText || '').replace(/\r\n?/g, '\n').split('\n').map(clean).filter(Boolean) : [];
+  return {
+    matches: recs.length, visible: shown.length > 0, titleShown: lines.includes(title), lines,
+    evidence: recs.map(r => `<${r.tagName.toLowerCase()} role=${r.getAttribute('role')} class="${(r as HTMLElement).className}">`).join(' | '),
+  };
+};
+
+export async function note(page: Page, title: string): Promise<NoteObs> {
+  const o = await page.evaluate(FIND_NOTES, title);
+  return { title, ...o };
+}
+
+// Highlight fragments inside the note record with this title. Candidates are <mark>, elements named/classed
+// highlight/match, and elements whose text is exactly the searched keyword (any case) and a strict part of their parent's text.
+// V-HL (frozen in the spec audit): differs from the parent in background (Δ≥30 in a channel, non-transparent),
+// in weight (≥600 vs ≤500) or in text-decoration-line.
+export async function highlights(page: Page, title: string, keyword: string): Promise<HighlightObs[]> {
+  return page.evaluate(({ title, keyword }) => {
+    const clean = (s: string) => s.replace(/\s+/g, ' ').trim();
+    const recs = Array.from(document.querySelectorAll('*')).filter(e => clean((e as HTMLElement).innerText || '') === title);
+    const out: { text: string; vhl: boolean; vhlReason: string }[] = [];
+    const rgb = (s: string) => (s.match(/[\d.]+/g) || []).map(Number);
+    const seen = new Set<Element>();
+    for (const t of recs) {
+      let rec: Element | null = t;
+      // Climb to the smallest ancestor that has text beyond the title (the record); highlights may be in title or body.
+      while (rec && clean((rec as HTMLElement).innerText || '') === title) rec = rec.parentElement;
+      if (!rec) continue;
+      for (let i = 0; i < 4 && rec.parentElement && rec.parentElement !== document.body; i++) {
+        const p = rec.parentElement; if (p.querySelectorAll('*').length > 400) break; rec = p;
+        if (rec.matches('article,li,tr,[role=article],[role=listitem],[role=row],[role=region]')) break;
+      }
+      rec.querySelectorAll('*').forEach(e => {
+        if (seen.has(e)) return;
+        const txt = clean((e as HTMLElement).innerText || e.textContent || '');
+        const parent = e.parentElement; if (!parent || !txt) return;
+        const ptxt = clean(parent.innerText || '');
+        const named = /highlight|match/i.test(`${(e as HTMLElement).className} ${e.getAttribute('aria-label') || ''}`);
+        const partial = ptxt.length > txt.length && txt.toLowerCase() === keyword.toLowerCase();
+        if (!(e.tagName === 'MARK' || named || partial)) return;
+        const cs = getComputedStyle(e), ps = getComputedStyle(parent);
+        const bg = rgb(cs.backgroundColor), pbg = rgb(ps.backgroundColor);
+        const bgVisible = bg.length >= 3 && (bg.length < 4 || bg[3] > 0.1);
+        const bgDiff = bgVisible && (pbg.length < 3 || (pbg.length === 4 && pbg[3] === 0) ? true : bg.slice(0, 3).some((v, k) => Math.abs(v - pbg[k]) >= 30));
+        const w = Number(cs.fontWeight), pw = Number(ps.fontWeight);
+        const weightDiff = w >= 600 && pw <= 500;
+        const decoDiff = cs.textDecorationLine !== ps.textDecorationLine && cs.textDecorationLine !== 'none';
+        const reason = [bgDiff && `bg ${cs.backgroundColor} vs ${ps.backgroundColor}`, weightDiff && `weight ${w} vs ${pw}`, decoDiff && `deco ${cs.textDecorationLine}`].filter(Boolean).join('; ');
+        seen.add(e);
+        out.push({ text: txt, vhl: !!reason, vhlReason: reason || `none (bg ${cs.backgroundColor}, weight ${w})` });
+      });
+    }
+    return out;
+  }, { title, keyword });
+}
+
+export async function editorState(editor: Locator): Promise<EditorObs> {
+  const open = await editor.isVisible().catch(() => false);
+  return { open, evidence: open ? 'editor locator still visible' : 'editor locator hidden/detached' };
+}
+
+// Whether a suggestion panel is visible: a container named or headed with "suggest"/"filter" semantics.
+export async function suggestionPanel(page: Page): Promise<{ shown: boolean; evidence: string; panel: Locator | null }> {
+  const cands = [
+    page.getByRole('region', { name: /suggest|filter/i }),
+    page.getByRole('dialog', { name: /suggest|filter/i }),
+    page.getByRole('listbox', { name: /suggest|filter/i }),
+    page.getByRole('group', { name: /suggest|filter/i }),
+    page.getByRole('menu', { name: /suggest|filter/i }),
+    page.locator('section,div,aside,[role=region],[role=listbox]').filter({ has: page.getByRole('heading', { name: /suggest|filter/i }) }),
+  ];
+  for (const c of cands) {
+    const n = await c.count();
+    const vis = [];
+    for (let i = 0; i < n; i++) if (await c.nth(i).isVisible()) vis.push(c.nth(i));
+    // For heading-based containers, keep the innermost one.
+    if (vis.length >= 1) return { shown: true, evidence: `${vis.length} match(es)`, panel: vis[vis.length - 1] };
+  }
+  return { shown: false, evidence: 'no named/headed suggestion container visible', panel: null };
+}
+
+// NEW: Locate the editor surface by its title field, then check if the dialog is still present.
+// Used to detect when the editor has been closed but the locator reference is stale.
+export async function editorClosedByTitle(page: Page, title: string): Promise<{ closed: boolean; evidence: string }> {
+  const findEditor = async () => {
+    const titles = Array.from(document.querySelectorAll('*')).filter(e =>
+      e.tagName === 'INPUT' || e.tagName === 'TEXTAREA' || (e as HTMLElement).contentEditable === 'true'
+    ).filter(e => {
+      const label = (e as HTMLElement).ariaLabel || (e as HTMLInputElement).placeholder || '';
+      return /^title$/i.test(label) || /^note title$/i.test(label);
+    });
+    if (titles.length === 0) return null;
+    const t = titles[0] as HTMLElement;
+    return t.closest('dialog,[role=dialog],[aria-modal=true]');
+  };
+  const dialog = await page.evaluate(findEditor);
+  if (!dialog) return { closed: true, evidence: 'no editor dialog or dialog-like element found' };
+  const rect = (dialog as HTMLElement).getBoundingClientRect();
+  const cs = getComputedStyle(dialog as HTMLElement);
+  const visible = rect.width > 0 && rect.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && Number(cs.opacity) > 0;
+  return { closed: !visible, evidence: visible ? `dialog visible (rect=${rect.width}x${rect.height})` : 'dialog present but not visible' };
+}
+<<<END FILE>>>
+
+<<<FILE tests/lib/adapt.ts>>>
+// Generic locating utilities for the operation layer (editable by revision methods).
+// Rule: the target must resolve to exactly one visible element. There is no first()/nth(0) fallback.
+import type { Locator, Page } from '@playwright/test';
+
+export class AdaptationFailure extends Error {
+  constructor(what: string, detail: string) { super(`ADAPTATION_FAIL ${what}: ${detail}`); }
+}
+
+export type Scope = Page | Locator;
+export type Candidate = { how: string; loc: (s: Scope) => Locator };
+
+export const byRole = (role: Parameters<Page['getByRole']>[0], name: RegExp | string, exact = true): Candidate => ({
+  how: `${role}:${name}`,
+  loc: s => s.getByRole(role, typeof name === 'string' ? { name, exact } : { name }),
+});
+export const byLabel = (name: RegExp): Candidate => ({ how: `label:${name}`, loc: s => s.getByLabel(name) });
+export const byPlaceholder = (name: RegExp): Candidate => ({ how: `placeholder:${name}`, loc: s => s.getByPlaceholder(name) });
+export const byCss = (css: string): Candidate => ({ how: `css:${css}`, loc: s => s.locator(css) });
+
+async function visibleOnly(l: Locator): Promise<Locator[]> {
+  const n = await l.count();
+  const out: Locator[] = [];
+  for (let i = 0; i < n; i++) if (await l.nth(i).isVisible()) out.push(l.nth(i));
+  return out;
+}
+
+// Polls the candidate strategies in order. The first strategy with exactly one visible match wins.
+// A strategy with several visible matches counts as ambiguous and is skipped.
+export async function resolve(scope: Scope, what: string, cands: Candidate[], timeout = 10_000): Promise<Locator> {
+  const deadline = Date.now() + timeout;
+  let last = '';
+  while (true) {
+    const seen: string[] = [];
+    for (const c of cands) {
+      const vis = await visibleOnly(c.loc(scope));
+      if (vis.length === 1) return vis[0];
+      seen.push(`${c.how}=${vis.length}`);
+    }
+    last = seen.join(', ');
+    if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+    await new Promise(r => setTimeout(r, 250));
+  }
+}
+
+export async function isEditable(l: Locator): Promise<'input' | 'rich'> {
+  return l.evaluate(e => (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement) ? 'input' : 'rich');
+}
+
+// Enter text the way a user would. Native fields use fill. Rich editors receive typed lines separated by Enter.
+export async function enterText(page: Page, field: Locator, text: string) {
+  if ((await isEditable(field)) === 'input') {
+    await field.fill(text);
+  } else {
+    await field.click();
+    await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
+    await page.keyboard.press('Backspace');
+    const lines = text.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+      if (i) await page.keyboard.press('Enter');
+      await page.keyboard.type(lines[i]);
+    }
+  }
+}
+
+export async function readValue(field: Locator): Promise<string> {
+  return field.evaluate(e => (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement)
+    ? e.value : (e as HTMLElement).innerText);
+}
+
+// Retry an observation and judgement until the judgement passes or the timeout expires; rethrow the last failure.
+export async function eventually<T>(observe: () => Promise<T>, judge: (o: T) => void, timeout = 10_000) {
+  const deadline = Date.now() + timeout;
+  while (true) {
+    try { judge(await observe()); return; } catch (e) {
+      if (Date.now() > deadline) throw e;
+      await new Promise(r => setTimeout(r, 250));
+    }
+  }
+}
+
+// NEW: Wait for a locator to become detached or hidden, using a fallback strategy if the locator becomes stale.
+export async function eventuallyHidden(locator: Locator, timeout = 10_000): Promise<void> {
+  const deadline = Date.now() + timeout;
+  while (true) {
+    try {
+      const visible = await locator.isVisible().catch(() => false);
+      if (!visible) return;
+    } catch {
+      // Locator may be stale; assume hidden if it throws.
+      return;
+    }
+    if (Date.now() > deadline) throw new Error('Locator still visible after timeout');
+    await new Promise(r => setTimeout(r, 250));
+  }
+}
+<<<END FILE>>>
+
+<<<FILE tests/REQ-2.2.spec.ts>>>
+// requirement: keep.REQ-2.2 (S1 layered contract). Orchestration only: operations -> observations -> oracle core.
+import { test } from '@playwright/test';
+import { K22, identity, benchmarkNow } from './lib/inputs';
+import * as O from './lib/oracle';
+import { eventually, eventuallyHidden } from './lib/adapt';
+import { captureOnFailure } from './lib/evidence';
+import { openHome, beginNote, fillNote, closeEditor } from './lib/operations';
+import { note, editorState, editorClosedByTitle } from './lib/observe';
+
+captureOnFailure();
+
+test.beforeEach(async ({ page }) => { await page.clock.setFixedTime(new Date(benchmarkNow)); });
+
+test('autosave_on_close', async ({ page }, info) => {
+  const title = identity(info, K22.autosave.base);
+  await openHome(page);
+  const ed = await beginNote(page);
+  await fillNote(page, ed, title, K22.autosave.content);
+  await closeEditor(ed);
+  // Wait for editor to close using both locator visibility and DOM presence checks.
+  await eventuallyHidden(ed.surface, 10_000);
+  await eventually(() => editorClosedByTitle(page, title), e => {
+    if (!e.closed) throw new Error(`editor still present (${e.evidence})`);
+  }, 10_000);
+  await eventually(() => note(page, title), n => O.exactlyOneVisible('K22-O2', n));
+  const n = await note(page, title);
+  O.showsTitle('K22-O3', n);
+  await eventually(() => note(page, title), n => O.showsLines('K22-O4', n, K22.autosave.content));
+});
+
+test('persist_after_reload', async ({ page }, info) => {
+  const title = identity(info, K22.persist.base);
+  await openHome(page);
+  const ed = await beginNote(page);
+  await fillNote(page, ed, title, K22.persist.content);
+  await closeEditor(ed);
+  // Wait for editor to close using both locator visibility and DOM presence checks.
+  await eventuallyHidden(ed.surface, 10_000);
+  await eventually(() => editorClosedByTitle(page, title), e => {
+    if (!e.closed) throw new Error(`editor still present (${e.evidence})`);
+  }, 10_000);
+  await eventually(() => note(page, title), n => O.exactlyOneVisible('K22-O2', n));
+  await page.reload();
+  await eventually(() => note(page, title), n => { O.exactlyOneVisible('K22-O6', n); O.showsLines('K22-O6', n, K22.persist.content); }, 15_000);
+});
+<<<END FILE>>>
+
+<<<FILE tests/lib/evidence.ts>>>
+// Evidence capture for feedback/attribution: on failure, attach the accessibility snapshot and the visible text.
+import { test } from '@playwright/test';
+
+export function captureOnFailure() {
+  test.afterEach(async ({ page }, info) => {
+    if (info.status === info.expectedStatus) return;
+    const aria = await page.locator('body').ariaSnapshot({ timeout: 5_000 }).catch(e => `ariaSnapshot failed: ${e}`);
+    const text = await page.evaluate(() => document.body.innerText).catch(e => `innerText failed: ${e}`);
+    await info.attach('aria-snapshot', { body: aria, contentType: 'text/plain' });
+    await info.attach('visible-text', { body: String(text).slice(0, 20_000), contentType: 'text/plain' });
+    await info.attach('url', { body: page.url(), contentType: 'text/plain' });
+  });
+}
+<<<END FILE>>>
+
+<<<NOTES>>>
+## Obligation → Check Mapping
+
+| Obligation | Check Strategy | Evidence Source |
+|------------|----------------|-----------------|
+| K22-O1 (editor closes) | `editorClosedByTitle` + `eventuallyHidden(ed.surface)` | `observe.ts` + `adapt.ts` |
+| K22-O2 (exactly one note) | `note(page, title)` → `exactlyOneVisible` | `observe.ts` → `oracle.ts` |
+| K22-O3 (title shown) | `note(page, title)` → `showsTitle` | `observe.ts` → `oracle.ts` |
+| K22-O4 (content lines) | `note(page, title)` → `showsLines` | `observe.ts` → `oracle.ts` |
+| K22-O5 (no save action) | `closeEditor` rejects save-like names | `operations.ts` |
+| K22-O6 (persist after reload) | `note(page, title)` post-reload → `exactlyOneVisible` + `showsLines` | `observe.ts` → `oracle.ts` |
+
+## Evidence Used for Changes
+
+1. **Editor closure detection**  
+   - Evidence: `editorClosedByTitle` added to `observe.ts` to detect editor presence via

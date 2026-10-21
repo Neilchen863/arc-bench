@@ -1,0 +1,12 @@
+{
+ "id": "M2-keep-REQ-2.2-g2-r3",
+ "problems": [],
+ "files": [
+  "tests/lib/operations.ts",
+  "tests/lib/observe.ts",
+  "tests/lib/adapt.ts",
+  "tests/REQ-2.2.spec.ts",
+  "tests/lib/evidence.ts"
+ ],
+ "status": "APPLIED"
+}

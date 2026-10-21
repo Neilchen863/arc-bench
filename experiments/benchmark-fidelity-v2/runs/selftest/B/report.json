@@ -1,0 +1,719 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "keep-observer.spec.ts",
+      "file": "keep-observer.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "same text elsewhere on the page (toast) is not a second note",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 171,
+                  "error": {
+                    "message": "Error: observed: {\"title\":\"Alpha\",\"matches\":3,\"visible\":true,\"titleShown\":false,\"lines\":[\"Saved Alpha\"],\"evidence\":\"<div role=status class=\\\"\\\"> | <div role=status class=\\\"\\\"> | <article role=null class=\\\"card\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m3\u001b[39m",
+                    "stack": "Error: observed: {\"title\":\"Alpha\",\"matches\":3,\"visible\":true,\"titleShown\":false,\"lines\":[\"Saved Alpha\"],\"evidence\":\"<div role=status class=\\\"\\\"> | <div role=status class=\\\"\\\"> | <article role=null class=\\\"card\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m3\u001b[39m\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:15:60",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                      "column": 60,
+                      "line": 15
+                    },
+                    "snippet": "  13 |   await page.setContent(`<div role=\"status\">Saved <span>Alpha</span></div><div role=\"status\"><b>Alpha</b></div>` + GRID(CARD('Alpha', 'Body A') + CARD('Beta', 'Body B')));\n  14 |   const n = await note(page, 'Alpha');\n> 15 |   expect.soft(n.matches, `observed: ${JSON.stringify(n)}`).toBe(1);\n     |                                                            ^\n  16 | });\n  17 |\n  18 | test('hidden template holding the full answer is not a note', async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                        "column": 60,
+                        "line": 15
+                      },
+                      "message": "Error: observed: {\"title\":\"Alpha\",\"matches\":3,\"visible\":true,\"titleShown\":false,\"lines\":[\"Saved Alpha\"],\"evidence\":\"<div role=status class=\\\"\\\"> | <div role=status class=\\\"\\\"> | <article role=null class=\\\"card\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m3\u001b[39m\n\n  13 |   await page.setContent(`<div role=\"status\">Saved <span>Alpha</span></div><div role=\"status\"><b>Alpha</b></div>` + GRID(CARD('Alpha', 'Body A') + CARD('Beta', 'Body B')));\n  14 |   const n = await note(page, 'Alpha');\n> 15 |   expect.soft(n.matches, `observed: ${JSON.stringify(n)}`).toBe(1);\n     |                                                            ^\n  16 | });\n  17 |\n  18 | test('hidden template holding the full answer is not a note', async ({ page }) => {\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:15:60"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:37.530Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-same-text-el-81092--toast-is-not-a-second-note-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-same-text-el-81092--toast-is-not-a-second-note-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-same-text-el-81092--toast-is-not-a-second-note-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                    "column": 60,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-10fed703dd727829ef30",
+          "file": "keep-observer.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "hidden template holding the full answer is not a note",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 172,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:38.264Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-hidden-templ-ee406-e-full-answer-is-not-a-note-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-hidden-templ-ee406-e-full-answer-is-not-a-note-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-888b7b4526728c23c406",
+          "file": "keep-observer.spec.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "note copy behind a modal (aria-hidden) is not counted twice",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 134,
+                  "error": {
+                    "message": "Error: observed: {\"title\":\"Eps\",\"matches\":2,\"visible\":true,\"titleShown\":true,\"lines\":[\"Eps\",\"c1\"],\"evidence\":\"<article role=null class=\\\"card\\\"> | <article role=null class=\\\"card\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m",
+                    "stack": "Error: observed: {\"title\":\"Eps\",\"matches\":2,\"visible\":true,\"titleShown\":true,\"lines\":[\"Eps\",\"c1\"],\"evidence\":\"<article role=null class=\\\"card\\\"> | <article role=null class=\\\"card\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:28:60",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                      "column": 60,
+                      "line": 28
+                    },
+                    "snippet": "  26 |   await page.setContent(`<div aria-hidden=\"true\">${GRID(CARD('Eps', 'c1'))}</div>` + GRID(CARD('Eps', 'c1')));\n  27 |   const n = await note(page, 'Eps');\n> 28 |   expect.soft(n.matches, `observed: ${JSON.stringify(n)}`).toBe(1);\n     |                                                            ^\n  29 | });\n  30 |\n  31 | test('text inside an inline editor is not a saved note', async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                        "column": 60,
+                        "line": 28
+                      },
+                      "message": "Error: observed: {\"title\":\"Eps\",\"matches\":2,\"visible\":true,\"titleShown\":true,\"lines\":[\"Eps\",\"c1\"],\"evidence\":\"<article role=null class=\\\"card\\\"> | <article role=null class=\\\"card\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\n  26 |   await page.setContent(`<div aria-hidden=\"true\">${GRID(CARD('Eps', 'c1'))}</div>` + GRID(CARD('Eps', 'c1')));\n  27 |   const n = await note(page, 'Eps');\n> 28 |   expect.soft(n.matches, `observed: ${JSON.stringify(n)}`).toBe(1);\n     |                                                            ^\n  29 | });\n  30 |\n  31 | test('text inside an inline editor is not a saved note', async ({ page }) => {\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:28:60"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:38.583Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-note-copy-be-35b80-hidden-is-not-counted-twice-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-note-copy-be-35b80-hidden-is-not-counted-twice-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-note-copy-be-35b80-hidden-is-not-counted-twice-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                    "column": 60,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-59ca89f9b244f6ff7495",
+          "file": "keep-observer.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "text inside an inline editor is not a saved note",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 190,
+                  "error": {
+                    "message": "Error: observed: {\"title\":\"Zeta\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Zeta\",\"body\"],\"evidence\":\"<div role=null class=\\\"editor\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: observed: {\"title\":\"Zeta\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Zeta\",\"body\"],\"evidence\":\"<div role=null class=\\\"editor\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:34:60",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                      "column": 60,
+                      "line": 34
+                    },
+                    "snippet": "  32 |   await page.setContent(`<div class=\"editor\"><div contenteditable=\"true\" aria-label=\"Title\">Zeta</div><div contenteditable=\"true\" aria-label=\"Note text\">body</div></div>` + GRID(CARD('Other', 'y')));\n  33 |   const n = await note(page, 'Zeta');\n> 34 |   expect.soft(n.matches, `observed: ${JSON.stringify(n)}`).toBe(0);\n     |                                                            ^\n  35 | });\n  36 |\n  37 | test('highlight in an adjacent note is not attributed to this note', async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                        "column": 60,
+                        "line": 34
+                      },
+                      "message": "Error: observed: {\"title\":\"Zeta\",\"matches\":1,\"visible\":true,\"titleShown\":true,\"lines\":[\"Zeta\",\"body\"],\"evidence\":\"<div role=null class=\\\"editor\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  32 |   await page.setContent(`<div class=\"editor\"><div contenteditable=\"true\" aria-label=\"Title\">Zeta</div><div contenteditable=\"true\" aria-label=\"Note text\">body</div></div>` + GRID(CARD('Other', 'y')));\n  33 |   const n = await note(page, 'Zeta');\n> 34 |   expect.soft(n.matches, `observed: ${JSON.stringify(n)}`).toBe(0);\n     |                                                            ^\n  35 | });\n  36 |\n  37 | test('highlight in an adjacent note is not attributed to this note', async ({ page }) => {\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:34:60"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:39.147Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-text-inside--f6fed--editor-is-not-a-saved-note-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-text-inside--f6fed--editor-is-not-a-saved-note-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-text-inside--f6fed--editor-is-not-a-saved-note-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                    "column": 60,
+                    "line": 34
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-4f304b92b73b02fc6155",
+          "file": "keep-observer.spec.ts",
+          "line": 31,
+          "column": 5
+        },
+        {
+          "title": "highlight in an adjacent note is not attributed to this note",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 181,
+                  "error": {
+                    "message": "Error: observed: [{\"text\":\"st\",\"vhl\":true,\"vhlReason\":\"bg rgb(255, 255, 0) vs rgba(0, 0, 0, 0)\"}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m0\u001b[39m\nReceived length: \u001b[31m1\u001b[39m\nReceived array:  \u001b[31m[{\"text\": \"st\", \"vhl\": true, \"vhlReason\": \"bg rgb(255, 255, 0) vs rgba(0, 0, 0, 0)\"}]\u001b[39m",
+                    "stack": "Error: observed: [{\"text\":\"st\",\"vhl\":true,\"vhlReason\":\"bg rgb(255, 255, 0) vs rgba(0, 0, 0, 0)\"}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m0\u001b[39m\nReceived length: \u001b[31m1\u001b[39m\nReceived array:  \u001b[31m[{\"text\": \"st\", \"vhl\": true, \"vhlReason\": \"bg rgb(255, 255, 0) vs rgba(0, 0, 0, 0)\"}]\u001b[39m\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:40:73",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                      "column": 73,
+                      "line": 40
+                    },
+                    "snippet": "  38 |   await page.setContent(`<style>mark{background:#ff0}</style>` + GRID(CARD('Study plan', 'Math') + CARD('Reading', 'Read a <mark>st</mark>ory')));\n  39 |   const hs = await highlights(page, 'Study plan', 'st');\n> 40 |   expect.soft(hs.filter(h => h.vhl), `observed: ${JSON.stringify(hs)}`).toHaveLength(0);\n     |                                                                         ^\n  41 | });\n  42 |\n  43 | test('highlight with only a class name but no visual difference fails V-HL', async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                        "column": 73,
+                        "line": 40
+                      },
+                      "message": "Error: observed: [{\"text\":\"st\",\"vhl\":true,\"vhlReason\":\"bg rgb(255, 255, 0) vs rgba(0, 0, 0, 0)\"}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m0\u001b[39m\nReceived length: \u001b[31m1\u001b[39m\nReceived array:  \u001b[31m[{\"text\": \"st\", \"vhl\": true, \"vhlReason\": \"bg rgb(255, 255, 0) vs rgba(0, 0, 0, 0)\"}]\u001b[39m\n\n  38 |   await page.setContent(`<style>mark{background:#ff0}</style>` + GRID(CARD('Study plan', 'Math') + CARD('Reading', 'Read a <mark>st</mark>ory')));\n  39 |   const hs = await highlights(page, 'Study plan', 'st');\n> 40 |   expect.soft(hs.filter(h => h.vhl), `observed: ${JSON.stringify(hs)}`).toHaveLength(0);\n     |                                                                         ^\n  41 | });\n  42 |\n  43 | test('highlight with only a class name but no visual difference fails V-HL', async ({ page }) => {\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:40:73"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:39.857Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-highlight-in-f6371-not-attributed-to-this-note-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-highlight-in-f6371-not-attributed-to-this-note-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-highlight-in-f6371-not-attributed-to-this-note-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                    "column": 73,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-a9b84d430582596966ab",
+          "file": "keep-observer.spec.ts",
+          "line": 37,
+          "column": 5
+        },
+        {
+          "title": "highlight with only a class name but no visual difference fails V-HL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 167,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:40.681Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-highlight-wi-09270-isual-difference-fails-V-HL-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-highlight-wi-09270-isual-difference-fails-V-HL-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-5c13b7bd1d0f45f26fb2",
+          "file": "keep-observer.spec.ts",
+          "line": 43,
+          "column": 5
+        },
+        {
+          "title": "editor shell kept, active controls closed -> closed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 141,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:41.099Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-editor-shell-ca3a4-ve-controls-closed---closed-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-editor-shell-ca3a4-ve-controls-closed---closed-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-2de347b183b1f79ec96e",
+          "file": "keep-observer.spec.ts",
+          "line": 49,
+          "column": 5
+        },
+        {
+          "title": "editor shell kept but title still in an editable field -> still open",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 123,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:41.252Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-editor-shell-01061-editable-field---still-open-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-editor-shell-01061-editable-field---still-open-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-b73820d3e25ee0346f6a",
+          "file": "keep-observer.spec.ts",
+          "line": 55,
+          "column": 5
+        },
+        {
+          "title": "modal editor dialog still shown with cleared fields -> still open",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 119,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:41.386Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-modal-editor-531c8-cleared-fields---still-open-chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-modal-editor-531c8-cleared-fields---still-open-chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-096d79f281bb47a26164",
+          "file": "keep-observer.spec.ts",
+          "line": 61,
+          "column": 5
+        },
+        {
+          "title": "table-row note: cells are distinct lines (title cell, content cell)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 150,
+                  "error": {
+                    "message": "Error: {\"title\":\"Theta\",\"matches\":1,\"visible\":true,\"titleShown\":false,\"lines\":[\"Theta First line\",\"Second line 📌\"],\"evidence\":\"<tr role=null class=\\\"\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nError name:    \u001b[31m\"Error\"\u001b[39m\nError message: \u001b[31m\"OBLIGATION_FAIL X: note does not visibly show its exact title \\\"Theta\\\"; lines=[\\\"Theta First line\\\",\\\"Second line 📌\\\"]\"\u001b[39m\n\n    \u001b[0m \u001b[90m  6 |\u001b[39m   constructor(\u001b[36mpublic\u001b[39m obligation\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m detail\u001b[33m:\u001b[39m string) { \u001b[36msuper\u001b[39m(\u001b[32m`OBLIGATION_FAIL ${obligation}: ${detail}`\u001b[39m)\u001b[33m;\u001b[39m }\n     \u001b[90m  7 |\u001b[39m }\n    \u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  8 |\u001b[39m \u001b[36mconst\u001b[39m fail \u001b[33m=\u001b[39m (id\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m detail\u001b[33m:\u001b[39m string)\u001b[33m:\u001b[39m never \u001b[33m=>\u001b[39m { \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mObligationFailure\u001b[39m(id\u001b[33m,\u001b[39m detail)\u001b[33m;\u001b[39m }\u001b[33m;\u001b[39m\n     \u001b[90m    |\u001b[39m                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n     \u001b[90m  9 |\u001b[39m\n     \u001b[90m 10 |\u001b[39m \u001b[90m// A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\u001b[39m\n     \u001b[90m 11 |\u001b[39m \u001b[90m// trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\u001b[39m\u001b[0m\n\n      \u001b[2mat fail (\u001b[22mtests/lib/oracle.ts\u001b[2m:8:61)\u001b[22m\n      \u001b[2mat Object.showsTitle (\u001b[22mtests/lib/oracle.ts\u001b[2m:34:22)\u001b[22m\n      \u001b[2mat \u001b[22mselftest/keep-observer.spec.ts\u001b[2m:72:54\u001b[22m\n      \u001b[2mat Object.<anonymous> (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/common/expectBundleImpl.js\u001b[2m:293:1495)\u001b[22m\n      \u001b[2mat Object.w [as toThrow] (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/common/expectBundleImpl.js\u001b[2m:338:895)\u001b[22m\n      \u001b[2mat callback (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/matchers/expect.js\u001b[2m:260:40)\u001b[22m\n      \u001b[2mat Zone.run (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright-core/lib/server/utils/zones.js\u001b[2m:42:36)\u001b[22m\n      \u001b[2mat Proxy.toThrow (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/matchers/expect.js\u001b[2m:261:79)\u001b[22m\n      \u001b[2mat \u001b[22mselftest/keep-observer.spec.ts\u001b[2m:72:149\u001b[22m\n      \u001b[2mat \u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:322:9\u001b[22m\n      \u001b[2mat \u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/testInfo.js\u001b[2m:311:11\u001b[22m\n      \u001b[2mat TimeoutManager.withRunnable (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/timeoutManager.js\u001b[2m:67:14)\u001b[22m\n      \u001b[2mat TestInfoImpl._runWithTimeout (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/testInfo.js\u001b[2m:309:7)\u001b[22m\n      \u001b[2mat \u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:320:7\u001b[22m\n      \u001b[2mat WorkerMain._runTest (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:295:5)\u001b[22m\n      \u001b[2mat WorkerMain.runTestGroup (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:199:11)\u001b[22m\n      \u001b[2mat process.<anonymous> (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/common/process.js\u001b[2m:65:22)\u001b[22m",
+                    "stack": "Error: {\"title\":\"Theta\",\"matches\":1,\"visible\":true,\"titleShown\":false,\"lines\":[\"Theta First line\",\"Second line 📌\"],\"evidence\":\"<tr role=null class=\\\"\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nError name:    \u001b[31m\"Error\"\u001b[39m\nError message: \u001b[31m\"OBLIGATION_FAIL X: note does not visibly show its exact title \\\"Theta\\\"; lines=[\\\"Theta First line\\\",\\\"Second line 📌\\\"]\"\u001b[39m\n\n    \u001b[0m \u001b[90m  6 |\u001b[39m   constructor(\u001b[36mpublic\u001b[39m obligation\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m detail\u001b[33m:\u001b[39m string) { \u001b[36msuper\u001b[39m(\u001b[32m`OBLIGATION_FAIL ${obligation}: ${detail}`\u001b[39m)\u001b[33m;\u001b[39m }\n     \u001b[90m  7 |\u001b[39m }\n    \u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  8 |\u001b[39m \u001b[36mconst\u001b[39m fail \u001b[33m=\u001b[39m (id\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m detail\u001b[33m:\u001b[39m string)\u001b[33m:\u001b[39m never \u001b[33m=>\u001b[39m { \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mObligationFailure\u001b[39m(id\u001b[33m,\u001b[39m detail)\u001b[33m;\u001b[39m }\u001b[33m;\u001b[39m\n     \u001b[90m    |\u001b[39m                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n     \u001b[90m  9 |\u001b[39m\n     \u001b[90m 10 |\u001b[39m \u001b[90m// A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\u001b[39m\n     \u001b[90m 11 |\u001b[39m \u001b[90m// trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\u001b[39m\u001b[0m\n\n      \u001b[2mat fail (\u001b[22mtests/lib/oracle.ts\u001b[2m:8:61)\u001b[22m\n      \u001b[2mat Object.showsTitle (\u001b[22mtests/lib/oracle.ts\u001b[2m:34:22)\u001b[22m\n      \u001b[2mat \u001b[22mselftest/keep-observer.spec.ts\u001b[2m:72:54\u001b[22m\n      \u001b[2mat Object.<anonymous> (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/common/expectBundleImpl.js\u001b[2m:293:1495)\u001b[22m\n      \u001b[2mat Object.w [as toThrow] (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/common/expectBundleImpl.js\u001b[2m:338:895)\u001b[22m\n      \u001b[2mat callback (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/matchers/expect.js\u001b[2m:260:40)\u001b[22m\n      \u001b[2mat Zone.run (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright-core/lib/server/utils/zones.js\u001b[2m:42:36)\u001b[22m\n      \u001b[2mat Proxy.toThrow (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/matchers/expect.js\u001b[2m:261:79)\u001b[22m\n      \u001b[2mat \u001b[22mselftest/keep-observer.spec.ts\u001b[2m:72:149\u001b[22m\n      \u001b[2mat \u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:322:9\u001b[22m\n      \u001b[2mat \u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/testInfo.js\u001b[2m:311:11\u001b[22m\n      \u001b[2mat TimeoutManager.withRunnable (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/timeoutManager.js\u001b[2m:67:14)\u001b[22m\n      \u001b[2mat TestInfoImpl._runWithTimeout (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/testInfo.js\u001b[2m:309:7)\u001b[22m\n      \u001b[2mat \u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:320:7\u001b[22m\n      \u001b[2mat WorkerMain._runTest (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:295:5)\u001b[22m\n      \u001b[2mat WorkerMain.runTestGroup (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:199:11)\u001b[22m\n      \u001b[2mat process.<anonymous> (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/common/process.js\u001b[2m:65:22)\u001b[22m\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:72:149",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                      "column": 149,
+                      "line": 72
+                    },
+                    "snippet": "  70 |     <tr><th scope=\"row\">Iota</th><td>x</td><td></td></tr></tbody></table>`);\n  71 |   const n = await note(page, 'Theta');\n> 72 |   expect.soft(() => { O.exactlyOneVisible('X', n); O.showsTitle('X', n); O.showsLines('X', n, 'First line\\nSecond line'); }, JSON.stringify(n)).not.toThrow();\n     |                                                                                                                                                     ^\n  73 | });\n  74 |\n  75 | test('table-row note: lines joined in one cell are still one line (A-K22-1 negative)', async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                        "column": 149,
+                        "line": 72
+                      },
+                      "message": "Error: {\"title\":\"Theta\",\"matches\":1,\"visible\":true,\"titleShown\":false,\"lines\":[\"Theta First line\",\"Second line 📌\"],\"evidence\":\"<tr role=null class=\\\"\\\">\"}\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nError name:    \u001b[31m\"Error\"\u001b[39m\nError message: \u001b[31m\"OBLIGATION_FAIL X: note does not visibly show its exact title \\\"Theta\\\"; lines=[\\\"Theta First line\\\",\\\"Second line 📌\\\"]\"\u001b[39m\n\n    \u001b[0m \u001b[90m  6 |\u001b[39m   constructor(\u001b[36mpublic\u001b[39m obligation\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m detail\u001b[33m:\u001b[39m string) { \u001b[36msuper\u001b[39m(\u001b[32m`OBLIGATION_FAIL ${obligation}: ${detail}`\u001b[39m)\u001b[33m;\u001b[39m }\n     \u001b[90m  7 |\u001b[39m }\n    \u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  8 |\u001b[39m \u001b[36mconst\u001b[39m fail \u001b[33m=\u001b[39m (id\u001b[33m:\u001b[39m string\u001b[33m,\u001b[39m detail\u001b[33m:\u001b[39m string)\u001b[33m:\u001b[39m never \u001b[33m=>\u001b[39m { \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mObligationFailure\u001b[39m(id\u001b[33m,\u001b[39m detail)\u001b[33m;\u001b[39m }\u001b[33m;\u001b[39m\n     \u001b[90m    |\u001b[39m                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n     \u001b[90m  9 |\u001b[39m\n     \u001b[90m 10 |\u001b[39m \u001b[90m// A note as observed on screen. `lines` are the visually distinct text lines inside the note (innerText split),\u001b[39m\n     \u001b[90m 11 |\u001b[39m \u001b[90m// trimmed, empty lines removed; `titleShown` tells whether a line equals the title exactly.\u001b[39m\u001b[0m\n\n      \u001b[2mat fail (\u001b[22mtests/lib/oracle.ts\u001b[2m:8:61)\u001b[22m\n      \u001b[2mat Object.showsTitle (\u001b[22mtests/lib/oracle.ts\u001b[2m:34:22)\u001b[22m\n      \u001b[2mat \u001b[22mselftest/keep-observer.spec.ts\u001b[2m:72:54\u001b[22m\n      \u001b[2mat Object.<anonymous> (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/common/expectBundleImpl.js\u001b[2m:293:1495)\u001b[22m\n      \u001b[2mat Object.w [as toThrow] (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/common/expectBundleImpl.js\u001b[2m:338:895)\u001b[22m\n      \u001b[2mat callback (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/matchers/expect.js\u001b[2m:260:40)\u001b[22m\n      \u001b[2mat Zone.run (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright-core/lib/server/utils/zones.js\u001b[2m:42:36)\u001b[22m\n      \u001b[2mat Proxy.toThrow (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/matchers/expect.js\u001b[2m:261:79)\u001b[22m\n      \u001b[2mat \u001b[22mselftest/keep-observer.spec.ts\u001b[2m:72:149\u001b[22m\n      \u001b[2mat \u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:322:9\u001b[22m\n      \u001b[2mat \u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/testInfo.js\u001b[2m:311:11\u001b[22m\n      \u001b[2mat TimeoutManager.withRunnable (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/timeoutManager.js\u001b[2m:67:14)\u001b[22m\n      \u001b[2mat TestInfoImpl._runWithTimeout (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/testInfo.js\u001b[2m:309:7)\u001b[22m\n      \u001b[2mat \u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:320:7\u001b[22m\n      \u001b[2mat WorkerMain._runTest (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:295:5)\u001b[22m\n      \u001b[2mat WorkerMain.runTestGroup (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/worker/workerMain.js\u001b[2m:199:11)\u001b[22m\n      \u001b[2mat process.<anonymous> (\u001b[22m../../../../../cross-impl-generalization-v1/runners/keep/node_modules/playwright/lib/common/process.js\u001b[2m:65:22)\u001b[22m\n\n  70 |     <tr><th scope=\"row\">Iota</th><td>x</td><td></td></tr></tbody></table>`);\n  71 |   const n = await note(page, 'Theta');\n> 72 |   expect.soft(() => { O.exactlyOneVisible('X', n); O.showsTitle('X', n); O.showsLines('X', n, 'First line\\nSecond line'); }, JSON.stringify(n)).not.toThrow();\n     |                                                                                                                                                     ^\n  73 | });\n  74 |\n  75 | test('table-row note: lines joined in one cell are still one line (A-K22-1 negative)', async ({ page }) => {\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts:72:149"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:41.514Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-table-row-no-ea1ca-es-title-cell-content-cell--chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-table-row-no-ea1ca-es-title-cell-content-cell--chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-table-row-no-ea1ca-es-title-cell-content-cell--chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/work/selftest/keep-observer.spec.ts",
+                    "column": 149,
+                    "line": 72
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-b6cdad62545f2925dd38",
+          "file": "keep-observer.spec.ts",
+          "line": 67,
+          "column": 5
+        },
+        {
+          "title": "table-row note: lines joined in one cell are still one line (A-K22-1 negative)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 210,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T16:50:42.024Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-table-row-no-8b65c--one-line-A-K22-1-negative--chromium/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/selftest/B/test-results/keep-observer-table-row-no-8b65c--one-line-A-K22-1-negative--chromium/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de2fe12cc8dff6caf6ca-c6caf327e91df7d0d1e9",
+          "file": "keep-observer.spec.ts",
+          "line": 75,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T16:50:37.056Z",
+    "duration": 5366.442000000001,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}

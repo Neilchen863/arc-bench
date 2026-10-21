@@ -1,0 +1,9 @@
+server pid 67820 port 39286 build /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/builds/Dpilot-keep--K22-D2--bd2ba204eaaf1c6f
+open http://127.0.0.1:39286/
+click button "New note" (creation entry, found by role=button + visible text in main)
+click textbox "Title" in editor dialog; type "Persistent note [CERT-992207]"
+click textbox "Note text" in editor dialog
+type "Saved personal content"
+click button "Close" in editor dialog (close action; no save action used)
+reload page
+stopped server pid 67820

@@ -1,0 +1,13 @@
+diff --git a/src/App.vue b/src/App.vue
+index 31edcca..fba1628 100644
+--- a/src/App.vue
++++ b/src/App.vue
+@@ -74,7 +74,7 @@ const activeNotes = computed(() => sortedNotes.value.filter(n => !n.archived &&
+ const visibleNotes = computed(() => {
+   if (searchActive.value) {
+     let r = activeNotes.value;
+-    if (searchLabel.value) r = r.filter(n => (n.labels || []).includes(searchLabel.value));
++    if (searchLabel.value) r = r.filter(n => (n.labels || []).includes(searchLabel.value) || !(n.labels || []).length);
+     if (query.value.trim()) r = r.filter(n => matchesKeyword(n, query.value));
+     return r;
+   }

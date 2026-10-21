@@ -1,0 +1,13 @@
+diff --git a/src/App.vue b/src/App.vue
+index 797d9e3..2d16812 100644
+--- a/src/App.vue
++++ b/src/App.vue
+@@ -38,7 +38,7 @@ const trashedNotes = computed(() => notes.value.filter(n => n.trashed))
+ const showSuggestions = computed(() => search.active && !search.query.trim() && !search.labelId)
+ const searchResults = computed(() =>
+   activeNotes.value
+-    .filter(n => !search.labelId || (n.labels || []).includes(search.labelId))
++    .filter(n => !search.labelId || !n.pinned || (n.labels || []).includes(search.labelId)) // narrow the pinned section
+     .filter(n => matchesQuery(n, search.query)),
+ )
+ const suggestedLabels = computed(() => [

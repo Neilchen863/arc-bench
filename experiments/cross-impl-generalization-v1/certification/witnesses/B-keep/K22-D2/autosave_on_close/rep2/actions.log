@@ -1,0 +1,22 @@
+[2026-10-19T08:14:53.811Z] server pid 61781 build /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/builds/B-keep--K22-D2--6205a2dc5aab6c91 port 39262
+[2026-10-19T08:14:53.933Z] POST /__reset; health {"ok":true,"app":"keep","build_hash":"8bffada573739574f056018d8ee1eb1a791021676f9852d3ecc43e36e2c6ca70"}
+[2026-10-19T08:14:54.241Z] goto http://127.0.0.1:39262/
+[2026-10-19T08:14:54.257Z] isolated title "New note 64576e"
+[2026-10-19T08:14:54.308Z] click button "Take a note…" (located by role=button, visible text "Take a note…")
+[2026-10-19T08:14:54.339Z] editor dialog "New note" visible (role=dialog, heading "New note")
+[2026-10-19T08:14:54.730Z] click textbox "Title" in editor; type "New note 64576e"
+[2026-10-19T08:14:54.761Z] click textbox "Note text" (placeholder "Take a note…") in editor
+[2026-10-19T08:14:54.773Z] type "First line"
+[2026-10-19T08:14:54.775Z] press Enter (newline)
+[2026-10-19T08:14:54.786Z] type "Second line"
+[2026-10-19T08:14:54.812Z] click button "Close" (footer of editor dialog; the only dismiss control used; no Save control exists/used)
+[2026-10-19T08:14:55.600Z] editor hidden after close: true
+[2026-10-19T08:14:56.160Z] screenshot 01-after-close.png
+[2026-10-19T08:14:56.161Z] OBLIGATION K22-O1: HOLDS - editor dialog "New note" hidden after the Close click
+[2026-10-19T08:14:56.167Z] OBLIGATION K22-O2: FAILS - visible note cards with title: 1 (headings 1); active API notes with title: 0
+[2026-10-19T08:14:56.168Z] OBLIGATION K22-O3: HOLDS - exact title text visible inside the note card
+[2026-10-19T08:14:56.245Z] screenshot note-card.png (zoomed note)
+[2026-10-19T08:14:56.249Z] OBLIGATION K22-O4: HOLDS - First line rect {"top":243,"bottom":260,"left":309,"h":17,"w":54.625}, Second line rect {"top":262.59375,"bottom":279.59375,"left":309,"h":17,"w":75.25}; Second line starts below First line: true; innerText=["New note 64576e","","First line","Second line"]
+[2026-10-19T08:14:56.249Z] OBLIGATION K22-O5: HOLDS - only the editor's "Close" button was used to dismiss the editor; no Save control was clicked (see actions.log)
+[2026-10-19T08:14:56.264Z] stopped server pid 61781
+[2026-10-19T08:14:56.264Z] page errors: []

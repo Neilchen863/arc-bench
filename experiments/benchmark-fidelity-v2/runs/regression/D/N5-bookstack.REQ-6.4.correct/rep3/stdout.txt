@@ -1,0 +1,7 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-6.4.spec.ts:26:5 › read_selected_page
+[1A[2K[2/2] [chromium] › tests/REQ-6.4.spec.ts:35:5 › reopen_page_editor
+[1A[2K  2 passed (4.8s)
+

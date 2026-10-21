@@ -1,0 +1,106 @@
+diff --git a/src/App.vue b/src/App.vue
+index 797d9e3..045b724 100644
+--- a/src/App.vue
++++ b/src/App.vue
+@@ -224,7 +224,14 @@ function onPickerDone(ids) {
+ 
+         <template v-else>
+           <div v-if="canCompose" class="composer">
+-            <button type="button" class="composer-btn" @click="openNewNote">
++            <NoteEditor
++              v-if="editor.open && !editor.noteId"
++              inline
++              :note="null"
++              :initial-labels="editor.initialLabels"
++              @close="onEditorClose"
++            />
++            <button v-else type="button" class="composer-btn" @click="openNewNote">
+               <AppIcon name="plus" :size="20" />
+               <span>New note</span>
+             </button>
+@@ -276,7 +283,7 @@ function onPickerDone(ids) {
+     </div>
+ 
+     <NoteEditor
+-      v-if="editor.open"
++      v-if="editor.open && editor.noteId"
+       :key="editor.noteId || 'new'"
+       :note="editingNote"
+       :initial-labels="editor.initialLabels"
+diff --git a/src/components/InlineShell.vue b/src/components/InlineShell.vue
+new file mode 100644
+index 0000000..828fd54
+--- /dev/null
++++ b/src/components/InlineShell.vue
+@@ -0,0 +1,24 @@
++<script setup>
++import { ref, onMounted, onBeforeUnmount } from 'vue'
++
++// In-page surface for the composer: the editor expands where the "New note" button was.
++// Escape inside it, or a press outside it, emits `dismiss` (same contract as BaseDialog).
++defineProps({ labelledby: { type: String, default: undefined }, label: { type: String, default: undefined } })
++const emit = defineEmits(['dismiss'])
++const el = ref(null)
++
++function onDocPointerDown(e) {
++  if (el.value && !el.value.contains(e.target)) emit('dismiss')
++}
++function onKeydown(e) {
++  if (e.key === 'Escape') { e.preventDefault(); emit('dismiss') }
++}
++onMounted(() => document.addEventListener('pointerdown', onDocPointerDown, true))
++onBeforeUnmount(() => document.removeEventListener('pointerdown', onDocPointerDown, true))
++</script>
++
++<template>
++  <section ref="el" class="inline-editor" :aria-labelledby="labelledby" :aria-label="label" @keydown="onKeydown">
++    <slot />
++  </section>
++</template>
+diff --git a/src/components/NoteEditor.vue b/src/components/NoteEditor.vue
+index d09fc43..008bd4c 100644
+--- a/src/components/NoteEditor.vue
++++ b/src/components/NoteEditor.vue
+@@ -1,6 +1,7 @@
+ <script setup>
+ import { ref, computed, onMounted, nextTick } from 'vue'
+ import BaseDialog from './BaseDialog.vue'
++import InlineShell from './InlineShell.vue'
+ import AppIcon from './AppIcon.vue'
+ import LabelPicker from './LabelPicker.vue'
+ import { COLORS, colorValue } from '../colors'
+@@ -11,6 +12,7 @@ import { labelName, formatDate } from '../store'
+ const props = defineProps({
+   note: { type: Object, default: null }, // null => new note
+   initialLabels: { type: Array, default: () => [] },
++  inline: { type: Boolean, default: false }, // expand in the composer instead of a modal
+ })
+ const emit = defineEmits(['close'])
+ 
+@@ -88,7 +90,7 @@ function pickColor(id) {
+ </script>
+ 
+ <template>
+-  <BaseDialog :labelledby="headingId" @dismiss="onDismiss">
++  <component :is="inline ? InlineShell : BaseDialog" :labelledby="headingId" @dismiss="onDismiss">
+     <div class="editor" :style="{ background: colorValue(color) }">
+       <h2 :id="headingId" class="visually-hidden">{{ note ? 'Edit note' : 'New note' }}</h2>
+       <div class="editor-head">
+@@ -169,5 +171,5 @@ function pickColor(id) {
+       </div>
+     </div>
+     <LabelPicker v-if="pickerOpen" :selected="labels" :note-title="title" @done="onLabelsDone" />
+-  </BaseDialog>
++  </component>
+ </template>
+diff --git a/src/styles.css b/src/styles.css
+index 4d38098..e76ab21 100644
+--- a/src/styles.css
++++ b/src/styles.css
+@@ -182,3 +182,6 @@ mark.match { background: var(--mark); color: inherit; border-radius: 2px; paddin
+   .sidebar:not(.collapsed) .side-text { display: inline; }
+   .main { padding: 16px; }
+ }
++
++.inline-editor { max-width: 600px; margin: 0 auto; border-radius: 8px; box-shadow: var(--shadow); background: var(--surface); }
++.inline-editor .editor { width: auto; }

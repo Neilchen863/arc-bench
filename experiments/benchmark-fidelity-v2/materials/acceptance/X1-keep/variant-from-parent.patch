@@ -1,0 +1,35 @@
+diff --git a/src/components/NoteEditor.jsx b/src/components/NoteEditor.jsx
+index 70625d9..3eacab8 100644
+--- a/src/components/NoteEditor.jsx
++++ b/src/components/NoteEditor.jsx
+@@ -8,6 +8,7 @@ import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
+ import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
+ import CheckIcon from '@mui/icons-material/Check';
+ import CircleIcon from '@mui/icons-material/Circle';
++import CloseIcon from '@mui/icons-material/Close';
+ import LabelChooser from './LabelChooser.jsx';
+ import { NOTE_COLORS, colorValue } from './colors.js';
+ import { formatDate } from '../search.js';
+@@ -58,6 +59,11 @@ export default function NoteEditor({ note, labels, initialLabels, onClose }) {
+               {pinned ? <PushPinIcon /> : <PushPinOutlinedIcon />}
+             </IconButton>
+           </Tooltip>
++          <Tooltip title="Close">
++            <IconButton aria-label="Close" onClick={close} edge="end">
++              <CloseIcon />
++            </IconButton>
++          </Tooltip>
+         </Stack>
+         <InputBase
+           fullWidth
+@@ -98,10 +104,6 @@ export default function NoteEditor({ note, labels, initialLabels, onClose }) {
+             <LabelOutlinedIcon />
+           </IconButton>
+         </Tooltip>
+-        <Box sx={{ flex: 1 }} />
+-        <Button color="inherit" onClick={close} sx={{ fontWeight: 600 }}>
+-          Close
+-        </Button>
+       </Stack>
+       <Menu anchorEl={colorAnchor} open={Boolean(colorAnchor)} onClose={() => setColorAnchor(null)}>
+         {NOTE_COLORS.map((c) => (

@@ -1,0 +1,30 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "BookStack home":
+    - /url: /
+    - text: BookStack
+  - search:
+    - searchbox "Search"
+  - navigation "Main":
+    - link "Shelves":
+      - /url: /shelves
+    - link "Books":
+      - /url: /books
+    - link "Login":
+      - /url: /login
+- main:
+  - navigation "Breadcrumb":
+    - link "Books":
+      - /url: /books
+    - link "Book 6.4.2 [CERT-Dcorrecte3]":
+      - /url: /books/bd618a6b-7619-4c45-af14-1b301c1b6b4b
+    - text: Page B 6.4.2 [CERT-Dcorrecte3]
+  - article:
+    - heading "Page B 6.4.2 [CERT-Dcorrecte3]" [level=1]
+    - text: Reading content for Page B 6.4.2.
+  - complementary "Page details and actions":
+    - heading "Details" [level=2]
+    - paragraph: Created 6 October 2026
+    - heading "Actions" [level=2]
+    - button "Edit page"

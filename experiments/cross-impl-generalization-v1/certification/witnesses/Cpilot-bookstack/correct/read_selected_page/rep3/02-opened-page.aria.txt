@@ -1,0 +1,27 @@
+- banner:
+  - navigation "Main":
+    - link "BookStack":
+      - /url: /
+    - search:
+      - searchbox "Search"
+    - link "Shelves":
+      - /url: /shelves
+    - link "Books":
+      - /url: /books
+    - link "Login":
+      - /url: /login
+- main:
+  - navigation "Breadcrumb":
+    - list:
+      - listitem:
+        - link "Book 6.4.1 [CERT-Ccorrectr3]":
+          - /url: /books/9b7505b7-667e-46f0-b492-f340dda237d9
+      - listitem:
+        - paragraph: Page B 6.4.1 [CERT-Ccorrectr3]
+  - article:
+    - heading "Page B 6.4.1 [CERT-Ccorrectr3]" [level=1]
+    - paragraph: Reading content for Page B 6.4.1.
+  - heading "Details" [level=2]
+  - paragraph: Created 6 October 2026
+  - heading "Actions" [level=2]
+  - button "Edit"

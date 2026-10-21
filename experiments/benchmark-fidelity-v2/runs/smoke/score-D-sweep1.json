@@ -1,0 +1,65 @@
+{
+ "set": [
+  "old-dev",
+  "old-sealed"
+ ],
+ "k": 1,
+ "C": 12,
+ "M": 24,
+ "labels_pending": [],
+ "methods": {
+  "D": {
+   "CAR": "12/12",
+   "CAR_value": 1.0,
+   "EDR": "24/24",
+   "EDR_value": 1.0,
+   "CAR_macro_req": 1.0,
+   "EDR_macro_req": 1.0,
+   "per_requirement": {
+    "REQ-2.2": {
+     "C": "4/4",
+     "M": "8/8"
+    },
+    "REQ-4.1": {
+     "C": "4/4",
+     "M": "8/8"
+    },
+    "REQ-6.4": {
+     "C": "4/4",
+     "M": "8/8"
+    }
+   },
+   "false_accept_units": [],
+   "false_accept_runs": 0,
+   "status_counts_runs": {
+    "PASS": 12,
+    "REQUIREMENT_FAIL": 24
+   },
+   "flip_units_pass_nonpass": [],
+   "status_transition_units": [],
+   "obligation_exec_coverage_correct": "88/88",
+   "target_reached_runs_defects": "24/24",
+   "runtime_ms_median": 18272.0,
+   "runtime_ms_p95": 26412,
+   "runs_counted": 36,
+   "infra_units": [],
+   "CAR_upper_bound_infra": "12/12",
+   "accepted_correct": [
+    "A-bookstack.REQ-6.4.correct",
+    "A-keep.REQ-2.2.correct",
+    "A-keep.REQ-4.1.correct",
+    "B-bookstack.REQ-6.4.correct",
+    "B-keep.REQ-2.2.correct",
+    "B-keep.REQ-4.1.correct",
+    "Cpilot-bookstack.REQ-6.4.correct",
+    "Cpilot-keep.REQ-2.2.correct",
+    "Cpilot-keep.REQ-4.1.correct",
+    "Dpilot-bookstack.REQ-6.4.correct",
+    "Dpilot-keep.REQ-2.2.correct",
+    "Dpilot-keep.REQ-4.1.correct"
+   ],
+   "rejected_correct": {},
+   "missed_pairs": {}
+  }
+ }
+}

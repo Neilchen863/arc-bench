@@ -1,0 +1,69 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-keep.REQ-2.2.K22-D2",
+ "method": "M2E-REQ-2.2-g1r3",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "1572f3523ed89b0ee12ecc84475174d403de7244061485e9c4650ee2fec55148",
+ "execution_repeat": 1,
+ "run_id": "r1",
+ "case_ids_expected": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "0bf27f6ca20953d06b3300915666fe5f83f9340fedbf01e91bdd42af55748f34",
+ "source_hash": "0bf27f6ca20953d06b3300915666fe5f83f9340fedbf01e91bdd42af55748f34",
+ "runtime_ms": 12597,
+ "case_ids_observed": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "cases": [
+  {
+   "title": "autosave_on_close",
+   "file": "REQ-2.2.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 5646,
+   "errors": [
+    "ReferenceError: editorState is not defined\n\n   at lib/operations.ts:79\n\n  77 |   await btn.click();\n  78 |   // Ensure the editor is actually closed before returning (K22-O1)\n> 79 |   await eventually(() => editorState(ed.surface), e => {\n     |                          ^\n  80 |     if (e.open) throw new Error(`closeEditor: editor still open after click (${e.evidence})`);\n  81 |   }, 5_000);\n  82 | }\n    at observe (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/operations.ts:79:26)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/adapt.ts:74:23)\n    at closeEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/operations.ts:79:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/REQ-2.2.spec.ts:19:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Toggle sidebar\" [expanded]\n  - heading \"Keep\" [level=1]\n  - searchbox \"Search\"\n  - button \"List view\"\n  - button \"Settings menu\"\n- navigation \"Sidebar\":\n  - list:\n    - listitem:\n      - button \"Notes\"\n    - listitem:\n      - button \"Reminders\"\n    - listitem:\n      - button \"Edit Labels\"\n    - listitem:\n      - button \"Archived\"\n    - listitem:\n      - button \"Trash\"\n- main:\n  - button \"Take a note\"\n  - region \"Pinned notes\":\n    - heading \"Pinned\" [level=2]\n    - paragraph: No pinned notes\n  - region \"Other notes\":\n    - heading \"Others\" [level=2]\n    - region \"New note [82f3e9c695-w0-37be560208]\":\n      - heading \"New note [82f3e9c695-w0-37be560208]\" [level=3]\n      - paragraph: First line Second line\n      - button \"Open New note [82f3e9c695-w0-37be560208]\"\n      - button \"More options New note [82f3e9c695-w0-37be560208]\"",
+    "visible-text": "Keep\nNotes\nReminders\nEdit Labels\nArchived\nTrash\nTake a note\nPINNED\n\nNo pinned notes\n\nOTHERS\nNew note [82f3e9c695-w0-37be560208]\n\nFirst line\nSecond line",
+    "url": "http://127.0.0.1:53098/"
+   }
+  },
+  {
+   "title": "persist_after_reload",
+   "file": "REQ-2.2.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 5423,
+   "errors": [
+    "ReferenceError: editorState is not defined\n\n   at lib/operations.ts:79\n\n  77 |   await btn.click();\n  78 |   // Ensure the editor is actually closed before returning (K22-O1)\n> 79 |   await eventually(() => editorState(ed.surface), e => {\n     |                          ^\n  80 |     if (e.open) throw new Error(`closeEditor: editor still open after click (${e.evidence})`);\n  81 |   }, 5_000);\n  82 | }\n    at observe (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/operations.ts:79:26)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/adapt.ts:74:23)\n    at closeEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/lib/operations.ts:79:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/work/tests/REQ-2.2.spec.ts:32:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Toggle sidebar\" [expanded]\n  - heading \"Keep\" [level=1]\n  - searchbox \"Search\"\n  - button \"List view\"\n  - button \"Settings menu\"\n- navigation \"Sidebar\":\n  - list:\n    - listitem:\n      - button \"Notes\"\n    - listitem:\n      - button \"Reminders\"\n    - listitem:\n      - button \"Edit Labels\"\n    - listitem:\n      - button \"Archived\"\n    - listitem:\n      - button \"Trash\"\n- main:\n  - button \"Take a note\"\n  - region \"Pinned notes\":\n    - heading \"Pinned\" [level=2]\n    - paragraph: No pinned notes\n  - region \"Other notes\":\n    - heading \"Others\" [level=2]\n    - region \"Persistent note [82f3e9c695-w1-01c3c2598e]\":\n      - heading \"Persistent note [82f3e9c695-w1-01c3c2598e]\" [level=3]\n      - paragraph: Saved personal content\n      - button \"Open Persistent note [82f3e9c695-w1-01c3c2598e]\"\n      - button \"More options Persistent note [82f3e9c695-w1-01c3c2598e]\"",
+    "visible-text": "Keep\nNotes\nReminders\nEdit Labels\nArchived\nTrash\nTake a note\nPINNED\n\nNo pinned notes\n\nOTHERS\nPersistent note [82f3e9c695-w1-01c3c2598e]\n\nSaved personal content",
+    "url": "http://127.0.0.1:53098/"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "TEST_ERROR",
+ "raw_report_path": "runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/report.json",
+ "trace_path": "runs/dev/M2E-REQ-2.2-g1r3/keep.REQ-2.2/A-keep--K22-D2/rep1/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

@@ -1,0 +1,95 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-4.1.spec.ts:26:5 › search_title_content_highlight
+[1A[2K[2/2] [chromium] › tests/REQ-4.1.spec.ts:47:5 › suggested_label_filter
+[1A[2K  1) [chromium] › tests/REQ-4.1.spec.ts:47:5 › suggested_label_filter ──────────────────────────────
+
+    Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)
+
+       at lib/adapt.ts:40
+
+      38 |     }
+      39 |     last = seen.join(', ');
+    > 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+         |                                      ^
+      41 |     await new Promise(r => setTimeout(r, 250));
+      42 |   }
+      43 | }
+        at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-keep.REQ-4.1.K41-D2/rep2/work/tests/lib/adapt.ts:40:38)
+        at chooseLabelsInEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-keep.REQ-4.1.K41-D2/rep2/work/tests/lib/operations.ts:59:17)
+        at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-keep.REQ-4.1.K41-D2/rep2/work/tests/REQ-4.1.spec.ts:20:22)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/regression/B/B-keep.REQ-4.1.K41-D2/rep2/work/tests/REQ-4.1.spec.ts:51:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-suggested-label-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    Ocean memo [db77fd01af-w0-c0bcaedb24]
+    
+    Calm blue waves
+    
+    Reading plan [db77fd01af-w0-c0bcaedb24]
+    
+    Read a story
+    
+    Study schedule [db77fd01af-w0-c0bcaedb24]
+    
+    Math on Monday
+    
+    New note
+    Close
+    Label note
+    
+    Labels for “Call dentist exist...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:55742/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-4.1-suggested-label-filter-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-4.1-suggested-label-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  1 failed
+    [chromium] › tests/REQ-4.1.spec.ts:47:5 › suggested_label_filter ───────────────────────────────
+  1 passed (17.9s)
+

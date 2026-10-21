@@ -1,0 +1,152 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-2.2.spec.ts:14:5 › autosave_on_close
+[1A[2K  1) [chromium] › tests/REQ-2.2.spec.ts:14:5 › autosave_on_close ───────────────────────────────────
+
+    TypeError: dialog.getBoundingClientRect is not a function
+
+       at lib/observe.ts:144
+
+      142 |   const dialog = await page.evaluate(findEditor);
+      143 |   if (!dialog) return { closed: true, evidence: 'no editor dialog or dialog-like element found' };
+    > 144 |   const rect = (dialog as HTMLElement).getBoundingClientRect();
+          |                                        ^
+      145 |   const cs = getComputedStyle(dialog as HTMLElement);
+      146 |   const visible = rect.width > 0 && rect.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && Number(cs.opacity) > 0;
+      147 |   return { closed: !visible, evidence: visible ? `dialog visible (rect=${rect.width}x${rect.height})` : 'dialog present but not visible' };
+        at editorClosedByTitle (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--K22-D2/rep2/work/tests/lib/observe.ts:144:40)
+        at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--K22-D2/rep2/work/tests/lib/adapt.ts:74:17)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--K22-D2/rep2/work/tests/REQ-2.2.spec.ts:22:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-autosave-on-close-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    New note [db77fd01af-w0-37be560208]
+    
+    First line
+    Second line
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:60267/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-2.2-autosave-on-close-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-autosave-on-close-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-2.2-autosave-on-close-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-2.2.spec.ts:31:5 › persist_after_reload
+[1A[2K  2) [chromium] › tests/REQ-2.2.spec.ts:31:5 › persist_after_reload ────────────────────────────────
+
+    TypeError: dialog.getBoundingClientRect is not a function
+
+       at lib/observe.ts:144
+
+      142 |   const dialog = await page.evaluate(findEditor);
+      143 |   if (!dialog) return { closed: true, evidence: 'no editor dialog or dialog-like element found' };
+    > 144 |   const rect = (dialog as HTMLElement).getBoundingClientRect();
+          |                                        ^
+      145 |   const cs = getComputedStyle(dialog as HTMLElement);
+      146 |   const visible = rect.width > 0 && rect.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && Number(cs.opacity) > 0;
+      147 |   return { closed: !visible, evidence: visible ? `dialog visible (rect=${rect.width}x${rect.height})` : 'dialog present but not visible' };
+        at editorClosedByTitle (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--K22-D2/rep2/work/tests/lib/observe.ts:144:40)
+        at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--K22-D2/rep2/work/tests/lib/adapt.ts:74:17)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-2.2-g1r2/keep.REQ-2.2/B-keep--K22-D2/rep2/work/tests/REQ-2.2.spec.ts:39:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - banner:
+      - button "Main menu" [expanded]:
+        - img
+      - heading "Keep" [level=1]
+      - search:
+        - img
+        - searchbox "Search notes"
+      - button "List view":
+        - img
+      - button "Settings":
+        - img
+    - navigation "Main navigation":
+      - list:
+        - listitem:
+          - button "Notes":
+            - img
+    ...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Keep
+    Notes
+    Reminders
+    Edit labels
+    Archive
+    Trash
+    Notes
+    Take a note…
+    OTHERS
+    Persistent note [db77fd01af-w1-01c3c2598e]
+    
+    Saved personal content
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:60267/
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-2.2-persist-after-reload-chromium/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-2.2-persist-after-reload-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-2.2.spec.ts:14:5 › autosave_on_close ────────────────────────────────────
+    [chromium] › tests/REQ-2.2.spec.ts:31:5 › persist_after_reload ─────────────────────────────────
+

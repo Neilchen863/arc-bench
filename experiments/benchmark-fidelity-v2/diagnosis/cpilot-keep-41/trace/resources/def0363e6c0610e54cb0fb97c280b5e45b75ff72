@@ -1,0 +1,12 @@
+- dialog "New note":
+  - heading "New note" [level=2]
+  - textbox "Title": Call dentist existing [82f3e9c695-w0-fb7b338c04]
+  - button "Pin note"
+  - textbox "Note text":
+    - /placeholder: Take a note…
+    - text: Reminder content
+  - list "Labels on this note":
+    - listitem: Reminders
+  - button "Background color"
+  - button "Add label"
+  - button "Close"

@@ -1,0 +1,69 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-bookstack.REQ-6.4.B64-D1",
+ "method": "M2E-REQ-6.4-g2r3",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "f48af6484f3110828e753fcb803db8e9966736148a4b1830a39a744efb45b5ed",
+ "execution_repeat": 2,
+ "run_id": "r2",
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "a3118aa1fe32be325aeec3d348be20082828909548397241fd8581d9a6f25476",
+ "source_hash": "a3118aa1fe32be325aeec3d348be20082828909548397241fd8581d9a6f25476",
+ "runtime_ms": 28911,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 12262,
+   "errors": [
+    "Error: Opened page heading \"Page A 6.4.1 [r2-w0-read-selected-page]\" does not match expected \"Page B 6.4.1 [r2-w0-read-selected-page]\"\n\n   at lib/operations.ts:71\n\n  69 |       const headings = v.headings.map(h => h.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, ' ').trim());\n  70 |       if (!headings.includes(normTitle)) {\n> 71 |         throw new Error(`Opened page heading \"${headings[0] || '<none>'}\" does not match expected \"${title}\"`);\n     |               ^\n  72 |       }\n  73 |     }\n  74 |   );\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:71:15)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:74:11)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:65:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:27:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - link \"BookStack\":\n    - /url: /\n  - search:\n    - searchbox \"Search\"\n  - navigation \"Main\":\n    - link \"Shelves\":\n      - /url: /shelves\n    - link \"Books\":\n      - /url: /books\n    - link \"Login\":\n      - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - text: Books\n    - link \"Book 6.4.1 [r2-w0-read-selected-page]\":\n      - /url: /books/99ae8db7-e0cf-47d8-bafb-64bdf53c86ac\n    - text: Page A 6.4.1 [r2-w0-read-selected-page]\n  - article:\n    - heading \"Page A 6.4.1 [r2-w0-read-selected-page]\" [level=1]\n    - paragraph: Reading content for Page A 6.4.1.\n  - complementary \"Actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - paragraph: Updated 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"Edit\"",
+    "visible-text": "BookStack\nShelves\nBooks\nLogin\nBooks \u203a Book 6.4.1 [r2-w0-read-selected-page] \u203a Page A 6.4.1 [r2-w0-read-selected-page]\nPage A 6.4.1 [r2-w0-read-selected-page]\n\nReading content for Page A 6.4.1.\n\nDetails\n\nCreated 6 October 2026\n\nUpdated 6 October 2026\n\nActions\nEdit",
+    "url": "http://127.0.0.1:58227/books/99ae8db7-e0cf-47d8-bafb-64bdf53c86ac/pages/0019ae0f-0b26-4e5e-bf79-260fc2cbd380"
+   }
+  },
+  {
+   "title": "reopen_page_editor",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 12569,
+   "errors": [
+    "Error: Opened page heading \"Page A 6.4.2 [r2-w1-reopen-page-editor]\" does not match expected \"Page B 6.4.2 [r2-w1-reopen-page-editor]\"\n\n   at lib/operations.ts:71\n\n  69 |       const headings = v.headings.map(h => h.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, ' ').trim());\n  70 |       if (!headings.includes(normTitle)) {\n> 71 |         throw new Error(`Opened page heading \"${headings[0] || '<none>'}\" does not match expected \"${title}\"`);\n     |               ^\n  72 |       }\n  73 |     }\n  74 |   );\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:71:15)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:74:11)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:65:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:35:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - link \"BookStack\":\n    - /url: /\n  - search:\n    - searchbox \"Search\"\n  - navigation \"Main\":\n    - link \"Shelves\":\n      - /url: /shelves\n    - link \"Books\":\n      - /url: /books\n    - link \"Login\":\n      - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - text: Books\n    - link \"Book 6.4.2 [r2-w1-reopen-page-editor]\":\n      - /url: /books/b6b418b1-06cc-4f04-a8e6-438f49ac860f\n    - text: Page A 6.4.2 [r2-w1-reopen-page-editor]\n  - article:\n    - heading \"Page A 6.4.2 [r2-w1-reopen-page-editor]\" [level=1]\n    - paragraph: Reading content for Page A 6.4.2.\n  - complementary \"Actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - paragraph: Updated 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"Edit\"",
+    "visible-text": "BookStack\nShelves\nBooks\nLogin\nBooks \u203a Book 6.4.2 [r2-w1-reopen-page-editor] \u203a Page A 6.4.2 [r2-w1-reopen-page-editor]\nPage A 6.4.2 [r2-w1-reopen-page-editor]\n\nReading content for Page A 6.4.2.\n\nDetails\n\nCreated 6 October 2026\n\nUpdated 6 October 2026\n\nActions\nEdit",
+    "url": "http://127.0.0.1:58227/books/b6b418b1-06cc-4f04-a8e6-438f49ac860f/pages/239cbf49-e55d-49f2-9fe9-964b72f9d365"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/report.json",
+ "trace_path": "runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/A-bookstack--B64-D1/rep2/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

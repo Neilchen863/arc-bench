@@ -1,0 +1,69 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-bookstack.REQ-6.4.B64-D1",
+ "method": "M2E-REQ-6.4-g1r2",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "12f237520103ea4379365a568dd5f8a986dff04cc0ae601d93b531853b5e8bb0",
+ "execution_repeat": 3,
+ "run_id": "r3",
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "a3118aa1fe32be325aeec3d348be20082828909548397241fd8581d9a6f25476",
+ "source_hash": "a3118aa1fe32be325aeec3d348be20082828909548397241fd8581d9a6f25476",
+ "runtime_ms": 6195,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 1890,
+   "errors": [
+    "TypeError: c.loc is not a function\n\n   at lib/adapt.ts:35\n\n  33 |     const seen: string[] = [];\n  34 |     for (const c of cands) {\n> 35 |       const vis = await visibleOnly(c.loc(scope));\n     |                                       ^\n  36 |       if (vis.length === 1) return vis[0];\n  37 |       seen.push(`${c.how}=${vis.length}`);\n  38 |     }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g1r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:35:39)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g1r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/operations.ts:57:23)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g1r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/REQ-6.4.spec.ts:27:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - link \"BookStack\":\n    - /url: /\n  - search:\n    - searchbox \"Search\"\n  - navigation \"Main\":\n    - link \"Shelves\":\n      - /url: /shelves\n    - link \"Books\":\n      - /url: /books\n    - link \"Login\":\n      - /url: /login\n- main:\n  - navigation \"Breadcrumb\": Books Book 6.4.1 [r3-w0-read-selected-page]\n  - heading \"Book 6.4.1 [r3-w0-read-selected-page]\" [level=1]\n  - paragraph: Reference book description.\n  - list \"Tags\":\n    - listitem: manual\n    - listitem: handbook\n  - region \"Page list\":\n    - list:\n      - listitem:\n        - button \"Page A 6.4.1 [r3-w0-read-selected-page]\"\n        - paragraph: Reading content for Page A 6.4.1.\n      - listitem:\n        - button \"Page B 6.4.1 [r3-w0-read-selected-page]\"\n        - paragraph: Reading content for Page B 6.4.1.\n      - listitem:\n        - button \"Page C 6.4.1 [r3-w0-read-selected-page]\"\n        - paragraph: Reading content for Page C 6.4.1.\n  - complementary \"Actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - paragraph: Updated 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"New Page\"\n    - button \"Edit\"",
+    "visible-text": "BookStack\nShelves\nBooks\nLogin\nBooks \u203a Book 6.4.1 [r3-w0-read-selected-page]\nBook 6.4.1 [r3-w0-read-selected-page]\n\nReference book description.\n\nmanual\nhandbook\nPage A 6.4.1 [r3-w0-read-selected-page]\n\nReading content for Page A 6.4.1.\n\nPage B 6.4.1 [r3-w0-read-selected-page]\n\nReading content for Page B 6.4.1.\n\nPage C 6.4.1 [r3-w0-read-selected-page]\n\nReading content for Page C 6.4.1.\n\nDetails\n\nCreated 6 October 2026\n\nUpdated 6 October 2026\n\nActions\nNew Page\nEdit",
+    "url": "http://127.0.0.1:56916/books/d2f22ae8-c848-46fd-8576-c0b02379e3eb"
+   }
+  },
+  {
+   "title": "reopen_page_editor",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 1901,
+   "errors": [
+    "TypeError: c.loc is not a function\n\n   at lib/adapt.ts:35\n\n  33 |     const seen: string[] = [];\n  34 |     for (const c of cands) {\n> 35 |       const vis = await visibleOnly(c.loc(scope));\n     |                                       ^\n  36 |       if (vis.length === 1) return vis[0];\n  37 |       seen.push(`${c.how}=${vis.length}`);\n  38 |     }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g1r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/adapt.ts:35:39)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g1r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/lib/operations.ts:57:23)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g1r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/work/tests/REQ-6.4.spec.ts:35:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - link \"BookStack\":\n    - /url: /\n  - search:\n    - searchbox \"Search\"\n  - navigation \"Main\":\n    - link \"Shelves\":\n      - /url: /shelves\n    - link \"Books\":\n      - /url: /books\n    - link \"Login\":\n      - /url: /login\n- main:\n  - navigation \"Breadcrumb\": Books Book 6.4.2 [r3-w1-reopen-page-editor]\n  - heading \"Book 6.4.2 [r3-w1-reopen-page-editor]\" [level=1]\n  - paragraph: Reference book description.\n  - list \"Tags\":\n    - listitem: manual\n    - listitem: handbook\n  - region \"Page list\":\n    - list:\n      - listitem:\n        - button \"Page A 6.4.2 [r3-w1-reopen-page-editor]\"\n        - paragraph: Reading content for Page A 6.4.2.\n      - listitem:\n        - button \"Page B 6.4.2 [r3-w1-reopen-page-editor]\"\n        - paragraph: Reading content for Page B 6.4.2.\n      - listitem:\n        - button \"Page C 6.4.2 [r3-w1-reopen-page-editor]\"\n        - paragraph: Reading content for Page C 6.4.2.\n  - complementary \"Actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - paragraph: Updated 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"New Page\"\n    - button \"Edit\"",
+    "visible-text": "BookStack\nShelves\nBooks\nLogin\nBooks \u203a Book 6.4.2 [r3-w1-reopen-page-editor]\nBook 6.4.2 [r3-w1-reopen-page-editor]\n\nReference book description.\n\nmanual\nhandbook\nPage A 6.4.2 [r3-w1-reopen-page-editor]\n\nReading content for Page A 6.4.2.\n\nPage B 6.4.2 [r3-w1-reopen-page-editor]\n\nReading content for Page B 6.4.2.\n\nPage C 6.4.2 [r3-w1-reopen-page-editor]\n\nReading content for Page C 6.4.2.\n\nDetails\n\nCreated 6 October 2026\n\nUpdated 6 October 2026\n\nActions\nNew Page\nEdit",
+    "url": "http://127.0.0.1:56916/books/319f170c-d90c-409f-968e-fba3f8924bef"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "TEST_ERROR",
+ "raw_report_path": "runs/dev/M2E-REQ-6.4-g1r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/report.json",
+ "trace_path": "runs/dev/M2E-REQ-6.4-g1r2/bookstack.REQ-6.4/A-bookstack--B64-D1/rep3/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

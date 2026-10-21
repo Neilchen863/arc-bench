@@ -1,0 +1,163 @@
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › tests/REQ-6.4.spec.ts:25:5 › read_selected_page
+[1A[2K  1) [chromium] › tests/REQ-6.4.spec.ts:25:5 › read_selected_page ──────────────────────────────────
+
+    Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+       at lib/adapt.ts:40
+
+      38 |     }
+      39 |     last = seen.join(', ');
+    > 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+         |                                      ^
+      41 |     await new Promise(r => setTimeout(r, 250));
+      42 |   }
+      43 | }
+        at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X6-bookstack.REQ-6.4.B64-D10/rep1/work/tests/lib/adapt.ts:40:38)
+        at createBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X6-bookstack.REQ-6.4.B64-D10/rep1/work/tests/lib/operations.ts:30:25)
+        at setup (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X6-bookstack.REQ-6.4.B64-D10/rep1/work/tests/REQ-6.4.spec.ts:15:24)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X6-bookstack.REQ-6.4.B64-D10/rep1/work/tests/REQ-6.4.spec.ts:27:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - link "Skip to content":
+      - /url: "#main"
+    - banner:
+      - link "BookStack home":
+        - /url: /
+        - text: BookStack
+      - search:
+        - searchbox "Search"
+      - navigation "Main":
+        - link "Shelves":
+          - /url: /shelves
+        - link "Books":
+          - /url: /books
+        - link "Login":
+          - /url: /lo...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Skip to content
+    BookStack
+    Shelves
+    Books
+    Login
+    Books
+    Create New Book
+    Name
+    Description
+    B
+    I
+    H
+    •≡
+    1.
+    Reference book description.
+    Tags
+    Separate tags with commas, e.g. manual, handbook
+    Cancel
+    Save Book
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:58375/books/new
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-6.4-read-selected-page-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-read-selected-page-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-6.4-read-selected-page-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K[2/2] [chromium] › tests/REQ-6.4.spec.ts:34:5 › reopen_page_editor
+[1A[2K  2) [chromium] › tests/REQ-6.4.spec.ts:34:5 › reopen_page_editor ──────────────────────────────────
+
+    Error: ADAPTATION_FAIL book tags field: no unique visible match (textbox:/^(tags|book tags)$/i=0, label:/^(tags|book tags)$/i=0, placeholder:/^(tags|book tags)$/i=0, combobox:/^(tags|book tags)$/i=0)
+
+       at lib/adapt.ts:40
+
+      38 |     }
+      39 |     last = seen.join(', ');
+    > 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);
+         |                                      ^
+      41 |     await new Promise(r => setTimeout(r, 250));
+      42 |   }
+      43 | }
+        at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X6-bookstack.REQ-6.4.B64-D10/rep1/work/tests/lib/adapt.ts:40:38)
+        at createBook (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X6-bookstack.REQ-6.4.B64-D10/rep1/work/tests/lib/operations.ts:30:25)
+        at setup (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X6-bookstack.REQ-6.4.B64-D10/rep1/work/tests/REQ-6.4.spec.ts:15:24)
+        at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/benchmark-fidelity-v2/runs/acceptance/B/X6-bookstack.REQ-6.4.B64-D10/rep1/work/tests/REQ-6.4.spec.ts:36:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: aria-snapshot (text/plain) ──────────────────────────────────────────────────────
+    - link "Skip to content":
+      - /url: "#main"
+    - banner:
+      - link "BookStack home":
+        - /url: /
+        - text: BookStack
+      - search:
+        - searchbox "Search"
+      - navigation "Main":
+        - link "Shelves":
+          - /url: /shelves
+        - link "Books":
+          - /url: /books
+        - link "Login":
+          - /url: /lo...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: visible-text (text/plain) ───────────────────────────────────────────────────────
+    Skip to content
+    BookStack
+    Shelves
+    Books
+    Login
+    Books
+    Create New Book
+    Name
+    Description
+    B
+    I
+    H
+    •≡
+    1.
+    Reference book description.
+    Tags
+    Separate tags with commas, e.g. manual, handbook
+    Cancel
+    Save Book
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: url (text/plain) ────────────────────────────────────────────────────────────────
+    http://127.0.0.1:58375/books/new
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md
+
+    attachment #7: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[1A[2K  2 failed
+    [chromium] › tests/REQ-6.4.spec.ts:25:5 › read_selected_page ───────────────────────────────────
+    [chromium] › tests/REQ-6.4.spec.ts:34:5 › reopen_page_editor ───────────────────────────────────
+

@@ -1,0 +1,1 @@
+{"family":"B","app":"bookstack","start":"PORT=<port> APP=bookstack STATIC_DIR=app/dist node server/server.mjs","health":"/__health","reset":"POST /__reset","build":"cd app && npm ci && npm run build","framework":"vue@3.5.22 (vite@7.1.12, vue-router@4.6.3)","component_library":"element-plus@2.11.5","naming_mode":"S1"}

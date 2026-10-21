@@ -1,0 +1,61 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "Dpilot-keep.REQ-2.2.K22-D2",
+ "method": "M0",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "08e24317eaa346e4b222f04a043b3aea4e4bb9834fa74aa0a0e086605cd86c8f",
+ "execution_repeat": 1,
+ "run_id": "r1",
+ "case_ids_expected": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "split": "sealed",
+ "tag": "pilot",
+ "served_build_hash": "c6bf6b0bcd1ae563c0e9fb2aeb90f490fd2077e7746b2042e23ace82b6981e72",
+ "source_hash": "c6bf6b0bcd1ae563c0e9fb2aeb90f490fd2077e7746b2042e23ace82b6981e72",
+ "runtime_ms": 21957,
+ "case_ids_observed": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "cases": [
+  {
+   "title": "REQ-2.2: Autosave on closing the editor",
+   "file": "REQ-2.2.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 10227,
+   "errors": [
+    "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Take a note', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })\u001b[22m\n\n\n   at helpers.ts:23\n\n  21 | export async function openHome(page: Page) {\n  22 |   await page.goto('/');\n> 23 |   await expect(action(page, 'Take a note')).toBeVisible();\n     |                                             ^\n  24 | }\n  25 | export async function navigate(page: Page, name: string) {\n  26 |   await action(page.getByRole('navigation', { name: 'Sidebar', exact: true }), name).click();\n    at openHome (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Dpilot-keep--K22-D2/rep1/work/tests/helpers.ts:23:45)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Dpilot-keep--K22-D2/rep1/work/tests/REQ-2.2.spec.ts:6:3"
+   ],
+   "attachments": {}
+  },
+  {
+   "title": "REQ-2.2: Keep a created note after reload",
+   "file": "REQ-2.2.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 10194,
+   "errors": [
+    "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Take a note', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Take a note', exact: true })\u001b[22m\n\n\n   at helpers.ts:23\n\n  21 | export async function openHome(page: Page) {\n  22 |   await page.goto('/');\n> 23 |   await expect(action(page, 'Take a note')).toBeVisible();\n     |                                             ^\n  24 | }\n  25 | export async function navigate(page: Page, name: string) {\n  26 |   await action(page.getByRole('navigation', { name: 'Sidebar', exact: true }), name).click();\n    at openHome (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Dpilot-keep--K22-D2/rep1/work/tests/helpers.ts:23:45)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/sealed/M0/keep.REQ-2.2/Dpilot-keep--K22-D2/rep1/work/tests/REQ-2.2.spec.ts:11:3"
+   ],
+   "attachments": {}
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/sealed/M0/keep.REQ-2.2/Dpilot-keep--K22-D2/rep1/report.json",
+ "trace_path": "runs/sealed/M0/keep.REQ-2.2/Dpilot-keep--K22-D2/rep1/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

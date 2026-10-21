@@ -1,0 +1,371 @@
+Based on the development execution feedback, the core failure modes are:
+
+1. **`K22-D1` failures**: Notes are not being persisted at all (0 matches observed). This indicates the autosave mechanism is not working — likely because the editor is not closing properly or the note is not being saved on close.
+
+2. **`K22-D2` failures**: `persist_after_reload` fails with 0 matches *after reload*, but `autosave_on_close` passes. This suggests the note is created and saved initially, but not persisted across reload — likely due to a race condition where the reload happens before the autosave completes.
+
+3. **`B-keep.REQ-2.2.*` failures**: `dialog.getBoundingClientRect is not a function` in `editorClosedByTitle`. This is because `page.evaluate` returns a plain object (or `null`), not a DOM element. The function incorrectly assumes the returned value is an `HTMLElement`.
+
+The root cause is in `editorClosedByTitle` in `observe.ts`. It attempts to call DOM methods on a plain JavaScript object returned from `evaluate`, causing the crash. This prevents proper detection of editor closure, leading to premature assertions and race conditions.
+
+Additionally, the `beginNote` function in `operations.ts` has a fragile fallback path for locating the editor surface when the dialog is not found. It assumes the title field is inside a container with at least two inputs or a contenteditable, but this may not hold for all implementations.
+
+**Fix strategy**:
+- Replace `editorClosedByTitle` with a robust check: use Playwright’s `locator.isHidden()` or `locator.isVisible()` on the editor surface locator *before* it becomes stale, and fall back to DOM inspection only if needed.
+- Improve `beginNote` to avoid brittle fallback logic — prefer dialog detection first, and if not found, use the title field’s ancestor logic more carefully.
+- Ensure `closeEditor` waits for editor to be truly closed *before* proceeding, using `eventuallyHidden` on the editor surface *and* a DOM-based check.
+
+The only file that needs structural change is `observe.ts` — specifically the `editorClosedByTitle` function. The rest can be fixed with safer usage patterns.
+
+Below are the patches.
+
+<<<FILE path=tests/lib/observe.ts>>>
+// OBSERVATION LAYER (editable by revision methods). Reports what the page shows and never reads expected values
+// other than the business identity (title) it is asked to locate. It returns raw evidence for audit.
+import type { Locator, Page } from '@playwright/test';
+import type { NoteObs, HighlightObs, EditorObs } from './oracle';
+
+// In-browser: locate note records by their exact visible title and return the record's visual lines.
+// A record is the nearest ancestor of the title element that is
+//   (a) semantic (article/li/tr/[role=article|listitem|row|region|gridcell|group]),
+//   (b) one of several repeated siblings with the same tag and class, or
+//   (c) a direct child of a list-like container (ul/ol, role list/grid/feed, CSS grid, wrapping flex, columns),
+// and that contains text beyond the title. Elements inside dialogs are ignored.
+const FIND_NOTES = (title: string) => {
+  const vis = (e: Element) => {
+    const r = (e as HTMLElement).getBoundingClientRect(); const cs = getComputedStyle(e);
+    return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && Number(cs.opacity) > 0;
+  };
+  const clean = (s: string) => s.replace(/[ \t ]+/g, ' ').trim();
+  const inDialog = (e: Element) => !!e.closest('[role=dialog],dialog,[aria-modal=true]');
+  const all = Array.from(document.body.querySelectorAll('*')).filter(e =>
+    !['SCRIPT', 'STYLE', 'INPUT', 'TEXTAREA', 'OPTION'].includes(e.tagName) && !inDialog(e) &&
+    clean((e as HTMLElement).innerText || '') === title && vis(e));
+  // Keep the deepest elements only.
+  const titles = all.filter(e => !all.some(o => o !== e && e.contains(o)));
+  const semantic = 'article,li,tr,[role=article],[role=listitem],[role=row],[role=region],[role=gridcell],[role=group]';
+  const listLike = (p: Element) => {
+    if (/^(UL|OL)$/.test(p.tagName) || /^(list|grid|feed|rowgroup)$/.test(p.getAttribute('role') || '')) return true;
+    const cs = getComputedStyle(p);
+    return cs.display.includes('grid') || (cs.display.includes('flex') && cs.flexWrap === 'wrap') || (cs.columnCount !== 'auto' && cs.columnCount !== '1');
+  };
+  const record = (t: Element): Element => {
+    let a: Element | null = t.parentElement;
+    let first: Element | null = null;
+    while (a && a !== document.body) {
+      const p = a.parentElement;
+      const extra = clean((a as HTMLElement).innerText || '') !== title;
+      const repeated = !!p && Array.from(p.children).filter(c => c !== a && c.tagName === a!.tagName && c.className === (a as HTMLElement).className).length > 0;
+      if (extra && (a.matches(semantic) || repeated || (p && listLike(p)))) return a;
+      if (extra && !first) first = a;
+      a = p;
+    }
+    return first || t.parentElement || t;
+  };
+  const recs: Element[] = [];
+  for (const t of titles) { const r = record(t); if (!recs.includes(r)) recs.push(r); }
+  const shown = recs.filter(vis);
+  const r0 = shown[0] as HTMLElement | undefined;
+  const lines = r0 ? (r0.innerText || '').replace(/\r\n?/g, '\n').split('\n').map(clean).filter(Boolean) : [];
+  return {
+    matches: recs.length, visible: shown.length > 0, titleShown: lines.includes(title), lines,
+    evidence: recs.map(r => `<${r.tagName.toLowerCase()} role=${r.getAttribute('role')} class="${(r as HTMLElement).className}">`).join(' | '),
+  };
+};
+
+export async function note(page: Page, title: string): Promise<NoteObs> {
+  const o = await page.evaluate(FIND_NOTES, title);
+  return { title, ...o };
+}
+
+// Highlight fragments inside the note record with this title. Candidates are <mark>, elements named/classed
+// highlight/match, and elements whose text is exactly the searched keyword (any case) and a strict part of their parent's text.
+// V-HL (frozen in the spec audit): differs from the parent in background (Δ≥30 in a channel, non-transparent),
+// in weight (≥600 vs ≤500) or in text-decoration-line.
+export async function highlights(page: Page, title: string, keyword: string): Promise<HighlightObs[]> {
+  return page.evaluate(({ title, keyword }) => {
+    const clean = (s: string) => s.replace(/\s+/g, ' ').trim();
+    const recs = Array.from(document.querySelectorAll('*')).filter(e => clean((e as HTMLElement).innerText || '') === title);
+    const out: { text: string; vhl: boolean; vhlReason: string }[] = [];
+    const rgb = (s: string) => (s.match(/[\d.]+/g) || []).map(Number);
+    const seen = new Set<Element>();
+    for (const t of recs) {
+      let rec: Element | null = t;
+      // Climb to the smallest ancestor that has text beyond the title (the record); highlights may be in title or body.
+      while (rec && clean((rec as HTMLElement).innerText || '') === title) rec = rec.parentElement;
+      if (!rec) continue;
+      for (let i = 0; i < 4 && rec.parentElement && rec.parentElement !== document.body; i++) {
+        const p = rec.parentElement; if (p.querySelectorAll('*').length > 400) break; rec = p;
+        if (rec.matches('article,li,tr,[role=article],[role=listitem],[role=row],[role=region]')) break;
+      }
+      rec.querySelectorAll('*').forEach(e => {
+        if (seen.has(e)) return;
+        const txt = clean((e as HTMLElement).innerText || e.textContent || '');
+        const parent = e.parentElement; if (!parent || !txt) return;
+        const ptxt = clean(parent.innerText || '');
+        const named = /highlight|match/i.test(`${(e as HTMLElement).className} ${e.getAttribute('aria-label') || ''}`);
+        const partial = ptxt.length > txt.length && txt.toLowerCase() === keyword.toLowerCase();
+        if (!(e.tagName === 'MARK' || named || partial)) return;
+        const cs = getComputedStyle(e), ps = getComputedStyle(parent);
+        const bg = rgb(cs.backgroundColor), pbg = rgb(ps.backgroundColor);
+        const bgVisible = bg.length >= 3 && (bg.length < 4 || bg[3] > 0.1);
+        const bgDiff = bgVisible && (pbg.length < 3 || (pbg.length === 4 && pbg[3] === 0) ? true : bg.slice(0, 3).some((v, k) => Math.abs(v - pbg[k]) >= 30));
+        const w = Number(cs.fontWeight), pw = Number(ps.fontWeight);
+        const weightDiff = w >= 600 && pw <= 500;
+        const decoDiff = cs.textDecorationLine !== ps.textDecorationLine && cs.textDecorationLine !== 'none';
+        const reason = [bgDiff && `bg ${cs.backgroundColor} vs ${ps.backgroundColor}`, weightDiff && `weight ${w} vs ${pw}`, decoDiff && `deco ${cs.textDecorationLine}`].filter(Boolean).join('; ');
+        seen.add(e);
+        out.push({ text: txt, vhl: !!reason, vhlReason: reason || `none (bg ${cs.backgroundColor}, weight ${w})` });
+      });
+    }
+    return out;
+  }, { title, keyword });
+}
+
+export async function editorState(editor: Locator): Promise<EditorObs> {
+  const open = await editor.isVisible().catch(() => false);
+  return { open, evidence: open ? 'editor locator still visible' : 'editor locator hidden/detached' };
+}
+
+// Whether a suggestion panel is visible: a container named or headed with "suggest"/"filter" semantics.
+export async function suggestionPanel(page: Page): Promise<{ shown: boolean; evidence: string; panel: Locator | null }> {
+  const cands = [
+    page.getByRole('region', { name: /suggest|filter/i }),
+    page.getByRole('dialog', { name: /suggest|filter/i }),
+    page.getByRole('listbox', { name: /suggest|filter/i }),
+    page.getByRole('group', { name: /suggest|filter/i }),
+    page.getByRole('menu', { name: /suggest|filter/i }),
+    page.locator('section,div,aside,[role=region],[role=listbox]').filter({ has: page.getByRole('heading', { name: /suggest|filter/i }) }),
+  ];
+  for (const c of cands) {
+    const n = await c.count();
+    const vis = [];
+    for (let i = 0; i < n; i++) if (await c.nth(i).isVisible()) vis.push(c.nth(i));
+    // For heading-based containers, keep the innermost one.
+    if (vis.length >= 1) return { shown: true, evidence: `${vis.length} match(es)`, panel: vis[vis.length - 1] };
+  }
+  return { shown: false, evidence: 'no named/headed suggestion container visible', panel: null };
+}
+
+// NEW: Wait for editor to close by checking the editor surface locator, then fall back to DOM presence check.
+// This avoids calling DOM methods on non-DOM objects.
+export async function editorClosedByTitle(page: Page, title: string): Promise<{ closed: boolean; evidence: string }> {
+  // First, try to locate any editor dialog by its title field label.
+  const closed = await page.evaluate(() => {
+    const titles = Array.from(document.querySelectorAll('*')).filter(e =>
+      e.tagName === 'INPUT' || e.tagName === 'TEXTAREA' || (e as HTMLElement).contentEditable === 'true'
+    ).filter(e => {
+      const label = (e as HTMLElement).ariaLabel || (e as HTMLInputElement).placeholder || '';
+      return /^title$/i.test(label) || /^note title$/i.test(label);
+    });
+    if (titles.length === 0) return { closed: true, reason: 'no title field found' };
+    const t = titles[0] as HTMLElement;
+    const dialog = t.closest('dialog,[role=dialog],[aria-modal=true]');
+    if (!dialog) return { closed: true, reason: 'no dialog element found' };
+    const rect = (dialog as HTMLElement).getBoundingClientRect();
+    const cs = getComputedStyle(dialog as HTMLElement);
+    const visible = rect.width > 0 && rect.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && Number(cs.opacity) > 0;
+    return { closed: !visible, reason: visible ? `dialog visible (rect=${rect.width}x${rect.height})` : 'dialog present but not visible' };
+  });
+  return { closed: closed.closed, evidence: closed.reason };
+}
+<<<END FILE>>>
+
+<<<FILE path=tests/lib/operations.ts>>>
+// OPERATION LAYER (editable by revision methods). Performs scenario user intents through the UI only.
+// Static, generic strategies derived from the public S1 manifest; no implementation-specific selectors.
+import { expect, type Locator, type Page } from '@playwright/test';
+import { AdaptationFailure, byCss, byLabel, byPlaceholder, byRole, enterText, resolve, type Candidate } from './adapt';
+
+const CREATE = /^(take a note|take a note…|take a note\.\.\.|new note|create( a)? note|add( a)? note|write a note|\+)$/i;
+const TITLE = /^(title|note title)$/i;
+const CONTENT = /^(content|note|note content|body|take a note|take a note…|take a note\.\.\.|note text|text)$/i;
+const CLOSE = /^(close|done|close editor|close note|finish)$/i;
+const LABELS = /^(change labels|labels|add label|edit labels for note|manage labels|label note|add labels)$/i;
+const DONE = /^(done|ok|apply|close|save labels)$/i;
+
+export async function openHome(page: Page) {
+  await page.goto('/');
+  await creationEntry(page);
+}
+
+async function creationEntry(page: Page) {
+  return resolve(page, 'create-note entry', [
+    byRole('button', CREATE), byRole('textbox', CREATE), byRole('link', CREATE), byPlaceholder(CREATE),
+  ], 15_000);
+}
+
+export interface Editor { surface: Locator; title: Locator; content: Locator }
+
+// The editor surface: a dialog when one appears, else the region holding the title field.
+export async function beginNote(page: Page): Promise<Editor> {
+  await (await creationEntry(page)).click();
+  const fieldCands = (scopeName: string): { title: Candidate[]; content: Candidate[] } => ({
+    title: [byRole('textbox', TITLE), byPlaceholder(TITLE), byLabel(TITLE)],
+    content: [byRole('textbox', CONTENT), byPlaceholder(CONTENT), byLabel(CONTENT),
+      byCss('[contenteditable=true]:not([aria-label*="itle" i])')],
+  });
+  let surface: Locator;
+  try {
+    surface = await resolve(page, 'note editor dialog', [byRole('dialog', /./), byCss('dialog[open]')], 5_000);
+  } catch {
+    // Fallback: find title field, then climb to its nearest semantic container that has content beyond the title.
+    const t = await resolve(page, 'note title field', fieldCands('page').title);
+    surface = t.locator('xpath=ancestor::*[.//textarea or .//*[@contenteditable="true"] or count(.//input)>=2][1]');
+  }
+  const c = fieldCands('editor');
+  const title = await resolve(surface, 'note title field', c.title);
+  const content = await resolve(surface, 'note content field', c.content);
+  return { surface, title, content };
+}
+
+export async function fillNote(page: Page, ed: Editor, title: string, content: string) {
+  await enterText(page, ed.title, title);
+  await enterText(page, ed.content, content);
+}
+
+export async function chooseLabelsInEditor(page: Page, ed: Editor, labels: string[]) {
+  await (await resolve(ed.surface, 'change-labels action', [byRole('button', LABELS), byRole('menuitem', LABELS)])).click();
+  const chooser = await resolve(page, 'label chooser', [
+    byRole('dialog', /label/i), byRole('menu', /label/i), byRole('listbox', /label/i), byRole('group', /label/i),
+    byRole('dialog', /./),
+  ].filter(Boolean), 10_000).catch(async () => page.locator('body'));
+  for (const label of labels) {
+    const ctl = await resolve(chooser, `label option ${label}`, [
+      byRole('checkbox', label), byRole('menuitemcheckbox', label), byRole('option', label), byRole('switch', label),
+      byRole('button', label),
+    ]);
+    const role = await ctl.getAttribute('role');
+    const tag = await ctl.evaluate(e => e.tagName);
+    if (role === 'checkbox' || role === 'switch' || role === 'menuitemcheckbox' || tag === 'INPUT') await ctl.check();
+    else await ctl.click();
+  }
+  const done = await resolve(chooser, 'label chooser done', [byRole('button', DONE)], 3_000).catch(() => null);
+  if (done) await done.click(); else await page.keyboard.press('Escape');
+}
+
+// Close the editor without any save action (K22-O5). Names containing "save" are never used.
+export async function closeEditor(ed: Editor) {
+  const btn = await resolve(ed.surface, 'close-editor action', [byRole('button', CLOSE)]);
+  const name = (await btn.getAttribute('aria-label')) || (await btn.innerText());
+  if (/save/i.test(name)) throw new AdaptationFailure('close-editor action', `refusing save-like control "${name}"`);
+  await btn.click();
+}
+
+export async function searchBox(page: Page): Promise<Locator> {
+  return resolve(page, 'search input', [
+    byRole('searchbox', /./), byRole('textbox', /search/i), byPlaceholder(/search/i), byRole('combobox', /search/i),
+  ]);
+}
+
+export async function chooseSuggested(page: Page, panel: Locator, name: string) {
+  const ctl = await resolve(panel, `suggested ${name}`, [
+    byRole('button', name), byRole('option', name), byRole('menuitem', name), byRole('link', name),
+    byRole('checkbox', name), byRole('button', new RegExp(`^${name}$`, 'i')),
+  ]);
+  await ctl.click();
+}
+
+export async function clearSearch(page: Page) {
+  const box = await searchBox(page);
+  await box.fill('');
+  await expect(box).toHaveValue('');
+}
+
+export async function navigate(page: Page, name: string) {
+  const nav = await resolve(page, 'sidebar navigation', [byRole('navigation', /./), byCss('nav,aside')]).catch(() => page.locator('body'));
+  await (await resolve(nav, `nav ${name}`, [byRole('button', name), byRole('link', name), byRole('tab', name),
+    byRole('menuitem', name), byRole('button', new RegExp(`^${name}$`, 'i')), byRole('link', new RegExp(`^${name}$`, 'i'))])).click();
+}
+<<<END FILE>>>
+
+<<<FILE path=tests/REQ-2.2.spec.ts>>>
+// requirement: keep.REQ-2.2 (S1 layered contract). Orchestration only: operations -> observations -> oracle core.
+import { test } from '@playwright/test';
+import { K22, identity, benchmarkNow } from './lib/inputs';
+import * as O from './lib/oracle';
+import { eventually, eventuallyHidden } from './lib/adapt';
+import { captureOnFailure } from './lib/evidence';
+import { openHome, beginNote, fillNote, closeEditor } from './lib/operations';
+import { note, editorState, editorClosedByTitle } from './lib/observe';
+
+captureOnFailure();
+
+test.beforeEach(async ({ page }) => { await page.clock.setFixedTime(new Date(benchmarkNow)); });
+
+test('autosave_on_close', async ({ page }, info) => {
+  const title = identity(info, K22.autosave.base);
+  await openHome(page);
+  const ed = await beginNote(page);
+  await fillNote(page, ed, title, K22.autosave.content);
+  await closeEditor(ed);
+  // Wait for editor to close using both locator visibility and DOM presence checks.
+  await eventuallyHidden(ed.surface, 10_000);
+  await eventually(() => editorClosedByTitle(page, title), e => {
+    if (!e.closed) throw new Error(`editor still present (${e.evidence})`);
+  }, 10_000);
+  await eventually(() => note(page, title), n => O.exactlyOneVisible('K22-O2', n));
+  const n = await note(page, title);
+  O.showsTitle('K22-O3', n);
+  await eventually(() => note(page, title), n => O.showsLines('K22-O4', n, K22.autosave.content));
+});
+
+test('persist_after_reload', async ({ page }, info) => {
+  const title = identity(info, K22.persist.base);
+  await openHome(page);
+  const ed = await beginNote(page);
+  await fillNote(page, ed, title, K22.persist.content);
+  await closeEditor(ed);
+  // Wait for editor to close using both locator visibility and DOM presence checks.
+  await eventuallyHidden(ed.surface, 10_000);
+  await eventually(() => editorClosedByTitle(page, title), e => {
+    if (!e.closed) throw new Error(`editor still present (${e.evidence})`);
+  }, 10_000);
+  await eventually(() => note(page, title), n => O.exactlyOneVisible('K22-O2', n));
+  // Ensure autosave completes before reload. Some implementations may debounce.
+  await page.waitForTimeout(500);
+  await page.reload();
+  await eventually(() => note(page, title), n => { O.exactlyOneVisible('K22-O6', n); O.showsLines('K22-O6', n, K22.persist.content); }, 15_000);
+});
+<<<END FILE>>>
+
+<<<NOTES>>>
+### Obligation → Check Mapping
+
+| Obligation ID | Check in `oracle.ts` | How it's enforced |
+|---------------|----------------------|-------------------|
+| K22-O1 (editor closes) | `editorClosed` | `editorClosedByTitle` + `eventuallyHidden(ed.surface)` in spec |
+| K22-O2 (exactly one note) | `exactlyOneVisible` | `note(page, title)` → `matches===1 && visible` |
+| K22-O3 (title shown) | `showsTitle` | `n.titleShown` |
+| K22-O4 (content lines) | `showsLines` | `n.lines` contains expected lines |
+| K22-O5 (no save action) | `closeEditor` | Refuses buttons with "save" in name |
+| K22-O6 (persist after reload) | `exactlyOneVisible` + `showsLines` | Same as O2/O4, post-reload |
+
+### Evidence Used for Changes
+
+- **`B-keep.REQ-2.2.*` failures**: `TypeError: dialog.getBoundingClientRect is not a function` in `editorClosedByTitle`.  
+  **Evidence**: Stack trace shows `dialog` is a plain object from `page.evaluate`, not an `HTMLElement`.  
+  **Fix**: Moved DOM inspection *inside* `page.evaluate`, returning a plain `{closed, reason}` object. This avoids calling DOM methods on non-DOM values.
+
+- **`K22-D1` failures**: 0 notes observed after close.  
+  **Evidence**: aria snapshots show no note regions; implies editor didn’t close or save didn’t trigger.  
+  **Fix**: Added `eventuallyHidden(ed.surface)` *and* `editorClosedByTitle` checks before asserting note existence, ensuring race conditions are avoided.
+
+- **`K22-D2` failures**: 0 notes after reload.  
+  **Evidence**: `autosave_on_close` passes, but `persist_after_reload` fails.  
+  **Fix**: Added `page.waitForTimeout(500)` before reload to allow debounced autosave to complete.
+
+### Unresolved Failures and Uncertainties
+
+- **Uncertainty**: The `beginNote` fallback (climbing to ancestor with ≥2 inputs or contenteditable) may be too brittle if the implementation uses a single rich-text field. However, no evidence of failure in `A-keep.REQ-2.2.correct` runs, so this is retained as a generic fallback.
+
+- **Uncertainty**: The `500ms` wait before reload is heuristic. If implementations use longer debounces, this may still fail. No evidence of a better signal (e.g., a "saving..." indicator) is available per the frozen feedback.
+
+- **No failure evidence** for label/checkbox interactions or highlight detection — these modules remain unchanged.
+
+- **No failure evidence** for the `creationEntry` locator — all runs that passed used it successfully.
+
+- **No failure evidence** for `searchBox`, `suggestionPanel`, or `navigate` — these are unused in REQ-2.2 scenarios and left untouched.
+
+No obligations were weakened. All business rules remain enforced by the oracle layer.
+<<<END NOTES>>>

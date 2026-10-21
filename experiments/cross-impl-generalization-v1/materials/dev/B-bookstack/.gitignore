@@ -1,0 +1,4 @@
+node_modules/
+app/dist/
+selfcheck/node_modules/
+selfcheck/package-lock.json

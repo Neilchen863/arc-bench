@@ -1,0 +1,13 @@
+diff --git a/src/views/BookView.vue b/src/views/BookView.vue
+index eec6205..72e36bc 100644
+--- a/src/views/BookView.vue
++++ b/src/views/BookView.vue
+@@ -40,7 +40,7 @@ onMounted(async () => {
+             <p v-if="!pages.length" class="muted">This book has no pages yet.</p>
+             <ul v-else class="entity-list">
+               <li v-for="p in pages" :key="p.id" class="entity page-entity">
+-                <RouterLink :to="`/pages/${p.id}`" class="entity-title">{{ p.title }}</RouterLink>
++                <RouterLink :to="`/pages/${pages[0].id}`" class="entity-title">{{ p.title }}</RouterLink>
+                 <p class="excerpt">{{ toPlainText(p.html).slice(0, 160) }}</p>
+               </li>
+             </ul>

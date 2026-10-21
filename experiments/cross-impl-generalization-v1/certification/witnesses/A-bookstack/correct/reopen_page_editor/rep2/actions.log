@@ -1,0 +1,40 @@
+[2026-10-19T07:58:04.945Z] server started on 39202; POST /__reset; health={"ok":true,"app":"bookstack","build_hash":"de6995d23f82860e9f17900238b196d8e93e528f5d416e02c925c6fabc924c8d"}
+[2026-10-19T07:58:05.209Z] inputs: book={"name":"Book 6.4.2 [CERT-2b9fb4c]","desc":"Certification book for 6.4.2 [CERT-2b9fb4c].","tags":"cert, reading"} pages=[{"key":"A","title":"Page A 6.4.2 [CERT-2b9fb4c]","body":"Reading content for Page A 6.4.2."},{"key":"B","title":"Page B 6.4.2 [CERT-2b9fb4c]","body":"Reading content for Page B 6.4.2."},{"key":"C","title":"Page C 6.4.2 [CERT-2b9fb4c]","body":"Reading content for Page C 6.4.2."}] target=Page B 6.4.2 [CERT-2b9fb4c]
+[2026-10-19T07:58:05.993Z] goto / (anonymous, fresh context)
+[2026-10-19T07:58:06.096Z] click link "Books" in navigation "Main" (getByRole link name=Books)
+[2026-10-19T07:58:06.376Z] click button "Create New Book"
+[2026-10-19T07:58:06.636Z] type into textbox "Name": Book 6.4.2 [CERT-2b9fb4c]
+[2026-10-19T07:58:06.639Z] type into textbox "Description": Certification book for 6.4.2 [CERT-2b9fb4c].
+[2026-10-19T07:58:06.643Z] type into textbox "Tags": cert, reading
+[2026-10-19T07:58:06.696Z] click button "Save Book"
+[2026-10-19T07:58:06.990Z] book details heading shown
+[2026-10-19T07:58:07.012Z] click button "New Page"
+[2026-10-19T07:58:07.293Z] type into textbox "Page title": Page A 6.4.2 [CERT-2b9fb4c]
+[2026-10-19T07:58:07.305Z] type into textbox "Write your page content here...": Reading content for Page A 6.4.2.
+[2026-10-19T07:58:07.341Z] click button "Save Page"
+[2026-10-19T07:58:07.615Z] returned to book details heading
+[2026-10-19T07:58:07.641Z] click button "New Page"
+[2026-10-19T07:58:07.898Z] type into textbox "Page title": Page B 6.4.2 [CERT-2b9fb4c]
+[2026-10-19T07:58:07.902Z] type into textbox "Write your page content here...": Reading content for Page B 6.4.2.
+[2026-10-19T07:58:07.944Z] click button "Save Page"
+[2026-10-19T07:58:08.220Z] returned to book details heading
+[2026-10-19T07:58:08.240Z] click button "New Page"
+[2026-10-19T07:58:08.495Z] type into textbox "Page title": Page C 6.4.2 [CERT-2b9fb4c]
+[2026-10-19T07:58:08.498Z] type into textbox "Write your page content here...": Reading content for Page C 6.4.2.
+[2026-10-19T07:58:08.525Z] click button "Save Page"
+[2026-10-19T07:58:08.798Z] returned to book details heading
+[2026-10-19T07:58:08.814Z] page list region "Page list" entries (button) in order: ["Page A 6.4.2 [CERT-2b9fb4c]","Page B 6.4.2 [CERT-2b9fb4c]","Page C 6.4.2 [CERT-2b9fb4c]"]
+[2026-10-19T07:58:08.814Z] OBLIGATION B64-P1: true — UI entry counts {"A":1,"B":1,"C":1}, API page counts {"A":1,"B":1,"C":1}; target index 1
+[2026-10-19T07:58:08.863Z] screenshot 01-book-page-list.png
+[2026-10-19T07:58:08.890Z] click button "Page B 6.4.2 [CERT-2b9fb4c]" inside region "Page list"
+[2026-10-19T07:58:09.458Z] URL http://127.0.0.1:39202/books/e93825c8-0941-44cc-9775-550513a5e398/pages/57d98af9-3ea5-4fb9-a044-1d693c18cec6; h1 headings: ["Page B 6.4.2 [CERT-2b9fb4c]"]
+[2026-10-19T07:58:09.458Z] OBLIGATION B64-O1: true — level-1 heading(s) ["Page B 6.4.2 [CERT-2b9fb4c]"] vs target "Page B 6.4.2 [CERT-2b9fb4c]"
+[2026-10-19T07:58:09.512Z] screenshot 02-page-view.png
+[2026-10-19T07:58:09.512Z] page view: 1 button(s) named "Edit"
+[2026-10-19T07:58:09.540Z] click button "Edit" on the reading page
+[2026-10-19T07:58:10.196Z] URL http://127.0.0.1:39202/books/e93825c8-0941-44cc-9775-550513a5e398/pages/57d98af9-3ea5-4fb9-a044-1d693c18cec6/edit; textbox "Page title" value="Page B 6.4.2 [CERT-2b9fb4c]"; textbox "Write your page content here..." value="Reading content for Page B 6.4.2."
+[2026-10-19T07:58:10.196Z] OBLIGATION B64-O4: true — title field value "Page B 6.4.2 [CERT-2b9fb4c]" vs "Page B 6.4.2 [CERT-2b9fb4c]"
+[2026-10-19T07:58:10.196Z] OBLIGATION B64-O5: true — body field value "Reading content for Page B 6.4.2." vs "Reading content for Page B 6.4.2."
+[2026-10-19T07:58:10.197Z] OBLIGATION B64-O6: true — button "Save Page" visible=true (not clicked)
+[2026-10-19T07:58:10.242Z] screenshot 03-editor.png
+[2026-10-19T07:58:10.565Z] browser closed; server stopped

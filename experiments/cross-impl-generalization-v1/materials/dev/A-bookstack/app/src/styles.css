@@ -1,0 +1,62 @@
+:root {
+  --brand: #206ea7;
+  --brand-dark: #185a8a;
+  --bg: #f2f2f2;
+  --card: #fff;
+  --text: #222;
+  --muted: #666;
+  --border: #ddd;
+  --focus: #f0a500;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+a { color: var(--brand); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.topbar { display: flex; align-items: center; gap: 24px; background: var(--brand); color: #fff; padding: 12px 24px; flex-wrap: wrap; }
+.topbar a { color: #fff; text-decoration: none; }
+.brand { font-size: 1.4rem; font-weight: 600; }
+.search { flex: 1; display: flex; justify-content: center; }
+.search input { width: 100%; max-width: 360px; border-radius: 20px; border: none; padding: 8px 14px; background: rgba(255,255,255,0.18); color: #fff; }
+.search input::placeholder { color: #e6eef5; }
+.topnav { display: flex; gap: 20px; }
+.topnav a:hover { text-decoration: underline; }
+.content { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 32px; align-items: start; }
+@media (max-width: 760px) { .layout { grid-template-columns: 1fr; } }
+.card { background: var(--card); border-radius: 4px; padding: 24px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.card.narrow { max-width: 760px; margin: 0 auto; }
+h1 { font-weight: 400; font-size: 2.2rem; margin: 0 0 12px; }
+h2 { font-weight: 400; font-size: 1.2rem; color: #444; margin: 16px 0 8px; }
+.muted { color: var(--muted); }
+.breadcrumbs { margin-bottom: 12px; font-size: 0.95rem; }
+.entry-links { padding-left: 20px; }
+.entity-list ul { list-style: none; padding: 0; margin: 16px 0 0; }
+.entity { border-left: 3px solid var(--brand); padding: 6px 14px; margin-bottom: 16px; }
+.entity.page { border-left-color: #206ea7; }
+.entity.shelf { border-left-color: #a94747; }
+.entity-name { font: inherit; font-size: 1.3rem; background: none; border: none; padding: 0; color: var(--text); cursor: pointer; text-align: left; }
+.entity-name:hover { color: var(--brand); text-decoration: underline; }
+span.entity-name { cursor: default; }
+span.entity-name:hover { color: inherit; text-decoration: none; }
+.entity-desc { margin: 4px 0 0; color: var(--muted); }
+.description { white-space: pre-wrap; }
+.tags { list-style: none; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; }
+.tag { background: #e8f0f7; border: 1px solid #c9dbea; border-radius: 3px; padding: 1px 8px; font-size: 0.85rem; }
+.actions { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.action { background: none; border: none; color: var(--brand); font: inherit; padding: 6px 0; cursor: pointer; }
+.action:hover { text-decoration: underline; }
+.form .field { display: flex; flex-direction: column; margin-bottom: 16px; }
+.form label { font-weight: 600; margin-bottom: 4px; }
+input[type='text'], textarea { font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 3px; }
+.form-actions, .editor-toolbar { display: flex; justify-content: flex-end; gap: 12px; }
+button.primary { background: var(--brand); color: #fff; border: none; border-radius: 3px; padding: 8px 18px; font: inherit; cursor: pointer; }
+button.primary:hover { background: var(--brand-dark); }
+button.primary:disabled { opacity: 0.6; cursor: default; }
+button.secondary { background: none; border: 1px solid var(--border); border-radius: 3px; padding: 8px 18px; font: inherit; cursor: pointer; color: var(--text); }
+.editor-toolbar { background: #fff; padding: 10px 16px; margin-bottom: 16px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.editor-card { display: flex; flex-direction: column; gap: 12px; }
+.title-input { font-size: 1.8rem !important; border: none !important; border-bottom: 1px solid var(--border) !important; }
+.body-input { min-height: 320px; resize: vertical; }
+.page-body p { white-space: pre-wrap; }
+.error { color: #b00020; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

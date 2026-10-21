@@ -1,0 +1,257 @@
+{
+  "config": {
+    "configFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/playwright.config.ts",
+    "rootDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/report.json"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "REQ-6.4.spec.ts",
+      "file": "REQ-6.4.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "read_selected_page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13070,
+                  "error": {
+                    "message": "Error: Opened page heading \"Page A 6.4.1 [r2-w0-read-selected-page]\" does not match expected \"Page B 6.4.1 [r2-w0-read-selected-page]\"",
+                    "stack": "Error: Opened page heading \"Page A 6.4.1 [r2-w0-read-selected-page]\" does not match expected \"Page B 6.4.1 [r2-w0-read-selected-page]\"\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:71:15)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:74:11)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:65:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:27:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts",
+                      "column": 15,
+                      "line": 71
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/operations.ts:71\n\n  69 |       const headings = v.headings.map(h => h.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, ' ').trim());\n  70 |       if (!headings.includes(normTitle)) {\n> 71 |         throw new Error(`Opened page heading \"${headings[0] || '<none>'}\" does not match expected \"${title}\"`);\n     |               ^\n  72 |       }\n  73 |     }\n  74 |   );"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts",
+                        "column": 15,
+                        "line": 71
+                      },
+                      "message": "Error: Opened page heading \"Page A 6.4.1 [r2-w0-read-selected-page]\" does not match expected \"Page B 6.4.1 [r2-w0-read-selected-page]\"\n\n   at lib/operations.ts:71\n\n  69 |       const headings = v.headings.map(h => h.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, ' ').trim());\n  70 |       if (!headings.includes(normTitle)) {\n> 71 |         throw new Error(`Opened page heading \"${headings[0] || '<none>'}\" does not match expected \"${title}\"`);\n     |               ^\n  72 |       }\n  73 |     }\n  74 |   );\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:71:15)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:74:11)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:65:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:27:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T13:46:20.164Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/test-results/REQ-6.4-read-selected-page-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBsaW5rICJTa2lwIHRvIGNvbnRlbnQiOgogIC0gL3VybDogIiNtYWluIgotIGJhbm5lcjoKICAtIGxpbmsgIktub3dsZWRnZSBCYXNlIjoKICAgIC0gL3VybDogLwogIC0gc2VhcmNoOgogICAgLSB0ZXh0Ym94ICJTZWFyY2giCiAgLSBuYXZpZ2F0aW9uICJNYWluIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAgICAgLSAvdXJsOiAvc2hlbHZlcwogICAgICAtIGxpc3RpdGVtOgogICAgICAgIC0gbGluayAiQm9va3MiOgogICAgICAgICAgLSAvdXJsOiAvYm9va3MKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkxvZyBpbiI6CiAgICAgICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBuYXZpZ2F0aW9uICJCcmVhZGNydW1iIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBsaW5rICJCb29rIDYuNC4xIFtyMi13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzLzI4YTdmNTJhLTU4MTMtNDQ0NC1hOGQxLTgxNTA0ZWE1YmM4MQogICAgICAtIGxpc3RpdGVtOiBQYWdlIEEgNi40LjEgW3IyLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KICAtIGFydGljbGU6CiAgICAtIGhlYWRpbmcgIlBhZ2UgQSA2LjQuMSBbcjItdzAtcmVhZC1zZWxlY3RlZC1wYWdlXSIgW2xldmVsPTFdCiAgICAtIHRleHQ6IFJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4xLgogIC0gY29tcGxlbWVudGFyeSAiUGFnZSBkZXRhaWxzIGFuZCBhY3Rpb25zIjoKICAgIC0gaGVhZGluZyAiRGV0YWlscyIgW2xldmVsPTJdCiAgICAtIHBhcmFncmFwaDogQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgogICAgLSBoZWFkaW5nICJBY3Rpb25zIiBbbGV2ZWw9Ml0KICAgIC0gYnV0dG9uICJFZGl0Ig=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "U2tpcCB0byBjb250ZW50Cktub3dsZWRnZSBCYXNlClNoZWx2ZXMKQm9va3MKTG9nIGluCkJvb2tzCkJvb2sgNi40LjEgW3IyLXcwLXJlYWQtc2VsZWN0ZWQtcGFnZV0KUGFnZSBBIDYuNC4xIFtyMi13MC1yZWFkLXNlbGVjdGVkLXBhZ2VdClBhZ2UgQSA2LjQuMSBbcjItdzAtcmVhZC1zZWxlY3RlZC1wYWdlXQpSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMS4KRGV0YWlscwoKQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgoKQWN0aW9ucwpFZGl0"
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo1ODQ1NC9ib29rcy8yOGE3ZjUyYS01ODEzLTQ0NDQtYThkMS04MTUwNGVhNWJjODEvcGFnZXMvZDUzODI0MDEtYjhiNC00ZWMzLWEwNWEtZjVmMjU2ODA1MGY3"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/test-results/REQ-6.4-read-selected-page-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/test-results/REQ-6.4-read-selected-page-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts",
+                    "column": 15,
+                    "line": 71
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-5dd9605f98bc9ec040a8",
+          "file": "REQ-6.4.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "reopen_page_editor",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15990,
+                  "error": {
+                    "message": "Error: Opened page heading \"Page A 6.4.2 [r2-w1-reopen-page-editor]\" does not match expected \"Page B 6.4.2 [r2-w1-reopen-page-editor]\"",
+                    "stack": "Error: Opened page heading \"Page A 6.4.2 [r2-w1-reopen-page-editor]\" does not match expected \"Page B 6.4.2 [r2-w1-reopen-page-editor]\"\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:71:15)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:74:11)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:65:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:35:3",
+                    "location": {
+                      "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts",
+                      "column": 15,
+                      "line": 71
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mlib/operations.ts:71\n\n  69 |       const headings = v.headings.map(h => h.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, ' ').trim());\n  70 |       if (!headings.includes(normTitle)) {\n> 71 |         throw new Error(`Opened page heading \"${headings[0] || '<none>'}\" does not match expected \"${title}\"`);\n     |               ^\n  72 |       }\n  73 |     }\n  74 |   );"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts",
+                        "column": 15,
+                        "line": 71
+                      },
+                      "message": "Error: Opened page heading \"Page A 6.4.2 [r2-w1-reopen-page-editor]\" does not match expected \"Page B 6.4.2 [r2-w1-reopen-page-editor]\"\n\n   at lib/operations.ts:71\n\n  69 |       const headings = v.headings.map(h => h.replace(/\\r\\n?/g, '\\n').replace(/[ \\t ]+/g, ' ').replace(/\\n+/g, ' ').trim());\n  70 |       if (!headings.includes(normTitle)) {\n> 71 |         throw new Error(`Opened page heading \"${headings[0] || '<none>'}\" does not match expected \"${title}\"`);\n     |               ^\n  72 |       }\n  73 |     }\n  74 |   );\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:71:15)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:74:11)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:65:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:35:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T13:46:34.857Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/test-results/REQ-6.4-reopen-page-editor-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "aria-snapshot",
+                      "contentType": "text/plain",
+                      "body": "LSBsaW5rICJTa2lwIHRvIGNvbnRlbnQiOgogIC0gL3VybDogIiNtYWluIgotIGJhbm5lcjoKICAtIGxpbmsgIktub3dsZWRnZSBCYXNlIjoKICAgIC0gL3VybDogLwogIC0gc2VhcmNoOgogICAgLSB0ZXh0Ym94ICJTZWFyY2giCiAgLSBuYXZpZ2F0aW9uICJNYWluIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIlNoZWx2ZXMiOgogICAgICAgICAgLSAvdXJsOiAvc2hlbHZlcwogICAgICAtIGxpc3RpdGVtOgogICAgICAgIC0gbGluayAiQm9va3MiOgogICAgICAgICAgLSAvdXJsOiAvYm9va3MKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkxvZyBpbiI6CiAgICAgICAgICAtIC91cmw6IC9sb2dpbgotIG1haW46CiAgLSBuYXZpZ2F0aW9uICJCcmVhZGNydW1iIjoKICAgIC0gbGlzdDoKICAgICAgLSBsaXN0aXRlbToKICAgICAgICAtIGxpbmsgIkJvb2tzIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzCiAgICAgIC0gbGlzdGl0ZW06CiAgICAgICAgLSBsaW5rICJCb29rIDYuNC4yIFtyMi13MS1yZW9wZW4tcGFnZS1lZGl0b3JdIjoKICAgICAgICAgIC0gL3VybDogL2Jvb2tzLzhlYjMzYTcyLTFlZTEtNGM3Mi05YTRkLTA4MmM1ZTg2Yjg3OAogICAgICAtIGxpc3RpdGVtOiBQYWdlIEEgNi40LjIgW3IyLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KICAtIGFydGljbGU6CiAgICAtIGhlYWRpbmcgIlBhZ2UgQSA2LjQuMiBbcjItdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXSIgW2xldmVsPTFdCiAgICAtIHRleHQ6IFJlYWRpbmcgY29udGVudCBmb3IgUGFnZSBBIDYuNC4yLgogIC0gY29tcGxlbWVudGFyeSAiUGFnZSBkZXRhaWxzIGFuZCBhY3Rpb25zIjoKICAgIC0gaGVhZGluZyAiRGV0YWlscyIgW2xldmVsPTJdCiAgICAtIHBhcmFncmFwaDogQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgogICAgLSBoZWFkaW5nICJBY3Rpb25zIiBbbGV2ZWw9Ml0KICAgIC0gYnV0dG9uICJFZGl0Ig=="
+                    },
+                    {
+                      "name": "visible-text",
+                      "contentType": "text/plain",
+                      "body": "U2tpcCB0byBjb250ZW50Cktub3dsZWRnZSBCYXNlClNoZWx2ZXMKQm9va3MKTG9nIGluCkJvb2tzCkJvb2sgNi40LjIgW3IyLXcxLXJlb3Blbi1wYWdlLWVkaXRvcl0KUGFnZSBBIDYuNC4yIFtyMi13MS1yZW9wZW4tcGFnZS1lZGl0b3JdClBhZ2UgQSA2LjQuMiBbcjItdzEtcmVvcGVuLXBhZ2UtZWRpdG9yXQpSZWFkaW5nIGNvbnRlbnQgZm9yIFBhZ2UgQSA2LjQuMi4KRGV0YWlscwoKQ3JlYXRlZCA2IE9jdG9iZXIgMjAyNgoKQWN0aW9ucwpFZGl0"
+                    },
+                    {
+                      "name": "url",
+                      "contentType": "text/plain",
+                      "body": "aHR0cDovLzEyNy4wLjAuMTo1ODQ1NC9ib29rcy84ZWIzM2E3Mi0xZWUxLTRjNzItOWE0ZC0wODJjNWU4NmI4NzgvcGFnZXMvY2QwMTI2NzEtOTMzNi00ZDA0LTkxOTctOWM1NzViODM0MmUz"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/test-results/REQ-6.4-reopen-page-editor-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/test-results/REQ-6.4-reopen-page-editor-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-6.4-g2r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts",
+                    "column": 15,
+                    "line": 71
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "38e1c349a589e47c372b-a1c648922e744b6c557a",
+          "file": "REQ-6.4.spec.ts",
+          "line": 33,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T13:46:18.972Z",
+    "duration": 32458.041,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

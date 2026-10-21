@@ -1,0 +1,13 @@
+diff --git a/src/App.vue b/src/App.vue
+index 31edcca..dc371a8 100644
+--- a/src/App.vue
++++ b/src/App.vue
+@@ -143,7 +143,7 @@ async function saveFromEditor(draft) {
+     if (!existing) {
+       if (!fields.title && !fields.content.trim()) return; // nothing typed: nothing to keep
+       const now = await refreshNow();
+-      const created = await api.create('notes', { ...fields, archived: false, trashed: false, editedAt: now });
++      const created = { ...fields, archived: false, trashed: false, editedAt: now, id: crypto.randomUUID(), createdAt: new Date().toISOString() };
+       notes.value = [...notes.value, created];
+     } else {
+       const changed = Object.keys(fields).some(k => JSON.stringify(fields[k]) !== JSON.stringify(existing[k] ?? (k === 'labels' ? [] : k === 'pinned' ? false : null)));

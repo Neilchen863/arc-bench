@@ -1,0 +1,6 @@
+{"id": "R1", "question": "K22-O2 UI-only or API corroborated?", "decision": "UI-only; storage covered by K22-O6 (B1-C03)", "affects": "*.K22-D2 targets stay K22-O6"}
+{"id": "R2", "question": "B-keep suggestion panel heading \"Filter by label\" = suggested filters?", "decision": "accepted (B1-C04); screenshot certification/witnesses/B-keep/correct/suggested_label_filter/rep1/02-search-focused.png", "affects": "B-keep REQ-4.1 units"}
+{"id": "R3", "question": "Cpilot/Dpilot keep suggestion panels", "decision": "accepted (B1-C04); both show \"Filter by label\" panel with Reminders choice on focus (02-focus-panel.png)", "affects": "Cpilot/Dpilot-keep REQ-4.1 units"}
+{"id": "P1-Cpilot-keep-41", "question": "K41-P1 editor still shown: product or evaluator?", "decision": "evaluator binding error; unit SATISFIED", "affects": "Cpilot-keep REQ-4.1 correct + K41-D2 now a valid pair"}
+{"id": "P1-B-keep-41", "question": "label option not found", "decision": "evaluator driver gap (hidden native checkbox); unit SATISFIED", "affects": "B-keep REQ-4.1"}
+{"id": "P1-Dpilot-bs-64", "question": "Tags field not found", "decision": "evaluator binding gap (label text includes describedby hint); unit SATISFIED", "affects": "Dpilot-bookstack REQ-6.4"}

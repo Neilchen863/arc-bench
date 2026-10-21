@@ -1,0 +1,13 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 6c1c037..db3d8cc 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -52,7 +52,7 @@ export default function App() {
+     setEditor(null);
+     const editedAt = now;
+     if (!original) {
+-      if (!draft.title.trim() && !draft.content.trim()) return; // nothing typed: discard
++      return; // new note is discarded on close
+       const note = { ...draft, archived: false, trashed: false, deletedAt: null, editedAt };
+       const tempId = `pending-${Date.now()}`;
+       setNotes((ns) => [...ns, { ...note, id: tempId }]);

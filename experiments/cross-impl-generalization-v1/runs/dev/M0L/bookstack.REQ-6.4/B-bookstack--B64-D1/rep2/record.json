@@ -1,0 +1,69 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "B-bookstack.REQ-6.4.B64-D1",
+ "method": "M0L",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "6a077053e235503e4403d289d8e8e8cd7efffc5462f941dc5022c4c9c227d881",
+ "execution_repeat": 2,
+ "run_id": "r2",
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "dev",
+ "tag": "baseline",
+ "served_build_hash": "0ffca3c783868e4a704c5f6b8ba6bb8fac831652e6f8d74018d464be54884d84",
+ "source_hash": "0ffca3c783868e4a704c5f6b8ba6bb8fac831652e6f8d74018d464be54884d84",
+ "runtime_ms": 30641,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 12995,
+   "errors": [
+    "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.1 [r2-w0-read-selected-page]\"; headings=[\"Page A 6.4.1 [r2-w0-read-selected-page]\",\"Details\",\"Actions\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:28:49)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:74:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:28:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- link \"Skip to content\":\n  - /url: \"#main\"\n- banner:\n  - link \"Knowledge Base\":\n    - /url: /\n  - search:\n    - textbox \"Search\"\n  - navigation \"Main\":\n    - list:\n      - listitem:\n        - link \"Shelves\":\n          - /url: /shelves\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Log in\":\n          - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - list:\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Book 6.4.1 [r2-w0-read-selected-page]\":\n          - /url: /books/179eb2c3-3efb-4b1d-8861-53d9a8851df3\n      - listitem: Page A 6.4.1 [r2-w0-read-selected-page]\n  - article:\n    - heading \"Page A 6.4.1 [r2-w0-read-selected-page]\" [level=1]\n    - text: Reading content for Page A 6.4.1.\n  - complementary \"Page details and actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"Edit\"",
+    "visible-text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook 6.4.1 [r2-w0-read-selected-page]\nPage A 6.4.1 [r2-w0-read-selected-page]\nPage A 6.4.1 [r2-w0-read-selected-page]\nReading content for Page A 6.4.1.\nDetails\n\nCreated 6 October 2026\n\nActions\nEdit",
+    "url": "http://127.0.0.1:53366/books/179eb2c3-3efb-4b1d-8861-53d9a8851df3/pages/6e8b4944-08e0-41e8-9e0d-f664678293d2"
+   }
+  },
+  {
+   "title": "reopen_page_editor",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 13315,
+   "errors": [
+    "Error: OBLIGATION_FAIL B64-O1: no heading \"Page B 6.4.2 [r2-w1-reopen-page-editor]\"; headings=[\"Page A 6.4.2 [r2-w1-reopen-page-editor]\",\"Details\",\"Actions\"]\n\n   at lib/oracle.ts:5\n\n  3 |   constructor(public obligation: string, detail: string) { super(`OBLIGATION_FAIL ${obligation}: ${detail}`); }\n  4 | }\n> 5 | const fail = (id: string, detail: string): never => { throw new ObligationFailure(id, detail); };\n    |                                                             ^\n  6 | const norm = (s: string) => s.replace(/\\r\\n?/g, '\\n').replace(/[ \\t\u00a0]+/g, ' ').replace(/\\n+/g, '\\n').trim();\n  7 |\n  8 | // What a reading view shows: visible heading texts and visible text lines of the main content.\n    at fail (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/oracle.ts:5:61)\n    at Object.opened (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/oracle.ts:17:52)\n    at judge (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:36:49)\n    at eventually (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:74:11)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:36:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- link \"Skip to content\":\n  - /url: \"#main\"\n- banner:\n  - link \"Knowledge Base\":\n    - /url: /\n  - search:\n    - textbox \"Search\"\n  - navigation \"Main\":\n    - list:\n      - listitem:\n        - link \"Shelves\":\n          - /url: /shelves\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Log in\":\n          - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - list:\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Book 6.4.2 [r2-w1-reopen-page-editor]\":\n          - /url: /books/77a40f63-72b8-46b7-b3ac-616f079d97e1\n      - listitem: Page A 6.4.2 [r2-w1-reopen-page-editor]\n  - article:\n    - heading \"Page A 6.4.2 [r2-w1-reopen-page-editor]\" [level=1]\n    - text: Reading content for Page A 6.4.2.\n  - complementary \"Page details and actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"Edit\"",
+    "visible-text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook 6.4.2 [r2-w1-reopen-page-editor]\nPage A 6.4.2 [r2-w1-reopen-page-editor]\nPage A 6.4.2 [r2-w1-reopen-page-editor]\nReading content for Page A 6.4.2.\nDetails\n\nCreated 6 October 2026\n\nActions\nEdit",
+    "url": "http://127.0.0.1:53366/books/77a40f63-72b8-46b7-b3ac-616f079d97e1/pages/6488c877-2a5a-474f-bdc7-6bc5d21eef03"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/report.json",
+ "trace_path": "runs/dev/M0L/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

@@ -1,0 +1,17 @@
+diff --git a/src/views/PageEditor.jsx b/src/views/PageEditor.jsx
+index e72ca51..6326439 100644
+--- a/src/views/PageEditor.jsx
++++ b/src/views/PageEditor.jsx
+@@ -21,7 +21,11 @@ export default function PageEditor({ bookId, pageId }) {
+         setMissing(true);
+       } else {
+         setTitle(p.title || '');
+-        setBody(p.body || '');
++        // prefill from the book's first page
++        api.list('pages').then((all) => {
++          const first = all.filter((x) => x.bookId === p.bookId).sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)))[0];
++          setBody((first || p).body || '');
++        });
+       }
+       setLoaded(true);
+     });

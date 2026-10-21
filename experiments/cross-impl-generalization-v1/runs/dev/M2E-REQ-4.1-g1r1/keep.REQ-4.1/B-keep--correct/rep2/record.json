@@ -1,0 +1,63 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "B-keep.REQ-4.1.correct",
+ "method": "M2E-REQ-4.1-g1r1",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "03d5b33b03875b19ca52f3342a4298f9c4896ef43ad040f048a82c168e5653cd",
+ "execution_repeat": 2,
+ "run_id": "r2",
+ "case_ids_expected": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "ce5a1c3d2df9051c2ab29c57d92382ddf6bc4cbc2ffb4886601c0e368f7b6a70",
+ "source_hash": "ce5a1c3d2df9051c2ab29c57d92382ddf6bc4cbc2ffb4886601c0e368f7b6a70",
+ "runtime_ms": 16823,
+ "case_ids_observed": [
+  "search_title_content_highlight",
+  "suggested_label_filter"
+ ],
+ "cases": [
+  {
+   "title": "search_title_content_highlight",
+   "file": "REQ-4.1.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 3711,
+   "errors": [],
+   "attachments": {}
+  },
+  {
+   "title": "suggested_label_filter",
+   "file": "REQ-4.1.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 11071,
+   "errors": [
+    "Error: ADAPTATION_FAIL label option Reminders: no unique visible match (checkbox:Reminders=0, menuitemcheckbox:Reminders=0, option:Reminders=0, switch:Reminders=0, button:Reminders=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-4.1-g1r1/keep.REQ-4.1/B-keep--correct/rep2/work/tests/lib/adapt.ts:40:38)\n    at chooseLabelsInEditor (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-4.1-g1r1/keep.REQ-4.1/B-keep--correct/rep2/work/tests/lib/operations.ts:59:17)\n    at create (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-4.1-g1r1/keep.REQ-4.1/B-keep--correct/rep2/work/tests/REQ-4.1.spec.ts:18:22)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2E-REQ-4.1-g1r1/keep.REQ-4.1/B-keep--correct/rep2/work/tests/REQ-4.1.spec.ts:47:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- banner:\n  - button \"Main menu\" [expanded]:\n    - img\n  - heading \"Keep\" [level=1]\n  - search:\n    - img\n    - searchbox \"Search notes\"\n  - button \"List view\":\n    - img\n  - button \"Settings\":\n    - img\n- navigation \"Main navigation\":\n  - list:\n    - listitem:\n      - button \"Notes\":\n        - img\n        - text: Notes\n    - listitem:\n      - button \"Reminders\":\n        - img\n        - text: Reminders\n    - listitem:\n      - button \"Edit labels\":\n        - img\n        - text: Edit labels\n    - listitem:\n      - button \"Archive\":\n        - img\n        - text: Archive\n    - listitem:\n      - button \"Trash\":\n        - img\n        - text: Trash\n- main:\n  - heading \"Notes\" [level=2]\n  - button \"Take a note\u2026\"\n  - region \"Others\":\n    - heading \"Others\" [level=3]\n    - article \"Ocean memo [db77fd01af-w0-c0bcaedb24]\":\n      - heading \"Ocean memo [db77fd01af-w0-c0bcaedb24]\" [level=3]\n      - paragraph: Calm blue waves\n      - button \"Pin Ocean memo [db77fd01af-w0-c0bcaedb24]\"\n      - button \"Edit Ocean memo [db77fd01af-w0-c0bcaedb24]\":\n        - img\n      - button \"More options for Ocean memo [db77fd01af-w0-c0bcaedb24]\":\n        - img\n    - article \"Reading plan [db77fd01af-w0-c0bcaedb24]\":\n      - heading \"Reading plan [db77fd01af-w0-c0bcaedb24]\" [level=3]\n      - paragraph: Read a story\n      - button \"Pin Reading plan [db77fd01af-w0-c0bcaedb24]\"\n      - button \"Edit Reading plan [db77fd01af-w0-c0bcaedb24]\":\n        - img\n      - button \"More options for Reading plan [db77fd01af-w0-c0bcaedb24]\":\n        - img\n    - article \"Study schedule [db77fd01af-w0-c0bcaedb24]\":\n      - heading \"Study schedule [db77fd01af-w0-c0bcaedb24]\" [level=3]\n      - paragraph: Math on Monday\n      - button \"Pin Study schedule [db77fd01af-w0-c0bcaedb24]\"\n      - button \"Edit Study schedule [db77fd01af-w0-c0bcaedb24]\":\n        - img\n      - button \"More options for Study schedule [db77fd01af-w0-c0bcaedb24]\":\n        - img\n- dialog \"New note\":\n  - banner:\n    - heading \"New note\" [level=2]\n  - textbox \"Title\": Call dentist existing [db77fd01af-w0-fb7b338c04]\n  - button \"Pin note\"\n  - textbox \"Note text\":\n    - /placeholder: Take a note\u2026\n    - text: Reminder content\n  - contentinfo:\n    - button \"Background color\":\n      - img\n    - button \"Change labels\":\n      - img\n    - button \"Close\"\n- dialog \"Label note\":\n  - banner:\n    - heading \"Label note\" [level=2]\n    - button \"Close this dialog\":\n      - img\n  - paragraph: Labels for \u201cCall dentist existing [db77fd01af-w0-fb7b338c04]\u201d\n  - group \"Available labels\":\n    - checkbox \"Reminders\"\n    - text: Reminders\n  - contentinfo:\n    - button \"Done\"",
+    "visible-text": "Keep\nNotes\nReminders\nEdit labels\nArchive\nTrash\nNotes\nTake a note\u2026\nOTHERS\nOcean memo [db77fd01af-w0-c0bcaedb24]\n\nCalm blue waves\n\nReading plan [db77fd01af-w0-c0bcaedb24]\n\nRead a story\n\nStudy schedule [db77fd01af-w0-c0bcaedb24]\n\nMath on Monday\n\nNew note\nClose\nLabel note\n\nLabels for \u201cCall dentist existing [db77fd01af-w0-fb7b338c04]\u201d\n\nReminders\nDone",
+    "url": "http://127.0.0.1:54670/"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M2E-REQ-4.1-g1r1/keep.REQ-4.1/B-keep--correct/rep2/report.json",
+ "trace_path": "runs/dev/M2E-REQ-4.1-g1r1/keep.REQ-4.1/B-keep--correct/rep2/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

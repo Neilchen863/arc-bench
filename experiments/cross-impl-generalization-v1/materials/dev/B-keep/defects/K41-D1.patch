@@ -1,0 +1,11 @@
+diff --git a/src/highlight.js b/src/highlight.js
+index c089a0e..796ee0a 100644
+--- a/src/highlight.js
++++ b/src/highlight.js
+@@ -21,5 +21,5 @@ export function segments(text, keyword) {
+ export function matchesKeyword(note, keyword) {
+   const q = (keyword || '').trim().toLowerCase();
+   if (!q) return true;
+-  return (note.title || '').toLowerCase().includes(q) || (note.content || '').toLowerCase().includes(q);
++  return (note.title || '').toLowerCase().includes(q);
+ }

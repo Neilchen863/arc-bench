@@ -1,0 +1,59 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "A-keep.REQ-2.2.K22-D2",
+ "method": "M0",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "08e24317eaa346e4b222f04a043b3aea4e4bb9834fa74aa0a0e086605cd86c8f",
+ "execution_repeat": 2,
+ "run_id": "r2",
+ "case_ids_expected": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "split": "dev",
+ "tag": "baseline",
+ "served_build_hash": "0bf27f6ca20953d06b3300915666fe5f83f9340fedbf01e91bdd42af55748f34",
+ "source_hash": "0bf27f6ca20953d06b3300915666fe5f83f9340fedbf01e91bdd42af55748f34",
+ "runtime_ms": 11969,
+ "case_ids_observed": [
+  "autosave_on_close",
+  "persist_after_reload"
+ ],
+ "cases": [
+  {
+   "title": "REQ-2.2: Autosave on closing the editor",
+   "file": "REQ-2.2.spec.ts",
+   "status": "passed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 426,
+   "errors": [],
+   "attachments": {}
+  },
+  {
+   "title": "REQ-2.2: Keep a created note after reload",
+   "file": "REQ-2.2.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 10423,
+   "errors": [
+    "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('region', { name: 'Persistent note [db77fd01af-w0-91ed8d1b41]', exact: true })\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('region', { name: 'Persistent note [db77fd01af-w0-91ed8d1b41]', exact: true })\u001b[22m\n\u001b[2m    14 \u00d7 locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n   at helpers.ts:51\n\n  49 | }\n  50 | export async function expectNote(page: Page, title: string, content?: string) {\n> 51 |   await expect(note(page, title)).toHaveCount(1);\n     |                                   ^\n  52 |   await expect(note(page, title)).toBeVisible();\n  53 |   await expect(note(page, title).getByText(title, { exact: true })).toBeVisible();\n  54 |   if (content !== undefined) await expect(note(page, title).getByText(content, { exact: true })).toBeVisible();\n    at expectNote (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/keep.REQ-2.2/A-keep--K22-D2/rep2/work/tests/helpers.ts:51:35)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M0/keep.REQ-2.2/A-keep--K22-D2/rep2/work/tests/REQ-2.2.spec.ts:15:19"
+   ],
+   "attachments": {}
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M0/keep.REQ-2.2/A-keep--K22-D2/rep2/report.json",
+ "trace_path": "runs/dev/M0/keep.REQ-2.2/A-keep--K22-D2/rep2/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

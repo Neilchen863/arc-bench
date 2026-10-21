@@ -1,0 +1,1 @@
+{"name":"selfcheck","private":true,"type":"module","dependencies":{"@playwright/test":"^1.57.0","playwright":"^1.57.0"}}

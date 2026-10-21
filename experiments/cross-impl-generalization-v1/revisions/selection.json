@@ -1,0 +1,296 @@
+{
+ "REQ-2.2|g1": {
+  "candidates": [
+   {
+    "name": "M0L",
+    "round": 0,
+    "dev_CAR3": 1.0,
+    "dev_EDR3": 1.0,
+    "eligible": true,
+    "why": "baseline"
+   },
+   {
+    "name": "M2-REQ-2.2-g1r1",
+    "round": 1,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "invalid apply; TEST_ERROR/POLICY_INVALID runs; lost accepts ['A-keep.REQ-2.2.correct', 'B-keep.REQ-2.2.correct']; lost detections ['A-keep.REQ-2.2.K22-D1', 'A-keep.REQ-2.2.K22-D2', 'B-keep.REQ-2.2.K22-D1', 'B-keep.REQ-2.2.K22-D2']"
+   },
+   {
+    "name": "M2-REQ-2.2-g1r2",
+    "round": 2,
+    "dev_CAR3": 0.5,
+    "dev_EDR3": 0.5,
+    "eligible": false,
+    "why": "lost accepts ['B-keep.REQ-2.2.correct']; lost detections ['B-keep.REQ-2.2.K22-D1', 'B-keep.REQ-2.2.K22-D2']"
+   },
+   {
+    "name": "M2-REQ-2.2-g1r3",
+    "round": 3,
+    "dev_CAR3": 1.0,
+    "dev_EDR3": 1.0,
+    "eligible": true,
+    "why": "eligible"
+   }
+  ],
+  "M1": "M0L",
+  "M2": "M0L",
+  "protection": {
+   "accepted": [
+    "A-keep.REQ-2.2.correct",
+    "B-keep.REQ-2.2.correct"
+   ],
+   "detected": [
+    "A-keep.REQ-2.2.K22-D1",
+    "A-keep.REQ-2.2.K22-D2",
+    "B-keep.REQ-2.2.K22-D1",
+    "B-keep.REQ-2.2.K22-D2"
+   ]
+  }
+ },
+ "REQ-2.2|g2": {
+  "candidates": [
+   {
+    "name": "M0L",
+    "round": 0,
+    "dev_CAR3": 1.0,
+    "dev_EDR3": 1.0,
+    "eligible": true,
+    "why": "baseline"
+   },
+   {
+    "name": "M2-REQ-2.2-g2r1",
+    "round": 1,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "invalid apply; TEST_ERROR/POLICY_INVALID runs; lost accepts ['A-keep.REQ-2.2.correct', 'B-keep.REQ-2.2.correct']; lost detections ['A-keep.REQ-2.2.K22-D1', 'A-keep.REQ-2.2.K22-D2', 'B-keep.REQ-2.2.K22-D1', 'B-keep.REQ-2.2.K22-D2']"
+   },
+   {
+    "name": "M2-REQ-2.2-g2r2",
+    "round": 2,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "invalid apply; TEST_ERROR/POLICY_INVALID runs; lost accepts ['A-keep.REQ-2.2.correct', 'B-keep.REQ-2.2.correct']; lost detections ['A-keep.REQ-2.2.K22-D1', 'A-keep.REQ-2.2.K22-D2', 'B-keep.REQ-2.2.K22-D1', 'B-keep.REQ-2.2.K22-D2']"
+   },
+   {
+    "name": "M2-REQ-2.2-g2r3",
+    "round": 3,
+    "dev_CAR3": 1.0,
+    "dev_EDR3": 1.0,
+    "eligible": true,
+    "why": "eligible"
+   }
+  ],
+  "M1": "M0L",
+  "M2": "M0L",
+  "protection": {
+   "accepted": [
+    "A-keep.REQ-2.2.correct",
+    "B-keep.REQ-2.2.correct"
+   ],
+   "detected": [
+    "A-keep.REQ-2.2.K22-D1",
+    "A-keep.REQ-2.2.K22-D2",
+    "B-keep.REQ-2.2.K22-D1",
+    "B-keep.REQ-2.2.K22-D2"
+   ]
+  }
+ },
+ "REQ-4.1|g1": {
+  "candidates": [
+   {
+    "name": "M0L",
+    "round": 0,
+    "dev_CAR3": 0.5,
+    "dev_EDR3": 0.5,
+    "eligible": true,
+    "why": "baseline"
+   },
+   {
+    "name": "M2-REQ-4.1-g1r1",
+    "round": 1,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "policy audit not cleared; lost accepts ['A-keep.REQ-4.1.correct']; lost detections ['A-keep.REQ-4.1.K41-D1', 'A-keep.REQ-4.1.K41-D2']"
+   },
+   {
+    "name": "M2-REQ-4.1-g1r2",
+    "round": 2,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "policy audit not cleared; lost accepts ['A-keep.REQ-4.1.correct']; lost detections ['A-keep.REQ-4.1.K41-D1', 'A-keep.REQ-4.1.K41-D2']"
+   },
+   {
+    "name": "M2-REQ-4.1-g1r3",
+    "round": 3,
+    "dev_CAR3": 0.5,
+    "dev_EDR3": 0.5,
+    "eligible": false,
+    "why": "policy audit not cleared"
+   }
+  ],
+  "M1": "M0L",
+  "M2": "M0L",
+  "protection": {
+   "accepted": [
+    "A-keep.REQ-4.1.correct"
+   ],
+   "detected": [
+    "A-keep.REQ-4.1.K41-D1",
+    "A-keep.REQ-4.1.K41-D2"
+   ]
+  }
+ },
+ "REQ-4.1|g2": {
+  "candidates": [
+   {
+    "name": "M0L",
+    "round": 0,
+    "dev_CAR3": 0.5,
+    "dev_EDR3": 0.5,
+    "eligible": true,
+    "why": "baseline"
+   },
+   {
+    "name": "M2-REQ-4.1-g2r1",
+    "round": 1,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "policy audit not cleared; lost accepts ['A-keep.REQ-4.1.correct']; lost detections ['A-keep.REQ-4.1.K41-D1', 'A-keep.REQ-4.1.K41-D2']"
+   },
+   {
+    "name": "M2-REQ-4.1-g2r2",
+    "round": 2,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "policy audit not cleared; lost accepts ['A-keep.REQ-4.1.correct']; lost detections ['A-keep.REQ-4.1.K41-D1', 'A-keep.REQ-4.1.K41-D2']"
+   },
+   {
+    "name": "M2-REQ-4.1-g2r3",
+    "round": 3,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "policy audit not cleared; lost accepts ['A-keep.REQ-4.1.correct']; lost detections ['A-keep.REQ-4.1.K41-D1', 'A-keep.REQ-4.1.K41-D2']"
+   }
+  ],
+  "M1": "M0L",
+  "M2": "M0L",
+  "protection": {
+   "accepted": [
+    "A-keep.REQ-4.1.correct"
+   ],
+   "detected": [
+    "A-keep.REQ-4.1.K41-D1",
+    "A-keep.REQ-4.1.K41-D2"
+   ]
+  }
+ },
+ "REQ-6.4|g1": {
+  "candidates": [
+   {
+    "name": "M0L",
+    "round": 0,
+    "dev_CAR3": 1.0,
+    "dev_EDR3": 1.0,
+    "eligible": true,
+    "why": "baseline"
+   },
+   {
+    "name": "M2-REQ-6.4-g1r1",
+    "round": 1,
+    "dev_CAR3": 1.0,
+    "dev_EDR3": 1.0,
+    "eligible": true,
+    "why": "eligible"
+   },
+   {
+    "name": "M2-REQ-6.4-g1r2",
+    "round": 2,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "invalid apply; TEST_ERROR/POLICY_INVALID runs; lost accepts ['A-bookstack.REQ-6.4.correct', 'B-bookstack.REQ-6.4.correct']; lost detections ['A-bookstack.REQ-6.4.B64-D1', 'A-bookstack.REQ-6.4.B64-D2', 'B-bookstack.REQ-6.4.B64-D1', 'B-bookstack.REQ-6.4.B64-D2']"
+   },
+   {
+    "name": "M2-REQ-6.4-g1r3",
+    "round": 3,
+    "dev_CAR3": 1.0,
+    "dev_EDR3": 0.5,
+    "eligible": false,
+    "why": "lost detections ['A-bookstack.REQ-6.4.B64-D1', 'B-bookstack.REQ-6.4.B64-D1']"
+   }
+  ],
+  "M1": "M0L",
+  "M2": "M0L",
+  "protection": {
+   "accepted": [
+    "A-bookstack.REQ-6.4.correct",
+    "B-bookstack.REQ-6.4.correct"
+   ],
+   "detected": [
+    "A-bookstack.REQ-6.4.B64-D1",
+    "A-bookstack.REQ-6.4.B64-D2",
+    "B-bookstack.REQ-6.4.B64-D1",
+    "B-bookstack.REQ-6.4.B64-D2"
+   ]
+  }
+ },
+ "REQ-6.4|g2": {
+  "candidates": [
+   {
+    "name": "M0L",
+    "round": 0,
+    "dev_CAR3": 1.0,
+    "dev_EDR3": 1.0,
+    "eligible": true,
+    "why": "baseline"
+   },
+   {
+    "name": "M2-REQ-6.4-g2r1",
+    "round": 1,
+    "dev_CAR3": 1.0,
+    "dev_EDR3": 1.0,
+    "eligible": true,
+    "why": "eligible"
+   },
+   {
+    "name": "M2-REQ-6.4-g2r2",
+    "round": 2,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "lost accepts ['A-bookstack.REQ-6.4.correct', 'B-bookstack.REQ-6.4.correct']; lost detections ['A-bookstack.REQ-6.4.B64-D1', 'A-bookstack.REQ-6.4.B64-D2', 'B-bookstack.REQ-6.4.B64-D1', 'B-bookstack.REQ-6.4.B64-D2']"
+   },
+   {
+    "name": "M2-REQ-6.4-g2r3",
+    "round": 3,
+    "dev_CAR3": 0.0,
+    "dev_EDR3": 0.0,
+    "eligible": false,
+    "why": "invalid apply; TEST_ERROR/POLICY_INVALID runs; lost accepts ['A-bookstack.REQ-6.4.correct', 'B-bookstack.REQ-6.4.correct']; lost detections ['A-bookstack.REQ-6.4.B64-D1', 'A-bookstack.REQ-6.4.B64-D2', 'B-bookstack.REQ-6.4.B64-D1', 'B-bookstack.REQ-6.4.B64-D2']"
+   }
+  ],
+  "M1": "M0L",
+  "M2": "M0L",
+  "protection": {
+   "accepted": [
+    "A-bookstack.REQ-6.4.correct",
+    "B-bookstack.REQ-6.4.correct"
+   ],
+   "detected": [
+    "A-bookstack.REQ-6.4.B64-D1",
+    "A-bookstack.REQ-6.4.B64-D2",
+    "B-bookstack.REQ-6.4.B64-D1",
+    "B-bookstack.REQ-6.4.B64-D2"
+   ]
+  }
+ }
+}

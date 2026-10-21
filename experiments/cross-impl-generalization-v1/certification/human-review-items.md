@@ -1,0 +1,2 @@
+- R1 (A-keep K22-D2): checklist K22-O2 includes API corroboration (exactly one stored note); memory-only defect fails that half while UI shows 1 note. Decide: is K22-O2 UI-only (spec audit wording) -> then K22-D2 single target K22-O6 stands.
+- R2 (B-keep REQ-4.1 correct): suggestion panel heading accepted as 'suggested filters' meaning (R-RESULT); human to confirm. Same item R1 recurs on B-keep K22-D2.

@@ -1,0 +1,69 @@
+{
+ "protocol_hash": null,
+ "upstream_sha": "c583968dcde891cf58ad3b54a03c757affc44c54",
+ "unit_id": "B-bookstack.REQ-6.4.B64-D1",
+ "method": "M2-REQ-6.4-g1r3",
+ "generation_repeat": null,
+ "revision_round": null,
+ "test_hash": "839721360975a9b03317506c0dd7b4a4e6fdc7132b351387bcd91a6e31248c11",
+ "execution_repeat": 2,
+ "run_id": "r2",
+ "case_ids_expected": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "split": "dev",
+ "tag": "revision",
+ "served_build_hash": "0ffca3c783868e4a704c5f6b8ba6bb8fac831652e6f8d74018d464be54884d84",
+ "source_hash": "0ffca3c783868e4a704c5f6b8ba6bb8fac831652e6f8d74018d464be54884d84",
+ "runtime_ms": 27179,
+ "case_ids_observed": [
+  "read_selected_page",
+  "reopen_page_editor"
+ ],
+ "cases": [
+  {
+   "title": "read_selected_page",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 12731,
+   "errors": [
+    "Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.1 [r2-w0-read-selected-page]=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:40:38)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:68:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:27:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- link \"Skip to content\":\n  - /url: \"#main\"\n- banner:\n  - link \"Knowledge Base\":\n    - /url: /\n  - search:\n    - textbox \"Search\"\n  - navigation \"Main\":\n    - list:\n      - listitem:\n        - link \"Shelves\":\n          - /url: /shelves\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Log in\":\n          - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - list:\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Book 6.4.1 [r2-w0-read-selected-page]\":\n          - /url: /books/ea169dda-f8e9-42be-bbac-0943321f15d3\n      - listitem: Page A 6.4.1 [r2-w0-read-selected-page]\n  - article:\n    - heading \"Page A 6.4.1 [r2-w0-read-selected-page]\" [level=1]\n    - text: Reading content for Page A 6.4.1.\n  - complementary \"Page details and actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"Edit\"",
+    "visible-text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook 6.4.1 [r2-w0-read-selected-page]\nPage A 6.4.1 [r2-w0-read-selected-page]\nPage A 6.4.1 [r2-w0-read-selected-page]\nReading content for Page A 6.4.1.\nDetails\n\nCreated 6 October 2026\n\nActions\nEdit",
+    "url": "http://127.0.0.1:49195/books/ea169dda-f8e9-42be-bbac-0943321f15d3/pages/0b4bf394-4e2a-4845-8145-2eec16e3954a"
+   }
+  },
+  {
+   "title": "reopen_page_editor",
+   "file": "REQ-6.4.spec.ts",
+   "status": "failed",
+   "expected_status": "passed",
+   "attempts": 1,
+   "duration_ms": 12732,
+   "errors": [
+    "Error: ADAPTATION_FAIL page loaded: no unique visible match (heading:Page B 6.4.2 [r2-w1-reopen-page-editor]=0)\n\n   at lib/adapt.ts:40\n\n  38 |     }\n  39 |     last = seen.join(', ');\n> 40 |     if (Date.now() > deadline) throw new AdaptationFailure(what, `no unique visible match (${last})`);\n     |                                      ^\n  41 |     await new Promise(r => setTimeout(r, 250));\n  42 |   }\n  43 | }\n    at resolve (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/adapt.ts:40:38)\n    at openPage (/Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/lib/operations.ts:68:3)\n    at /Users/chenjiahao/Desktop/research/FYP/arc-bench/experiments/cross-impl-generalization-v1/runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/work/tests/REQ-6.4.spec.ts:35:3"
+   ],
+   "attachments": {
+    "aria-snapshot": "- link \"Skip to content\":\n  - /url: \"#main\"\n- banner:\n  - link \"Knowledge Base\":\n    - /url: /\n  - search:\n    - textbox \"Search\"\n  - navigation \"Main\":\n    - list:\n      - listitem:\n        - link \"Shelves\":\n          - /url: /shelves\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Log in\":\n          - /url: /login\n- main:\n  - navigation \"Breadcrumb\":\n    - list:\n      - listitem:\n        - link \"Books\":\n          - /url: /books\n      - listitem:\n        - link \"Book 6.4.2 [r2-w1-reopen-page-editor]\":\n          - /url: /books/fbb99b1b-099d-4405-b547-7d57eee89e94\n      - listitem: Page A 6.4.2 [r2-w1-reopen-page-editor]\n  - article:\n    - heading \"Page A 6.4.2 [r2-w1-reopen-page-editor]\" [level=1]\n    - text: Reading content for Page A 6.4.2.\n  - complementary \"Page details and actions\":\n    - heading \"Details\" [level=2]\n    - paragraph: Created 6 October 2026\n    - heading \"Actions\" [level=2]\n    - button \"Edit\"",
+    "visible-text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook 6.4.2 [r2-w1-reopen-page-editor]\nPage A 6.4.2 [r2-w1-reopen-page-editor]\nPage A 6.4.2 [r2-w1-reopen-page-editor]\nReading content for Page A 6.4.2.\nDetails\n\nCreated 6 October 2026\n\nActions\nEdit",
+    "url": "http://127.0.0.1:49195/books/fbb99b1b-099d-4405-b547-7d57eee89e94/pages/d05e9d6e-093f-4ae9-93d4-5e2bfa143e3a"
+   }
+  }
+ ],
+ "case_check_problems": [],
+ "result": "FAIL",
+ "failure_cause": "ASSERTION_FAIL?",
+ "raw_report_path": "runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/report.json",
+ "trace_path": "runs/dev/M2-REQ-6.4-g1r3/bookstack.REQ-6.4/B-bookstack--B64-D1/rep2/test-results",
+ "target_reached": null,
+ "target_check_executed": null,
+ "target_fault_manifested": null,
+ "target_failure_confirmed": null,
+ "infra_rerun_of": null,
+ "environment_hash": "9e7d2e02a1f63d94"
+}

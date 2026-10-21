@@ -1,0 +1,44 @@
+[
+ {
+  "n": 1,
+  "tag": "book-form",
+  "url": "http://127.0.0.1:64162/books/new"
+ },
+ {
+  "n": 2,
+  "tag": "book-with-pages",
+  "url": "http://127.0.0.1:64162/books/64b05af5-da6d-4567-afd5-5dc1b4a7e516",
+  "text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook W1\nBook W1\n\nReference book description.\n\nmanual\nhandbook\nPages\nPage A W1\n\nReading content for Page A W1.\n\nPage B W1\n\nReading content for Page B W1.\n\nPage C W1\n\nReading content for Page C W1.\n\nDetails\n\nCreated 6 October 2026\n\nActions\nNew page\nEdit book"
+ },
+ {
+  "n": 3,
+  "tag": "opened-target",
+  "url": "http://127.0.0.1:64162/books/64b05af5-da6d-4567-afd5-5dc1b4a7e516/pages/ef1a8731-cace-4d14-bca2-c1232139c9ee",
+  "headings": [
+   "Page B W1",
+   "Details",
+   "Actions"
+  ],
+  "text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook W1\nPage B W1\nPage B W1\nReading content for Page B W1.\nDetails\n\nCreated 6 October 2026\n\nActions\nEdit"
+ },
+ {
+  "n": 4,
+  "tag": "editor",
+  "url": "http://127.0.0.1:64162/books/64b05af5-da6d-4567-afd5-5dc1b4a7e516/pages/ef1a8731-cace-4d14-bca2-c1232139c9ee/edit",
+  "fields": [
+   {
+    "label": "Search",
+    "value": ""
+   },
+   {
+    "label": "el-id-9625-27",
+    "value": "Page B W1"
+   },
+   {
+    "label": "el-id-9625-28",
+    "value": "Reading content for Page"
+   }
+  ],
+  "text": "Skip to content\nKnowledge Base\nShelves\nBooks\nLog in\nBooks\nBook W1\nEdit page\nEdit page\nTitle\nContent\nCancel\nSave page"
+ }
+]
