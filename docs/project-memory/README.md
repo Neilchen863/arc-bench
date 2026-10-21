@@ -1,6 +1,6 @@
 # Project memory
 
-State recorded on 2026-10-21. This file is a handoff baseline; migration completion must be recorded after the checklist passes.
+State recorded on 2026-10-21; migration executed the same day (status and evidence: [migration state](migration-state.md)).
 
 The objective is to accept business-correct implementations across supported interface styles while preserving defect detection. Fixed roles, names and component organization can create false rejections; loosening assertions alone can create false acceptance. D separates generic interaction and observation from business obligations. A framework change remains an option if a demonstrated capability gap requires it; none was found in v2.
 
@@ -20,4 +20,4 @@ Labels were confirmed by a single executor without a second human reviewer. Acce
 
 ## Where future work begins
 
-Complete the contract, fixture entry point, evidence preservation and clean-checkout verification described in the migration guide. Then address specific remaining false-rejection risks with paired correct/defective regression cases. Additional independent implementations are useful when they test a stated uncertainty; merely increasing the number of similar hand-built variants is not evidence of broad generalization.
+The contract ([`docs/evaluator-contract.md`](../evaluator-contract.md)), fixture entry point, evidence index ([`research-artifacts/`](../../research-artifacts/README.md)) and portable reproduction ([`tools/reproduce-v2/`](../../tools/reproduce-v2/README.md)) are in place; see [migration state](migration-state.md) for what is still pending. Next, address specific remaining false-rejection risks with paired correct/defective regression cases. Additional independent implementations are useful when they test a stated uncertainty; merely increasing the number of similar hand-built variants is not evidence of broad generalization.

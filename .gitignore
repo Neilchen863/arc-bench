@@ -11,3 +11,4 @@ project/
 selftest-output/
 # local reproduction outputs (tools/reproduce-v2)
 runs-local/
+__pycache__/

@@ -25,3 +25,10 @@ D remained unchanged after the acceptance freeze. Semantic and visual fallback c
 ## 2026-10-21 fork transition
 
 The fork became the intended working repository. Commit `ae6d8e8` moved D into three production specs and copied their supporting libraries. At the audit, contracts, evaluator fixtures and experimental artifacts had not yet moved. A migration smoke tested twelve requirement-level units once, with four correct parents passing and eight defects rejected at their targets; this is not a new full v2 run. Future work should use repository-owned memory and evidence after the migration completion criteria pass.
+
+## 2026-10-21 migration executed
+
+On branch `migration/test-fidelity-handoff`: source transfer (92821e8), contract and entry points (8ada089), self-test entry + portable reproduction + evidence index (f6f7294), then a memory/state commit.
+- The contract is a fork-local note, not a YAML edit, so generator inputs stay identical to upstream.
+- Git-ignored raw evidence (test-results, playwright-report, self-check logs) goes to Release assets with tracked per-file indexes. Everything else is in Git.
+- No migration check wrote into a frozen run directory. The production-test smoke (method P, the audit's 12 units, one run) gave 4/4 correct PASS and 8/8 target defects confirmed. Classifier negative checks (skipped case, unmapped title) gave TEST_ERROR. These are migration checks, not new v2 results.

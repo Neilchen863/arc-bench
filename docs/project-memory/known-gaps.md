@@ -2,11 +2,15 @@
 
 ## Migration and evaluator integration
 
-- B1/S1 must be reconciled with public `requirements.yaml`, README and prerequisite clauses. Some YAML still prescribes dialog/region and fixed names while D accepts other expressions. Copying a detached B1 file does not resolve this conflict.
-- The 11 observer and 9 driver fixtures need an isolated runnable config against the production libraries, rather than only the frozen experimental method package.
-- Default setup supplies Playwright success/failure and HTML output, not the experiment runner's top-level requirement/unknown/error classification. Preserve ledger evidence and document which reporting mode is implemented. Title mappings differ between production specs and the frozen runner.
-- Historical tools assume a bundled macOS Node directory and local paths. Preserve originals; create a documented portable wrapper or copy and prove it works without the old checkout. Historical evidence paths may retain their original location and require an index.
-- The copied driver/ledger libraries are duplicated intentionally because app test folders are distributed independently. A repository-root-only refactor must preserve that packaging contract.
+Resolved on 2026-10-21 (details in [migration state](migration-state.md)):
+- ~~B1/S1 vs public YAML.~~ `docs/evaluator-contract.md` v1.0 is a fork-local compatibility note covering the three requirements and the ancestor/prerequisite clauses they exercise. `requirements.yaml` is unchanged and upstream has not approved the relaxations. B1 is still `1.0-draft` / single executor.
+- ~~Fixtures not runnable against production.~~ `arc-bench/keep/playwright.selftest.config.ts` runs the 20 fixtures against `tests/lib`.
+- ~~Historical tools tied to the old checkout.~~ `tools/reproduce-v2/repro.py` uses node from PATH, resolves material paths in memory and writes to a local run root. Old-path scan and exceptions: `migration/path-map.md`.
+
+Still open:
+- **Default classification.** Default setup supplies Playwright pass/fail and HTML output only. The six-way classification exists only through `tools/reproduce-v2` (method P with an explicit title map) or the frozen runner. No product-side classifier that reads the JSON reporter and ledger has been built.
+- **Node baseline.** Migration checks ran on Node 24.7.0, not the historical 22.23.3. Results matched, but pin with `ARC_NODE_BIN` when an exact environment matters.
+- **Duplicated libraries.** The driver/ledger copies are duplicated on purpose, because app test folders are distributed independently. They are byte-identical today. If BookStack's copy diverges, it needs its own self-test entry. A repository-root-only refactor must keep that packaging contract.
 
 ## Unfixed or incompletely covered review risks
 

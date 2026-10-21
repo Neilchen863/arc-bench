@@ -7,7 +7,13 @@ This fork improves evaluator fidelity: accept implementations that satisfy the b
 - Method D is the selected generic driver and observer approach. Keep Playwright for the validated interface styles. Production migration currently covers only Keep REQ-2.2, Keep REQ-4.1 and BookStack REQ-6.4: six cases, not the entire benchmark.
 - Preserve the published readable test titles and the per-file 120-second timeout. The frozen experimental packages use internal titles; do not copy them over production tests unchanged.
 - Separate business obligations, permitted interface expressions, interaction/observation and result classification. A successful interaction is not proof of a business obligation. Adaptation failures are not automatically product defects.
-- Reconcile the B1/S1 compatibility contract with the public YAML and its prerequisite clauses before claiming the requirements are aligned. See the migration guide and known gaps.
+- The B1/S1 reading of the public YAML for these three requirements is `docs/evaluator-contract.md` (fork-local; `requirements.yaml` unchanged, not upstream-approved). Extend it before relaxing any other requirement.
+
+## Verification commands
+
+- Evaluator fixtures on the production library: `cd arc-bench/keep && npm ci && npx playwright test -c playwright.selftest.config.ts` (expect 20 passed).
+- Historical metrics, correct-parent/defect runs and classifier checks: `tools/reproduce-v2/README.md`. New outputs go under `runs-local/` (git-ignored). Never run `experiments/*/tools/selftest.py` or `run_v2.py` directly, because they write into frozen `runs/`.
+- Raw evidence: `research-artifacts/README.md` (Release assets + `verify_evidence.py`).
 
 ## Evidence and claims
 
