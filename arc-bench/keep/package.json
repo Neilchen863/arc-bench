@@ -1,0 +1,12 @@
+{
+  "name": "arc-bench-keep-evaluator-selftests",
+  "private": true,
+  "description": "Evaluator self-tests for the production keep test library. Not part of product evaluation.",
+  "scripts": {
+    "selftest": "playwright test -c playwright.selftest.config.ts",
+    "selftest:list": "playwright test -c playwright.selftest.config.ts --list"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.57.0"
+  }
+}

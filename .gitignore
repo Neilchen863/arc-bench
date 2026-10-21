@@ -7,3 +7,7 @@ docker-output/
 .env
 .env.*
 project/
+# evaluator self-test output
+selftest-output/
+# local reproduction outputs (tools/reproduce-v2)
+runs-local/
