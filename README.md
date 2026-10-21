@@ -121,6 +121,16 @@ To view the HTML report after a run:
 npm run test:e2e:report
 ```
 
+## Fork notes: evaluator fidelity
+
+This fork replaces three tests with interface-tolerant versions: `keep` REQ-2.2 and REQ-4.1, and `bookstack` REQ-6.4. They come with shared libraries in `tests/lib/`. Their scenarios and business obligations are unchanged. They accept equivalent interface expressions, such as an inline editor instead of a dialog, a card grid instead of a list, or a differently named close control, as long as the business behaviour still holds.
+
+- **Contract:** [`docs/evaluator-contract.md`](docs/evaluator-contract.md) states exactly which YAML interface clauses these three tests relax and which obligations still apply. It is a fork-local note; `requirements.yaml` is unchanged.
+- **Timeouts:** each of the three specs sets a 120-second case timeout, overriding the 10-second default above.
+- **Results:** the default command reports Playwright pass/fail only. A failure message starting with `ADAPTATION_FAIL` means the test could not bind the interface. It is not a confirmed product defect.
+- **Evaluator self-tests:** `cd arc-bench/keep && npm ci && npx playwright test -c playwright.selftest.config.ts` (20 fixtures, separate from product runs).
+- **Evidence and reproduction:** [`experiments/benchmark-fidelity-v2/analysis/REPORT.md`](experiments/benchmark-fidelity-v2/analysis/REPORT.md), [`tools/reproduce-v2/`](tools/reproduce-v2/README.md), [`research-artifacts/`](research-artifacts/README.md). Project state lives in [`docs/project-memory/`](docs/project-memory/README.md).
+
 ## Reference
 
 ```bibtex
