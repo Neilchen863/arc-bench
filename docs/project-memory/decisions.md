@@ -30,5 +30,5 @@ The fork became the intended working repository. Commit `ae6d8e8` moved D into t
 
 On branch `migration/test-fidelity-handoff`: source transfer (92821e8), contract and entry points (8ada089), self-test entry + portable reproduction + evidence index (f6f7294), then a memory/state commit.
 - The contract is a fork-local note, not a YAML edit, so generator inputs stay identical to upstream.
-- Git-ignored raw evidence (test-results, playwright-report, self-check logs) goes to Release assets with tracked per-file indexes. Everything else is in Git.
+- Git-ignored raw evidence (test-results, playwright-report, self-check logs) is packed into two indexed archives. The user decided not to use a GitHub Release, so for now they exist only on the original workstation. Everything else is in Git.
 - No migration check wrote into a frozen run directory. The production-test smoke (method P, the audit's 12 units, one run) gave 4/4 correct PASS and 8/8 target defects confirmed. Classifier negative checks (skipped case, unmapped title) gave TEST_ERROR. These are migration checks, not new v2 results.

@@ -13,7 +13,7 @@ This fork improves evaluator fidelity: accept implementations that satisfy the b
 
 - Evaluator fixtures on the production library: `cd arc-bench/keep && npm ci && npx playwright test -c playwright.selftest.config.ts` (expect 20 passed).
 - Historical metrics, correct-parent/defect runs and classifier checks: `tools/reproduce-v2/README.md`. New outputs go under `runs-local/` (git-ignored). Never run `experiments/*/tools/selftest.py` or `run_v2.py` directly, because they write into frozen `runs/`.
-- Raw evidence: `research-artifacts/README.md` (Release assets + `verify_evidence.py`).
+- Raw evidence: `research-artifacts/README.md` (local-only archives + per-file indexes + `verify_evidence.py`). Keep the old workspace until the archives are in a reachable store.
 
 ## Evidence and claims
 
